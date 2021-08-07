@@ -1,17 +1,18 @@
 import { ITiledMapObject, ITiledMapProperty } from '@workadventure/tiled-map-type-guard/dist';
 
 export class Properties {
-  public constructor(private properties: ITiledMapProperty[]) {
+  public constructor(private properties: ITiledMapProperty[]) {}
+
+  public getMany(name: string): (string | boolean | number | undefined)[] {
+    return this.properties
+      .filter((property) => property.name === name)
+      .map((property) => property.value);
   }
 
-  public getMany(name: string): (string|boolean|number|undefined)[] {
-    return this.properties.filter(property => property.name === name).map(property => property.value);
-  }
-
-  public getOne(name: string): string|boolean|number|undefined {
+  public getOne(name: string): string | boolean | number | undefined {
     const values = this.getMany(name);
     if (values.length > 1) {
-      throw new Error('Expected only one property to be named "'+name+'"');
+      throw new Error('Expected only one property to be named "' + name + '"');
     }
     if (values.length === 0) {
       return undefined;
