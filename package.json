@@ -1,0 +1,72 @@
+{
+  "name": "@workadventure/scripting-api-extra",
+  "version": "0.0.1",
+  "description": "A set of utility functions / features to improve WorkAdventure maps",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "scripts": {
+    "build": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint && jest ./test/*",
+    "dev": "ts-node src/index.ts",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workadventure/scripting-api-extra.git"
+  },
+  "keywords": [
+    "typescript",
+    "tiled",
+    "type-guard"
+  ],
+  "author": "David Négrier <david@workadventu.re>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/workadventure/scripting-api-extra/issues"
+  },
+  "homepage": "https://github.com/workadventure/scripting-api-extra#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
+    "@rpidanny/eslint-config-typescript": "^1.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.1.0",
+    "@types/jest": "^26.0.22",
+    "@workadventure/iframe-api-typings": "^1.4.12",
+    "eslint": "^7.6.0",
+    "husky": "^5.0.9",
+    "jest": "^26.2.2",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.0.5",
+    "semantic-release": "^17.2.1",
+    "ts-jest": "^26.1.4",
+    "ts-node": "^9.0.0",
+    "tsc": "^2.0.3",
+    "typescript": "^4.0.2"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@workadventure/tiled-map-type-guard": "^1.0.0"
+  }
+}
