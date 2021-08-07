@@ -51,7 +51,7 @@
     "@workadventure/iframe-api-typings": "^1.4.12",
     "eslint": "^7.6.0",
     "husky": "^7.0.1",
-    "jest": "^26.2.2",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "prettier": "^2.0.5",
     "semantic-release": "^17.2.1",
