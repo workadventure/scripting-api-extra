@@ -38,7 +38,9 @@
 
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
-    "incremental": true
+    "incremental": true,
+
+    "downlevelIteration": true,
   },
   "include": ["src"],
   "exclude": [

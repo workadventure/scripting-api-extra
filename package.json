@@ -5,12 +5,18 @@
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
+    "start": "run-p serve svelte-check-watch",
+    "build": "npm-run-all build-ts build-webpack",
+    "build-ts": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
+    "build-webpack": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" NODE_ENV=production webpack",
     "lint": "eslint . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && jest ./test/*",
     "dev": "ts-node src/index.ts",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "serve": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" webpack serve --open",
+    "svelte-check-watch": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\" --watch",
+    "svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\""
   },
   "repository": {
     "type": "git",
@@ -58,7 +64,32 @@
     "ts-jest": "^26.1.4",
     "ts-node": "^10.1.0",
     "tsc": "^2.0.3",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+
+
+
+    "@tsconfig/svelte": "^1.0.10",
+    "@types/mini-css-extract-plugin": "^1.4.3",
+    "@types/webpack-dev-server": "^3.11.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
+    "fork-ts-checker-webpack-plugin": "^6.2.9",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-polyfill-webpack-plugin": "^1.1.2",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.1.0",
+    "svelte": "^3.38.2",
+    "svelte-check": "^2.1.0",
+    "svelte-loader": "^3.1.1",
+    "svelte-preprocess": "^4.7.3",
+    "ts-loader": "^8.1.0",
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+
   },
   "files": [
     "dist/**/*"
