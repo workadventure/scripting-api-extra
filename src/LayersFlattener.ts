@@ -1,6 +1,6 @@
-import type { ITiledMap, ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMap, ITiledMapLayer } from "@workadventure/tiled-map-type-guard";
 
-export async function getFlattenedLayers(): ITiledMapLayer[] {
+export async function getFlattenedLayers(): Promise<ITiledMapLayer[]> {
     return flattenGroupLayersMap(await WA.room.getTiledMap());
 }
 

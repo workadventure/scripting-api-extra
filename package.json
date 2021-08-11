@@ -98,6 +98,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@workadventure/tiled-map-type-guard": "^1.0.0"
+    "@workadventure/tiled-map-type-guard": "^1.0.2"
   }
 }
