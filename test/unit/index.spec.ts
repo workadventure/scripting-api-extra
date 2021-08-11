@@ -1,4 +1,4 @@
-import type { Properties } from "../../src/VariablesExtra";
+import type { Properties } from "../../src/Properties";
 
 describe("Test 1", () => {
     it("should pass", () => {
