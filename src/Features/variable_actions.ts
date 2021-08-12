@@ -1,11 +1,11 @@
-import { getFlattenedLayers } from "../LayersFlattener";
+import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
 
 export async function initVariableActions(): Promise<void> {
-    const layers = await getFlattenedLayers();
+    const layers = await getLayersMap();
 
-    for (const layer of layers) {
-        const properties = new Properties(layer.properties ?? []);
+    for (const layer of layers.values()) {
+        const properties = new Properties(layer.properties);
         const variableName = properties.getOneString("bindVariable");
         if (variableName) {
             const zone = properties.getOneString("zone");

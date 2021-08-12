@@ -1,7 +1,11 @@
 import { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
 
 export class Properties {
-    public constructor(private properties: ITiledMapProperty[]) {}
+    private properties: ITiledMapProperty[];
+
+    public constructor(properties: ITiledMapProperty[] | undefined) {
+        this.properties = properties ?? [];
+    }
 
     public getMany(name: string): (string | boolean | number | undefined)[] {
         return this.properties
@@ -27,6 +31,17 @@ export class Properties {
         }
         if (typeof value !== "string") {
             throw new Error('Expected property "' + name + '" to have type "string"');
+        }
+        return value;
+    }
+
+    public getOneBoolean(name: string): boolean | undefined {
+        const value = this.getOne(name);
+        if (value === undefined) {
+            return undefined;
+        }
+        if (typeof value !== "boolean") {
+            throw new Error('Expected property "' + name + '" to have type "boolean"');
         }
         return value;
     }

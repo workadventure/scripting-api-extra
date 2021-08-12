@@ -7,7 +7,7 @@ export class VariableDescriptor {
 
     public constructor(object: ITiledMapObject) {
         this.name = object.name;
-        this.properties = new Properties(object.properties ?? []);
+        this.properties = new Properties(object.properties);
     }
 }
 
