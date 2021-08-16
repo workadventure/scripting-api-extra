@@ -2,7 +2,7 @@ import type { Configuration } from "webpack";
 import type WebpackDevServer from "webpack-dev-server";
 import path from "path";
 import webpack from "webpack";
-//import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import sveltePreprocess from "svelte-preprocess";
 //import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
@@ -15,7 +15,7 @@ const isDevelopment = !isProduction;
 module.exports = {
     entry: {
         main: "./src/bootstrap.ts",
-        //'iframe': './src/iframe.ts'
+        keypad: "./src/Iframes/Keypad/index.ts",
     },
     mode: mode,
     devtool: isDevelopment ? "inline-source-map" : "source-map",
@@ -157,24 +157,19 @@ module.exports = {
         //}
         //}),
         new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
-        /*new HtmlWebpackPlugin(
-            {
-                template: './src/iframe.html',
-                filename: 'iframe.html',
-                minify: {
-                    collapseWhitespace: true,
-                    keepClosingSlash: true,
-                    removeComments: false,
-                    removeRedundantAttributes: true,
-                    removeScriptTypeAttributes: true,
-                    removeStyleLinkTypeAttributes: true,
-                    useShortDoctype: true
-                },
-                chunks: ['iframe']
-            }
-        ),*/
-        new webpack.ProvidePlugin({
-            Phaser: "phaser",
+        new HtmlWebpackPlugin({
+            template: "./src/Iframes/Keypad/keypad.html",
+            filename: "keypad.html",
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+            chunks: ["keypad"],
         }),
         new NodePolyfillPlugin(),
     ],

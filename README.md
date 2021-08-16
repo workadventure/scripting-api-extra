@@ -128,7 +128,11 @@ Whenever the value of the variable switches from true to false (or the opposite)
 
 ### Door step
 
-To open or close a door
+To open or close a door, you can define a special "doorstep" layer that will trigger the open/close
+when the user walks on it.
+
+You can configure the doorstep to open/close **automatically** or **manually** (by pressing the space key).
+You can define special tags a user must have to open/close a door, or even add a code on the door.
 
 ```
 zone: string // Compulsory: the name of a zone
@@ -138,6 +142,18 @@ autoClose: boolean // True to close automatically when zone is left. False to fo
 openTriggerMessage: string // Message to be displayed to open the door
 closeTriggerMessage: string // Message to be displayed to close the door
 code: string // The code to open the door (clear text, so not very secure)
-codeVariable: string // The name of the variable containing the secret code
+codeVariable: string // The name of the variable containing the secret code TODO: OR ${variableName}
 ```
 
+### Contributing
+
+```console
+# install dependencies
+$ npm install
+
+# run unit tests
+$ npm run tests
+
+# run integration tests
+$ npm run start  # then browse to http://localhost:3000/test/maps/
+```
