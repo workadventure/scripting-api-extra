@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Keypad</title>
+        <style>
+            html {
+                height: 100%;
+                margin: 0;
+            }
+            body {
+                margin: 0;
+                height: 100%;
+                min-height: 100%;
+            }
+            div.keypad {
+                min-height: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                column-gap: 5vh;
+                row-gap: 5vh;
+            }
+            div.keypad > button {
+                background-color: #111111;
+                color: white;
+            }
+            div.keypad > button:active {
+                background-color: #555;
+                color: white;
+            }
+        </style>
+        <script src="<%= workadventure_url %>/iframe_api.js" ></script>
+    </head>
+    <body>
+        <div class="keypad">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>A</button>
+            <button>0</button>
+            <button>B</button>
+        </div>
+    </body>
+</html>
