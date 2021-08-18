@@ -126,9 +126,24 @@ Now, add 2 properties to the variable:
 
 Whenever the value of the variable switches from true to false (or the opposite), the door will open or close.
 
+#### Door sound
+
+You can add an opening or closing sound to the door by using the `openSound` or `closeSound` properties of the door variable.
+
+The value of these properties should be a URL to a MP3 file of a sound opening or closing the door.
+
+- `openSound`: URL of the sound of a door opening
+- `closeSound`: URL of the sound of a door closing
+
+Anybody on the map will hear the sound of the door opening or closing.
+If you want to limit the sound to a certain area, you can use the `soundRadius` property.
+`soundRadius` is expressed in pixels. If you are further than `soundRadius` pixels from the center of the door,
+you will not hear the door opening or closing. Also, the further you are, the fainter will be the sound.
+
+
 ### Door step
 
-To open or close a door, you can define a special "doorstep" layer that will trigger the open/close
+To open or close a door, you can define a special "doorstep" layer that will trigger the opening/closing
 when the user walks on it.
 
 You can configure the doorstep to open/close **automatically** or **manually** (by pressing the space key).
@@ -142,8 +157,42 @@ autoClose: boolean // True to close automatically when zone is left. False to fo
 openTriggerMessage: string // Message to be displayed to open the door
 closeTriggerMessage: string // Message to be displayed to close the door
 code: string // The code to open the door (clear text, so not very secure)
-codeVariable: string // The name of the variable containing the secret code TODO: OR ${variableName}
+codeVariable: string // The name of the variable containing the secret code
+tag: string // If set, a user needs to have the given tag to open this door.
 ```
+
+Note that if you set both a `tag` and a `code`, the door will open without asking the code for people who have the requested tag.
+
+### Bells / Knocking on a door
+
+You can add a bell that will ring automatically or manually when a user walks in a given zone.
+
+In order to create a bell, you need to create a "variable" that will be used to share the fact the bell is ringing.
+The value of the variable has no importance, it is just used to propagate the event that the bell is ringing.
+
+Add a new "bell" boolean property and set it to true.
+
+Unlike with classical variables, the position of the variable object is important. The sound will be emitted from this point.
+
+Then add 2 properties
+
+- `bellSound`: URL of the sound of the bell ringing (you can also use a knock-knock-knock sound if you have a door :) )
+- `soundRadius` (optional): The radius at which one can hear the sound (expressed in pixels, the sound center being the position of the variable)
+
+The farther you are from the sound center, the less you will hear the sound. If you don't set any soundRadius, the whole
+map will hear the sound.
+
+Now, we need to define the position on the map from where the bell sound will be triggered.
+
+Add a tile layer in your map.
+
+On the layer add those properties:
+
+- `zone`: (Compulsory) the name of a zone
+- `bellVariable`: (Compulsory) the name of the "bell" variable that will be triggered when someone walks on this layer
+- `bellPopup`: the name of a square object on an object layer in the map that will display the "Ring" button to ring the bell. If not set, the bell
+  will ring automatically when a player enters the zone.
+- `bellButtonText`: the text to display in the button to ring the bell. Defaults to "Ring"
 
 ### Contributing
 

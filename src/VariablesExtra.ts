@@ -3,10 +3,14 @@ import { Properties } from "./Properties";
 
 export class VariableDescriptor {
     public readonly name;
+    public readonly x;
+    public readonly y;
     public readonly properties;
 
     public constructor(object: ITiledMapObject) {
         this.name = object.name;
+        this.x = object.x;
+        this.y = object.y;
         this.properties = new Properties(object.properties);
     }
 }

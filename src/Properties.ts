@@ -25,23 +25,47 @@ export class Properties {
     }
 
     public getOneString(name: string): string | undefined {
+        return this.getOneByType(name, "string") as string | undefined;
+    }
+
+    public getOneNumber(name: string): number | undefined {
+        return this.getOneByType(name, "number") as number | undefined;
+    }
+
+    public getOneBoolean(name: string): boolean | undefined {
+        return this.getOneByType(name, "boolean") as boolean | undefined;
+    }
+
+    private getOneByType(name: string, type: 'string'|'number'|'boolean'): string | boolean | number | undefined {
         const value = this.getOne(name);
         if (value === undefined) {
             return undefined;
         }
-        if (typeof value !== "string") {
-            throw new Error('Expected property "' + name + '" to have type "string"');
+        if (typeof value !== type) {
+            throw new Error('Expected property "' + name + '" to have type "' + type + '"');
         }
         return value;
     }
 
-    public getOneBoolean(name: string): boolean | undefined {
+    public mustGetOneString(name: string): string {
+        return this.mustGetOneByType(name, "string") as string;
+    }
+
+    public mustGetOneNumber(name: string): number {
+        return this.mustGetOneByType(name, "number") as number;
+    }
+
+    public mustGetOneBoolean(name: string): boolean {
+        return this.mustGetOneByType(name, "boolean") as boolean;
+    }
+
+    private mustGetOneByType(name: string, type: 'string'|'number'|'boolean'): string | boolean | number | undefined {
         const value = this.getOne(name);
         if (value === undefined) {
-            return undefined;
+            throw new Error('Property "' + name + '" is missing');
         }
-        if (typeof value !== "boolean") {
-            throw new Error('Expected property "' + name + '" to have type "boolean"');
+        if (typeof value !== type) {
+            throw new Error('Expected property "' + name + '" to have type "' + type + '"');
         }
         return value;
     }
