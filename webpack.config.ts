@@ -13,9 +13,7 @@ const mode = process.env.NODE_ENV ?? "development";
 const isProduction = mode === "production";
 const isDevelopment = !isProduction;
 
-const resources = [
-    { from: "resources", to: "resources" },
-];
+const resources = [{ from: "resources", to: "resources" }];
 
 if (isDevelopment) {
     resources.push({
