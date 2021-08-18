@@ -1,3 +1,12 @@
+# [1.0.0-alpha.2](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* Adding door features, variable change on zone feature, webpack build and more! ([4e6df5b](https://github.com/workadventure/scripting-api-extra/commit/4e6df5bc16712e7c8b2e4b7001c72476e8f4b624))
+* Fixing unit test ([714c0fe](https://github.com/workadventure/scripting-api-extra/commit/714c0fe798ce82f262b86eb7595778201f279560))
+* Upgrading dependencies to fix issues with ITiledMap interfaces ([a7d883f](https://github.com/workadventure/scripting-api-extra/commit/a7d883f70c4e5a5efd09a5c2d3f9c357b2791166))
+
 # 1.0.0-alpha.1 (2021-08-09)
 
 
