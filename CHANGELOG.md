@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-08-18)
+
+
+### Bug Fixes
+
+* Tiled does not support properties with same name ([2f6533d](https://github.com/workadventure/scripting-api-extra/commit/2f6533d5ba456824f9104282fe28e3e93539942e))
+
 # [1.0.0-alpha.3](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-08-18)
 
 
