@@ -17,34 +17,34 @@ let playerY = 0;
  */
 function updateDoorLayers(variable: VariableDescriptor): void {
     if (WA.state[variable.name]) {
-        let layers = variable.properties.getMany("openLayer");
-        for (const layer of layers) {
-            WA.room.showLayer(layer as string);
+        let layers = variable.properties.mustGetString("openLayer");
+        for (const layer of layers.split("\n")) {
+            WA.room.showLayer(layer);
         }
 
-        layers = variable.properties.getMany("closeLayer");
-        for (const layer of layers) {
-            WA.room.hideLayer(layer as string);
+        layers = variable.properties.mustGetString("closeLayer");
+        for (const layer of layers.split("\n")) {
+            WA.room.hideLayer(layer);
         }
     } else {
-        let layers = variable.properties.getMany("openLayer");
-        for (const layer of layers) {
-            WA.room.hideLayer(layer as string);
+        let layers = variable.properties.mustGetString("openLayer");
+        for (const layer of layers.split("\n")) {
+            WA.room.hideLayer(layer);
         }
 
-        layers = variable.properties.getMany("closeLayer");
-        for (const layer of layers) {
-            WA.room.showLayer(layer as string);
+        layers = variable.properties.mustGetString("closeLayer");
+        for (const layer of layers.split("\n")) {
+            WA.room.showLayer(layer);
         }
     }
 }
 
 function playOpenSound(variable: VariableDescriptor): void {
-    const url = variable.properties.getOneString("openSound");
-    const radius = variable.properties.getOneNumber("soundRadius");
+    const url = variable.properties.getString("openSound");
+    const radius = variable.properties.getNumber("soundRadius");
     let volume = 1;
     if (radius) {
-        const distance = getDistance(variable.properties.getMany("openLayer") as string[]);
+        const distance = getDistance(variable.properties.mustGetString("openLayer").split("\n"));
         if (distance > radius) {
             return;
         }
@@ -59,11 +59,11 @@ function playOpenSound(variable: VariableDescriptor): void {
 }
 
 function playCloseSound(variable: VariableDescriptor): void {
-    const url = variable.properties.getOneString("closeSound");
-    const radius = variable.properties.getOneNumber("soundRadius");
+    const url = variable.properties.getString("closeSound");
+    const radius = variable.properties.getNumber("soundRadius");
     let volume = 1;
     if (radius) {
-        const distance = getDistance(variable.properties.getMany("closeLayer") as string[]);
+        const distance = getDistance(variable.properties.mustGetString("closeLayer").split("\n"));
         if (distance > radius) {
             return;
         }
@@ -114,12 +114,12 @@ function initDoorstep(
     let keypadWebsite: EmbeddedWebsite | undefined = undefined;
     let inZone = false;
 
-    const zoneName = properties.getOneString("zone");
+    const zoneName = properties.getString("zone");
     if (!zoneName) {
         throw new Error('Missing "zone" property on doorstep layer "' + name + '"');
     }
 
-    const tag = properties.getOneString("tag");
+    const tag = properties.getString("tag");
     let allowed = true;
     if (tag && !WA.player.tags.includes(tag)) {
         allowed = false;
@@ -132,8 +132,7 @@ function initDoorstep(
         }
 
         actionMessage = WA.ui.displayActionMessage({
-            message:
-                properties.getOneString("closeTriggerMessage") ?? "Press SPACE to close the door",
+            message: properties.getString("closeTriggerMessage") ?? "Press SPACE to close the door",
             callback: () => {
                 WA.state[doorVariable] = false;
                 displayOpenDoorMessage();
@@ -146,8 +145,7 @@ function initDoorstep(
             actionMessage.remove();
         }
         actionMessage = WA.ui.displayActionMessage({
-            message:
-                properties.getOneString("openTriggerMessage") ?? "Press SPACE to open the door",
+            message: properties.getString("openTriggerMessage") ?? "Press SPACE to open the door",
             callback: () => {
                 WA.state[doorVariable] = true;
                 displayCloseDoorMessage();
@@ -180,7 +178,7 @@ function initDoorstep(
 
     WA.room.onEnterZone(zoneName, () => {
         inZone = true;
-        if (properties.getOneBoolean("autoOpen") && allowed) {
+        if (properties.getBoolean("autoOpen") && allowed) {
             WA.state[doorVariable] = true;
             return;
         }
@@ -188,7 +186,7 @@ function initDoorstep(
         if (
             !WA.state[doorVariable] &&
             ((accessRestricted && !allowed) || !accessRestricted) && // Do not display code if user is allowed by tag
-            (properties.getOneString("code") || properties.getOneString("codeVariable"))
+            (properties.getString("code") || properties.getString("codeVariable"))
         ) {
             openKeypad(name);
             return;
@@ -207,7 +205,7 @@ function initDoorstep(
 
     WA.room.onLeaveZone(zoneName, () => {
         inZone = false;
-        if (properties.getOneBoolean("autoClose")) {
+        if (properties.getBoolean("autoClose")) {
             WA.state[doorVariable] = false;
         }
 
@@ -219,7 +217,7 @@ function initDoorstep(
 
     WA.state.onVariableChange(doorVariable).subscribe(() => {
         if (inZone) {
-            if (!properties.getOneBoolean("autoClose") && WA.state[doorVariable] === true) {
+            if (!properties.getBoolean("autoClose") && WA.state[doorVariable] === true) {
                 displayCloseDoorMessage();
             }
 
@@ -227,7 +225,7 @@ function initDoorstep(
                 closeKeypad();
             }
 
-            if (!properties.getOneBoolean("autoOpen") && WA.state[doorVariable] === false) {
+            if (!properties.getBoolean("autoOpen") && WA.state[doorVariable] === false) {
                 displayOpenDoorMessage();
             }
         }
@@ -235,8 +233,8 @@ function initDoorstep(
 }
 
 function playBellSound(variable: VariableDescriptor): void {
-    const url = variable.properties.mustGetOneString("bellSound");
-    const radius = variable.properties.getOneNumber("soundRadius");
+    const url = variable.properties.mustGetString("bellSound");
+    const radius = variable.properties.getNumber("soundRadius");
     let volume = 1;
     if (radius) {
         const distance = Math.sqrt(
@@ -268,9 +266,9 @@ function initBell(variable: VariableDescriptor): void {
 function initBellLayer(bellVariable: string, properties: Properties): void {
     let popup: Popup | undefined = undefined;
 
-    const zoneName = properties.mustGetOneString("zone");
+    const zoneName = properties.mustGetString("zone");
 
-    const bellPopupName = properties.getOneString("bellPopup");
+    const bellPopupName = properties.getString("bellPopup");
 
     WA.room.onEnterZone(zoneName, () => {
         if (!bellPopupName) {
@@ -278,7 +276,7 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
         } else {
             popup = WA.ui.openPopup(bellPopupName, "", [
                 {
-                    label: properties.getOneString("bellButtonText") ?? "Ring",
+                    label: properties.getString("bellButtonText") ?? "Ring",
                     callback: () => {
                         WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
                     },
@@ -300,22 +298,22 @@ export async function initDoors(): Promise<void> {
     layersMap = await getLayersMap();
 
     for (const variable of variables.values()) {
-        if (variable.properties.getOne("door")) {
+        if (variable.properties.get("door")) {
             initDoor(variable);
         }
 
-        if (variable.properties.getOne("bell")) {
+        if (variable.properties.get("bell")) {
             initBell(variable);
         }
     }
 
     for (const layer of layersMap.values()) {
         const properties = new Properties(layer.properties);
-        const doorVariable = properties.getOneString("doorVariable");
+        const doorVariable = properties.getString("doorVariable");
         if (doorVariable && layer.type === "tilelayer") {
             initDoorstep(layer, doorVariable, properties);
         }
-        const bellVariable = properties.getOneString("bellVariable");
+        const bellVariable = properties.getString("bellVariable");
         if (bellVariable) {
             initBellLayer(bellVariable, properties);
         }

@@ -7,14 +7,10 @@ export class Properties {
         this.properties = properties ?? [];
     }
 
-    public getMany(name: string): (string | boolean | number | undefined)[] {
-        return this.properties
+    public get(name: string): string | boolean | number | undefined {
+        const values = this.properties
             .filter((property) => property.name === name)
             .map((property) => property.value);
-    }
-
-    public getOne(name: string): string | boolean | number | undefined {
-        const values = this.getMany(name);
         if (values.length > 1) {
             throw new Error('Expected only one property to be named "' + name + '"');
         }
@@ -24,23 +20,23 @@ export class Properties {
         return values[0];
     }
 
-    public getOneString(name: string): string | undefined {
-        return this.getOneByType(name, "string") as string | undefined;
+    public getString(name: string): string | undefined {
+        return this.getByType(name, "string") as string | undefined;
     }
 
-    public getOneNumber(name: string): number | undefined {
-        return this.getOneByType(name, "number") as number | undefined;
+    public getNumber(name: string): number | undefined {
+        return this.getByType(name, "number") as number | undefined;
     }
 
-    public getOneBoolean(name: string): boolean | undefined {
-        return this.getOneByType(name, "boolean") as boolean | undefined;
+    public getBoolean(name: string): boolean | undefined {
+        return this.getByType(name, "boolean") as boolean | undefined;
     }
 
-    private getOneByType(
+    private getByType(
         name: string,
         type: "string" | "number" | "boolean",
     ): string | boolean | number | undefined {
-        const value = this.getOne(name);
+        const value = this.get(name);
         if (value === undefined) {
             return undefined;
         }
@@ -50,23 +46,23 @@ export class Properties {
         return value;
     }
 
-    public mustGetOneString(name: string): string {
-        return this.mustGetOneByType(name, "string") as string;
+    public mustGetString(name: string): string {
+        return this.mustGetByType(name, "string") as string;
     }
 
-    public mustGetOneNumber(name: string): number {
-        return this.mustGetOneByType(name, "number") as number;
+    public mustGetNumber(name: string): number {
+        return this.mustGetByType(name, "number") as number;
     }
 
-    public mustGetOneBoolean(name: string): boolean {
-        return this.mustGetOneByType(name, "boolean") as boolean;
+    public mustGetBoolean(name: string): boolean {
+        return this.mustGetByType(name, "boolean") as boolean;
     }
 
-    private mustGetOneByType(
+    private mustGetByType(
         name: string,
         type: "string" | "number" | "boolean",
     ): string | boolean | number | undefined {
-        const value = this.getOne(name);
+        const value = this.get(name);
         if (value === undefined) {
             throw new Error('Property "' + name + '" is missing');
         }

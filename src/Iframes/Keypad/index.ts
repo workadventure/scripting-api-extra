@@ -24,8 +24,8 @@ WA.onInit().then(async () => {
     }
 
     const properties = new Properties(layer.properties);
-    const tmpCode = properties.getOneString("code");
-    const codeVariable = properties.getOneString("codeVariable");
+    const tmpCode = properties.getString("code");
+    const codeVariable = properties.getString("codeVariable");
 
     if (tmpCode === undefined && codeVariable === undefined) {
         throw new Error('Missing "code" or "codeVariable" for layer "' + layerName + '".');
@@ -40,7 +40,7 @@ WA.onInit().then(async () => {
         code = tmpCode as string;
     }
 
-    const doorVariableVal = properties.getOneString("doorVariable");
+    const doorVariableVal = properties.getString("doorVariable");
 
     if (doorVariableVal === undefined) {
         throw new Error('Missing "doorVariable" for layer "' + layerName + '".');
