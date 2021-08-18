@@ -36,7 +36,10 @@ export class Properties {
         return this.getOneByType(name, "boolean") as boolean | undefined;
     }
 
-    private getOneByType(name: string, type: 'string'|'number'|'boolean'): string | boolean | number | undefined {
+    private getOneByType(
+        name: string,
+        type: "string" | "number" | "boolean",
+    ): string | boolean | number | undefined {
         const value = this.getOne(name);
         if (value === undefined) {
             return undefined;
@@ -59,7 +62,10 @@ export class Properties {
         return this.mustGetOneByType(name, "boolean") as boolean;
     }
 
-    private mustGetOneByType(name: string, type: 'string'|'number'|'boolean'): string | boolean | number | undefined {
+    private mustGetOneByType(
+        name: string,
+        type: "string" | "number" | "boolean",
+    ): string | boolean | number | undefined {
         const value = this.getOne(name);
         if (value === undefined) {
             throw new Error('Property "' + name + '" is missing');

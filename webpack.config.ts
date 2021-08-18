@@ -7,10 +7,22 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import sveltePreprocess from "svelte-preprocess";
 //import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 
 const mode = process.env.NODE_ENV ?? "development";
 const isProduction = mode === "production";
 const isDevelopment = !isProduction;
+
+const resources = [
+    { from: "resources", to: "resources" },
+];
+
+if (isDevelopment) {
+    resources.push({
+        from: "test/maps",
+        to: ".",
+    });
+}
 
 module.exports = {
     entry: {
@@ -22,7 +34,7 @@ module.exports = {
     //devtool: isDevelopment ? 'eval' : 'source-map',
     devServer: {
         port: 3000,
-        contentBase: ".",
+        contentBase: "dist",
         host: "localhost",
         disableHostCheck: true,
         headers: {
@@ -158,8 +170,13 @@ module.exports = {
         //}),
         new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
         new HtmlWebpackPlugin({
-            template: "./src/Iframes/Keypad/keypad.html",
+            template: "./src/Iframes/Keypad/keypad.ejs",
             filename: "keypad.html",
+            templateParameters: {
+                workadventure_url: process.env.WORKADVENTURE_URL
+                    ? process.env.WORKADVENTURE_URL
+                    : "https://play.workadventu.re",
+            },
             minify: {
                 collapseWhitespace: true,
                 keepClosingSlash: true,
@@ -171,6 +188,28 @@ module.exports = {
             },
             chunks: ["keypad"],
         }),
+        new HtmlWebpackPlugin({
+            template: "./test/maps/index.ejs",
+            filename: "index.html",
+            templateParameters: {
+                workadventure_url: process.env.WORKADVENTURE_URL
+                    ? process.env.WORKADVENTURE_URL
+                    : "https://play.workadventu.re",
+            },
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+            chunks: [],
+        }),
         new NodePolyfillPlugin(),
+        new CopyPlugin({
+            patterns: resources,
+        }),
     ],
 } as Configuration & WebpackDevServer.Configuration;

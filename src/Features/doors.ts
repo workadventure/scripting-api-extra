@@ -1,14 +1,16 @@
 import { getAllVariables, VariableDescriptor } from "../VariablesExtra";
 import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
-import {findLayerBoundaries, findLayersBoundaries} from "../LayersExtra";
+import { findLayerBoundaries, findLayersBoundaries } from "../LayersExtra";
 import { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
-import {ITiledMapTileLayer} from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
-import {Popup} from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
+import { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
+import { Popup } from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
+import { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
+import { EmbeddedWebsite } from "@workadventure/iframe-api-typings/Api/iframe/Room/EmbeddedWebsite";
 
 let layersMap!: Map<string, ITiledMapLayer>;
-let playerX: number = 0;
-let playerY: number = 0;
+let playerX = 0;
+let playerY = 0;
 
 /**
  * Updates the layers representing the door to match the state of the variable.
@@ -38,8 +40,8 @@ function updateDoorLayers(variable: VariableDescriptor): void {
 }
 
 function playOpenSound(variable: VariableDescriptor): void {
-    const url = variable.properties.getOneString('openSound');
-    const radius = variable.properties.getOneNumber('soundRadius');
+    const url = variable.properties.getOneString("openSound");
+    const radius = variable.properties.getOneNumber("soundRadius");
     let volume = 1;
     if (radius) {
         const distance = getDistance(variable.properties.getMany("openLayer") as string[]);
@@ -57,8 +59,8 @@ function playOpenSound(variable: VariableDescriptor): void {
 }
 
 function playCloseSound(variable: VariableDescriptor): void {
-    const url = variable.properties.getOneString('closeSound');
-    const radius = variable.properties.getOneNumber('soundRadius');
+    const url = variable.properties.getOneString("closeSound");
+    const radius = variable.properties.getOneNumber("soundRadius");
     let volume = 1;
     if (radius) {
         const distance = getDistance(variable.properties.getMany("closeLayer") as string[]);
@@ -79,7 +81,9 @@ function playCloseSound(variable: VariableDescriptor): void {
  * Get the distance between the player and the center of the layer passed in parameter.
  */
 function getDistance(layerNames: string[]): number {
-    const layers: ITiledMapTileLayer[] = layerNames.map((layerName) => layersMap.get(layerName)).filter((layer) => layer?.type === 'tilelayer') as ITiledMapTileLayer[];
+    const layers: ITiledMapTileLayer[] = layerNames
+        .map((layerName) => layersMap.get(layerName))
+        .filter((layer) => layer?.type === "tilelayer") as ITiledMapTileLayer[];
     const boundaries = findLayersBoundaries(layers);
     const xLayer = ((boundaries.right - boundaries.left) / 2 + boundaries.left) * 32;
     const yLayer = ((boundaries.bottom - boundaries.top) / 2 + boundaries.top) * 32;
@@ -106,8 +110,8 @@ function initDoorstep(
     properties: Properties,
 ): void {
     const name = layer.name;
-    let actionMessage = undefined;
-    let keypadWebsite = undefined;
+    let actionMessage: ActionMessage | undefined = undefined;
+    let keypadWebsite: EmbeddedWebsite | undefined = undefined;
     let inZone = false;
 
     const zoneName = properties.getOneString("zone");
@@ -181,9 +185,11 @@ function initDoorstep(
             return;
         }
 
-        if (!WA.state[doorVariable] &&
+        if (
+            !WA.state[doorVariable] &&
             ((accessRestricted && !allowed) || !accessRestricted) && // Do not display code if user is allowed by tag
-            (properties.getOneString("code") || properties.getOneString("codeVariable"))) {
+            (properties.getOneString("code") || properties.getOneString("codeVariable"))
+        ) {
             openKeypad(name);
             return;
         }
@@ -230,10 +236,12 @@ function initDoorstep(
 
 function playBellSound(variable: VariableDescriptor): void {
     const url = variable.properties.mustGetOneString("bellSound");
-    const radius = variable.properties.getOneNumber('soundRadius');
+    const radius = variable.properties.getOneNumber("soundRadius");
     let volume = 1;
     if (radius) {
-        const distance = Math.sqrt(Math.pow(variable.x - playerX, 2) + Math.pow(variable.y - playerY, 2));
+        const distance = Math.sqrt(
+            Math.pow(variable.x - playerX, 2) + Math.pow(variable.y - playerY, 2),
+        );
         if (distance > radius) {
             return;
         }
@@ -257,14 +265,8 @@ function initBell(variable: VariableDescriptor): void {
     });
 }
 
-function initBellLayer(
-    layer: ITiledMapTileLayer,
-    bellVariable: string,
-    properties: Properties,
-): void {
-    const name = layer.name;
-
-    let popup: Popup|undefined = undefined;
+function initBellLayer(bellVariable: string, properties: Properties): void {
+    let popup: Popup | undefined = undefined;
 
     const zoneName = properties.mustGetOneString("zone");
 
@@ -274,12 +276,14 @@ function initBellLayer(
         if (!bellPopupName) {
             WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
         } else {
-            popup = WA.ui.openPopup(bellPopupName, '', [{
+            popup = WA.ui.openPopup(bellPopupName, "", [
+                {
                     label: properties.getOneString("bellButtonText") ?? "Ring",
                     callback: () => {
                         WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
                     },
-            }]);
+                },
+            ]);
         }
     });
 
@@ -290,7 +294,6 @@ function initBellLayer(
         }
     });
 }
-
 
 export async function initDoors(): Promise<void> {
     const variables = await getAllVariables();
@@ -309,12 +312,12 @@ export async function initDoors(): Promise<void> {
     for (const layer of layersMap.values()) {
         const properties = new Properties(layer.properties);
         const doorVariable = properties.getOneString("doorVariable");
-        if (doorVariable) {
+        if (doorVariable && layer.type === "tilelayer") {
             initDoorstep(layer, doorVariable, properties);
         }
         const bellVariable = properties.getOneString("bellVariable");
         if (bellVariable) {
-            initBellLayer(layer, bellVariable, properties);
+            initBellLayer(bellVariable, properties);
         }
     }
 

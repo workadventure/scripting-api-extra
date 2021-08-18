@@ -49,9 +49,9 @@
             } else {
                 playHost = 'localhost';
             }*/
-            playHost = 'play.workadventu.re'
+            playHost = '<%= workadventure_url %>'
 
-            let completeUrl = window.location.protocol + '//' + playHost + '/_/global/' + host + window.location.pathname;
+            let completeUrl = playHost + '/_/global/' + host + window.location.pathname;
 
             baseInput.value = completeUrl;
 

@@ -206,3 +206,11 @@ $ npm run tests
 # run integration tests
 $ npm run start  # then browse to http://localhost:3000/test/maps/
 ```
+
+Note: `npm run start` will connect to `play.workadventu.re` to server WorkAdventure.
+
+If for development purpose, you want to connect to a development WorkAdventure server, you can use the `WORKADVENTURE_URL` environment variable:
+
+```console
+$ WORKADVENTURE_URL="http://play.workadventure.localhost" npm run start
+```

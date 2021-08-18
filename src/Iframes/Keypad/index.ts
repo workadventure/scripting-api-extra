@@ -1,6 +1,6 @@
 import { getLayersMap } from "../../LayersFlattener";
 import { Properties } from "../../Properties";
-import {DtmfPlayer} from 'play-dtmf';
+import { DtmfPlayer } from "play-dtmf";
 
 let code!: string;
 let inputCode = "";
@@ -24,36 +24,40 @@ WA.onInit().then(async () => {
     }
 
     const properties = new Properties(layer.properties);
-    code = properties.getOneString("code");
+    const tmpCode = properties.getOneString("code");
     const codeVariable = properties.getOneString("codeVariable");
 
-    if (code === undefined && codeVariable === undefined) {
+    if (tmpCode === undefined && codeVariable === undefined) {
         throw new Error('Missing "code" or "codeVariable" for layer "' + layerName + '".');
     }
 
     if (codeVariable) {
         const value = WA.state[codeVariable];
-        if (value && (typeof value === 'string' || typeof value === 'number')) {
+        if (value && (typeof value === "string" || typeof value === "number")) {
             code = value.toString();
         }
+    } else {
+        code = tmpCode as string;
     }
 
-    doorVariable = properties.getOneString("doorVariable");
+    const doorVariableVal = properties.getOneString("doorVariable");
 
-    if (doorVariable === undefined) {
+    if (doorVariableVal === undefined) {
         throw new Error('Missing "doorVariable" for layer "' + layerName + '".');
     }
+
+    doorVariable = doorVariableVal;
 
     initKeyBindings();
 });
 
 function initKeyBindings(): void {
     document.querySelectorAll<HTMLButtonElement>("button").forEach((button) => {
-        button.addEventListener("mousedown", function() {
+        button.addEventListener("mousedown", function () {
             dtmfPlayer.play(this.innerText);
         });
 
-        button.addEventListener("mouseup", function() {
+        button.addEventListener("mouseup", function () {
             dtmfPlayer.stop();
         });
 

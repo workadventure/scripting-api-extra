@@ -161,7 +161,7 @@
                         {
                          "name":"closeSound",
                          "type":"string",
-                         "value":"..\/..\/dist\/sounds\/closing-door-1.mp3"
+                         "value":"resources\/sounds\/closing-door-1.mp3"
                         }, 
                         {
                          "name":"default",
@@ -181,7 +181,7 @@
                         {
                          "name":"openSound",
                          "type":"string",
-                         "value":"..\/..\/dist\/sounds\/opening-door-1.mp3"
+                         "value":"resources\/sounds\/opening-door-1.mp3"
                         }, 
                         {
                          "name":"persist",
@@ -224,7 +224,7 @@
                         {
                          "name":"bellSound",
                          "type":"string",
-                         "value":"..\/..\/dist\/sounds\/door-bell-1.mp3"
+                         "value":"resources\/sounds\/door-bell-1.mp3"
                         }, 
                         {
                          "name":"soundRadius",
