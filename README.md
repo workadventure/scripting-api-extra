@@ -124,6 +124,8 @@ Now, add 2 properties to the variable:
 - `openLayer`: this will contain the name of the layer that has the opened door
 - `closeLayer`: this will contain the name of the layer that has the closed door
 
+Note: for both `openLayer` and `closeLayer`, you can input several layer names separated by a new line character.
+
 Whenever the value of the variable switches from true to false (or the opposite), the door will open or close.
 
 #### Door sound

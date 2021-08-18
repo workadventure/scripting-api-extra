@@ -6,18 +6,18 @@ export async function initVariableActions(): Promise<void> {
 
     for (const layer of layers.values()) {
         const properties = new Properties(layer.properties);
-        const variableName = properties.getOneString("bindVariable");
+        const variableName = properties.getString("bindVariable");
         if (variableName) {
-            const zone = properties.getOneString("zone");
+            const zone = properties.getString("zone");
             if (!zone) {
                 throw new Error(
                     'A layer with a "bindVariable" property must ALSO have a "zone" property.',
                 );
             }
-            const enterValue = properties.getOne("enterValue");
-            const leaveValue = properties.getOne("leaveValue");
-            const triggerMessage = properties.getOneString("triggerMessage");
-            const tag = properties.getOneString("tag");
+            const enterValue = properties.get("enterValue");
+            const leaveValue = properties.get("leaveValue");
+            const triggerMessage = properties.getString("triggerMessage");
+            const tag = properties.getString("tag");
 
             initVariableActionLayer(
                 variableName,
