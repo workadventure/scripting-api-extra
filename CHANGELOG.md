@@ -1,3 +1,10 @@
+# [1.0.0-alpha.3](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-08-18)
+
+
+### Bug Fixes
+
+* improving project layout. Generating HTML files using EJS templates. ([f73a4d2](https://github.com/workadventure/scripting-api-extra/commit/f73a4d2c24c98be1dbcc0cd1eb8c4220b051bd3e))
+
 # [1.0.0-alpha.2](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-08-11)
 
 
