@@ -157,7 +157,6 @@ module.exports = {
             return pathData.chunk?.name === "main" ? "bundle.js" : "js/[name].[contenthash].js";
         },
         path: path.resolve(__dirname, "dist"),
-        publicPath: "/",
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
