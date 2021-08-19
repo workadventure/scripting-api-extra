@@ -1,3 +1,10 @@
+# [1.0.0-alpha.8](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-08-19)
+
+
+### Bug Fixes
+
+* Removing publicPath config in Webpack that is wreaking havok in resources loading. ([5ebf927](https://github.com/workadventure/scripting-api-extra/commit/5ebf9275b7f4e8142fc09692e394a04129b711b2))
+
 # [1.0.0-alpha.7](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-08-19)
 
 
