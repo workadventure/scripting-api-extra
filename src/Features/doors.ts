@@ -159,7 +159,7 @@ function initDoorstep(
 
         keypadWebsite = WA.room.website.create({
             name: "doorKeypad" + name,
-            url: assetsUrl + "/keypad.html?layer=" + encodeURIComponent(name),
+            url: assetsUrl + "/keypad.html#" + encodeURIComponent(name),
             position: {
                 x: boundaries.right * 32,
                 y: boundaries.top * 32,

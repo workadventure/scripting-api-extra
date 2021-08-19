@@ -8,12 +8,10 @@ let doorVariable!: string;
 const dtmfPlayer = new DtmfPlayer();
 
 WA.onInit().then(async () => {
-    const urlSearchParams = new URLSearchParams(window.location.search);
+    const layerName = window.location.hash.substr(1);
 
-    const layerName = urlSearchParams.get("layer");
-
-    if (layerName === null) {
-        throw new Error('Missing "layer" argument in search params');
+    if (!layerName) {
+        throw new Error('Missing "layer" in hash');
     }
 
     const layers = await getLayersMap();
