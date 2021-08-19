@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-08-19)
+
+
+### Bug Fixes
+
+* Adding an ASSET_URL environment variable to customize the assets URL location ([c23183e](https://github.com/workadventure/scripting-api-extra/commit/c23183e2fedf6ab4fb07b6b88fee5a1759bbe748))
+
 # [1.0.0-alpha.4](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-08-18)
 
 
