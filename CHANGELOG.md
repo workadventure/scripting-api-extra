@@ -1,3 +1,10 @@
+# [1.0.0-alpha.7](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-08-19)
+
+
+### Bug Fixes
+
+* Fixing dry-run failed getting correct tag (again) ([f5f994e](https://github.com/workadventure/scripting-api-extra/commit/f5f994ee68fc441cde35ff616e7b31f91bbe9afa))
+
 # [1.0.0-alpha.6](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-08-19)
 
 
