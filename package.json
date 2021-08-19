@@ -14,6 +14,7 @@
     "test": "npm run lint && jest ./test/*",
     "dev": "ts-node src/index.ts",
     "semantic-release": "semantic-release",
+    "semantic-release-dry-run": "semantic-release -d",
     "serve": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" webpack serve --open",
     "svelte-check-watch": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\" --watch",
     "svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\""
