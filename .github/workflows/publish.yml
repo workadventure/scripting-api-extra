@@ -33,11 +33,11 @@ jobs:
       - run: npm run lint
       # Grab the tag number by running semantic-release in dry mode and put the result in release_tag env variable
       - run: echo "release_tag=$(npm run semantic-release-dry-run | grep -Po 'The next release version is \K([\w.-]*)')" >> $GITHUB_ENV
-      - run: ASSETS_URL="https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist" npm run build --if-present
         env:
             NPM_TOKEN: ${{secrets.NPM_TOKEN}}
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             CI: true
+      - run: ASSETS_URL="https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist" npm run build --if-present
       - run: npm run test
       - run: curl -s https://codecov.io/bash | bash
         env:
