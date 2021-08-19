@@ -108,6 +108,7 @@ function initDoorstep(
     layer: ITiledMapTileLayer,
     doorVariable: string,
     properties: Properties,
+    assetsUrl: string,
 ): void {
     const name = layer.name;
     let actionMessage: ActionMessage | undefined = undefined;
@@ -158,7 +159,7 @@ function initDoorstep(
 
         keypadWebsite = WA.room.website.create({
             name: "doorKeypad" + name,
-            url: "../../keypad.html?layer=" + encodeURIComponent(name),
+            url: assetsUrl + "/keypad.html?layer=" + encodeURIComponent(name),
             position: {
                 x: boundaries.right * 32,
                 y: boundaries.top * 32,
@@ -293,7 +294,13 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
     });
 }
 
-export async function initDoors(): Promise<void> {
+/**
+ * Initialize doors and bells parsing on the map.
+ *
+ * assetsUrl is the URL to the assets directory containing the compiled "keypad.html" file (for digit code)
+ */
+export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
+    assetsUrl = assetsUrl ?? process.env.ASSETS_URL ?? "";
     const variables = await getAllVariables();
     layersMap = await getLayersMap();
 
@@ -311,7 +318,7 @@ export async function initDoors(): Promise<void> {
         const properties = new Properties(layer.properties);
         const doorVariable = properties.getString("doorVariable");
         if (doorVariable && layer.type === "tilelayer") {
-            initDoorstep(layer, doorVariable, properties);
+            initDoorstep(layer, doorVariable, properties, assetsUrl);
         }
         const bellVariable = properties.getString("bellVariable");
         if (bellVariable) {
