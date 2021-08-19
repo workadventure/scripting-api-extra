@@ -1,7 +1,7 @@
 import { getAllVariables, VariableDescriptor } from "../VariablesExtra";
 import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
-import { findLayerBoundaries, findLayersBoundaries } from "../LayersExtra";
+import { findLayersBoundaries } from "../LayersExtra";
 import { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
 import { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
 import { Popup } from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
@@ -77,13 +77,17 @@ function playCloseSound(variable: VariableDescriptor): void {
     }
 }
 
+function getTileLayers(layerNames: string[]): ITiledMapTileLayer[] {
+    return layerNames
+        .map((layerName) => layersMap.get(layerName))
+        .filter((layer) => layer?.type === "tilelayer") as ITiledMapTileLayer[];
+}
+
 /**
  * Get the distance between the player and the center of the layer passed in parameter.
  */
 function getDistance(layerNames: string[]): number {
-    const layers: ITiledMapTileLayer[] = layerNames
-        .map((layerName) => layersMap.get(layerName))
-        .filter((layer) => layer?.type === "tilelayer") as ITiledMapTileLayer[];
+    const layers = getTileLayers(layerNames);
     const boundaries = findLayersBoundaries(layers);
     const xLayer = ((boundaries.right - boundaries.left) / 2 + boundaries.left) * 32;
     const yLayer = ((boundaries.bottom - boundaries.top) / 2 + boundaries.top) * 32;
@@ -106,7 +110,7 @@ function initDoor(variable: VariableDescriptor): void {
 
 function initDoorstep(
     layer: ITiledMapTileLayer,
-    doorVariable: string,
+    doorVariable: VariableDescriptor,
     properties: Properties,
     assetsUrl: string,
 ): void {
@@ -135,7 +139,7 @@ function initDoorstep(
         actionMessage = WA.ui.displayActionMessage({
             message: properties.getString("closeTriggerMessage") ?? "Press SPACE to close the door",
             callback: () => {
-                WA.state[doorVariable] = false;
+                WA.state[doorVariable.name] = false;
                 displayOpenDoorMessage();
             },
         });
@@ -148,14 +152,16 @@ function initDoorstep(
         actionMessage = WA.ui.displayActionMessage({
             message: properties.getString("openTriggerMessage") ?? "Press SPACE to open the door",
             callback: () => {
-                WA.state[doorVariable] = true;
+                WA.state[doorVariable.name] = true;
                 displayCloseDoorMessage();
             },
         });
     }
 
     function openKeypad(name: string): void {
-        const boundaries = findLayerBoundaries(layer);
+        const boundaries = findLayersBoundaries(
+            getTileLayers(doorVariable.properties.mustGetString("closeLayer").split("\n")),
+        );
 
         keypadWebsite = WA.room.website.create({
             name: "doorKeypad" + name,
@@ -180,12 +186,12 @@ function initDoorstep(
     WA.room.onEnterZone(zoneName, () => {
         inZone = true;
         if (properties.getBoolean("autoOpen") && allowed) {
-            WA.state[doorVariable] = true;
+            WA.state[doorVariable.name] = true;
             return;
         }
 
         if (
-            !WA.state[doorVariable] &&
+            !WA.state[doorVariable.name] &&
             ((accessRestricted && !allowed) || !accessRestricted) && // Do not display code if user is allowed by tag
             (properties.getString("code") || properties.getString("codeVariable"))
         ) {
@@ -197,7 +203,7 @@ function initDoorstep(
             return;
         }
 
-        if (WA.state[doorVariable]) {
+        if (WA.state[doorVariable.name]) {
             displayCloseDoorMessage();
         } else {
             displayOpenDoorMessage();
@@ -207,7 +213,7 @@ function initDoorstep(
     WA.room.onLeaveZone(zoneName, () => {
         inZone = false;
         if (properties.getBoolean("autoClose")) {
-            WA.state[doorVariable] = false;
+            WA.state[doorVariable.name] = false;
         }
 
         if (actionMessage) {
@@ -216,17 +222,17 @@ function initDoorstep(
         closeKeypad();
     });
 
-    WA.state.onVariableChange(doorVariable).subscribe(() => {
+    WA.state.onVariableChange(doorVariable.name).subscribe(() => {
         if (inZone) {
-            if (!properties.getBoolean("autoClose") && WA.state[doorVariable] === true) {
+            if (!properties.getBoolean("autoClose") && WA.state[doorVariable.name] === true) {
                 displayCloseDoorMessage();
             }
 
-            if (keypadWebsite && WA.state[doorVariable] === true) {
+            if (keypadWebsite && WA.state[doorVariable.name] === true) {
                 closeKeypad();
             }
 
-            if (!properties.getBoolean("autoOpen") && WA.state[doorVariable] === false) {
+            if (!properties.getBoolean("autoOpen") && WA.state[doorVariable.name] === false) {
                 displayOpenDoorMessage();
             }
         }
@@ -316,8 +322,18 @@ export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
 
     for (const layer of layersMap.values()) {
         const properties = new Properties(layer.properties);
-        const doorVariable = properties.getString("doorVariable");
-        if (doorVariable && layer.type === "tilelayer") {
+        const doorVariableName = properties.getString("doorVariable");
+        if (doorVariableName && layer.type === "tilelayer") {
+            const doorVariable = variables.get(doorVariableName);
+            if (doorVariable === undefined) {
+                throw new Error(
+                    'Cannot find variable "' +
+                        doorVariableName +
+                        '" referred in the "doorVariable" property of layer "' +
+                        layer.name +
+                        '"',
+                );
+            }
             initDoorstep(layer, doorVariable, properties, assetsUrl);
         }
         const bellVariable = properties.getString("bellVariable");
