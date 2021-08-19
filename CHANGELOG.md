@@ -1,3 +1,10 @@
+# [1.0.0-alpha.10](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-08-19)
+
+
+### Bug Fixes
+
+* Fixing top alignment of keypad with the top of the door (instead of the top of the walking area) ([fafbe4d](https://github.com/workadventure/scripting-api-extra/commit/fafbe4d65ab93ffdff75a1110e2d68dae28325e0))
+
 # [1.0.0-alpha.9](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-08-19)
 
 
