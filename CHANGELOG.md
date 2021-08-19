@@ -1,3 +1,10 @@
+# [1.0.0-alpha.9](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-08-19)
+
+
+### Bug Fixes
+
+* Fixing query string lost in redirection on unpkg. We are now using hash to pass parameters between script and keypad iframe ([09eea93](https://github.com/workadventure/scripting-api-extra/commit/09eea93a245f0a886a053229567c61dcc5ccad0c))
+
 # [1.0.0-alpha.8](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-08-19)
 
 
