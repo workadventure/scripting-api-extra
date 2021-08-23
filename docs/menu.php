@@ -19,5 +19,10 @@ return [
             'url' => '/map-building-extra/bells.md',
             'markdown' => 'scripting_api_extra_doc.bells'
         ],
+        [
+            'title' => 'Action zones',
+            'url' => '/map-building-extra/generic-action-zones.md',
+            'markdown' => 'scripting_api_extra_doc.generic-action-zones'
+        ],
     ],
 ];
