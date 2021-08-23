@@ -96,6 +96,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "unpkg": "dist/bundle.js",
   "dependencies": {
     "@workadventure/tiled-map-type-guard": "^1.0.2",
     "play-dtmf": "^0.1.1"
