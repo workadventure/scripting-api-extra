@@ -1,11 +1,11 @@
-import { ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
 import { Properties } from "./Properties";
 
 export class VariableDescriptor {
-    public readonly name;
-    public readonly x;
-    public readonly y;
-    public readonly properties;
+    public readonly name: string;
+    public readonly x: number;
+    public readonly y: number;
+    public readonly properties: Properties;
 
     public constructor(object: ITiledMapObject) {
         this.name = object.name;

@@ -24,5 +24,10 @@ return [
             'url' => '/map-building-extra/generic-action-zones.md',
             'markdown' => 'scripting_api_extra_doc.generic-action-zones'
         ],
+        [
+            'title' => 'Binding variables to properties',
+            'url' => '/map-building-extra/variable-to-property-binding.md',
+            'markdown' => 'scripting_api_extra_doc.variable-to-property-binding'
+        ],
     ],
 ];

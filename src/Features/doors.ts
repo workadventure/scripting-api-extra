@@ -2,11 +2,11 @@ import { getAllVariables, VariableDescriptor } from "../VariablesExtra";
 import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
 import { findLayersBoundaries } from "../LayersExtra";
-import { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
-import { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
-import { Popup } from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
-import { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
-import { EmbeddedWebsite } from "@workadventure/iframe-api-typings/Api/iframe/Room/EmbeddedWebsite";
+import type { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
+import type { Popup } from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
+import type { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
+import type { EmbeddedWebsite } from "@workadventure/iframe-api-typings/Api/iframe/Room/EmbeddedWebsite";
 
 let layersMap!: Map<string, ITiledMapLayer>;
 let playerX = 0;

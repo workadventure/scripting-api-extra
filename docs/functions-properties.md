@@ -35,5 +35,6 @@ class Properties {
     mustGetString(name: string): string; // returns the property as a string (throws an Error if not found)
     mustGetNumber(name: string): string; // returns the property as a number (throws an Error if not found)
     mustGetBoolean(name: string): string; // returns the property as a boolean (throws an Error if not found)
+    getType(name: string): string | undefined; // returns the type of property (as defined in the map)
 }
 ```

@@ -3,10 +3,14 @@
 
 import { initDoors } from "./Features/doors";
 import { initVariableActions } from "./Features/variable_actions";
+import { initConfiguration } from "./Features/configuration";
+import { initPropertiesTemplates } from "./Features/properties_templates";
 
 WA.onInit().then(() => {
     initDoors().catch((e) => console.error(e));
     initVariableActions().catch((e) => console.error(e));
+    initConfiguration();
+    initPropertiesTemplates().catch((e) => console.error(e));
 });
 
 export {};
