@@ -22,11 +22,17 @@ You can create a new variable named "myWebsiteUrl" and bind it to the `openWebsi
 </figure>
 
 <figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/variable.png" alt="" />
+    <img class="figure-img img-fluid rounded" src="images/templated_property.png" alt="" />
     <figcaption class="figure-caption">The property referring to the variable</figcaption>
 </figure>
 
-### Configuration
+## Context
+
+You can use template properties in:
+
+- any property of any "tile" layer
+
+## Configuration
 
 Binding variables to properties can make your map reactive to variable changes, but you still need to find a way
 to modify the values of variables. There are plenty of ways to do this, including:
@@ -35,7 +41,7 @@ to modify the values of variables. There are plenty of ways to do this, includin
 - [Using auto-generated configuration screen]() // TODO
 - [Using generic action zones](generic-action-zones.md)
 
-### About bindings
+## About bindings
 
 Use `{{{ variableName }}}` to refer to a variable name.
 
