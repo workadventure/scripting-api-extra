@@ -1,4 +1,4 @@
-import type { ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
+import type {ITiledMapLayer, ITiledMapObject} from "@workadventure/tiled-map-type-guard/dist";
 import { Properties } from "./Properties";
 
 export class VariableDescriptor {
@@ -36,15 +36,21 @@ export async function getAllVariables(): Promise<Map<string, VariableDescriptor>
 
     const variables = new Map<string, VariableDescriptor>();
 
-    for (const layer of map.layers) {
+    getAllVariablesRecursive(map.layers, variables);
+
+    return variables;
+}
+
+function getAllVariablesRecursive(layers: ITiledMapLayer[], variables: Map<string, VariableDescriptor>): void {
+    for (const layer of layers) {
         if (layer.type === "objectgroup") {
             for (const object of layer.objects) {
                 if (object.type === "variable") {
                     variables.set(object.name, new VariableDescriptor(object));
                 }
             }
+        } else if (layer.type === "group") {
+            getAllVariablesRecursive(layer.layers, variables);
         }
     }
-
-    return variables;
 }
