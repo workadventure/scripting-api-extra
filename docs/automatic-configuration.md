@@ -26,6 +26,18 @@ For a variable to appear in the configuration form, it MUST be stored in a layer
     <figcaption class="figure-caption">List of variables that will be displayed in the configuration screen</figcaption>
 </figure>
 
+## Protecting the configuration screen
+
+By default, the configuration screen will be accessible to anyone. You will probably want to restrict the access of the 
+configuration screen to users that have a certain *tag*.
+
+To do this, simply add a `tag` property to the configuration layer. The value of the property is the name of the tag
+that users must have to access the configuration screen.
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/configuration_tag.png" alt="" />
+    <figcaption class="figure-caption">Here, only users with tag "admin" will have access to the configuration screen</figcaption>
+</figure>
 
 
 ## Altering the display of a variable

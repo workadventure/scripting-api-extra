@@ -7,7 +7,6 @@ import { getLayersMap } from "../../LayersFlattener";
 
 (async () => {
     const layers = await getLayersMap();
-    console.log("LAYERS", layers);
 
     const configurationLayer = layers.get("configuration");
     if (configurationLayer === undefined) {

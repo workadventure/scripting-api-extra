@@ -9,7 +9,7 @@ import {initSpecialProperties} from "./Features/special_properties";
 WA.onInit().then(() => {
     initDoors().catch((e) => console.error(e));
     initSpecialProperties().catch((e) => console.error(e));
-    initConfiguration();
+    initConfiguration().catch((e) => console.error(e));
     initPropertiesTemplates().catch((e) => console.error(e));
 });
 
