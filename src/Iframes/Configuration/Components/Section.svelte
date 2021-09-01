@@ -1,11 +1,11 @@
 <script lang="ts">
-    import type {WorkAdventureApi} from "@workadventure/iframe-api-typings";
+    //import type {WorkAdventureApi} from "@workadventure/iframe-api-typings";
     import type {ITiledMapObjectLayer} from "@workadventure/tiled-map-type-guard/dist";
     import {Properties} from "../../../Properties";
-    import {getAllVariables, VariableDescriptor} from "../../../VariablesExtra";
+    import {VariableDescriptor} from "../../../VariablesExtra";
     import Field from "./Field.svelte";
 
-    export let WA: WorkAdventureApi;
+    //export let WA: WorkAdventureApi;
     export let layer: ITiledMapObjectLayer;
 
     const properties = new Properties(layer.properties);
@@ -21,7 +21,9 @@
             {/if}
 
             {#each variables as variable }
-                <Field variable={variable} />
+                {#if variable.isReadable }
+                    <Field variable={variable} />
+                {/if}
             {/each}
         </div>
 </div>

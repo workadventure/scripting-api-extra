@@ -28,6 +28,10 @@ return [
             'title' => 'Binding variables to properties',
             'url' => '/map-building-extra/variable-to-property-binding.md',
             'markdown' => 'scripting_api_extra_doc.variable-to-property-binding'
+        ],[
+            'title' => 'Configuration screen',
+            'url' => '/map-building-extra/automatic-configuration.md',
+            'markdown' => 'scripting_api_extra_doc.automatic-configuration'
         ],
     ],
 ];

@@ -15,11 +15,26 @@ export async function initPropertiesTemplates(): Promise<void> {
                 continue;
             }
             const newValue = template.getValue();
-            WA.room.setProperty(layerName, property.name, newValue);
-            console.warn(newValue);
+            setProperty(layerName, property.name, newValue);
+
             template.onChange((newValue) => {
-                WA.room.setProperty(layerName, property.name, newValue);
+                setProperty(layerName, property.name, newValue);
             });
+        }
+    }
+}
+
+/**
+ * Sets the property value on the map.
+ * Furthermore, if the property name is "visible", modify the visibility of the layer.
+ */
+function setProperty(layerName: string, propertyName: string, value: string) {
+    WA.room.setProperty(layerName, propertyName, value);
+    if (propertyName === 'visible') {
+        if (value) {
+            WA.room.showLayer(layerName);
+        } else {
+            WA.room.hideLayer(layerName);
         }
     }
 }

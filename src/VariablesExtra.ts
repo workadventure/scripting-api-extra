@@ -13,6 +13,22 @@ export class VariableDescriptor {
         this.y = object.y;
         this.properties = new Properties(object.properties);
     }
+
+    public get isReadable(): boolean {
+        const readableBy = this.properties.getString('readableBy');
+        if (!readableBy) {
+            return true;
+        }
+        return WA.player.tags.includes(readableBy);
+    }
+
+    public get isWritable(): boolean {
+        const writableBy = this.properties.getString('writableBy');
+        if (!writableBy) {
+            return true;
+        }
+        return WA.player.tags.includes(writableBy);
+    }
 }
 
 export async function getAllVariables(): Promise<Map<string, VariableDescriptor>> {

@@ -2,13 +2,13 @@
 // Importing this file creates a number of side effects.
 
 import { initDoors } from "./Features/doors";
-import { initVariableActions } from "./Features/variable_actions";
 import { initConfiguration } from "./Features/configuration";
 import { initPropertiesTemplates } from "./Features/properties_templates";
+import {initSpecialProperties} from "./Features/special_properties";
 
 WA.onInit().then(() => {
     initDoors().catch((e) => console.error(e));
-    initVariableActions().catch((e) => console.error(e));
+    initSpecialProperties().catch((e) => console.error(e));
     initConfiguration();
     initPropertiesTemplates().catch((e) => console.error(e));
 });

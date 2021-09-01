@@ -99,8 +99,10 @@
   },
   "unpkg": "dist/bundle.js",
   "dependencies": {
+    "@fontsource/press-start-2p": "^4.5.0",
     "@workadventure/tiled-map-type-guard": "^1.0.2",
     "mustache": "^4.2.0",
+    "nes.css": "^2.3.0",
     "play-dtmf": "^0.1.1"
   }
 }

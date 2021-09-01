@@ -20,9 +20,12 @@
 
 <style lang="scss">
   div.main-app {
+      margin-left: 3%;
+      margin-right: 3%;
+
     h1 {
       margin-top: 10px;
-      margin-bottom: 25px;
+      margin-bottom: 40px;
       text-align: center;
     }
   }
