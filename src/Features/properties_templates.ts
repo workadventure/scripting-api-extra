@@ -28,9 +28,9 @@ export async function initPropertiesTemplates(): Promise<void> {
  * Sets the property value on the map.
  * Furthermore, if the property name is "visible", modify the visibility of the layer.
  */
-function setProperty(layerName: string, propertyName: string, value: string) {
+function setProperty(layerName: string, propertyName: string, value: string): void {
     WA.room.setProperty(layerName, propertyName, value);
-    if (propertyName === 'visible') {
+    if (propertyName === "visible") {
         if (value) {
             WA.room.showLayer(layerName);
         } else {

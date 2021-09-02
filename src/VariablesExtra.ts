@@ -1,4 +1,4 @@
-import type {ITiledMapLayer, ITiledMapObject} from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapLayer, ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
 import { Properties } from "./Properties";
 
 export class VariableDescriptor {
@@ -15,7 +15,7 @@ export class VariableDescriptor {
     }
 
     public get isReadable(): boolean {
-        const readableBy = this.properties.getString('readableBy');
+        const readableBy = this.properties.getString("readableBy");
         if (!readableBy) {
             return true;
         }
@@ -23,7 +23,7 @@ export class VariableDescriptor {
     }
 
     public get isWritable(): boolean {
-        const writableBy = this.properties.getString('writableBy');
+        const writableBy = this.properties.getString("writableBy");
         if (!writableBy) {
             return true;
         }
@@ -41,7 +41,10 @@ export async function getAllVariables(): Promise<Map<string, VariableDescriptor>
     return variables;
 }
 
-function getAllVariablesRecursive(layers: ITiledMapLayer[], variables: Map<string, VariableDescriptor>): void {
+function getAllVariablesRecursive(
+    layers: ITiledMapLayer[],
+    variables: Map<string, VariableDescriptor>,
+): void {
     for (const layer of layers) {
         if (layer.type === "objectgroup") {
             for (const object of layer.objects) {

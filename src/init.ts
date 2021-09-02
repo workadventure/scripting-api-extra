@@ -1,7 +1,7 @@
-import {initDoors} from "./Features/doors";
-import {initSpecialProperties} from "./Features/special_properties";
-import {initConfiguration} from "./Features/configuration";
-import {initPropertiesTemplates} from "./Features/properties_templates";
+import { initDoors } from "./Features/doors";
+import { initSpecialProperties } from "./Features/special_properties";
+import { initConfiguration } from "./Features/configuration";
+import { initPropertiesTemplates } from "./Features/properties_templates";
 
 /**
  * Bootstraps all the features of the extra library.

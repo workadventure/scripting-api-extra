@@ -14,14 +14,7 @@ export function initVariableActionLayer(properties: Properties): void {
         const triggerMessage = properties.getString("triggerMessage");
         const tag = properties.getString("tag");
 
-        setupVariableActionLayer(
-            variableName,
-            zone,
-            enterValue,
-            leaveValue,
-            triggerMessage,
-            tag,
-        );
+        setupVariableActionLayer(variableName, zone, enterValue, leaveValue, triggerMessage, tag);
     }
 }
 

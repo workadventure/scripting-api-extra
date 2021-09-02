@@ -1,4 +1,3 @@
-import {writable} from "svelte/store";
+import { writable } from "svelte/store";
 
-
-export const currentPage = writable<string>('configuration');
+export const currentPage = writable<string>("configuration");

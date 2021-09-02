@@ -1,6 +1,6 @@
 import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
-import {initVariableActionLayer} from "./variable_actions";
+import { initVariableActionLayer } from "./variable_actions";
 
 export async function initSpecialProperties(): Promise<void> {
     const layers = await getLayersMap();
