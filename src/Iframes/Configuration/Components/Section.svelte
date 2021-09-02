@@ -4,6 +4,7 @@
     import {Properties} from "../../../Properties";
     import {VariableDescriptor} from "../../../VariablesExtra";
     import Field from "./Field.svelte";
+    import {currentPage} from "../Stores/currentPage";
 
     //export let WA: WorkAdventureApi;
     export let layer: ITiledMapObjectLayer;
@@ -28,6 +29,14 @@
         </div>
 </div>
 
+{#if $currentPage !== 'configuration' }
+<div class="center">
+    <button class="nes-btn" on:click={() => { $currentPage = $currentPage.substr(0, $currentPage.indexOf('/')) }}>&lt; Back</button>
+</div>
+{/if}
 
 <style lang="scss">
+    div.center {
+        text-align: center;
+    }
 </style>

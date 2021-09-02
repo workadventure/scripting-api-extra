@@ -129,3 +129,23 @@ The configuration page will respect the visibility rights configured on the vari
 to read this variable.
 - If the `writableBy` property is set on the variable, the variable will be displayed, but modifiable only if the current user has the right
 to write to this variable. 
+
+## Creating sub-sections
+
+Do you have many variables on your map? You can organize these variables on different configuration pages.
+To do this, simply turn the `configuration` layer into a "group" layer. In this group layer, you can put many object
+layers. Each object layer will be rendered in a different page.
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/configuration_layers_tree.png" alt="" />
+    <figcaption class="figure-caption">Variables are stored in layers inside the "configuration" group layer</figcaption>
+</figure>
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/configuration_main_page.png" alt="" />
+    <figcaption class="figure-caption">Each configuration page is accessible from the main page</figcaption>
+</figure>
+
+Each configuration page is accessible from the main page using a menu made of buttons.
+
+The label of the buttons can be edited by setting a custom `label` property on each object layer inside the "configuration" layer.

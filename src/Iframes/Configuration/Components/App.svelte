@@ -1,20 +1,41 @@
 <script lang="ts">
-    import type {WorkAdventureApi} from "@workadventure/iframe-api-typings";
     import type {ITiledMapLayer} from "@workadventure/tiled-map-type-guard/dist";
-    import Section from "./Section.svelte";
+    import LayerPage from "./LayerPage.svelte";
+    import {currentPage} from "../Stores/currentPage";
 
-    export let WA: WorkAdventureApi;
     export let configurationLayer: ITiledMapLayer;
+
+    function findLayer(name: string): ITiledMapLayer {
+        const layer = recursiveFindLayer(name, configurationLayer);
+        if (layer === undefined) {
+            throw new Error("Cannot find layer with name "+name);
+        }
+        return layer;
+    }
+
+    function recursiveFindLayer(name: string, layer: ITiledMapLayer): ITiledMapLayer|undefined {
+        if (name === layer.name) {
+            return layer;
+        }
+
+        if (layer.type === 'group') {
+            for (const innerLayer of layer.layers) {
+                const result = recursiveFindLayer(name, innerLayer);
+                if (result) {
+                    return result;
+                }
+            }
+        }
+
+        return undefined;
+    }
+
 </script>
 
 <div class="main-app">
     <h1>Configure the room</h1>
 
-    {#if configurationLayer.type === 'objectgroup' }
-        <Section layer={configurationLayer}></Section>
-    {:else}
-        Unsupported configuration layer type
-    {/if}
+    <LayerPage layer={findLayer($currentPage)} />
 </div>
 
 
@@ -28,11 +49,5 @@
       margin-bottom: 40px;
       text-align: center;
     }
-  }
-
-  div.main-app-btn {
-    margin-top: 10px;
-    text-align: right;
-    font-size: 25px;
   }
 </style>

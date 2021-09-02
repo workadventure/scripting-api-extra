@@ -3,12 +3,13 @@
 
 import "./style/style.scss";
 import App from "./Components/App.svelte";
-import { getLayersMap } from "../../LayersFlattener";
+import type {ITiledMap} from "@workadventure/tiled-map-type-guard/dist";
 
 (async () => {
-    const layers = await getLayersMap();
+    const map : ITiledMap = await WA.room.getTiledMap();
 
-    const configurationLayer = layers.get("configuration");
+    const configurationLayer = map.layers.find(layer => layer.name === 'configuration');
+
     if (configurationLayer === undefined) {
         throw new Error('Could not find a layer with the name "configuration" on the map');
     }
@@ -16,7 +17,6 @@ import { getLayersMap } from "../../LayersFlattener";
     new App({
         target: document.body,
         props: {
-            WA: WA,
             configurationLayer: configurationLayer,
         },
     });

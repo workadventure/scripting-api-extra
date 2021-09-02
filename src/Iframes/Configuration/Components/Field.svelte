@@ -1,6 +1,7 @@
 <script lang="ts">
-    import {VariableDescriptor} from "../../../VariablesExtra";
+    import type {VariableDescriptor} from "../../../VariablesExtra";
     import {createStoreFromVariable} from "../../../VariableMapper";
+    import type {Writable} from "svelte/store";
 
     export let variable: VariableDescriptor;
 
@@ -10,45 +11,48 @@
     const variableStore = createStoreFromVariable(variable.name);
     const description = variable.properties.getString('description');
 
+    const stringVariableStore = variableStore as Writable<string>;
+    const boolVariableStore = variableStore as Writable<boolean>;
+
     function getAllowedValues() {
         const allowedValuesStr = variable.properties.mustGetString('allowed_values');
-        return JSON.parse(allowedValuesStr);
+        return JSON.parse(allowedValuesStr) as {[key: string]: string | number | undefined};
     }
 
-    function onChange(event) {
-        $variableStore = event.target.value;
+    function onChange(event: Event) {
+        $variableStore = (event.target as HTMLInputElement).value;
     }
 </script>
 
 
 {#if type === 'checkbox' }
     <label class="field">
-        <input type="checkbox" class="nes-checkbox" bind:checked={ $variableStore } disabled={!variable.isWritable} />
+        <input type="checkbox" class="nes-checkbox" bind:checked={ $boolVariableStore } disabled={!variable.isWritable} />
         <span>{label}</span>
     </label>
 {:else if type === 'select' }
-    <label>{label}</label>
+    <label for={variable.name}>{label}</label>
     <div class="nes-select field">
-    <select bind:value={ $variableStore } disabled={!variable.isWritable}>
+    <select id={variable.name} bind:value={ $variableStore } disabled={!variable.isWritable}>
     {#each Object.entries(getAllowedValues()) as [name, value] }
         <option value={value}>{ name }</option>
     {/each}
     </select>
     </div>
 {:else if type === 'radio' }
-    <label>{label}</label>
+    <span>{label}</span>
     <div class="field">
             {#each Object.entries(getAllowedValues()) as [name, value] }
                 <label>
-                    <input type="radio" class="nes-radio" bind:group={$variableStore} name={variable.name} value={value} disabled={!variable.isWritable} />
+                    <input type="radio" class="nes-radio" bind:group={$stringVariableStore} name={variable.name} value={ value } disabled={!variable.isWritable} />
                     <span>{name}</span>
                 </label>
             {/each}
     </div>
 {:else}
     <div class="nes-field field">
-        <label>{label}</label>
-        <input type="text" value={ $variableStore } on:change={onChange} class="nes-input" disabled={!variable.isWritable} />
+        <label for="input_{variable.name}">{label}</label>
+        <input id="input_{variable.name}" type="text" value={ $stringVariableStore } on:change={onChange} class="nes-input" disabled={!variable.isWritable} />
     </div>
 {/if}
 {#if description }
