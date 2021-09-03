@@ -1,50 +1,59 @@
-import { ITiledMapObject, ITiledMapProperty } from '@workadventure/tiled-map-type-guard/dist';
+import type { ITiledMapLayer, ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
+import { Properties } from "./Properties";
 
-export class Properties {
-  public constructor(private properties: ITiledMapProperty[]) {}
+export class VariableDescriptor {
+    public readonly name: string;
+    public readonly x: number;
+    public readonly y: number;
+    public readonly properties: Properties;
 
-  public getMany(name: string): (string | boolean | number | undefined)[] {
-    return this.properties
-      .filter((property) => property.name === name)
-      .map((property) => property.value);
-  }
-
-  public getOne(name: string): string | boolean | number | undefined {
-    const values = this.getMany(name);
-    if (values.length > 1) {
-      throw new Error('Expected only one property to be named "' + name + '"');
+    public constructor(object: ITiledMapObject) {
+        this.name = object.name;
+        this.x = object.x;
+        this.y = object.y;
+        this.properties = new Properties(object.properties);
     }
-    if (values.length === 0) {
-      return undefined;
+
+    public get isReadable(): boolean {
+        const readableBy = this.properties.getString("readableBy");
+        if (!readableBy) {
+            return true;
+        }
+        return WA.player.tags.includes(readableBy);
     }
-    return values[0];
-  }
-}
 
-class VariableDescriptor {
-  public readonly name;
-  public readonly properties;
-
-  public constructor(object: ITiledMapObject) {
-    this.name = object.name;
-    this.properties = new Properties(object.properties ?? []);
-  }
+    public get isWritable(): boolean {
+        const writableBy = this.properties.getString("writableBy");
+        if (!writableBy) {
+            return true;
+        }
+        return WA.player.tags.includes(writableBy);
+    }
 }
 
 export async function getAllVariables(): Promise<Map<string, VariableDescriptor>> {
-  const map = await WA.room.getTiledMap();
+    const map = await WA.room.getTiledMap();
 
-  const variables = new Map<string, VariableDescriptor>();
+    const variables = new Map<string, VariableDescriptor>();
 
-  for (const layer of map.layers) {
-    if (layer.type === 'objectgroup') {
-      for (const object of layer.objects) {
-        if (object.type === 'variable') {
-          variables.set(object.name, new VariableDescriptor(object));
+    getAllVariablesRecursive(map.layers, variables);
+
+    return variables;
+}
+
+function getAllVariablesRecursive(
+    layers: ITiledMapLayer[],
+    variables: Map<string, VariableDescriptor>,
+): void {
+    for (const layer of layers) {
+        if (layer.type === "objectgroup") {
+            for (const object of layer.objects) {
+                if (object.type === "variable") {
+                    variables.set(object.name, new VariableDescriptor(object));
+                }
+            }
+        } else if (layer.type === "group") {
+            getAllVariablesRecursive(layer.layers, variables);
         }
-      }
     }
-  }
-
-  return variables;
 }

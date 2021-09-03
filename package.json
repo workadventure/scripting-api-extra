@@ -1,16 +1,23 @@
 {
   "name": "@workadventure/scripting-api-extra",
-  "version": "0.0.1",
+  "version": "1.0.0-alpha.11",
   "description": "A set of utility functions / features to improve WorkAdventure maps",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
+    "start": "run-p serve svelte-check-watch",
+    "build": "npm-run-all build-ts build-webpack",
+    "build-ts": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
+    "build-webpack": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" NODE_ENV=production webpack",
     "lint": "eslint . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && jest ./test/*",
     "dev": "ts-node src/index.ts",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "semantic-release-dry-run": "semantic-release -d",
+    "serve": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" webpack serve --open",
+    "svelte-check-watch": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\" --watch",
+    "svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\""
   },
   "repository": {
     "type": "git",
@@ -47,18 +54,42 @@
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/npm": "^7.1.0",
-    "@types/jest": "^26.0.22",
-    "@workadventure/iframe-api-typings": "^1.4.12",
+    "@tsconfig/svelte": "^1.0.10",
+    "@types/copy-webpack-plugin": "^8.0.1",
+    "@types/jest": "^26.0.24",
+    "@types/mini-css-extract-plugin": "^1.4.3",
+    "@types/mustache": "^4.1.2",
+    "@types/webpack-dev-server": "^3.11.4",
+    "@workadventure/iframe-api-typings": "^1.4.14",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
     "eslint": "^7.6.0",
+    "fork-ts-checker-webpack-plugin": "^6.2.9",
+    "html-webpack-plugin": "^5.3.1",
     "husky": "^7.0.1",
     "jest": "^26.2.2",
     "lint-staged": "^11.0.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-polyfill-webpack-plugin": "^1.1.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
-    "semantic-release": "^17.2.1",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.1.0",
+    "semantic-release": "^17.4.5",
+    "svelte": "^3.38.2",
+    "svelte-check": "^2.1.0",
+    "svelte-loader": "^3.1.1",
+    "svelte-preprocess": "^4.7.3",
     "ts-jest": "^26.1.4",
+    "ts-loader": "^8.1.0",
     "ts-node": "^10.1.0",
     "tsc": "^2.0.3",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "files": [
     "dist/**/*"
@@ -66,7 +97,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "unpkg": "dist/bundle.js",
   "dependencies": {
-    "@workadventure/tiled-map-type-guard": "^1.0.0"
+    "@fontsource/press-start-2p": "^4.5.0",
+    "@workadventure/tiled-map-type-guard": "^1.0.2",
+    "mustache": "^4.2.0",
+    "nes.css": "^2.3.0",
+    "play-dtmf": "^0.1.1"
   }
 }

@@ -12,12 +12,12 @@ module.exports = {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/node_modules/**', '!**/vendor/**'],
   coverageDirectory: '<rootDir>/coverage',
   coverageReporters: [['lcov', { projectRoot: './' }], 'text'],
-  coverageThreshold: {
+  /*coverageThreshold: {
     global: {
       branches: 50,
       functions: 80,
       lines: 80,
       statements: -35,
     },
-  },
+  },*/
 }
