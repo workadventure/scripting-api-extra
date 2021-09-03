@@ -33,9 +33,11 @@ module.exports = {
     //devtool: isDevelopment ? 'eval' : 'source-map',
     devServer: {
         port: 3000,
-        contentBase: "dist",
+        static: [
+            "dist"
+        ],
         host: "0.0.0.0",
-        disableHostCheck: true,
+        allowedHosts: "all",
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
