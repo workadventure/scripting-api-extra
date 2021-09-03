@@ -1,4 +1,4 @@
-import { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
 
 export class Properties {
     private properties: ITiledMapProperty[];
@@ -70,5 +70,21 @@ export class Properties {
             throw new Error('Expected property "' + name + '" to have type "' + type + '"');
         }
         return value;
+    }
+
+    /**
+     * Returns the type of property "name" or undefined if the property is not defined.
+     */
+    public getType(name: string): string | undefined {
+        const types = this.properties
+            .filter((property) => property.name === name)
+            .map((property) => property.type);
+        if (types.length > 1) {
+            throw new Error('Expected only one property to be named "' + name + '"');
+        }
+        if (types.length === 0) {
+            return undefined;
+        }
+        return types[0];
     }
 }

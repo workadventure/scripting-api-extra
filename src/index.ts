@@ -5,5 +5,7 @@ export * from "./VariablesExtra";
 export * from "./Properties";
 export * from "./LayersFlattener";
 export * from "./LayersExtra";
+export * from "./Features/properties_templates";
 export * from "./Features/doors";
 export * from "./Features/variable_actions";
+export * from "./init";

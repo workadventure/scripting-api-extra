@@ -1,17 +1,33 @@
-import { ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapLayer, ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
 import { Properties } from "./Properties";
 
 export class VariableDescriptor {
-    public readonly name;
-    public readonly x;
-    public readonly y;
-    public readonly properties;
+    public readonly name: string;
+    public readonly x: number;
+    public readonly y: number;
+    public readonly properties: Properties;
 
     public constructor(object: ITiledMapObject) {
         this.name = object.name;
         this.x = object.x;
         this.y = object.y;
         this.properties = new Properties(object.properties);
+    }
+
+    public get isReadable(): boolean {
+        const readableBy = this.properties.getString("readableBy");
+        if (!readableBy) {
+            return true;
+        }
+        return WA.player.tags.includes(readableBy);
+    }
+
+    public get isWritable(): boolean {
+        const writableBy = this.properties.getString("writableBy");
+        if (!writableBy) {
+            return true;
+        }
+        return WA.player.tags.includes(writableBy);
     }
 }
 
@@ -20,15 +36,24 @@ export async function getAllVariables(): Promise<Map<string, VariableDescriptor>
 
     const variables = new Map<string, VariableDescriptor>();
 
-    for (const layer of map.layers) {
+    getAllVariablesRecursive(map.layers, variables);
+
+    return variables;
+}
+
+function getAllVariablesRecursive(
+    layers: ITiledMapLayer[],
+    variables: Map<string, VariableDescriptor>,
+): void {
+    for (const layer of layers) {
         if (layer.type === "objectgroup") {
             for (const object of layer.objects) {
                 if (object.type === "variable") {
                     variables.set(object.name, new VariableDescriptor(object));
                 }
             }
+        } else if (layer.type === "group") {
+            getAllVariablesRecursive(layer.layers, variables);
         }
     }
-
-    return variables;
 }

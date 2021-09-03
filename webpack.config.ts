@@ -26,6 +26,7 @@ module.exports = {
     entry: {
         main: "./src/bootstrap.ts",
         keypad: "./src/Iframes/Keypad/index.ts",
+        configuration: "./src/Iframes/Configuration/index.ts",
     },
     mode: mode,
     devtool: isDevelopment ? "inline-source-map" : "source-map",
@@ -184,6 +185,25 @@ module.exports = {
                 useShortDoctype: true,
             },
             chunks: ["keypad"],
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/Iframes/Configuration/configuration.ejs",
+            filename: "configuration.html",
+            templateParameters: {
+                workadventure_url: process.env.WORKADVENTURE_URL
+                    ? process.env.WORKADVENTURE_URL
+                    : "https://play.workadventu.re",
+            },
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+            chunks: ["configuration"],
         }),
         new HtmlWebpackPlugin({
             template: "./test/maps/index.ejs",

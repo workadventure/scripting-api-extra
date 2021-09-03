@@ -37,5 +37,9 @@ class VariableDescriptor {
     // The position of the variable
     x: number
     y: number
+    // True if the variable can be read by the current player
+    isReadable: boolean
+    // True if the variable can be written by the current player
+    isWritable: boolean
 }
 ```

@@ -23,3 +23,4 @@ It provides a complete development environment ready with Typescript enabled.
 - [Property related functions](functions-properties.md)
 - [Variable related functions](functions-variables.md)
 - [Layer related functions](functions-layers.md)
+- [Svelte bindings](functions-svelte.md)

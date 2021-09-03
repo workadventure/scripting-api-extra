@@ -24,5 +24,10 @@ return [
             'url' => '/map-building-extra/functions-layers.md',
             'markdown' => 'scripting_api_extra_doc.functions-layers'
         ],
+        [
+            'title' => 'Svelte bindings',
+            'url' => '/map-building-extra/functions-svelte.md',
+            'markdown' => 'scripting_api_extra_doc.functions-svelte'
+        ],
     ],
 ];

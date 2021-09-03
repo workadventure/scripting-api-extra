@@ -1,4 +1,4 @@
-import { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
+import type { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
 
 /**
  * Returns the boundaries of a given layer as an object with properties: { top: number, left: number, right: number, bottom: number }
