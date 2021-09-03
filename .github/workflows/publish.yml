@@ -32,6 +32,10 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run semantic-release-dry-run
+        env:
+            NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            CI: true
         # Grab the tag number by running semantic-release in dry mode and put the result in release_tag env variable
       - run: echo "release_tag=$(npm run semantic-release-dry-run | grep -Po 'The next release version is \K([\w.-]*)')" >> $GITHUB_ENV
         env:
