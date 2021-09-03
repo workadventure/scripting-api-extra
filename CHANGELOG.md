@@ -1,3 +1,14 @@
+# [1.0.0-alpha.11](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2021-09-03)
+
+
+### Bug Fixes
+
+* Adding a "boostrapExtra()" function to bootstrap the extra script. ([127bce7](https://github.com/workadventure/scripting-api-extra/commit/127bce73e6f4baa62e8a4fb7c6c12f3620853c64))
+* Adding dynamic configuration page based on variables available in the configuration layer (WIP) ([8853db0](https://github.com/workadventure/scripting-api-extra/commit/8853db08b6e9630e767f9e75a4ab916f070a6dc1))
+* Adding support for multiple configuration pages by turning the configuration layer into a "group" layer. ([1cacd8c](https://github.com/workadventure/scripting-api-extra/commit/1cacd8ca7e25190f3956aaf998741d0b33e15209))
+* Improving doc for doors ([43931f9](https://github.com/workadventure/scripting-api-extra/commit/43931f99a90f38cb92597e51778375058421cdac))
+* Read variables recursively in any group ([3f5a698](https://github.com/workadventure/scripting-api-extra/commit/3f5a69857fcd1418f363c144f4f86ff762675322))
+
 # [1.0.0-alpha.10](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-08-19)
 
 
