@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0...v1.0.1) (2021-09-03)
+
+
+### Bug Fixes
+
+* Enabling back semantic-release ([194c885](https://github.com/workadventure/scripting-api-extra/commit/194c88505dfa063a8eb8ca177ea1548f1790ce2f))
+* Linting ([7c52fb8](https://github.com/workadventure/scripting-api-extra/commit/7c52fb84700936848cbca9291c74c77aa6e24e73))
+
 # 1.0.0 (2021-09-03)
 
 
