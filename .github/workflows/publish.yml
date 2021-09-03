@@ -47,8 +47,8 @@ jobs:
       - run: curl -s https://codecov.io/bash | bash
         env:
           CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
-#      - run: npm run semantic-release
-#        env:
-#          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-#          CI: true
+      - run: npm run semantic-release
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CI: true
