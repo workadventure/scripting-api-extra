@@ -18,6 +18,8 @@ Note: these functions are provided as an ES6 module. You will need a "bundler" (
 If you don't have a bundler already, have a look at the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit/).
 It provides a complete development environment ready with Typescript enabled.
 
+For a complete installation guide here, check the "[About the extended features](about.md#importing-the-scripting-api-extra-library)" documentation
+
 ## Utility functions
 
 - [Property related functions](functions-properties.md)

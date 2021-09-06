@@ -16,6 +16,48 @@ In this section, you will find a list of these extended features.
 
 Because a script is hosting the extended features, you need to import that script explicitly into your map.
 
+There are 2 ways to import those extended features:
+
+- importing the "Scripting API Extra" library directly in your map
+- or importing the "Scripting API Extra" library in your own script
+
+### Importing the script in the map
+
 You can do so by adding a "script" property at the top level of your map, pointing to the URL:
 `https://unpkg.com/@workadventure/scripting-api-extra@^1/dist/bundle.js`
 
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/script.png" alt="" />
+    <figcaption class="figure-caption">Importing the "Scripting API Extra" library using the "script" property.</figcaption>
+</figure>
+
+{.alert.alert-info}
+**Reminder:** To access the map properties in Tiled, you can click on the **Map** > **Map Properties** menu. 
+
+### Importing the "Scripting API Extra" library 
+
+If you already have a script in your map (this is the case if you are using the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit)),
+you can import the "Scripting API Extra" library as a "dependency" of your script.
+
+{.alert.alert-info}
+**Note:** The WorkAdventure Map Starter Kit is already importing the Scripting API Extra library as a dependency.
+
+```
+npm install --save @workadventure/scripting-api-extra
+```
+
+{.alert.alert-warning}
+Here, we assume that the script you wrote is using a bundler (like Webpack) and that you already have dependencies in
+your project using a `package.json` file. If you are not familiar with NPM, or bundlers, we highly recommend using
+the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit) that comes
+with sane defaults.
+
+Once the "Scripting API Extra" library is imported, you still need to initialize it. This can be done by calling a 
+single `bootstrapExtra()` method:
+
+```typescript
+import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+
+// Calling bootstrapExtra will initiliaze all the "custom properties"  
+bootstrapExtra();
+```
