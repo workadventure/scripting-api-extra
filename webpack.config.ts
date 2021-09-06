@@ -33,9 +33,7 @@ module.exports = {
     //devtool: isDevelopment ? 'eval' : 'source-map',
     devServer: {
         port: 3000,
-        static: [
-            "dist"
-        ],
+        static: ["dist"],
         host: "0.0.0.0",
         allowedHosts: "all",
         headers: {
