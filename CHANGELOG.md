@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/workadventure/scripting-api-extra/compare/v1.0.1...v1.0.2) (2021-09-06)
+
+
+### Bug Fixes
+
+* **doc:** Adding a reference documentation ([f985492](https://github.com/workadventure/scripting-api-extra/commit/f9854929ddeddd163c2ece1618f3949dbf9e82a9))
+* **doc:** Improving the installation documentation ([4fa0bcc](https://github.com/workadventure/scripting-api-extra/commit/4fa0bcc4aa544b7e8ec4adc940a3f8a0031bacf3))
+
 ## [1.0.1](https://github.com/workadventure/scripting-api-extra/compare/v1.0.0...v1.0.1) (2021-09-03)
 
 
