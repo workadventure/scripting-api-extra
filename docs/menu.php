@@ -32,6 +32,10 @@ return [
             'title' => 'Configuration screen',
             'url' => '/map-building-extra/automatic-configuration.md',
             'markdown' => 'scripting_api_extra_doc.automatic-configuration'
+        ],[
+            'title' => 'Properties reference',
+            'url' => '/map-building-extra/reference.md',
+            'markdown' => 'scripting_api_extra_doc.reference'
         ],
     ],
 ];
