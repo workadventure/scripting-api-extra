@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/workadventure/scripting-api-extra/compare/v1.0.2...v1.0.3) (2021-09-06)
+
+
+### Bug Fixes
+
+* **bundle:** Creating a bundle for the lib ([ad7e21d](https://github.com/workadventure/scripting-api-extra/commit/ad7e21dcfb6a46e5b2d549ae6ac355c54dd083ef))
+
 ## [1.0.2](https://github.com/workadventure/scripting-api-extra/compare/v1.0.1...v1.0.2) (2021-09-06)
 
 
