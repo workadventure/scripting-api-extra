@@ -24,7 +24,8 @@ if (isDevelopment) {
 
 module.exports = {
     entry: {
-        main: "./src/bootstrap.ts",
+        mainBundle: "./src/bootstrap.ts",
+        mainLib: "./src/index.ts",
         keypad: "./src/Iframes/Keypad/index.ts",
         configuration: "./src/Iframes/Configuration/index.ts",
     },
@@ -155,7 +156,11 @@ module.exports = {
             // Add a content hash only for the main bundle.
             // We want the iframe_api.js file to keep its name as it will be referenced from outside iframes.
             //return pathData.chunk?.name === 'main' ? 'js/[name].js': '[name].[contenthash].js';
-            return pathData.chunk?.name === "main" ? "bundle.js" : "js/[name].[contenthash].js";
+            return pathData.chunk?.name === "mainBundle"
+                ? "bundle.js"
+                : pathData.chunk?.name === "mainLib"
+                ? "index.js"
+                : "js/[name].[contenthash].js";
         },
         path: path.resolve(__dirname, "dist"),
     },
