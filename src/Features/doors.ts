@@ -7,6 +7,7 @@ import type { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dis
 import type { Popup } from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
 import type { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
 import type { EmbeddedWebsite } from "@workadventure/iframe-api-typings/Api/iframe/Room/EmbeddedWebsite";
+import { defaultAssetsUrl } from "./default_assets_url";
 
 let layersMap!: Map<string, ITiledMapLayer>;
 let playerX = 0;
@@ -306,7 +307,7 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
  * assetsUrl is the URL to the assets directory containing the compiled "keypad.html" file (for digit code)
  */
 export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
-    assetsUrl = assetsUrl ?? process.env.ASSETS_URL ?? "";
+    assetsUrl = assetsUrl ?? defaultAssetsUrl;
     const variables = await getAllVariables();
     layersMap = await getLayersMap();
 
