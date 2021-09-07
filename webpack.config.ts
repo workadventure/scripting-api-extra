@@ -228,8 +228,5 @@ module.exports = {
         new CopyPlugin({
             patterns: resources,
         }),
-        new webpack.EnvironmentPlugin({
-            ASSETS_URL: null,
-        }),
     ],
 } as Configuration & WebpackDevServer.Configuration;

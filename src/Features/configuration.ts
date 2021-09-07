@@ -1,5 +1,6 @@
 import { Properties } from "../Properties";
 import type { ITiledMap } from "@workadventure/tiled-map-type-guard/dist";
+import { defaultAssetsUrl } from "./default_assets_url";
 
 /**
  * Initialize the configuration button in the menu
@@ -14,7 +15,7 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
         const tag = properties.getString("tag");
         if (!tag || WA.player.tags.includes(tag)) {
             WA.ui.registerMenuCommand("Configure the room", () => {
-                assetsUrl = assetsUrl ?? process.env.ASSETS_URL ?? "";
+                assetsUrl = assetsUrl ?? defaultAssetsUrl;
                 WA.nav.openCoWebSite(assetsUrl + "configuration.html", true);
             });
         }
