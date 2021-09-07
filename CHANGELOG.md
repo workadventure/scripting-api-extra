@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/workadventure/scripting-api-extra/compare/v1.0.3...v1.0.4) (2021-09-07)
+
+
+### Bug Fixes
+
+* Replacing ASSETS_URL environment variable by a dynamically generated default_assets_url.ts file. ([05eba1f](https://github.com/workadventure/scripting-api-extra/commit/05eba1f5749b8b38cd602acf10e0538fe1ab118e))
+
 ## [1.0.3](https://github.com/workadventure/scripting-api-extra/compare/v1.0.2...v1.0.3) (2021-09-06)
 
 
