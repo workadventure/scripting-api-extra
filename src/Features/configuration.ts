@@ -16,7 +16,7 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
         if (!tag || WA.player.tags.includes(tag)) {
             WA.ui.registerMenuCommand("Configure the room", () => {
                 assetsUrl = assetsUrl ?? defaultAssetsUrl;
-                WA.nav.openCoWebSite(assetsUrl + "configuration.html", true);
+                WA.nav.openCoWebSite(assetsUrl + "/configuration.html", true);
             });
         }
     }

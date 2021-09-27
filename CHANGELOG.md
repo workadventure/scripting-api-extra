@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/workadventure/scripting-api-extra/compare/v1.0.4...v1.0.5) (2021-09-22)
+
+
+### Bug Fixes
+
+* **configuration:** fixed path when initializing a configuration panel ([420ce78](https://github.com/workadventure/scripting-api-extra/commit/420ce786a6b2ea9a360ef3d8e1d9a2ef8431dd22))
+
 ## [1.0.4](https://github.com/workadventure/scripting-api-extra/compare/v1.0.3...v1.0.4) (2021-09-07)
 
 
