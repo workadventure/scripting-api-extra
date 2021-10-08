@@ -14,24 +14,71 @@ pages automatically.
 The configuration page displays a form that is **generated from the variables** present on the map.
 Each variable is mapped to one field in the form.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/sample_configuration_screen.png" alt="" />
-    <figcaption class="figure-caption">A sample configuration screen</figcaption>
-</figure>
-
-For a variable to appear in the configuration form, it MUST be stored in a layer called `configuration`.
+For a variable to appear in the configuration panel, it MUST be stored in a layer called `configuration`.
 
 <figure class="figure">
     <img class="figure-img img-fluid rounded" src="images/variables_in_configuration_layer.png" alt="" />
     <figcaption class="figure-caption">List of variables that will be displayed in the configuration screen</figcaption>
 </figure>
 
+Below, we will see the two ways of configuring your variables with the configuration panel.
+
+## Global configuration panel
+
+Having a variable inside a `configuration` object layer will automatically add a button inside the menu, called 'Configure the room'.
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/configure_the_room_button.png" alt="" />
+    <figcaption class="figure-caption">Configure the room button</figcaption>
+</figure>
+
+Try to open the menu and check for this new sub-menu. By clicking on the button you should now see the global configuration panel:
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/configuration_panel_global.png" alt="" />
+    <figcaption class="figure-caption">Global configuration panel</figcaption>
+</figure>
+
+We call it 'global' because it contains all the variables that the `configuration` layer have.
+This is great if you do not have many variables to configure and if they are well organized.
+Now, it would be great to see only the variable that interests you in this panel, for example by going in front of a door to open or a website to configure.
+We call this 'local' configuration, and you will see it in action right away!
+
+## Local configuration panel
+
+By going in front of this door, the configuration form will contain only the variable that controls the right door:
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/configuration_panel_local.png" alt="" />
+    <figcaption class="figure-caption">Local configuration panel</figcaption>
+</figure>
+
+Comparing to the previous screenshot you see only one field, and it's the field that can set the exit URL of this specific door.
+To be able to achieve that, all you need to do is to create a layer with the `openConfig` property with the name of the variable to configure as its value.
+Because our variable here is called `rightDoorExitUrl` we added `openConfig: rightDoorExitUrl`.
+
+{.alert.alert-info}
+**Pro tip:** Note that you can tell the `openConfig` property to include multiple variables by separating the variable names by a comma.
+For example: `openConfig: rightDoorExitUrl,leftDoorExitUrl`.
+Also, the layer containing openConfig must have a `zone` (string) property as well, but this step will be removed in a future version.
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/local_configuration_setup_tiled.png" alt="" />
+    <figcaption class="figure-caption">Local configuration setup</figcaption>
+</figure>
+
+You can see that our layer is represented in the game by a single tile (the yellow one) and that `openConfig` is very similar to `openWebsite`!
+In fact, it has technically the same effect of opening an iframe, but you can't control the website that will appear, only the number of variables.
+
+If you set `openConfigTrigger: onaction`, when the user walks on the layer, an alert message will be displayed at the bottom of the screen.
+If you set `openConfigTriggerMessage: your message action` you can edit the alert message displayed. If not defined, the default message will be 'Press SPACE or touch here to configure'.
+
 ## Protecting the configuration screen
 
 By default, the configuration screen will be accessible to anyone. You will probably want to restrict the access of the 
 configuration screen to users that have a certain *tag*.
 
-To do this, simply add a `tag` property to the configuration layer. The value of the property is the name of the tag
+To do this with the global configuration panel, simply add a `tag` property to the configuration object layer. The value of the property is the name of the tag
 that users must have to access the configuration screen.
 
 <figure class="figure">
@@ -39,6 +86,8 @@ that users must have to access the configuration screen.
     <figcaption class="figure-caption">Here, only users with tag "admin" will have access to the configuration screen</figcaption>
 </figure>
 
+You can also protect a local configuration zone by adding the `openConfigAdminTag` property and by setting a tag as value.
+Adding `openConfigAdminTag: admin` to a layer that contains `openConfig` will prevent players that don't have the 'admin' tag to see the local configuration panel, as well as the alert to open it.
 
 ## Altering the display of a variable
 
