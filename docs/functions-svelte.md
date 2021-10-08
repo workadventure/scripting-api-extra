@@ -9,7 +9,7 @@ utility functions to easily bind your Svelte components to your WorkAdventure ma
 
 ## Mapping a WorkAdventure variable to a Svelte store
 
-Use `createStoreFromVariable` to create a Svelte store this is bound to a WorkAdventure variable.
+Use `createStoreFromVariable` to create a Svelte store thas is bound to a WorkAdventure variable.
 
 ```typescript
 const myVariableStore = createStoreFromVariable('my_variable');
