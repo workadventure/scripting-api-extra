@@ -17,7 +17,7 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
     const configurationLayer = map.layers.find((layer) => layer.name === "configuration");
 
     if (configurationLayer) {
-        // Controlls the configuration panel triggered from the menu
+        // Controls the configuration panel triggered from the menu
         const properties = new Properties(configurationLayer.properties);
         const tag = properties.getString("tag");
         if (!tag || WA.player.tags.includes(tag)) {
