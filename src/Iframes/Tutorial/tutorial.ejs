@@ -1,0 +1,101 @@
+<head>
+    <script src="<%= workadventure_url %>/iframe_api.js" ></script>
+    <title>Tutorial Work Adventure</title>
+</head>
+
+<body class="tutorial-body">
+<div class="tutorial container">
+    <!-- FIRST STEP -->
+    <div id="step-1">
+        <div class="dialog-box companion-dialog nes-container is-rounded">
+            <div class="companion">
+                <img src="../../../resources/images/walt.gif" alt="companion"
+                     class="companion-gif"/>
+                <h2 class="name">WAlter, your guide</h2>
+            </div>
+            <!-- For desktop webview-->
+            <p class="desktop hidden">Use <img
+                    src="../../../resources/images/arrow-keys.svg" alt="your keyboard arrows" class="keyboard-img"/> to move around.</p>
+            <p class="desktop hidden">Give it a try !</p>
+            <!-- For mobile -->
+            <div class="mobile hidden">
+                <p>Tap and hold to move around. </p>
+                <div class="video-container">
+                    <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/joystick-mobile.mp4" class="video"></video>
+                </div>
+                <p>Give it a try ! </p>
+            </div>
+        </div>
+        <div class="user-input">
+            <a class="skip-btn dialog-box nes-btn user-dialog is-error">I don't need help, thanks !</a>
+        </div>
+    </div>
+    <!-- END FIRST STEP-->
+    <!-- SECOND STEP -->
+    <div id="step-2" class="hidden">
+        <div class="dialog-box companion-dialog nes-container is-rounded">
+            <div class="companion">
+                <img src="../../../resources/images/walt.gif" alt="companion"
+                     class="companion-gif"/>
+                <h2 class="name">WAlter, your guide</h2>
+            </div>
+            <div id="step-2-content">
+                <div>
+                    <p>Walk closer to others to video chat<span class="text-blue">*</span> !</p>
+                    <p class="text-blue small">*Don't forget to enable your camera and microphone (<img
+                            src="../../../resources/images/micro.svg" alt="use the mic button"
+                            class="com-img"/> &
+                        <img src="../../../resources/images/camera.svg" alt="camera button" class="com-img"/> in the bottom right corner).
+                    </p>
+                </div>
+                <div class="video-container">
+                    <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4" class="video"
+                           id="bubble-video"></video>
+                </div>
+            </div>
+        </div>
+        <div class="user-input">
+            <a class="next-btn dialog-box nes-btn user-dialog is-primary">Got it ! What's next ?</a>
+            <a class="skip-btn dialog-box nes-btn user-dialog is-error"> I don't need help, thanks !</a>
+        </div>
+    </div>
+</div>
+<!--END THIRD STEP -->
+<!--THIRD STEP-->
+<div id="step-3" class="hidden">
+    <div class="dialog-box companion-dialog nes-container is-rounded">
+        <div class="companion">
+
+            <img src="../../../resources/images/walt.gif" alt="companion"
+                 class="companion-gif"/>
+            <h2 class="name">WAlter, your guide</h2>
+        </div>
+        <p>Use <img src="../../../resources/images/logo-message-pixel.png" alt="the chatbox"
+                    class="dialog_img" id="chat-icon"/> in the top left corner to send messages.</p>
+    </div>
+    <div class="user-input">
+        <a class="next-btn dialog-box nes-btn user-dialog is-primary">Got it ! What's next ?</a>
+        <a class="skip-btn dialog-box nes-btn user-dialog is-error"> I don't need help, thanks !</a>
+    </div>
+</div>
+<!-- END THIRD STEP -->
+<!-- FOURTH STEP -->
+<div id="step-4" class="hidden">
+    <div class="dialog-box companion-dialog nes-container is-rounded">
+        <div class="companion">
+
+            <img src="../../../resources/images/walt.gif" alt="companion"
+                 class="companion-gif"/>
+            <h2 class="name">WAlter, your guide</h2>
+        </div>
+        <p>You are now ready to go, adventurer. Enjoy !</p>
+    </div>
+    <div class="user-input">
+        <a class="skip-btn dialog-box user-dialog nes-btn is-primary">See you soon !</a>
+        <a class="redo-btn dialog-box user-dialog nes-btn is-warning"> Wait ! Can you explain it to me again, please
+            ?</a>
+    </div>
+</div>
+<!-- END FOURTH STEP -->
+</div>
+</body>

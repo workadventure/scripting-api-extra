@@ -1,0 +1,138 @@
+@import "~@fontsource/press-start-2p/index.css";
+@import "~nes.css/css/nes.css";
+
+/*GENERAL STYLING*/
+.tutorial-body {
+    background-color: transparent;
+    z-index: 1;
+}
+
+.hidden, .desktop.hidden, .mobile.hidden {
+    display: none;
+}
+
+/* COMPANION RELATED STYLING*/
+.companion {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    margin-bottom: 15px;
+}
+
+.companion-gif {
+    width: 70px;
+    padding-right: 10px;
+}
+
+.name {
+    font-size: 14px;
+    font-style: oblique;
+    color: rgb(20, 48, 76);
+}
+
+/*DIALOG RELATED STYLING*/
+
+.dialog-box {
+    background-color: rgb(255, 255, 255);
+    color: rgb(33, 37, 41);
+    margin: 10px;
+}
+
+.user-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.user-dialog {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.dialog-box > p {
+    margin: 0;
+}
+
+.text-blue {
+    color: rgb(54, 93, 255);
+}
+
+.small {
+    font-size: 10px;
+    /*Do better*/
+    margin-top: 10px !important;
+}
+
+/* images */
+.keyboard-img {
+    width: 95px;
+    vertical-align: baseline;
+}
+
+.com-img {
+    width: 15px;
+}
+
+#chat-icon {
+    width: 40px;
+    vertical-align: baseline;
+}
+
+
+/* RESPONSIVE RELATED RULES*/
+
+#mobile-ctrl {
+    width: 95%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.mobile {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#responsive-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.video {
+    width: 85%;
+    display: flex;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.video-container {
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+}
+
+/*iFrame is the reference for width*/
+@media (min-width: 600px) {
+    .video {
+        width: 100%;
+        display: flex;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+
+    .video-container {
+        margin: auto;
+        justify-content: center;
+        display: flex;
+    }
+
+    #step-2-content {
+        display: flex;
+    }
+}
