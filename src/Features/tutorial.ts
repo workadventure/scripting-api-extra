@@ -1,10 +1,8 @@
 
 export function initTutorial(){
-    //@ts-ignore
     WA.player.getPlayerProperty('firstConnection').then((firstConnectionProperty) => {
             if(firstConnectionProperty.propertyValue != "false"){
                 openTutorial();
-                //@ts-ignore
                 WA.player.setPlayerProperty({
                     propertyName: 'firstConnection',
                     propertyValue: false
@@ -48,6 +46,5 @@ export function openTutorial() {
 
 export function replay(){
     WA.room.website.delete('tutorial');
-    //@ts-ignore
     openTutorial();
 }

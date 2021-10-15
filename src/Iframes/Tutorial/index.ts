@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeClickableBtns('skip-btn', () => {
         currentStep = 'end';
-        //@ts-ignore
         WA.room.website.delete('tutorial');
     })
 
