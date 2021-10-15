@@ -11,7 +11,7 @@
 getAllVariables(): Promise<Map<string, VariableDescriptor>>
 ```
 
-Variables are returned as a Map. The key is the name of the variable, the value if an object representing the variable.
+Variables are returned as a Map. The key is the name of the variable, the value is an object representing the variable.
 You can fetch individual properties defined in Tiled for this variable using this object's `properties` attribute.
 
 For instance:
