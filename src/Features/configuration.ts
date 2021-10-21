@@ -17,7 +17,7 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
     const configurationLayer = map.layers.find((layer) => layer.name === "configuration");
 
     if (configurationLayer) {
-        // Controlls the configuration panel triggered from the menu
+        // Controls the configuration panel triggered from the menu
         const properties = new Properties(configurationLayer.properties);
         const tag = properties.getString("tag");
         if (!tag || WA.player.tags.includes(tag)) {
@@ -26,7 +26,7 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
             });
         }
 
-        // Controlls the configuration panel triggered from a zone
+        // Controls the configuration panel triggered from a zone
         for (const layer of layersMap.values()) {
             const properties = new Properties(layer.properties);
             const openConfigVariables = properties.getString("openConfig");
