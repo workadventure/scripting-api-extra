@@ -10,25 +10,49 @@ export async function initPropertiesTemplates(): Promise<void> {
             if (property.type === "int" || property.type === "bool" || property.type === "object") {
                 continue;
             }
+
             const template = new TemplateValue(property.value, WA.state);
             if (template.isPureString()) {
                 continue;
             }
             const newValue = template.getValue();
-            setProperty(layerName, property.name, newValue);
+            setLayerProperty(layerName, property.name, newValue);
 
             template.onChange((newValue) => {
-                setProperty(layerName, property.name, newValue);
+                setLayerProperty(layerName, property.name, newValue);
             });
+        }
+
+        // Parse the URL of the integrated websites (for example if mustache is used)
+        // Here we want to select the Tiled object layers with the type 'website' and the property 'url'
+        if (layer.type === "objectgroup") {
+            for (const object of layer.objects) {
+                if (object.type === "website") {
+                    for (const property of object.properties) {
+                        if (property.name === "url") {
+                            const template = new TemplateValue(property.value, WA.state);
+                            if (template.isPureString()) {
+                                continue;
+                            }
+                            const newValue = template.getValue();
+                            await setWebsiteProperty(object.name, newValue);
+
+                            template.onChange((newValue) => {
+                                setWebsiteProperty(object.name, newValue);
+                            });
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 /**
- * Sets the property value on the map.
+ * Sets the property value of a layer on the map.
  * Furthermore, if the property name is "visible", modify the visibility of the layer.
  */
-function setProperty(layerName: string, propertyName: string, value: string): void {
+function setLayerProperty(layerName: string, propertyName: string, value: string): void {
     WA.room.setProperty(layerName, propertyName, value);
     if (propertyName === "visible") {
         if (value) {
@@ -37,4 +61,12 @@ function setProperty(layerName: string, propertyName: string, value: string): vo
             WA.room.hideLayer(layerName);
         }
     }
+}
+
+/**
+ * Sets the property value of an object of type 'website' on the map.
+ */
+async function setWebsiteProperty(objectName: string, value: string): Promise<void> {
+    const website = await WA.room.website.get(objectName);
+    website.url = value;
 }

@@ -13,6 +13,12 @@
 
     const stringVariableStore = variableStore as Writable<string>;
     const boolVariableStore = variableStore as Writable<boolean>;
+    let error: string;
+
+    let container: HTMLElement;
+    let input: HTMLInputElement;
+    let image: HTMLImageElement;
+    let showImage = false;
 
     function getAllowedValues() {
         const allowedValuesStr = variable.properties.mustGetString('allowed_values');
@@ -21,6 +27,45 @@
 
     function onChange(event: Event) {
         $variableStore = (event.target as HTMLInputElement).value;
+    }
+
+    function onUpload(event: Event) {
+        const files = (event.target as HTMLInputElement).files;
+        const file = files ? files[0] : null;
+        error = '';
+
+        if (file) {
+            showImage = true;
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                if (typeof reader.result === "string") {
+                    image.setAttribute("src", reader.result);
+                    image.style.maxWidth = "128px";
+                    image.style.maxHeight = "64px";
+
+                    fetch('http://workadventure.localhost/api/upload-file', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({dataUrl: reader.result})
+                    }).then((response) => {
+                        if(response.ok) {
+                            console.log('SUCCESS',response)
+                            // TODO: replace old logo URL by new
+                        } else {
+                            error = 'An error occurred. Please try later.'
+                            console.log('ERROR',response)
+                        }
+                    });
+                }
+            };
+            reader.readAsDataURL(file);
+            return;
+        }
+        showImage = false;
     }
 </script>
 
@@ -49,6 +94,26 @@
                 </label>
             {/each}
     </div>
+{:else if type === 'upload' }
+    <div class="nes-field field">
+        <span>{label}</span>
+        <div class="field">
+            <input type="file" accept="image/*"
+                   name={variable.name}
+                   id="upload_{variable.name}"
+                   bind:this={input}
+                   on:change={onUpload}
+                   class="nes-btn">
+
+            <div bind:this={container} class="image-preview">
+                {#if showImage}
+                    <img bind:this={image} src="" alt="Preview" />
+                {:else}
+                    <span>/</span>
+                {/if}
+            </div>
+        </div>
+    </div>
 {:else}
     <div class="nes-field field">
         <label for="input_{variable.name}">{label}</label>
@@ -59,6 +124,9 @@
 <div class="description">{ description }</div>
 {/if}
 
+{#if error }
+<div class="error">{ error }</div>
+{/if}
 
 <style lang="scss">
     .field {
@@ -69,5 +137,22 @@
         margin-top: -25px;
         color: #777;
         margin-bottom: 30px;
+    }
+
+    .error {
+        margin-top: 25px;
+        color: #cb2525;
+    }
+
+    .image-preview {
+        width: 128px;
+        min-height: 64px;
+        border: 2px solid #ddd;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #ccc;
     }
 </style>
