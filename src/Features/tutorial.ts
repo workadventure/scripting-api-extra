@@ -1,10 +1,8 @@
 export function initTutorial(): void {
     WA.onInit().then(() => {
-        //@ts-ignore
         const tutorialDone = WA.player.state.tutorialDone;
         if (!tutorialDone) {
             openTutorial();
-            //@ts-ignore
             WA.player.state.tutorialDone = true;
         }
     });
@@ -43,6 +41,6 @@ export function openTutorial(): void {
 }
 
 export function replay(): void {
-    WA.room.website.delete('tutorial');
+    WA.room.website.delete("tutorial");
     openTutorial();
 }
