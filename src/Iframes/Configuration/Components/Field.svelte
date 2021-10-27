@@ -19,6 +19,7 @@
     let input: HTMLInputElement;
     let image: HTMLImageElement;
     let showImage = false;
+    const formData = new FormData()
 
     function getAllowedValues() {
         const allowedValuesStr = variable.properties.mustGetString('allowed_values');
@@ -36,36 +37,35 @@
 
         if (file) {
             showImage = true;
-
             const reader = new FileReader();
             reader.onload = () => {
                 if (typeof reader.result === "string") {
+                    formData.append('file', file)
                     image.setAttribute("src", reader.result);
+                    // Just for the rendering, doesn't touch the actual file
                     image.style.maxWidth = "128px";
                     image.style.maxHeight = "64px";
-
-                    fetch('http://workadventure.localhost/api/upload-file', {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({dataUrl: reader.result})
-                    }).then((response) => {
-                        if(response.ok) {
-                            console.log('SUCCESS',response)
-                            // TODO: replace old logo URL by new
-                        } else {
-                            error = 'An error occurred. Please try later.'
-                            console.log('ERROR',response)
-                        }
-                    });
                 }
             };
             reader.readAsDataURL(file);
             return;
         }
         showImage = false;
+    }
+
+    function uploadFile() {
+        error = '';
+
+        fetch('https://some-api-for-the-upload', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                $variableStore = data.url;
+            }).catch(e => {
+            error = 'An error occurred. Please try later.'
+            throw new Error(e)
+        })
     }
 </script>
 
@@ -95,7 +95,7 @@
             {/each}
     </div>
 {:else if type === 'upload' }
-    <div class="nes-field field">
+    <div class="nes-field field upload">
         <span>{label}</span>
         <div class="field">
             <input type="file" accept="image/*"
@@ -105,12 +105,16 @@
                    on:change={onUpload}
                    class="nes-btn">
 
-            <div bind:this={container} class="image-preview">
-                {#if showImage}
-                    <img bind:this={image} src="" alt="Preview" />
-                {:else}
-                    <span>/</span>
-                {/if}
+            <div>
+                <div bind:this={container} class="image-preview">
+                    {#if showImage}
+                        <img bind:this={image} src="" alt="Preview" />
+                    {:else}
+                        <span>/</span>
+                    {/if}
+                </div>
+
+                <button class="nes-btn is-primary upload-btn" on:click={uploadFile}>Upload & Replace</button>
             </div>
         </div>
     </div>
@@ -125,7 +129,7 @@
 {/if}
 
 {#if error }
-<div class="error">{ error }</div>
+<div class="error"><p>{ error }</p></div>
 {/if}
 
 <style lang="scss">
@@ -139,20 +143,33 @@
         margin-bottom: 30px;
     }
 
+    .upload {
+        height: 64px;
+
+        .image-preview {
+            width: 128px;
+            min-height: 64px;
+            border: 2px solid #ddd;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ccc;
+            float: left;
+        }
+
+        .upload-btn {
+            float: left;
+            display: flex;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+    }
+
     .error {
         margin-top: 25px;
         color: #cb2525;
-    }
-
-    .image-preview {
-        width: 128px;
-        min-height: 64px;
-        border: 2px solid #ddd;
-        margin-top: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: #ccc;
+        display: inline-block;
     }
 </style>
