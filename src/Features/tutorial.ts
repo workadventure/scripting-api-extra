@@ -1,3 +1,5 @@
+import type { ITiledMap } from "@workadventure/tiled-map-type-guard/dist";
+
 export function initTutorial(): void {
     WA.onInit().then(() => {
         //@ts-ignore
@@ -14,68 +16,25 @@ export function initTutorial(): void {
 }
 
 export function openTutorial(position: Position): void {
-    //TODO: check that the iframe is inside boundaries when based on player position. Else, get it back within limits
+    //Displaying the iFrame differently depending on the device
     if (/Mobi|Android/i.test(navigator.userAgent)) {
-        // Creates tutorial iFrame for mobile devices
-        const frameWidth = 375;
-        const frameHeight = 600;
-        WA.room.website.create({
-            name: "tutorial",
-            url: "/tutorial.html",
-            position: {
-                x: position.x - frameWidth / 2,
-                y: position.y + 64,
-                width: frameWidth,
-                height: screen.height,
-            },
-            visible: true,
-            allowApi: true,
+        WA.room.getTiledMap().then((currentMap) => {
+            processIframeConfig({
+                map: currentMap,
+                height: 630,
+                width: 375,
+                margin: 20,
+                playerPosition: position,
+            });
         });
     } else {
-        //TODO: place it elsewhere
         WA.room.getTiledMap().then((currentMap) => {
-            console.log(currentMap);
-            // Setup for iframe coordinates calculations
-            const frameWidth: number = 600;
-
-            const frameHeight: number = 450;
-
-            const margin: number = 10;
-
-            let frameLeft = position.x - frameWidth / 2;
-            let frameTop: number = position.y + currentMap.tileheight;
-            let frameRight: number = frameLeft + frameWidth;
-            let frameBottom: number = frameTop + frameHeight;
-
-            //Correct starting x position if the iFrame crosses the map's left limit
-            if (frameLeft < 0) {
-                frameLeft = margin;
-            }
-
-            //Correct starting x position if the iFrame crosses the map's right limit
-            if (frameRight > currentMap.width * currentMap.tilewidth) {
-                const overflow = frameRight - currentMap.width * currentMap.tilewidth;
-                frameLeft = frameLeft - overflow - margin;
-            }
-
-            //Correct starting y position if the iFrame crosses the map's bottom limit
-            if (frameBottom > currentMap.height * currentMap.tileheight){
-                const overflow = frameBottom - currentMap.height * currentMap.tileheight;
-                frameTop = frameTop - overflow - margin;
-            }
-
-            // Create tutorial iFrame for web desktop
-            WA.room.website.create({
-                name: "tutorial",
-                url: "/tutorial.html",
-                position: {
-                    x: frameLeft,
-                    y: frameTop,
-                    width: frameWidth,
-                    height: frameHeight,
-                },
-                visible: true,
-                allowApi: true,
+            processIframeConfig({
+                map: currentMap,
+                height: 430,
+                width: 600,
+                margin: 20,
+                playerPosition: position,
             });
         });
     }
@@ -83,14 +42,70 @@ export function openTutorial(position: Position): void {
 
 export function replay(): void {
     WA.room.website.delete("tutorial");
-    //TODO: use CURRENT position of the player
     //@ts-ignore
     WA.player.getPosition().then((position) => {
         openTutorial(position);
     });
 }
 
+function processIframeConfig(config: IframeConfigInput): void {
+    if (
+        !config.map.height ||
+        !config.map.tileheight ||
+        !config.map.width ||
+        !config.map.tilewidth
+    ) {
+        throw new Error(
+            "Unable to process map size. Height, tileheight, width and tilewidth should be defined.",
+        );
+    }
+
+    let frameLeft = config.playerPosition.x - config.width / 2;
+    let frameTop: number = config.playerPosition.y + config.map.tileheight;
+    let frameRight: number = frameLeft + config.width;
+    let frameBottom: number = frameTop + config.height;
+523
+    //Correcting starting x position if the iFrame crosses the map's left limit
+    if (frameLeft < 0) {
+        frameLeft = config.margin;
+    }
+
+    //Correcting starting x position if the iFrame crosses the map's right limit
+    if (frameRight > config.map.width * config.map.tilewidth) {
+        const overflow = frameRight - config.map.width * config.map.tilewidth;
+        frameLeft = frameLeft - overflow - config.margin;
+    }
+
+    //Correcting starting y position if the iFrame crosses the map's bottom limit
+    if (frameBottom > config.map.height * config.map.tileheight) {
+        const overflow = frameBottom - config.map.height * config.map.tileheight;
+        frameTop = frameTop - overflow - config.margin - config.map.tileheight; //let's add a space the size of a tile in order not to hide the player
+    }
+
+    // Creating the iFrame
+    WA.room.website.create({
+        name: "tutorial",
+        url: "/tutorial.html",
+        position: {
+            x: frameLeft,
+            y: frameTop,
+            width: config.width,
+            height: config.height,
+        },
+        visible: true,
+        allowApi: true,
+    });
+}
+
 type Position = {
     x: number;
     y: number;
+};
+
+type IframeConfigInput = {
+    playerPosition: Position;
+    width: number;
+    height: number;
+    margin: number;
+    map: ITiledMap;
 };
