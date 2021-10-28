@@ -5,7 +5,7 @@ export function initTutorial(): void {
         //@ts-ignore
         const tutorialDone = WA.player.state.tutorialDone;
         if (!tutorialDone) {
-            //@ts-ignore
+            //@ts-ignore-
             WA.player.getPosition().then((position: Position) => {
                 openTutorial(position);
                 //@ts-ignore
@@ -64,7 +64,7 @@ function processIframeConfig(config: IframeConfigInput): void {
     let frameTop: number = config.playerPosition.y + config.map.tileheight;
     let frameRight: number = frameLeft + config.width;
     let frameBottom: number = frameTop + config.height;
-523
+
     //Correcting starting x position if the iFrame crosses the map's left limit
     if (frameLeft < 0) {
         frameLeft = config.margin;
