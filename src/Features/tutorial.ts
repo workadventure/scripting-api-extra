@@ -37,10 +37,8 @@ export function openTutorial(position: Position): void {
             console.log(currentMap);
             // Setup for iframe coordinates calculations
             const frameWidth: number = 600;
-            const frameWidthAsTiles: number = frameWidth / currentMap.tilewidth;
 
             const frameHeight: number = 450;
-            const frameHeightAsTiles: number = frameHeight / currentMap.tileheight;
 
             const margin: number = 10;
 
@@ -54,12 +52,16 @@ export function openTutorial(position: Position): void {
                 frameLeft = margin;
             }
 
-            //Correct ending x position if the iFram crosses the map's right limit
-            console.log("flag mapwidth px", currentMap.width * currentMap.tilewidth);
-            console.log("flag frame rightx", frameRight);
+            //Correct starting x position if the iFrame crosses the map's right limit
             if (frameRight > currentMap.width * currentMap.tilewidth) {
                 const overflow = frameRight - currentMap.width * currentMap.tilewidth;
                 frameLeft = frameLeft - overflow - margin;
+            }
+
+            //Correct starting y position if the iFrame crosses the map's bottom limit
+            if (frameBottom > currentMap.height * currentMap.tileheight){
+                const overflow = frameBottom - currentMap.height * currentMap.tileheight;
+                frameTop = frameTop - overflow - margin;
             }
 
             // Create tutorial iFrame for web desktop
