@@ -117,7 +117,7 @@
     display: flex;
 }
 
-/*iFrame is the reference for width*/
+/*Note: the iFrame is the reference for width, not the page*/
 @media (min-width: 600px) {
     .video {
         width: 100%;

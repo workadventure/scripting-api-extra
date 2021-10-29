@@ -1,15 +1,13 @@
 import type { ITiledMap } from "@workadventure/tiled-map-type-guard/dist";
+import type { Position } from "../../../workadventure/front/src/Api/iframe/player";
 
 export function initTutorial(): void {
     WA.onInit().then(() => {
-        //@ts-ignore
         const tutorialDone = WA.player.state.tutorialDone;
         if (!tutorialDone) {
-            //@ts-ignore-
             WA.player.getPosition().then((position: Position) => {
                 openTutorial(position);
-                //@ts-ignore
-                //WA.player.state.tutorialDone = true;
+                WA.player.state.tutorialDone = true;
             });
         }
     });
@@ -40,14 +38,6 @@ export function openTutorial(position: Position): void {
     }
 }
 
-export function replay(): void {
-    WA.room.website.delete("tutorial");
-    //@ts-ignore
-    WA.player.getPosition().then((position) => {
-        openTutorial(position);
-    });
-}
-
 function processIframeConfig(config: IframeConfigInput): void {
     if (
         !config.map.height ||
@@ -62,8 +52,8 @@ function processIframeConfig(config: IframeConfigInput): void {
 
     let frameLeft = config.playerPosition.x - config.width / 2;
     let frameTop: number = config.playerPosition.y + config.map.tileheight;
-    let frameRight: number = frameLeft + config.width;
-    let frameBottom: number = frameTop + config.height;
+    const frameRight: number = frameLeft + config.width;
+    const frameBottom: number = frameTop + config.height;
 
     //Correcting starting x position if the iFrame crosses the map's left limit
     if (frameLeft < 0) {
@@ -96,11 +86,6 @@ function processIframeConfig(config: IframeConfigInput): void {
         allowApi: true,
     });
 }
-
-type Position = {
-    x: number;
-    y: number;
-};
 
 type IframeConfigInput = {
     playerPosition: Position;

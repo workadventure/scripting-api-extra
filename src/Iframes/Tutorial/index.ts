@@ -1,5 +1,4 @@
 import "./style/style.scss";
-import { replay } from "../../Features/tutorial";
 
 document.addEventListener("DOMContentLoaded", () => {
     let currentStep: number | "end" = 1;
@@ -18,10 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeClickableBtns("skip-btn", () => {
         currentStep = "end";
         WA.room.website.delete("tutorial");
-    });
-
-    initializeClickableBtns("redo-btn", () => {
-        replay();
     });
 
     //STEP 1 - does not use a button in order to be completed
