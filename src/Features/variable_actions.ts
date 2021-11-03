@@ -31,18 +31,18 @@ function setupVariableActionLayer(
     }
 
     if (enterValue !== undefined) {
-        WA.room.onEnterZone(zone, () => {
+        WA.room.onEnterLayer(zone).subscribe(() => {
             if (triggerMessage) {
                 // TODO WHEN WA.ui.displayMessage is merged!
                 //WA.ui.
             } else {
                 WA.state[variableName] = enterValue;
             }
-        });
+        })
     }
     if (leaveValue !== undefined) {
-        WA.room.onLeaveZone(zone, () => {
+        WA.room.onLeaveLayer(zone).subscribe(() => {
             WA.state[variableName] = leaveValue;
-        });
+        })
     }
 }

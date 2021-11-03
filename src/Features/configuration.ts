@@ -67,7 +67,7 @@ function initConfigurationPanel(openConfigVariables: string, properties: Propert
         WA.nav.closeCoWebSite();
     }
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(zoneName).subscribe(() => {
         const openConfigTriggerValue = properties.getString("openConfigTrigger");
 
         // Do not display conf panel if the user is not allowed by tag
@@ -78,16 +78,16 @@ function initConfigurationPanel(openConfigVariables: string, properties: Propert
                 openConfigurationPanel(openConfigVariables);
             }
         }
-    });
+    })
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(zoneName).subscribe(() => {
         if (actionMessage) {
             actionMessage.remove();
             closeConfigurationPanel();
         } else {
             closeConfigurationPanel();
         }
-    });
+    })
 }
 
 /**
