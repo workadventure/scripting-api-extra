@@ -78,7 +78,7 @@ function initConfigurationPanel(openConfigVariables: string, properties: Propert
                 openConfigurationPanel(openConfigVariables);
             }
         }
-    });
+    })
 
     WA.room.onLeaveLayer(zoneName).subscribe(() => {
         if (actionMessage) {
@@ -87,7 +87,7 @@ function initConfigurationPanel(openConfigVariables: string, properties: Propert
         } else {
             closeConfigurationPanel();
         }
-    });
+    })
 }
 
 /**
