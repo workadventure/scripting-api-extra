@@ -31,13 +31,13 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
             const properties = new Properties(layer.properties);
             const openConfigVariables = properties.getString("openConfig");
             if (openConfigVariables && layer.type === "tilelayer") {
-                initConfigurationPanel(openConfigVariables, properties);
+                initLocalConfigurationPanel(openConfigVariables, properties);
             }
         }
     }
 }
 
-function initConfigurationPanel(openConfigVariables: string, properties: Properties): void {
+function initLocalConfigurationPanel(openConfigVariables: string, properties: Properties): void {
     let actionMessage: ActionMessage | undefined = undefined;
 
     const zoneName = properties.getString("zone");
