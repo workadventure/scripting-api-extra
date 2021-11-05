@@ -56,7 +56,7 @@
     function uploadFile() {
         error = '';
 
-        fetch('https://some-api-for-the-upload', {
+        fetch('http://workadventure.localhost/api/upload-file', {
             method: 'POST',
             body: formData
         }).then(response => response.json())
