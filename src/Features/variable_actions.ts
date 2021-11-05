@@ -38,11 +38,11 @@ function setupVariableActionLayer(
             } else {
                 WA.state[variableName] = enterValue;
             }
-        })
+        });
     }
     if (leaveValue !== undefined) {
         WA.room.onLeaveLayer(zone).subscribe(() => {
             WA.state[variableName] = leaveValue;
-        })
+        });
     }
 }
