@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/workadventure/scripting-api-extra/compare/v1.0.5...v1.1.0) (2021-11-05)
+
+
+### Features
+
+* **configuration:** Added local configuration panel ([b67b5c9](https://github.com/workadventure/scripting-api-extra/commit/b67b5c90ed4cbcf6d075c391f901e5f79f8a9fa4))
+
 ## [1.0.5](https://github.com/workadventure/scripting-api-extra/compare/v1.0.4...v1.0.5) (2021-09-22)
 
 
