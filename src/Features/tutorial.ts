@@ -1,18 +1,53 @@
-import type { ITiledMap } from "@workadventure/tiled-map-type-guard/dist";
-import type { Position } from "../../../workadventure/front/src/Api/iframe/player";
-
 export function initTutorial(): void {
     WA.onInit().then(() => {
-        const tutorialDone = WA.player.state.tutorialDone;
+        //const tutorialDone = WA.player.state.tutorialDone;
+        const tutorialDone = false;
         if (!tutorialDone) {
-            WA.player.getPosition().then((position: Position) => {
-                openTutorial(position);
-                WA.player.state.tutorialDone = true;
-            });
+            openTutorial();
+            WA.player.state.tutorialDone = true;
         }
     });
 }
 
+export function openTutorial(): void {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        WA.room.website.create({
+            allow: "",
+            name: "tutorial",
+            url: "/tutorial.html",
+            position: {
+                x: 50,
+                y: 50,
+                height: 630,
+                width: 375,
+            },
+            visible: true,
+            allowApi: true,
+            origin: "player",
+            scale: 0.5,
+        });
+        console.log("FLAG", WA.room.website.get("tutorial"));
+    } else {
+        WA.room.website.create({
+            allow: "",
+            name: "tutorial",
+            url: "/tutorial.html",
+            position: {
+                x: 107,
+                y: 107,
+                height: 430,
+                width: 600,
+            },
+            visible: true,
+            allowApi: true,
+            origin: "player",
+            scale: 0.25,
+        });
+        console.log("FLAG", WA.room.website.get("tutorial"));
+    }
+}
+
+/*
 export function openTutorial(position: Position): void {
     //Displaying the iFrame differently depending on the device
     if (/Mobi|Android/i.test(navigator.userAgent)) {
@@ -94,3 +129,4 @@ type IframeConfigInput = {
     margin: number;
     map: ITiledMap;
 };
+*/
