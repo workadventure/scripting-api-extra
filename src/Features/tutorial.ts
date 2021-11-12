@@ -18,7 +18,7 @@ export function openTutorial(): void {
             position: {
                 x: 50,
                 y: 50,
-                height: 630,
+                height: 700,
                 width: 375,
             },
             visible: true,
@@ -33,15 +33,15 @@ export function openTutorial(): void {
             name: "tutorial",
             url: "/tutorial.html",
             position: {
-                x: 107,
-                y: 107,
-                height: 430,
+                x: 200,
+                y: -32,
+                height: 470,
                 width: 600,
             },
             visible: true,
             allowApi: true,
             origin: "player",
-            scale: 0.25,
+            scale: 0.5,
         });
         console.log("FLAG", WA.room.website.get("tutorial"));
     }

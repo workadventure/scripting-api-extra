@@ -2,6 +2,7 @@
 @import "~nes.css/css/nes.css";
 
 /*GENERAL STYLING*/
+
 .tutorial-body {
     background-color: transparent;
     z-index: 1;
@@ -14,9 +15,12 @@
 /* COMPANION RELATED STYLING*/
 .companion {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: end;
+    margin-right: 25px;
     margin-bottom: 15px;
+    align-self: flex-end;
+    width: 20%;
 }
 
 .companion-gif {
@@ -26,8 +30,13 @@
 
 .name {
     font-size: 14px;
-    font-style: oblique;
-    color: rgb(20, 48, 76);
+    color: #f6f6f6;
+    margin-bottom: -15px;
+}
+
+.tutorial-row{
+    display: flex;
+    flex-direction: row;
 }
 
 /*DIALOG RELATED STYLING*/
@@ -50,11 +59,20 @@
     flex: 1 1 0;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 11px;
+}
+
+.companion-dialog {
+    margin-bottom: 90px;
 }
 
 .dialog-box > p {
     margin: 0;
+}
+
+.dialog-area {
+    display: flex;
+    flex-direction: column;
 }
 
 .text-blue {
