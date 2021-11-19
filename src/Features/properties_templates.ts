@@ -7,7 +7,12 @@ export async function initPropertiesTemplates(): Promise<void> {
     for (const [layerName, layer] of layers.entries()) {
         const properties = layer.properties ?? [];
         for (const property of properties) {
-            if (property.type === "int" || property.type === "bool" || property.type === "object") {
+            if (
+                property.type === "int" ||
+                property.type === "bool" ||
+                property.type === "object" ||
+                typeof property.value !== "string"
+            ) {
                 continue;
             }
             const template = new TemplateValue(property.value, WA.state);
