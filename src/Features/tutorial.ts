@@ -1,12 +1,57 @@
-export function initTutorial(): void {
-    WA.onInit().then(() => {
-        //const tutorialDone = WA.player.state.tutorialDone;
-        const tutorialDone = false;
-        if (!tutorialDone) {
-            openTutorial();
-            WA.player.state.tutorialDone = true;
-        }
-    });
+export async function initTutorial(): Promise<void> {
+    //const tutorialDone = WA.player.state.tutorialDone;
+    const tutorialDone = false; //TODO: delete and uncomment
+
+    if (!tutorialDone) {
+        openTutorial();
+
+        //On camera (worldView) movement, we want to make sure that the tutorial stays visible
+        let lastWorldView = {};
+
+        //TODO: fix type
+        WA.camera.onCameraMove(async (worldView: any) => {
+            if (worldView == lastWorldView) {
+                return;
+            }
+
+            const playerPosition = await WA.player.getPosition();
+            const tutorialIFrame = await WA.room.website.get("tutorial");
+
+            //Tutorial iFrame borders
+            const tutorialTop = playerPosition.y + tutorialIFrame.y;
+            const tutorialLeft = playerPosition.x + tutorialIFrame.x;
+            const tutorialRight = tutorialLeft + tutorialIFrame.width * tutorialIFrame.scale;
+            const tutorialBottom = tutorialTop + tutorialIFrame.height * tutorialIFrame.scale;
+
+            //Correcting x position if the iFrame crosses the worldView's left limit
+            if (tutorialLeft < worldView.x) {
+                const overflow = worldView.x - tutorialLeft;
+                tutorialIFrame.x = tutorialIFrame.x + overflow;
+            }
+
+            //Correcting x position if the iFrame crosses the worldView's right limit
+            const rightLimit = worldView.x + worldView.width;
+            if (tutorialRight > rightLimit) {
+                const overflow = tutorialRight - rightLimit;
+                tutorialIFrame.x = tutorialIFrame.x - overflow;
+            }
+
+            //Correcting y position if the iFrame crosses the worldView's top limit
+            if (tutorialTop < worldView.y) {
+                const overflow = worldView.y - tutorialTop;
+                tutorialIFrame.y = tutorialIFrame.y + overflow;
+            }
+
+            //Correcting y position if the iFrame crosses the worldView's bottom limit
+            const bottomLimit = worldView.y + worldView.height;
+            if (tutorialBottom > bottomLimit) {
+                const overflow = tutorialBottom - bottomLimit;
+                tutorialIFrame.y = tutorialIFrame.y - overflow;
+            }
+        });
+
+        WA.player.state.tutorialDone = true;
+    }
 }
 
 export function openTutorial(): void {
@@ -16,17 +61,16 @@ export function openTutorial(): void {
             name: "tutorial",
             url: "/tutorial.html",
             position: {
-                x: 50,
-                y: 50,
+                x: 150,
+                y: -40,
                 height: 700,
                 width: 375,
             },
             visible: true,
             allowApi: true,
             origin: "player",
-            scale: 0.5,
+            scale: 0.7,
         });
-        console.log("FLAG", WA.room.website.get("tutorial"));
     } else {
         WA.room.website.create({
             allow: "",
@@ -43,90 +87,5 @@ export function openTutorial(): void {
             origin: "player",
             scale: 0.5,
         });
-        console.log("FLAG", WA.room.website.get("tutorial"));
     }
 }
-
-/*
-export function openTutorial(position: Position): void {
-    //Displaying the iFrame differently depending on the device
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-        WA.room.getTiledMap().then((currentMap) => {
-            processIframeConfig({
-                map: currentMap,
-                height: 630,
-                width: 375,
-                margin: 20,
-                playerPosition: position,
-            });
-        });
-    } else {
-        WA.room.getTiledMap().then((currentMap) => {
-            processIframeConfig({
-                map: currentMap,
-                height: 430,
-                width: 600,
-                margin: 20,
-                playerPosition: position,
-            });
-        });
-    }
-}
-
-function processIframeConfig(config: IframeConfigInput): void {
-    if (
-        !config.map.height ||
-        !config.map.tileheight ||
-        !config.map.width ||
-        !config.map.tilewidth
-    ) {
-        throw new Error(
-            "Unable to process map size. Height, tileheight, width and tilewidth should be defined.",
-        );
-    }
-
-    let frameLeft = config.playerPosition.x - config.width / 2;
-    let frameTop: number = config.playerPosition.y + config.map.tileheight;
-    const frameRight: number = frameLeft + config.width;
-    const frameBottom: number = frameTop + config.height;
-
-    //Correcting starting x position if the iFrame crosses the map's left limit
-    if (frameLeft < 0) {
-        frameLeft = config.margin;
-    }
-
-    //Correcting starting x position if the iFrame crosses the map's right limit
-    if (frameRight > config.map.width * config.map.tilewidth) {
-        const overflow = frameRight - config.map.width * config.map.tilewidth;
-        frameLeft = frameLeft - overflow - config.margin;
-    }
-
-    //Correcting starting y position if the iFrame crosses the map's bottom limit
-    if (frameBottom > config.map.height * config.map.tileheight) {
-        const overflow = frameBottom - config.map.height * config.map.tileheight;
-        frameTop = frameTop - overflow - config.margin - config.map.tileheight; //let's add a space the size of a tile in order not to hide the player
-    }
-
-    // Creating the iFrame
-    WA.room.website.create({
-        name: "tutorial",
-        url: "/tutorial.html",
-        position: {
-            x: frameLeft,
-            y: frameTop,
-            width: config.width,
-            height: config.height,
-        },
-        visible: true,
-        allowApi: true,
-    });
-}
-
-type IframeConfigInput = {
-    playerPosition: Position;
-    width: number;
-    height: number;
-    margin: number;
-    map: ITiledMap;
-};
-*/
