@@ -1,7 +1,9 @@
 <script lang="ts">
     import type {VariableDescriptor} from "../../../VariablesExtra";
     import {createStoreFromVariable} from "../../../VariableMapper";
+    import {prepareUpload, uploadFile} from "../../../Uploader";
     import type {Writable} from "svelte/store";
+    import {formStore} from "../Stores/form";
 
     export let variable: VariableDescriptor;
 
@@ -13,13 +15,9 @@
 
     const stringVariableStore = variableStore as Writable<string>;
     const boolVariableStore = variableStore as Writable<boolean>;
-    let error: string;
 
     let container: HTMLElement;
-    let input: HTMLInputElement;
-    let image: HTMLImageElement;
-    let showImage = false;
-    const formData = new FormData()
+    let fileInput: HTMLInputElement;
 
     function getAllowedValues() {
         const allowedValuesStr = variable.properties.mustGetString('allowed_values');
@@ -27,45 +25,15 @@
     }
 
     function onChange(event: Event) {
-        $variableStore = (event.target as HTMLInputElement).value;
-    }
-
-    function onUpload(event: Event) {
-        const files = (event.target as HTMLInputElement).files;
-        const file = files ? files[0] : null;
-        error = '';
-
-        if (file) {
-            showImage = true;
-            const reader = new FileReader();
-            reader.onload = () => {
-                if (typeof reader.result === "string") {
-                    formData.append('file', file)
-                    image.setAttribute("src", reader.result);
-                    // Just for the rendering, doesn't touch the actual file
-                    image.style.maxWidth = "128px";
-                    image.style.maxHeight = "64px";
-                }
-            };
-            reader.readAsDataURL(file);
-            return;
+        if (type === 'upload') {
+            prepareUpload(event, variable)
+        } else {
+            $variableStore = (event.target as HTMLInputElement).value;
         }
-        showImage = false;
     }
 
-    function uploadFile() {
-        error = '';
-
-        fetch('http://workadventure.localhost/api/upload-file', {
-            method: 'POST',
-            body: formData
-        }).then(response => response.json())
-            .then(data => {
-                $variableStore = data.url;
-            }).catch(e => {
-            error = 'An error occurred. Please try later.'
-            throw new Error(e)
-        })
+    async function onUpload() {
+        $variableStore = await uploadFile()
     }
 </script>
 
@@ -101,20 +69,20 @@
             <input type="file" accept="image/*"
                    name={variable.name}
                    id="upload_{variable.name}"
-                   bind:this={input}
-                   on:change={onUpload}
+                   bind:this={fileInput}
+                   on:change={onChange}
                    class="nes-btn">
 
             <div>
                 <div bind:this={container} class="image-preview">
-                    {#if showImage}
-                        <img bind:this={image} src="" alt="Preview" />
+                    {#if $formStore.showImage}
+                        <img bind:this={$formStore.image} src="" alt="Preview" />
                     {:else}
                         <span>/</span>
                     {/if}
                 </div>
 
-                <button class="nes-btn is-primary upload-btn" on:click={uploadFile}>Upload & Replace</button>
+                <button class="nes-btn is-primary upload-btn" on:click={onUpload}>Upload & Replace</button>
             </div>
         </div>
     </div>
@@ -128,8 +96,8 @@
 <div class="description">{ description }</div>
 {/if}
 
-{#if error }
-<div class="error"><p>{ error }</p></div>
+{#if $formStore.error }
+<div class="error"><p>{ $formStore.error }</p></div>
 {/if}
 
 <style lang="scss">
@@ -144,11 +112,13 @@
     }
 
     .upload {
-        height: 64px;
+        height: 128px;
 
         .image-preview {
-            width: 128px;
-            min-height: 64px;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: crisp-edges;
+            width: 256px;
+            min-height: 128px;
             border: 2px solid #ddd;
             margin-top: 15px;
             display: flex;
@@ -156,14 +126,11 @@
             justify-content: center;
             font-weight: bold;
             color: #ccc;
-            float: left;
         }
 
         .upload-btn {
-            float: left;
             display: flex;
             margin-top: 20px;
-            margin-left: 20px;
         }
     }
 

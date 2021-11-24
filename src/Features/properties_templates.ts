@@ -25,6 +25,7 @@ export async function initPropertiesTemplates(): Promise<void> {
 
         // Parse the URL of the integrated websites (for example if mustache is used)
         // Here we want to select the Tiled object layers with the type 'website' and the property 'url'
+        let promises = []
         if (layer.type === "objectgroup") {
             for (const object of layer.objects) {
                 if (object.type === "website") {
@@ -35,7 +36,7 @@ export async function initPropertiesTemplates(): Promise<void> {
                                 continue;
                             }
                             const newValue = template.getValue();
-                            await setWebsiteProperty(object.name, newValue);
+                            promises.push(setWebsiteProperty(object.name, newValue));
 
                             template.onChange((newValue) => {
                                 setWebsiteProperty(object.name, newValue);
@@ -45,6 +46,7 @@ export async function initPropertiesTemplates(): Promise<void> {
                 }
             }
         }
+        await Promise.all(promises);
     }
 }
 

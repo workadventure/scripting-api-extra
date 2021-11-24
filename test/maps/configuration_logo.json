@@ -164,6 +164,16 @@
                          "value":""
                         }, 
                         {
+                         "name":"imageHeight",
+                         "type":"string",
+                         "value":"32"
+                        }, 
+                        {
+                         "name":"imageWidth",
+                         "type":"string",
+                         "value":"32"
+                        }, 
+                        {
                          "name":"label",
                          "type":"string",
                          "value":"Select your logo"
