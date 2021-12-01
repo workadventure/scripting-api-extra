@@ -1,3 +1,5 @@
+/// <reference path="../node_modules/@workadventure/iframe-api-typings/iframe_api.d.ts" />
+
 import {defaultApiUrl} from "./Features/default_api_url";
 import { formStore } from "./Iframes/Configuration/Stores/form"
 import type {VariableDescriptor} from "./VariablesExtra";
@@ -21,7 +23,7 @@ export function prepareUpload(event: Event, variable: VariableDescriptor) {
         reader.onload = () => {
             if (typeof reader.result === "string") {
                 formStore.setFormDataFile(file)
-                formStore.setFormDataProperty('id', WA.room.id + '__'+ variable.name)
+                formStore.setFormDataProperty('identifier', variable.name)
                 if (variable.properties.getString('imageWidth')) {
                     const width = variable.properties.mustGetString('imageWidth')
                     // Just for the rendering, doesn't resize the actual file
@@ -49,11 +51,15 @@ export function prepareUpload(event: Event, variable: VariableDescriptor) {
  * Performs the upload and update the url variable
  */
 export async function uploadFile(): Promise<string> {
+    const token = WA.player.userRoomToken
     formStore.clearError()
-    //!\ if you are self-hosting WA, this API must be added from your side
+    //!\ if you are self-hosting WA, this API must be added by your side
     const response = await fetch(defaultApiUrl + '/upload-file', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
     }).catch(e => {
         formStore.setError('Upload error. Please contact the support.')
         throw new Error(e)
