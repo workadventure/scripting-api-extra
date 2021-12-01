@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/workadventure/scripting-api-extra/compare/v1.1.0...v1.1.1) (2021-11-19)
+
+
+### Bug Fixes
+
+* **template:** Double properties cause template engine crash ([#92](https://github.com/workadventure/scripting-api-extra/issues/92)) ([700c276](https://github.com/workadventure/scripting-api-extra/commit/700c276ce19287fb229c448874a8a0d1ce079141))
+
 # [1.1.0](https://github.com/workadventure/scripting-api-extra/compare/v1.0.5...v1.1.0) (2021-11-05)
 
 
