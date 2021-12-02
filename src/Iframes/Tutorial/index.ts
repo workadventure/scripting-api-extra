@@ -55,4 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-export {};
+export { };

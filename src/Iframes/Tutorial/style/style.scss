@@ -12,164 +12,100 @@
     display: none;
 }
 
-/* COMPANION RELATED STYLING*/
-.companion {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-}
-
-.companion-gif {
-    width: 70px;
-    padding-right: 10px;
-}
-
-.name {
-    font-size: 14px;
-    color: #f6f6f6;
-    margin-bottom: -15px;
-}
-
-.tutorial-direction{
+.tutorial-direction {
     display: flex;
     flex-direction: column-reverse;
+
+    .hidden {
+        display: none;
+    }
 }
 
-/*DIALOG RELATED STYLING*/
+.tutorial-direction-inverted {
+    display: flex;
+    flex-direction: column;
+}
 
-.dialog-box {
+/*COMPANION STYLING*/
+.companion-area {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+
+    h2 {
+        font-size: 13px;
+        color: #f6f6f6;
+        margin-bottom: -18px;
+    }
+
+    img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/*DIALOG STYLING*/
+.dialog-area {
     background-color: rgb(255, 255, 255, 0.9);
     color: rgb(33, 37, 41);
-    margin: 10px;
-}
-
-.user-input {
-    width: 100%;
+    font-size: 13px;
+    height: 380px;
+    padding-top: 60px;
     display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.user-dialog {
-    display: flex;
-    flex: 1 1 0;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    font-size: 11px;
-}
 
-.companion-dialog {
-    margin-bottom: 40px;
-}
+    img {
+        vertical-align: baseline;
+        width: 50px;
+        height: 50px;
+    }
 
-.dialog-box > p {
-    margin: 0;
-}
-
-.dialog-area {
-    display: flex;
-    flex-direction: column;
-}
-
-.text-blue {
-    color: rgb(54, 93, 255);
-}
-
-.small {
-    font-size: 10px;
-    /*Do better*/
-    margin-top: 10px !important;
-}
-
-/* images */
-.keyboard-img {
-    width: 95px;
-    vertical-align: baseline;
-}
-
-.com-img {
-    width: 15px;
-}
-
-#chat-icon {
-    width: 40px;
-    vertical-align: baseline;
-}
-
-
-/* RESPONSIVE RELATED RULES*/
-
-#mobile-ctrl {
-    width: 95%;
-    border-radius: 15px;
-    margin-bottom: 10px;
-}
-
-.mobile {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
-
-#mobile-text-container {
-    width: 95%;
-}
-
-#responsive-display {
-    display: flex;
-    flex-direction: column;
-}
-
-.video {
-    width: 85%;
-    display: flex;
-    border-radius: 15px;
-    margin-bottom: 15px;
-}
-
-.video-container {
-    width: 100%;
-    margin: auto;
-    justify-content: center;
-    display: flex;
-}
-
-/*Note: the iFrame is the reference for width, not the page*/
-@media (min-width: 600px) {
-    .video {
-        width: 70%;
+    .video-for-mobile {
+        width: 100%;
         display: flex;
         border-radius: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 35px;
     }
 
-    .video-container {
-        margin: auto;
-        justify-content: center;
-        display: flex;
-    }
-
-    #step-2-content {
-        display: flex;
-    }
-
-    .companion {
-        display: flex;
+    & .mobile {
         flex-direction: column;
-        align-items: end;
-        margin-right: 25px;
-        margin-bottom: 15px;
-        align-self: flex-end;
-        width: 20%;
     }
 
-    .tutorial-direction{
+    .btn {
+        margin: 8px;
         display: flex;
-        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
-    .companion-dialog {
-        margin-bottom: 90px;
+    .close-area {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -20px;
+        margin-right: -27px;
+        margin-bottom: 7px;
+
+        .skip-btn {
+            width: 32px;
+            height: 32px;
+            color: #FFF !important;
+            display: flex;
+            position: fixed;
+            top: 7px;
+            right: 7px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .next-area {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+
+        .btn {
+            position: fixed;
+            bottom: 76px;
+        }
     }
 }

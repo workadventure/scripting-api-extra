@@ -14,54 +14,70 @@ export async function initTutorial(): Promise<void> {
 
         const tutorialIFrame = await WA.room.website.get("tutorial");
 
-        const updateTutorialPosition = (): void => {
+        const updateTutorialPosition = (maxZoom: number): void => {
             if (camera === undefined) {
                 return;
             }
 
             const margin = 16;
 
-            const cameraRight = camera.x + camera.width;
-            const cameraBottom = camera.y + camera.height;
+            const rightBorderCrossed =
+                playerPosition.x + tutorialIFrame.x + tutorialIFrame.width >
+                camera.x + camera.width;
+            const leftBorderCrossed = playerPosition.x + tutorialIFrame.x < camera.x;
+            const topBorderCrossed =
+                playerPosition.y + tutorialIFrame.y + tutorialIFrame.height >
+                camera.y + camera.height;
+            const bottomBorderCrossed = playerPosition.y + tutorialIFrame.y < camera.y;
 
-            const playerRight = playerPosition.x + margin;
-            const playerLeft = playerPosition.x - margin;
-            const playerBottom = playerPosition.y + margin;
-            const playerTop = playerPosition.y - margin;
+            if (camera.zoom > maxZoom) {
+                console.log(camera.zoom);
+                // tutorialIFrame.visible = false;
+                // const message = WA.ui.displayActionMessage({
+                //     message: "You can zoom out to display the tutorial",
+                //     type: "warning",
+                //     callback: () => {
+                //         return;
+                //     },
+                // });
+                // setTimeout(() => {
+                //     message.remove();
+                //     WA.room.website.delete("tutorial");
+                // }, 10000);
+                // return;
+            } else {
+                tutorialIFrame.visible = true;
 
-            //Correcting x position if the iframe crosses the horizontal borders
-            console.log("FLAG WV : ", camera);
-            console.log("FLAG PLAYER: ", playerPosition);
-            if (tutorialIFrame.width > cameraRight - playerRight) {
-                tutorialIFrame.x = -tutorialIFrame.width - 2 * margin;
-            } else if (tutorialIFrame.width > camera.x - playerLeft) {
-                console.log(
-                    `tutorial width: ${tutorialIFrame.width} | camera.x : ${camera.x} | player Left : ${playerLeft}`,
-                );
-                tutorialIFrame.x = 2 * margin;
+                if (rightBorderCrossed) {
+                    tutorialIFrame.x = -tutorialIFrame.width - 2 * margin;
+                } else if (leftBorderCrossed) {
+                    tutorialIFrame.x = 2 * margin;
+                }
+
+                if (topBorderCrossed) {
+                    tutorialIFrame.y = -tutorialIFrame.height;
+                } else if (bottomBorderCrossed) {
+                    tutorialIFrame.y = margin;
+                }
             }
-            //
-            // //Correcting y position if the iframe crosses the vertical borders
-            // if (tutorialIFrame.height > cameraBottom - playerBottom) {
-            //     console.log("FLAG WV - Bottom: ", camera);
-            //     console.log("FLAG PLAYER - Bottom: ", playerPosition);
-            //     tutorialIFrame.y = -tutorialIFrame.height + 3 * margin;
-            // }
-            // if (tutorialIFrame.height > camera.y - playerTop) {
-            //     console.log("FLAG WV - Top: ", camera);
-            //     console.log("FLAG PLAYER - Top: ", playerPosition);
-            //     tutorialIFrame.y = 0;
-            // }
         };
 
         WA.player.onPlayerMove((position) => {
             playerPosition = position;
-            updateTutorialPosition();
+            let maxZoom = 1.5;
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                maxZoom = 0.65;
+            }
+            updateTutorialPosition(maxZoom);
         });
 
         WA.camera.onCameraUpdate(async (cameraPosition: any) => {
             camera = cameraPosition;
-            updateTutorialPosition();
+            let maxZoom = 1.5;
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                maxZoom = 0.65;
+            }
+            updateTutorialPosition(maxZoom);
         });
 
         WA.player.state.tutorialDone = true;
@@ -69,8 +85,8 @@ export async function initTutorial(): Promise<void> {
 }
 
 export function openTutorial(): void {
-    const testWidth = 430;
-    const testHeight = 370;
+    const testWidth = 150;
+    const testHeight = 100;
 
     let config = {
         allow: "",
@@ -85,11 +101,11 @@ export function openTutorial(): void {
         visible: true,
         allowApi: true,
         origin: "player",
-        scale: 0.7,
+        scale: 1,
     };
 
     if (/Mobi|Android/i.test(navigator.userAgent)) {
-        config = { ...config, position: { x: 150, y: -40, height: 700, width: 375 }, scale: 0.7 };
+        config = { ...config, position: { x: 32, y: -225, height: 455, width: 250 }, scale: 1 };
     }
     WA.room.website.create(config);
 }
