@@ -21,11 +21,6 @@
     }
 }
 
-.tutorial-direction-inverted {
-    display: flex;
-    flex-direction: column;
-}
-
 /*COMPANION STYLING*/
 .companion-area {
     display: flex;
@@ -49,27 +44,75 @@
     background-color: rgb(255, 255, 255, 0.9);
     color: rgb(33, 37, 41);
     font-size: 13px;
-    height: 380px;
-    padding-top: 60px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 
-    img {
-        vertical-align: baseline;
-        width: 50px;
-        height: 50px;
-    }
-
-    .video-for-mobile {
-        width: 100%;
-        display: flex;
-        border-radius: 15px;
-        margin-bottom: 35px;
-    }
-
-    & .mobile {
+    //MOBILE
+    &.mobile {
         flex-direction: column;
+        height: 380px;
+        padding: 60px 24px 16px 24px;
+
+        img {
+            vertical-align: baseline;
+            width: 50px;
+            height: 50px;
+        }
+
+        video {
+            width: 100%;
+            display: flex;
+            border-radius: 15px;
+            margin-bottom: 35px;
+        }
+
+        .close-area {
+            justify-content: flex-end;
+            margin-top: -20px;
+            margin-right: -27px;
+        }
+
+        .next-area > .btn {
+            bottom: 76px;
+        }
+    }
+
+    //DESKTOP
+    &.desktop {
+        height: 260px;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 40px 20px 16px 20px;
+
+        #keyboard-img {
+            height: 125px;
+        }
+
+        .icon {
+            vertical-align: baseline;
+            width: 35px;
+            height: 35px;
+        }
+
+        video {
+            height: 135px;
+            display: flex;
+            border-radius: 15px;
+            margin-bottom: 35px;
+        }
+
+        .half-width-text {
+            width: 50%;
+            margin-right: 10px;
+        }
+
+        .next-area > .btn {
+            bottom: 100px;
+        }
+
+        .lone-text{
+            text-align: center;
+        }
     }
 
     .btn {
@@ -81,9 +124,6 @@
 
     .close-area {
         display: flex;
-        justify-content: flex-end;
-        margin-top: -20px;
-        margin-right: -27px;
         margin-bottom: 7px;
 
         .skip-btn {
@@ -100,12 +140,12 @@
 
     .next-area {
         display: flex;
+        width: 100%;
         justify-content: center;
         margin: 5px;
 
         .btn {
             position: fixed;
-            bottom: 76px;
         }
     }
 }

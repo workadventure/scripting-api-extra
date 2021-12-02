@@ -18,11 +18,11 @@
 
             <!--Desktop-->
             <div class="dialog-area nes-balloon from-left column-display desktop hidden">
-            <div class="user-input">
-                <a class="skip-btn btn dialog-box nes-btn user-dialog is-error"> I don't need help, thanks !</a>
-            </div>
-                <p>Move with your arrow keys !</p>
-                <img src="../../../resources/images/arrow-keys.svg" alt="your keyboard arrows" class="keyboard-img"/>
+                <div class="close-area">
+                    <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
+                </div>
+                <p class="half-width-text">Move with your arrow keys !</p>
+                <img src="../../../resources/images/arrow-keys.svg" alt="your keyboard arrows" id="keyboard-img"/>
             </div>
 
             <!--Mobile-->
@@ -31,7 +31,7 @@
                     <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
                 </div>
                 <p>Tap & hold to move around. Try it!</p>
-                <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/joystick-mobile.mp4" class="video-for-mobile"></video>
+                <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/joystick-mobile.mp4" ></video>
             </div>
         </div>
     </div>
@@ -44,13 +44,26 @@
                 <h2>Tutopi</h2>
                 <img src="../../../resources/images/chickchick.gif" alt="companion" class="companion-gif"/>
             </div>
+
+            <!--Desktop-->
+            <div class="dialog-area nes-balloon from-left column-display desktop hidden">
+                <div class="close-area">
+                    <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
+                </div>
+                <p class="half-width-text">Walk closer to others for spontaneous interactions!</p>
+                <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4"></video>
+                <div class="next-area">
+                    <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
+                </div>
+            </div>
+
              <!--Mobile-->
             <div class="dialog-area nes-balloon from-left column-display mobile hidden">
                 <div class="close-area">
                     <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
                 </div>
                 <p>Walk closer to others for spontaneous interactions!</p>
-                <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4" class="video-for-mobile"></video>
+                <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4" ></video>
                 <div class="next-area">
                     <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
                 </div>
@@ -66,13 +79,26 @@
                <h2>Tutopi</h2>
                <img src="../../../resources/images/chickchick.gif" alt="companion" class="companion-gif"/>
            </div>
-            <!--Mobile-->
+
+            <!--Desktop-->
+            <div class="dialog-area nes-balloon from-left column-display desktop hidden">
+                <div class="close-area">
+                    <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
+                </div>
+                <p class="half-width-text">You can turn off/on your camera and microphone!</p>
+                <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4"></video>
+                <div class="next-area">
+                    <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
+                </div>
+            </div>
+
+           <!--Mobile-->
            <div class="dialog-area nes-balloon from-left column-display mobile hidden">
                <div class="close-area">
                    <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
                </div>
                <p>You can turn off/on your camera and microphone!</p>
-               <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4" class="video-for-mobile"></video> <!--TODO: make video and update-->
+               <video autoplay loop muted playsinline src="../../../resources/videos/firstConnection/bubble-zone-slower.mp4" ></video> <!--TODO: make video and update-->
                <div class="next-area">
                    <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
                </div>
@@ -88,12 +114,26 @@
            <img src="../../../resources/images/chickchick.gif" alt="companion" class="companion-gif"/>
        </div>
 
-       <div class="dialog-area nes-balloon from-left">
+        <!--Desktop-->
+       <div class="dialog-area nes-balloon from-left desktop hidden">
+           <div class="close-area">
+              <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
+           </div>
+           <p class="lone-text">Use
+           <img src="../../../resources/images/logo-message-pixel.png" alt="the chatbox" class="icon"/>
+           in the top left corner to send messages.</p>
+           <div class="next-area">
+              <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
+          </div>
+       </div>
+
+       <!--Mobile-->
+       <div class="dialog-area nes-balloon from-left mobile hidden">
            <div class="close-area">
               <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
            </div>
            <p>Use
-           <img src="../../../resources/images/logo-message-pixel.png" alt="the chatbox" class="dialog_img" id="chat-icon"/>
+           <img src="../../../resources/images/logo-message-pixel.png" alt="the chatbox" class="icon"/>
            in the top left corner to send messages.</p>
            <div class="next-area">
               <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
@@ -109,13 +149,26 @@
             <h2>Tutopi</h2>
             <img src="../../../resources/images/chickchick.gif" alt="companion" class="companion-gif"/>
         </div>
-        <div class="dialog-area nes-balloon from-left">
+
+        <!--Desktop-->
+        <div class="dialog-area nes-balloon from-left desktop hidden">
+            <div class="close-area">
+               <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
+           </div>
+            <p class="lone-text">You are now ready to go, adventurer. Enjoy !</p>
+            <div class="next-area">
+                <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Bye bye !</a>
+            </div>
+        </div>
+
+        <!--Mobile-->
+        <div class="dialog-area nes-balloon from-left mobile hidden">
             <div class="close-area">
                <a class="skip-btn btn dialog-box nes-btn user-dialog is-error">&times;</a>
            </div>
             <p>You are now ready to go, adventurer. Enjoy !</p>
             <div class="next-area">
-                <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Ok !</a>
+                <a class="next-btn btn dialog-box nes-btn user-dialog is-primary">Bye bye !</a>
             </div>
         </div>
      </div>

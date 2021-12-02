@@ -85,8 +85,8 @@ export async function initTutorial(): Promise<void> {
 }
 
 export function openTutorial(): void {
-    const testWidth = 150;
-    const testHeight = 100;
+    const testWidth = 300;
+    const testHeight = 250;
 
     let config = {
         allow: "",
@@ -95,13 +95,13 @@ export function openTutorial(): void {
         position: {
             height: testHeight,
             width: testWidth,
-            x: 10,
-            y: -160,
+            x: 32,
+            y: -220,
         },
         visible: true,
         allowApi: true,
         origin: "player",
-        scale: 1,
+        scale: 0.7,
     };
 
     if (/Mobi|Android/i.test(navigator.userAgent)) {
