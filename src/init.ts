@@ -15,7 +15,7 @@ export function bootstrapExtra(): Promise<void> {
             initSpecialProperties().catch((e) => console.error(e));
             initConfiguration().catch((e) => console.error(e));
             initPropertiesTemplates().catch((e) => console.error(e));
-            initTutorial();
+            initTutorial().catch((e) => console.error(e));
         })
         .catch((e) => console.error(e));
 }
