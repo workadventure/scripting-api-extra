@@ -27,9 +27,9 @@ export async function initTutorial(): Promise<void> {
             const bottomBorderCrossed = playerPosition.y + tutorialIFrame.y < camera.y;
 
             if (rightBorderCrossed) {
-                tutorialIFrame.x = -tutorialIFrame.width - 2 * margin;
+                tutorialIFrame.x = -tutorialIFrame.width - 1.5 * margin;
             } else if (leftBorderCrossed) {
-                tutorialIFrame.x = 2 * margin;
+                tutorialIFrame.x = 1.5 * margin;
             }
 
             if (topBorderCrossed) {
@@ -100,19 +100,19 @@ export function openTutorial(): void {
         name: "tutorial",
         url: "/tutorial.html",
         position: {
-            height: 235,
-            width: 300,
-            x: 32,
+            height: 224,
+            width: 407,
+            x: 16,
             y: -220,
         },
         visible: true,
         allowApi: true,
         origin: "player",
-        scale: 0.7,
+        scale: 0.9,
     };
 
     if (/Mobi|Android/i.test(navigator.userAgent)) {
-        config = { ...config, position: { x: 32, y: -225, height: 455, width: 250 }, scale: 1 };
+        config = { ...config, position: { x: 32, y: -225, height: 390, width: 250 }, scale: 1 };
     }
     WA.room.website.create(config);
 }

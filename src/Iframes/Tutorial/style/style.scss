@@ -14,7 +14,7 @@
 
 .tutorial-direction {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     .hidden {
         display: none;
@@ -73,7 +73,7 @@
         }
 
         .next-area > .btn {
-            bottom: 76px;
+            bottom: 14px;
         }
     }
 
@@ -85,7 +85,7 @@
         padding: 40px 20px 16px 20px;
 
         #keyboard-img {
-            height: 125px;
+            height: 105px;
         }
 
         .icon {
@@ -107,7 +107,7 @@
         }
 
         .next-area > .btn {
-            bottom: 80px;
+            bottom: 15px;
         }
 
         .lone-text{
