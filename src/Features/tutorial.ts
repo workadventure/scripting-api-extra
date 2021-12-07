@@ -3,8 +3,7 @@ import type { WasCameraUpdatedEvent } from "../../../workadventure/front/src/Api
 import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
 
 export async function initTutorial(): Promise<void> {
-    //const tutorialDone = WA.player.state.tutorialDone;
-    const tutorialDone = false; //TODO: delete and uncomment
+    const tutorialDone = WA.player.state.tutorialDone;
 
     if (!tutorialDone) {
         openTutorial();
