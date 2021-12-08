@@ -21,24 +21,6 @@
     }
 }
 
-/*COMPANION STYLING*/
-.companion-area {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-
-    h2 {
-        font-size: 13px;
-        color: #f6f6f6;
-        margin-bottom: -18px;
-    }
-
-    img {
-        width: 32px;
-        height: 32px;
-    }
-}
-
 /*DIALOG STYLING*/
 .dialog-area {
     background-color: rgb(255, 255, 255, 0.9);
