@@ -50,7 +50,6 @@ export async function initTutorial(): Promise<void> {
 
         const updateProportions = (zoomLevel: number): void => {
             // If the zoom level is too high and our iFrame can't fit into the worldView, want to adapt its format
-            console.log(zoomLevel);
 
             const config = /Mobi|Android/i.test(navigator.userAgent) ? mobileConfig : desktopConfig;
             const iframeConfig = config.filter((config) => {
@@ -102,7 +101,7 @@ export function openTutorial(): void {
             height: 224,
             width: 407,
             x: 16,
-            y: -220,
+            y: -112,
         },
         visible: true,
         allowApi: true,
