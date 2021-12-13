@@ -47,7 +47,7 @@ WA.onInit().then(async () => {
     doorVariable = doorVariableVal;
 
     initKeyBindings();
-});
+}).catch(e => console.error(e));
 
 function initKeyBindings(): void {
     document.querySelectorAll<HTMLButtonElement>("button").forEach((button) => {
