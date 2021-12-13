@@ -30,7 +30,7 @@ export async function initPropertiesTemplates(): Promise<void> {
 
         // Parse the URL of the integrated websites (for example if mustache is used)
         // Here we want to select the Tiled object layers with the type 'website' and the property 'url'
-        let promises = []
+        const promises = [];
         if (layer.type === "objectgroup") {
             for (const object of layer.objects) {
                 if (object.type === "website") {
