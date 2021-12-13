@@ -63,7 +63,7 @@ export async function uploadFile(): Promise<string> {
         },
     }).catch((e) => {
         formStore.setError("Upload error. Please contact the support.");
-        throw new Error(e);
+        throw e;
     });
 
     unsubscribe();
