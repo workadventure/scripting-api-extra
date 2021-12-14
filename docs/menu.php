@@ -39,6 +39,11 @@ return [
             'markdown' => 'scripting_api_extra_doc.automatic-configuration',
             'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/automatic-configuration.md',
         ],[
+            'title' => 'Logo upload',
+            'url' => '/map-building-extra/logo-upload.md',
+            'markdown' => 'scripting_api_extra_doc.logo-upload',
+            'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/logo-upload.md',
+        ],[
             'title' => 'Properties reference',
             'url' => '/map-building-extra/reference.md',
             'markdown' => 'scripting_api_extra_doc.reference',

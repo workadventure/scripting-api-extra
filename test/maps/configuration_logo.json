@@ -30,7 +30,7 @@
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 563, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":12,
          "id":16,
-         "name":"logoConfigZone",
+         "name":"logoConfiguration",
          "opacity":1,
          "properties":[
                 {
@@ -47,11 +47,6 @@
                  "name":"openConfigTriggerMessage",
                  "type":"string",
                  "value":"Edit your logo"
-                }, 
-                {
-                 "name":"zone",
-                 "type":"string",
-                 "value":"logoConfig"
                 }],
          "type":"tilelayer",
          "visible":true,
@@ -110,14 +105,14 @@
                      "color":"#ffffff",
                      "fontfamily":"Sans Serif",
                      "pixelsize":13,
-                     "text":"Test:\nOpen the config panel and enter a logo URL\n\nResult:\nThe corresponding logo should appear",
+                     "text":"Test:\n1. Open the configuration in front of the logo\n2. Upload your new logo\n\nResult:\nThe corresponding logo should appear",
                      "wrap":true
                     },
                  "type":"",
                  "visible":true,
-                 "width":301.290632697714,
-                 "x":48.6288751169901,
-                 "y":212.181301258499
+                 "width":293.790632697714,
+                 "x":46.1288751169901,
+                 "y":221.681301258499
                 }, 
                 {
                  "height":36.1595607503847,
