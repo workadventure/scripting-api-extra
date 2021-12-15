@@ -3,72 +3,6 @@
  "infinite":false,
  "layers":[
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":11,
-         "name":"door_open_zone1",
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"autoClose",
-                 "type":"bool",
-                 "value":true
-                }, 
-                {
-                 "name":"autoOpen",
-                 "type":"bool",
-                 "value":true
-                }, 
-                {
-                 "name":"doorVariable",
-                 "type":"string",
-                 "value":"doorOpened"
-                }, 
-                {
-                 "name":"zone",
-                 "type":"string",
-                 "value":"door_open_zoneA"
-                }],
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":12,
-         "name":"door_open_zone2",
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"autoClose",
-                 "type":"bool",
-                 "value":false
-                }, 
-                {
-                 "name":"autoOpen",
-                 "type":"bool",
-                 "value":false
-                }, 
-                {
-                 "name":"doorVariable",
-                 "type":"string",
-                 "value":"doorOpened"
-                }, 
-                {
-                 "name":"zone",
-                 "type":"string",
-                 "value":"door_open_zoneB"
-                }],
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
          "data":[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
          "height":10,
          "id":1,
@@ -81,7 +15,7 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0],
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
          "id":2,
          "name":"start",
@@ -93,37 +27,7 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 250, 250, 250, 250, 0, 250, 250, 0, 250, 250, 266, 266, 266, 266, 0, 266, 266, 0, 266, 266, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":8,
-         "name":"walls",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0, 0, 0, 266, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":17,
-         "name":"wall_part",
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"visible",
-                 "type":"string",
-                 "value":"{{^holeInWall}}1{{\/holeInWall}}"
-                }],
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
          "id":14,
          "name":"exitLayer",
@@ -132,25 +36,7 @@
                 {
                  "name":"exitUrl",
                  "type":"string",
-                 "value":"{{{ topRightExit }}}"
-                }],
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":16,
-         "name":"openWebsiteLayer",
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"openWebsite",
-                 "type":"string",
-                 "value":"{{{ myWebsiteUrl }}}"
+                 "value":"configuration.json"
                 }],
          "type":"tilelayer",
          "visible":true,
@@ -179,263 +65,23 @@
                  "visible":true,
                  "width":252.4375,
                  "x":2.78125,
-                 "y":2
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 386, 0, 0, 0, 0, 0, 0, 0, 0, 0, 392, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":9,
-         "name":"closed_door",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":18,
-         "name":"exitToOtherRoom",
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"exitUrl",
-                 "type":"string",
-                 "value":"configuration_persist_test.json"
-                }],
-         "type":"tilelayer",
-         "visible":true,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 382, 0, 0, 0, 0, 0, 0, 0, 0, 0, 388, 0, 0, 0, 0, 0, 0, 0, 0, 0, 394, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":10,
-         "id":10,
-         "name":"opened_door",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":false,
-         "width":10,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":13,
-         "name":"configuration",
-         "objects":[
-                {
-                 "height":0,
-                 "id":10,
-                 "name":"doorOpened",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"closeLayer",
-                         "type":"string",
-                         "value":"closed_door"
-                        }, 
-                        {
-                         "name":"default",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"This checkbox controls the state of the door"
-                        }, 
-                        {
-                         "name":"door",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Porte ouverte"
-                        }, 
-                        {
-                         "name":"openLayer",
-                         "type":"string",
-                         "value":"opened_door"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"readableBy",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "type":"variable",
-                 "visible":true,
-                 "width":0,
-                 "x":192.328561292208,
-                 "y":127.150548854293
+                 "y":322
                 }, 
                 {
-                 "height":0,
-                 "id":11,
-                 "name":"topRightExit",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"allowed_values",
-                         "type":"string",
-                         "value":"{\n  \"Doors with code map\": \"doors_with_code.json\",\n  \"Doors with auto-open map\": \"doors_with_autodoorstep.json\"\n}"
-                        }, 
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"doors.json"
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Change the URL of the destination map when you walk on the top right corner"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Top-Right Exit"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"select"
-                        }],
+                 "height":179.15231878145,
+                 "id":21,
+                 "name":"",
                  "rotation":0,
-                 "type":"variable",
+                 "text":
+                    {
+                     "text":"Go back to the configuration map and make sure variables are correctly persisted AND that variables impact is taken into account on the map",
+                     "wrap":true
+                    },
+                 "type":"",
                  "visible":true,
-                 "width":0,
-                 "x":273,
-                 "y":39
-                }, 
-                {
-                 "height":0,
-                 "id":12,
-                 "name":"myWebsiteUrl",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"https:\/\/workadventu.re"
-                        }],
-                 "rotation":0,
-                 "type":"variable",
-                 "visible":true,
-                 "width":0,
-                 "x":31.5,
-                 "y":76.5
-                }, 
-                {
-                 "height":0,
-                 "id":14,
-                 "name":"holeInWall",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"allowed_values",
-                         "type":"string",
-                         "value":"{\n  \"Yes, please\": true,\n  \"No\": false\n}"
-                        }, 
-                        {
-                         "name":"default",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Put a hole in the wall"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"radio"
-                        }],
-                 "rotation":0,
-                 "type":"variable",
-                 "visible":true,
-                 "width":0,
-                 "x":252.5,
-                 "y":213.5
-                }, 
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"notReadable",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"This field should not be displayed, unless you are admin"
-                        }, 
-                        {
-                         "name":"readableBy",
-                         "type":"string",
-                         "value":"admin"
-                        }],
-                 "rotation":0,
-                 "type":"variable",
-                 "visible":true,
-                 "width":0,
-                 "x":285.5,
-                 "y":304
-                }, 
-                {
-                 "height":0,
-                 "id":16,
-                 "name":"notWritable",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"This field should not be editable, unless you are admin"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"A variable that is not writable"
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"admin"
-                        }],
-                 "rotation":0,
-                 "type":"variable",
-                 "visible":true,
-                 "width":0,
-                 "x":241.5,
-                 "y":296.5
+                 "width":298.15584625323,
+                 "x":6.5048322113423,
+                 "y":6.16707466340269
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -443,8 +89,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":19,
- "nextobjectid":17,
+ "nextlayerid":18,
+ "nextobjectid":23,
  "orientation":"orthogonal",
  "properties":[
         {
