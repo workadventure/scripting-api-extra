@@ -1,13 +1,11 @@
 <script lang="ts">
-    //import type {WorkAdventureApi} from "@workadventure/iframe-api-typings";
     import type {ITiledMapGroupLayer} from "@workadventure/tiled-map-type-guard/dist";
     import {Properties} from "../../../Properties";
-    import {currentPage} from "../Stores/currentPage";
+    import {currentPage} from "../Stores/NavigationStore";
+    import {configurationLayerStore} from "../Stores/LayersStore";
 
-    export let groupLayer: ITiledMapGroupLayer;
-
+    let groupLayer = $configurationLayerStore as ITiledMapGroupLayer;
     const layers = groupLayer.layers;
-
 </script>
 
 <div class="flex-container">

@@ -1,41 +1,23 @@
 <script lang="ts">
-    import type {ITiledMapLayer} from "@workadventure/tiled-map-type-guard/dist";
-    import LayerPage from "./LayerPage.svelte";
-    import {currentPage} from "../Stores/currentPage";
+    import Section from "./Section.svelte";
+    import Sections from "./Sections.svelte";
+    import { configurationLayerStore } from "../Stores/LayersStore";
 
-    export let configurationLayer: ITiledMapLayer;
-
-    function findLayer(name: string): ITiledMapLayer {
-        const layer = recursiveFindLayer(name, configurationLayer);
-        if (layer === undefined) {
-            throw new Error("Cannot find layer with name "+name);
-        }
-        return layer;
-    }
-
-    function recursiveFindLayer(name: string, layer: ITiledMapLayer): ITiledMapLayer|undefined {
-        if (name === layer.name) {
-            return layer;
-        }
-
-        if (layer.type === 'group') {
-            for (const innerLayer of layer.layers) {
-                const result = recursiveFindLayer(name, innerLayer);
-                if (result) {
-                    return result;
-                }
-            }
-        }
-
-        return undefined;
-    }
-
+    let hasFilteredVariables = !!window.location.hash
 </script>
 
 <div class="main-app">
     <h1>Configure the room</h1>
 
-    <LayerPage layer={findLayer($currentPage)} />
+    {#if $configurationLayerStore}
+        {#if $configurationLayerStore.type === 'objectgroup' || hasFilteredVariables}
+            <Section></Section>
+        {:else if $configurationLayerStore.type === 'group'}
+            <Sections></Sections>
+        {:else}
+            <div>Unsupported configuration layer type</div>
+        {/if}
+    {/if}
 </div>
 
 

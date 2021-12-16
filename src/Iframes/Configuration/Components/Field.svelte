@@ -24,7 +24,6 @@
     }
 </script>
 
-
 {#if type === 'checkbox' }
     <label class="field">
         <input type="checkbox" class="nes-checkbox" bind:checked={ $boolVariableStore } disabled={!variable.isWritable} />
