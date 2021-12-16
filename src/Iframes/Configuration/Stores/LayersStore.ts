@@ -3,6 +3,7 @@ import type {ITiledMap, ITiledMapLayer} from "@workadventure/tiled-map-type-guar
 import {currentPage} from "./NavigationStore";
 
 // TODO: add a store for all layers flattened
+//  and call getTiledMap() only once onInit to set the map layers
 
 export const configurationLayerStore = derived<Readable<string>, ITiledMapLayer|undefined>(currentPage, ($currentPage, set) => {
     WA.room.getTiledMap().then((tiledMap: ITiledMap) => {
