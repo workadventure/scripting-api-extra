@@ -2,9 +2,9 @@
     import type {ITiledMapGroupLayer} from "@workadventure/tiled-map-type-guard/dist";
     import {Properties} from "../../../Properties";
     import {currentPage} from "../Stores/NavigationStore";
-    import {layerStore} from "../Stores/LayersStore";
+    import {configurationLayerStore} from "../Stores/LayersStore";
 
-    let groupLayer = $layerStore as ITiledMapGroupLayer;
+    let groupLayer = $configurationLayerStore as ITiledMapGroupLayer;
     const layers = groupLayer.layers;
 </script>
 

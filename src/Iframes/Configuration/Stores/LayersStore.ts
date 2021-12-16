@@ -2,7 +2,9 @@ import {derived, Readable} from 'svelte/store';
 import type {ITiledMap, ITiledMapLayer} from "@workadventure/tiled-map-type-guard/dist";
 import {currentPage} from "./NavigationStore";
 
-export const layerStore = derived<Readable<string>, ITiledMapLayer|undefined>(currentPage, ($currentPage) => {
+// TODO: add a store for all layers flattened
+
+export const configurationLayerStore = derived<Readable<string>, ITiledMapLayer|undefined>(currentPage, ($currentPage, set) => {
     WA.room.getTiledMap().then((tiledMap: ITiledMap) => {
         const configurationLayer = tiledMap.layers.find((layer: ITiledMapLayer) => layer.name === "configuration");
 
@@ -10,9 +12,7 @@ export const layerStore = derived<Readable<string>, ITiledMapLayer|undefined>(cu
             throw new Error('Could not find a layer with the name "configuration" on the map');
         }
 
-        console.log('layerStore tiledMap',tiledMap)
-        console.log('layerStore $currentPage value',$currentPage)
-        return findLayer($currentPage, configurationLayer)
+        set(findLayer($currentPage, configurationLayer))
     }).catch(e => console.error(e))
 });
 

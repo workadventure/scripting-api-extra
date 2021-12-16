@@ -4,9 +4,9 @@
     import {variablesStore} from "../Stores/VariablesStore";
     import type {ITiledMapObjectLayer} from "@workadventure/tiled-map-type-guard/dist";
     import {Properties} from "../../../Properties";
-    import {layerStore} from "../Stores/LayersStore";
+    import {configurationLayerStore} from "../Stores/LayersStore";
 
-    let layer = $layerStore as ITiledMapObjectLayer;
+    let layer = $configurationLayerStore as ITiledMapObjectLayer;
 
     const properties = new Properties(layer.properties);
 </script>

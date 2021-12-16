@@ -1,7 +1,7 @@
 <script lang="ts">
     import Section from "./Section.svelte";
     import Sections from "./Sections.svelte";
-    import { layerStore } from "../Stores/LayersStore";
+    import { configurationLayerStore } from "../Stores/LayersStore";
 
     let hasFilteredVariables = !!window.location.hash
 </script>
@@ -9,10 +9,10 @@
 <div class="main-app">
     <h1>Configure the room</h1>
 
-    {#if $layerStore}
-        {#if $layerStore.type === 'objectgroup' || hasFilteredVariables}
+    {#if $configurationLayerStore}
+        {#if $configurationLayerStore.type === 'objectgroup' || hasFilteredVariables}
             <Section></Section>
-        {:else if $layerStore.type === 'group'}
+        {:else if $configurationLayerStore.type === 'group'}
             <Sections></Sections>
         {:else}
             <div>Unsupported configuration layer type</div>

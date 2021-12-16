@@ -31,43 +31,11 @@ export class VariableDescriptor {
     }
 }
 
-export async function getAllVariables(): Promise<Map<string, VariableDescriptor>> {
+export async function getVariables(layerFilter?: string, variablesFilter?: Array<string>): Promise<Map<string, VariableDescriptor>> {
     const map = await WA.room.getTiledMap();
     const variables = new Map<string, VariableDescriptor>();
 
-    getAllVariablesRecursive(map.layers, variables);
-
-    return variables;
-}
-
-export async function getVariablesByLayers(layerNames: string|Array<string>): Promise<Map<string, VariableDescriptor>> {
-    const map = await WA.room.getTiledMap();
-    const variables = new Map<string, VariableDescriptor>();
-    let layerNamesArray: Array<string> = []
-
-    if (typeof layerNames === 'string') {
-        layerNamesArray.push(layerNames)
-    } else {
-        layerNamesArray = layerNames
-    }
-
-    getAllVariablesRecursive(map.layers, variables, layerNamesArray, []);
-
-    return variables;
-}
-
-export async function getVariablesByNames(variableNames: string|Array<string>): Promise<Map<string, VariableDescriptor>> {
-    const map = await WA.room.getTiledMap();
-    const variables = new Map<string, VariableDescriptor>();
-    let variableNamesArray: Array<string> = []
-
-    if (typeof variableNames === 'string') {
-        variableNamesArray.push(variableNames)
-    } else {
-        variableNamesArray = variableNames
-    }
-
-    getAllVariablesRecursive(map.layers, variables, [], variableNamesArray);
+    getAllVariablesRecursive(map.layers, variables, layerFilter, variablesFilter);
 
     return variables;
 }
@@ -75,50 +43,27 @@ export async function getVariablesByNames(variableNames: string|Array<string>): 
 function getAllVariablesRecursive(
     layers: ITiledMapLayer[],
     variables: Map<string, VariableDescriptor>,
-    layerNames?: Array<string>,
-    variablesNames?: Array<string>
+    layerFilter?: string,
+    variablesFilter?: Array<string>
 ): void {
     for (const layer of layers) {
-        if (!!(layerNames?.length)) {
-            if (layerNames.includes(layer.name)) {
-                if (layer.type === "objectgroup") {
-                    for (const object of layer.objects) {
-                        if (object.type === "variable") {
-                            // if variables must be filtered, we set only these variables
-                            if (!!(variablesNames?.length)) {
-                                if (variablesNames.includes(object.name)) {
-                                    console.log('SET with filter',object.name)
-                                    variables.set(object.name, new VariableDescriptor(object));
-                                }
-                            } else {
-                                console.log('SET',object.name)
-                                variables.set(object.name, new VariableDescriptor(object));
-                            }
-                        }
-                    }
-                } else if (layer.type === "group") {
-                    getAllVariablesRecursive(layer.layers, variables, variablesNames);
-                }
-            } else {
-                if (layer.type === "objectgroup") {
-                    for (const object of layer.objects) {
-                        if (object.type === "variable") {
-                            // if variables must be filtered, we set only these variables
-                            if (!!(variablesNames?.length)) {
-                                if (variablesNames.includes(object.name)) {
-                                    console.log('SET with filter',object.name)
-                                    variables.set(object.name, new VariableDescriptor(object));
-                                }
-                            } else {
-                                console.log('SET',object.name)
-                                variables.set(object.name, new VariableDescriptor(object));
-                            }
-                        }
-                    }
-                } else if (layer.type === "group") {
-                    getAllVariablesRecursive(layer.layers, variables, variablesNames);
+        if (layer.type === "objectgroup") {
+            for (const object of layer.objects) {
+                if (object.type === "variable") {
+                    // Here we now that we are looking at a variable
+                    // but depending on the cases, only some variables should be added to the map (shown in the configuration panel)
+
+                    // In this case: we only want to keep the variables of a specific layer
+                    if (!!layerFilter && layer.name !== layerFilter) continue
+                    // In this case: we only want to keep the variables with a specific name
+                    if (!!variablesFilter && !variablesFilter.includes(object.name)) continue
+
+                    variables.set(object.name, new VariableDescriptor(object));
                 }
             }
+        } else if (layer.type === "group") {
+            // If the current layer is a group, re-run the same method with its layers
+            getAllVariablesRecursive(layer.layers, variables, layerFilter, variablesFilter)
         }
     }
 }

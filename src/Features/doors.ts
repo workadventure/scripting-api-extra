@@ -1,4 +1,4 @@
-import { getAllVariables, VariableDescriptor } from "../VariablesExtra";
+import { getVariables, VariableDescriptor } from "../VariablesExtra";
 import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
 import { findLayersBoundaries } from "../LayersExtra";
@@ -308,7 +308,7 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
  */
 export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
     assetsUrl = assetsUrl ?? defaultAssetsUrl;
-    const variables = await getAllVariables();
+    const variables = await getVariables();
     layersMap = await getLayersMap();
 
     for (const variable of variables.values()) {
