@@ -43,6 +43,7 @@ jobs:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             CI: true
       - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
+      - run: sed -i 's|http://workadventure.localhost|https://workadventu.re|g' src/Features/default_api_url.ts
       - run: npm run build --if-present
       - run: npm run test
       - run: curl -s https://codecov.io/bash | bash

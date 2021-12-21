@@ -31,19 +31,14 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
             const properties = new Properties(layer.properties);
             const openConfigVariables = properties.getString("openConfig");
             if (openConfigVariables && layer.type === "tilelayer") {
-                initLocalConfigurationPanel(openConfigVariables, properties);
+                initLocalConfigurationPanel(layer.name, openConfigVariables, properties);
             }
         }
     }
 }
 
-function initLocalConfigurationPanel(openConfigVariables: string, properties: Properties): void {
+function initLocalConfigurationPanel(layerName: string, openConfigVariables: string, properties: Properties): void {
     let actionMessage: ActionMessage | undefined = undefined;
-
-    const zoneName = properties.getString("zone");
-    if (!zoneName) {
-        throw new Error('Missing "zone" property');
-    }
 
     const tag = properties.getString("openConfigAdminTag");
     let allowedByTag = true;
@@ -67,7 +62,7 @@ function initLocalConfigurationPanel(openConfigVariables: string, properties: Pr
         WA.nav.closeCoWebSite();
     }
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(layerName).subscribe(() => {
         const openConfigTriggerValue = properties.getString("openConfigTrigger");
 
         // Do not display conf panel if the user is not allowed by tag
@@ -80,7 +75,7 @@ function initLocalConfigurationPanel(openConfigVariables: string, properties: Pr
         }
     });
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(layerName).subscribe(() => {
         if (actionMessage) {
             actionMessage.remove();
             closeConfigurationPanel();
