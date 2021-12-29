@@ -171,6 +171,18 @@
          "y":0
         }, 
         {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 125, 125, 125, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":15,
+         "id":15,
+         "name":"reset-zone",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":15,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":13,
          "name":"how-to",
@@ -184,13 +196,13 @@
                     {
                      "fontfamily":"Sans Serif",
                      "pixelsize":10,
-                     "text":"Test 1: \nMove around the room (exit layers are shortcuts to corners).\n\nResult: \nThe tutorial iFrame should stay visible.\n\nTest 2: \nZoom in and out.\n\nResult: \nThe tutorial iFrame should stay visible.",
+                     "text":"Test 3: \nRefresh\nResult: \nTutorial iFrame should not appear.\n\nTest 4: \nGo to MISC zone, reset to first connexion and refresh.\nResult:\nTutorial iFrame should appear again.\n",
                      "wrap":true
                     },
                  "type":"",
                  "visible":true,
-                 "width":392.208067257184,
-                 "x":51.4848014728602,
+                 "width":205.694437415003,
+                 "x":237.998431315041,
                  "y":9.48444741991966
                 }],
          "opacity":1,
@@ -198,9 +210,38 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":14,
+         "name":"Copie de how-to",
+         "objects":[
+                {
+                 "height":152.418477701102,
+                 "id":2,
+                 "name":"",
+                 "rotation":0,
+                 "text":
+                    {
+                     "fontfamily":"Sans Serif",
+                     "pixelsize":10,
+                     "text":"Test 1: \nMove around the room (exit layers are shortcuts to corners).\nResult: \nThe tutorial iFrame should stay visible.\n\nTest 2: \nZoom in and out.\nResult: \nThe tutorial iFrame should stay visible.",
+                     "wrap":true
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":206.449553325295,
+                 "x":32.6069037155545,
+                 "y":10.9946792405041
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":14,
- "nextobjectid":2,
+ "nextlayerid":16,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -211,7 +252,12 @@
         {
          "name":"script",
          "type":"string",
-         "value":"bundle.js"
+         "value":"tutorial_test_script.js"
+        }, 
+        {
+         "name":"tutorial",
+         "type":"bool",
+         "value":true
         }],
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
