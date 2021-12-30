@@ -4,6 +4,7 @@ import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
 
 export async function initTutorial(): Promise<void> {
     const tutorialDone = WA.player.state.tutorialDone;
+    const forMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     if (!tutorialDone) {
         openTutorial();
@@ -51,7 +52,7 @@ export async function initTutorial(): Promise<void> {
         const updateProportions = (zoomLevel: number): void => {
             // If the zoom level is too high and our iFrame can't fit into the worldView, want to adapt its format
 
-            const config = /Mobi|Android/i.test(navigator.userAgent) ? mobileConfig : desktopConfig;
+            const config = forMobile ? mobileConfig : desktopConfig;
             const iframeConfig = config.filter((config) => {
                 if (config.lowerBound && config.uppperBound) {
                     return config.lowerBound < zoomLevel && zoomLevel <= config.uppperBound;
@@ -92,7 +93,7 @@ export async function initTutorial(): Promise<void> {
     }
 }
 
-export function openTutorial(): void {
+function openTutorial(forMobile: boolean): void {
     let config = {
         allow: "",
         name: "tutorial",
@@ -109,7 +110,7 @@ export function openTutorial(): void {
         scale: 0.9,
     };
 
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
+    if (forMobile) {
         config = { ...config, position: { x: 32, y: -225, height: 390, width: 250 }, scale: 1 };
     }
     WA.room.website.create(config);
