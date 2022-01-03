@@ -7,8 +7,9 @@ export async function initTutorial(): Promise<void> {
     const isForMobile = /Mobi|Android/i.test(navigator.userAgent);
     const map = await WA.room.getTiledMap();
     const tutorialProperty = await map.properties?.find((property) => property.name === "tutorial");
+    const isTutorialEnabled = tutorialProperty.value ?? false;
 
-    if (!tutorialDone && tutorialProperty.value) {
+    if (!tutorialDone && isTutorialEnabled) {
         openTutorial(isForMobile);
 
         let playerPosition: HasPlayerMovedEvent = await WA.player.getPosition();

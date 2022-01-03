@@ -43,6 +43,11 @@ return [
             'url' => '/map-building-extra/reference.md',
             'markdown' => 'scripting_api_extra_doc.reference',
             'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/reference.md',
+        ],[
+            'title' => 'Tutorial',
+            'url' => '/map-building-extra/tutorial.md',
+            'markdown' => 'scripting_api_extra_doc.tutorial',
+            'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/tutorial.md',
         ],
     ],
 ];
