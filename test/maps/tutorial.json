@@ -171,18 +171,6 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 125, 125, 125, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":15,
-         "id":15,
-         "name":"reset-zone",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":15,
-         "x":0,
-         "y":0
-        }, 
-        {
          "draworder":"topdown",
          "id":13,
          "name":"how-to",
@@ -196,14 +184,14 @@
                     {
                      "fontfamily":"Sans Serif",
                      "pixelsize":10,
-                     "text":"Test 3: \nRefresh\nResult: \nTutorial iFrame should not appear.\n\nTest 4: \nGo to MISC zone, reset to first connexion and refresh.\nResult:\nTutorial iFrame should appear again.\n",
+                     "text":"Test 3: \nRefresh\nResult: \nTutorial iFrame should not appear.\n\nTest 4: \nDelete \"user-properties_tutorialDone\" from local storage and refresh\nResult:\nTutorial iFrame should appear again.\n",
                      "wrap":true
                     },
                  "type":"",
                  "visible":true,
                  "width":205.694437415003,
                  "x":237.998431315041,
-                 "y":9.48444741991966
+                 "y":11.4844474199197
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -252,7 +240,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"tutorial_test_script.js"
+         "value":"bundle.js"
         }, 
         {
          "name":"tutorial",

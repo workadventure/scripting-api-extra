@@ -4,10 +4,12 @@ import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
 
 export async function initTutorial(): Promise<void> {
     const tutorialDone = WA.player.state.tutorialDone;
-    const forMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const isForMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const map = await WA.room.getTiledMap();
+    const tutorialProperty = await map.properties?.find((property) => property.name === "tutorial");
 
-    if (!tutorialDone) {
-        openTutorial();
+    if (!tutorialDone && tutorialProperty.value) {
+        openTutorial(isForMobile);
 
         let playerPosition: HasPlayerMovedEvent = await WA.player.getPosition();
         let camera: WasCameraUpdatedEvent;
@@ -52,7 +54,7 @@ export async function initTutorial(): Promise<void> {
         const updateProportions = (zoomLevel: number): void => {
             // If the zoom level is too high and our iFrame can't fit into the worldView, want to adapt its format
 
-            const config = forMobile ? mobileConfig : desktopConfig;
+            const config = isForMobile ? mobileConfig : desktopConfig;
             const iframeConfig = config.filter((config) => {
                 if (config.lowerBound && config.uppperBound) {
                     return config.lowerBound < zoomLevel && zoomLevel <= config.uppperBound;
@@ -84,7 +86,7 @@ export async function initTutorial(): Promise<void> {
             updateTutorial();
         });
 
-        WA.camera.onCameraUpdate(async (cameraPosition: WasCameraUpdatedEvent) => {
+        WA.camera.onCameraUpdate().subscribe((cameraPosition: WasCameraUpdatedEvent) => {
             camera = cameraPosition;
             updateTutorial();
         });
@@ -93,7 +95,7 @@ export async function initTutorial(): Promise<void> {
     }
 }
 
-function openTutorial(forMobile: boolean): void {
+function openTutorial(isForMobile: boolean): void {
     let config = {
         allow: "",
         name: "tutorial",
@@ -110,7 +112,7 @@ function openTutorial(forMobile: boolean): void {
         scale: 0.9,
     };
 
-    if (forMobile) {
+    if (isForMobile) {
         config = { ...config, position: { x: 32, y: -225, height: 390, width: 250 }, scale: 1 };
     }
     WA.room.website.create(config);
