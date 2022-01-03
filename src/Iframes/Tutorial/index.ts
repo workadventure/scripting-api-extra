@@ -54,7 +54,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-
-export function adjustStyle(): void {
-    console.log("Style is adjusted");
-}
