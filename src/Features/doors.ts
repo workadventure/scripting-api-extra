@@ -184,7 +184,7 @@ function initDoorstep(
         }
     }
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(zoneName).subscribe(() => {
         inZone = true;
         if (properties.getBoolean("autoOpen") && allowed) {
             WA.state[doorVariable.name] = true;
@@ -211,7 +211,7 @@ function initDoorstep(
         }
     });
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(zoneName).subscribe(() => {
         inZone = false;
         if (properties.getBoolean("autoClose")) {
             WA.state[doorVariable.name] = false;
@@ -278,7 +278,7 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
 
     const bellPopupName = properties.getString("bellPopup");
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(zoneName).subscribe(() => {
         if (!bellPopupName) {
             WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
         } else {
@@ -293,7 +293,7 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
         }
     });
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(zoneName).subscribe(() => {
         if (popup) {
             popup.close();
             popup = undefined;
