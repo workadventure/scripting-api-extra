@@ -8,6 +8,6 @@ export async function initSpecialProperties(): Promise<void> {
     for (const layer of layers.values()) {
         const properties = new Properties(layer.properties);
 
-        initVariableActionLayer(properties);
+        initVariableActionLayer(properties, layer.name);
     }
 }
