@@ -146,6 +146,7 @@ function initDoorstep(
         });
     }
 
+    //test
     function displayOpenDoorMessage(): void {
         if (actionMessage) {
             actionMessage.remove();
