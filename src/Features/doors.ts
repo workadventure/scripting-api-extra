@@ -146,7 +146,6 @@ function initDoorstep(
         });
     }
 
-    //test
     function displayOpenDoorMessage(): void {
         if (actionMessage) {
             actionMessage.remove();
@@ -185,7 +184,7 @@ function initDoorstep(
         }
     }
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(name).subscribe(() => {
         inZone = true;
         if (properties.getBoolean("autoOpen") && allowed) {
             WA.state[doorVariable.name] = true;
@@ -212,7 +211,7 @@ function initDoorstep(
         }
     });
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(name).subscribe(() => {
         inZone = false;
         if (properties.getBoolean("autoClose")) {
             WA.state[doorVariable.name] = false;
@@ -272,14 +271,12 @@ function initBell(variable: VariableDescriptor): void {
     });
 }
 
-function initBellLayer(bellVariable: string, properties: Properties): void {
+function initBellLayer(bellVariable: string, properties: Properties, layerName: string): void {
     let popup: Popup | undefined = undefined;
-
-    const zoneName = properties.mustGetString("zone");
 
     const bellPopupName = properties.getString("bellPopup");
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(layerName).subscribe(() => {
         if (!bellPopupName) {
             WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
         } else {
@@ -294,7 +291,7 @@ function initBellLayer(bellVariable: string, properties: Properties): void {
         }
     });
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(layerName).subscribe(() => {
         if (popup) {
             popup.close();
             popup = undefined;
@@ -340,7 +337,7 @@ export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
         }
         const bellVariable = properties.getString("bellVariable");
         if (bellVariable) {
-            initBellLayer(bellVariable, properties);
+            initBellLayer(bellVariable, properties, layer.name);
         }
     }
 
