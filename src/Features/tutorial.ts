@@ -1,5 +1,5 @@
 import type { HasPlayerMovedEvent } from "@workadventure/iframe-api-typings/Api/Events/HasPlayerMovedEvent";
-import type { WasCameraUpdatedEvent } from "../../../workadventure/front/src/Api/Events/WasCameraUpdatedEvent";
+import type { WasCameraUpdatedEvent } from "@workadventure/iframe-api-typings/Api/Events/WasCameraUpdatedEvent";
 import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
 
 export async function initTutorial(): Promise<void> {
