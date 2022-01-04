@@ -12,7 +12,7 @@ The tutorial displays a few messages in order to teach players how to use WorkAd
 </figure>
 
 To activate it, you only need to add the following property to your map:
-- `tutorial`: a boolean that indicates wether the map needs to display the tutorial or not. It should be checked if you wish to have a tutorial.
+- `tutorial`: a boolean that indicates whether the map needs to display the tutorial or not. It should be checked if you wish to have a tutorial.
 <figure class="figure">
     <img class="figure-img img-fluid rounded" src="images/tutorial_property.png" alt="" />
     <figcaption class="figure-caption">How to get the tutorial for your maps</figcaption>
