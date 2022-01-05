@@ -120,11 +120,6 @@ function initDoorstep(
     let keypadWebsite: EmbeddedWebsite | undefined = undefined;
     let inZone = false;
 
-    const zoneName = properties.getString("zone");
-    if (!zoneName) {
-        throw new Error('Missing "zone" property on doorstep layer "' + name + '"');
-    }
-
     const tag = properties.getString("tag");
     let allowed = true;
     if (tag && !WA.player.tags.includes(tag)) {
