@@ -13,28 +13,23 @@
                  "name":"bindVariable",
                  "type":"string",
                  "value":"doorOpened"
-                }, 
+                },
                 {
                  "name":"enterValue",
                  "type":"bool",
                  "value":true
-                }, 
+                },
                 {
                  "name":"leaveValue",
                  "type":"bool",
                  "value":false
-                }, 
-                {
-                 "name":"zone",
-                 "type":"string",
-                 "value":"door_open_zone1"
                 }],
          "type":"tilelayer",
          "visible":true,
          "width":10,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
@@ -46,18 +41,13 @@
                  "name":"bindVariable",
                  "type":"string",
                  "value":"doorOpened"
-                }, 
-                {
-                 "name":"zone",
-                 "type":"string",
-                 "value":"door_open_zone2"
                 }],
          "type":"tilelayer",
          "visible":true,
          "width":10,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
          "height":10,
@@ -69,7 +59,7 @@
          "width":10,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0],
          "height":10,
@@ -81,7 +71,7 @@
          "width":10,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "draworder":"topdown",
          "id":3,
@@ -104,7 +94,7 @@
                  "width":252.4375,
                  "x":2.78125,
                  "y":2.5
-                }, 
+                },
                 {
                  "height":0,
                  "id":5,
@@ -115,32 +105,32 @@
                          "name":"closeLayer",
                          "type":"string",
                          "value":"closed_door"
-                        }, 
+                        },
                         {
                          "name":"default",
                          "type":"bool",
                          "value":false
-                        }, 
+                        },
                         {
                          "name":"door",
                          "type":"bool",
                          "value":true
-                        }, 
+                        },
                         {
                          "name":"openLayer",
                          "type":"string",
                          "value":"opened_door"
-                        }, 
+                        },
                         {
                          "name":"persist",
                          "type":"bool",
                          "value":true
-                        }, 
+                        },
                         {
                          "name":"readableBy",
                          "type":"string",
                          "value":""
-                        }, 
+                        },
                         {
                          "name":"writableBy",
                          "type":"string",
@@ -158,7 +148,7 @@
          "visible":true,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 250, 250, 250, 250, 0, 250, 250, 250, 250, 250, 266, 266, 266, 266, 0, 266, 266, 266, 266, 266, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
@@ -170,7 +160,7 @@
          "width":10,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 386, 0, 0, 0, 0, 0, 0, 0, 0, 0, 392, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
@@ -182,7 +172,7 @@
          "width":10,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 382, 0, 0, 0, 0, 0, 0, 0, 0, 0, 388, 0, 0, 0, 0, 0, 0, 0, 0, 0, 394, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
@@ -220,7 +210,7 @@
          "tilecount":121,
          "tileheight":32,
          "tilewidth":32
-        }, 
+        },
         {
          "columns":16,
          "firstgid":122,
@@ -241,7 +231,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":129,
                  "properties":[
@@ -250,7 +240,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":130,
                  "properties":[
@@ -259,7 +249,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":131,
                  "properties":[
@@ -268,7 +258,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":132,
                  "properties":[
@@ -277,7 +267,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":133,
                  "properties":[
@@ -286,7 +276,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":134,
                  "properties":[
@@ -295,7 +285,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":135,
                  "properties":[
@@ -304,7 +294,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":144,
                  "properties":[
@@ -313,7 +303,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":145,
                  "properties":[
@@ -322,7 +312,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":146,
                  "properties":[
@@ -331,7 +321,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":147,
                  "properties":[
@@ -340,7 +330,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":148,
                  "properties":[
@@ -349,7 +339,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":149,
                  "properties":[
@@ -358,7 +348,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":150,
                  "properties":[
@@ -367,7 +357,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":151,
                  "properties":[
@@ -376,7 +366,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":160,
                  "properties":[
@@ -385,7 +375,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":161,
                  "properties":[
@@ -394,7 +384,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":162,
                  "properties":[
@@ -403,7 +393,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":163,
                  "properties":[
@@ -412,7 +402,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":164,
                  "properties":[
@@ -421,7 +411,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":165,
                  "properties":[
@@ -430,7 +420,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":166,
                  "properties":[
@@ -439,7 +429,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":167,
                  "properties":[
@@ -448,7 +438,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":168,
                  "properties":[
@@ -457,7 +447,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":169,
                  "properties":[
@@ -466,7 +456,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":170,
                  "properties":[
@@ -475,7 +465,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":171,
                  "properties":[
@@ -484,7 +474,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":172,
                  "properties":[
@@ -493,7 +483,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":173,
                  "properties":[
@@ -502,7 +492,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":176,
                  "properties":[
@@ -511,7 +501,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":177,
                  "properties":[
@@ -520,7 +510,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":178,
                  "properties":[
@@ -529,7 +519,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":179,
                  "properties":[
@@ -538,7 +528,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":180,
                  "properties":[
@@ -547,7 +537,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":181,
                  "properties":[
@@ -556,7 +546,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":182,
                  "properties":[
@@ -565,7 +555,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":183,
                  "properties":[
@@ -574,7 +564,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":184,
                  "properties":[
@@ -583,7 +573,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":185,
                  "properties":[
@@ -592,7 +582,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":186,
                  "properties":[
@@ -601,7 +591,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":187,
                  "properties":[
@@ -610,7 +600,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":188,
                  "properties":[
@@ -619,7 +609,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":189,
                  "properties":[
@@ -628,7 +618,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":192,
                  "properties":[
@@ -637,7 +627,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":193,
                  "properties":[
@@ -646,7 +636,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":194,
                  "properties":[
@@ -655,7 +645,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":195,
                  "properties":[
@@ -664,7 +654,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":196,
                  "properties":[
@@ -673,7 +663,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":197,
                  "properties":[
@@ -682,7 +672,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":198,
                  "properties":[
@@ -691,7 +681,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":199,
                  "properties":[
@@ -700,7 +690,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":200,
                  "properties":[
@@ -709,7 +699,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":201,
                  "properties":[
@@ -718,7 +708,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":202,
                  "properties":[
@@ -727,7 +717,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":203,
                  "properties":[
@@ -736,7 +726,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":204,
                  "properties":[
@@ -745,7 +735,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":205,
                  "properties":[
@@ -754,7 +744,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":208,
                  "properties":[
@@ -763,7 +753,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":209,
                  "properties":[
@@ -772,7 +762,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":210,
                  "properties":[
@@ -781,7 +771,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":211,
                  "properties":[
@@ -790,7 +780,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":212,
                  "properties":[
@@ -799,7 +789,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":213,
                  "properties":[
@@ -808,7 +798,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":214,
                  "properties":[
@@ -817,7 +807,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":215,
                  "properties":[
@@ -826,7 +816,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":216,
                  "properties":[
@@ -835,7 +825,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":217,
                  "properties":[
@@ -844,7 +834,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":218,
                  "properties":[
@@ -853,7 +843,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":219,
                  "properties":[
@@ -862,7 +852,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":220,
                  "properties":[
@@ -871,7 +861,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":221,
                  "properties":[
@@ -880,7 +870,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":224,
                  "properties":[
@@ -889,7 +879,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":225,
                  "properties":[
@@ -898,7 +888,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":226,
                  "properties":[
@@ -907,7 +897,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":227,
                  "properties":[
@@ -916,7 +906,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":228,
                  "properties":[
@@ -925,7 +915,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":229,
                  "properties":[
@@ -934,7 +924,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":230,
                  "properties":[
@@ -943,7 +933,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":231,
                  "properties":[
@@ -952,7 +942,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":232,
                  "properties":[
@@ -961,7 +951,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":233,
                  "properties":[
@@ -970,7 +960,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":234,
                  "properties":[
@@ -979,7 +969,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":235,
                  "properties":[
@@ -988,7 +978,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":236,
                  "properties":[
@@ -997,7 +987,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":237,
                  "properties":[
@@ -1008,7 +998,7 @@
                         }]
                 }],
          "tilewidth":32
-        }, 
+        },
         {
          "columns":6,
          "firstgid":362,
@@ -1029,7 +1019,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":9,
                  "properties":[
@@ -1038,7 +1028,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":12,
                  "properties":[
@@ -1047,7 +1037,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":15,
                  "properties":[
@@ -1056,7 +1046,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":24,
                  "properties":[
@@ -1065,7 +1055,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":27,
                  "properties":[
@@ -1074,7 +1064,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":30,
                  "properties":[
@@ -1083,7 +1073,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":33,
                  "properties":[
@@ -1092,7 +1082,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":42,
                  "properties":[
@@ -1101,7 +1091,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":48,
                  "properties":[
@@ -1110,7 +1100,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":60,
                  "properties":[
@@ -1119,7 +1109,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
                 {
                  "id":66,
                  "properties":[
