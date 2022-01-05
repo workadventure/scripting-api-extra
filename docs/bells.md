@@ -47,9 +47,8 @@ Now, we need to define the position on the map from where the bell sound can be 
 
 Add a tile layer in your map.
 
-On the layer add those properties:
+On the layer add this property:
 
-- `zone` (string): a unique identifier for your bell layer (the need to define this property will be removed in a future version)
 - `bellVariable`: (Compulsory) the name of the "bell" variable that will be triggered when someone walks on this layer
   
 With only those 2 properties, whenever a user walks into the layer, the bell will automatically ring.

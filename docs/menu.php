@@ -23,10 +23,10 @@ return [
             'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/bells.md',
         ],
         [
-            'title' => 'Action zones',
-            'url' => '/map-building-extra/generic-action-zones.md',
-            'markdown' => 'scripting_api_extra_doc.generic-action-zones',
-            'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/generic-action-zones.md',
+            'title' => 'Action layers',
+            'url' => '/map-building-extra/generic-action-layers.md',
+            'markdown' => 'scripting_api_extra_doc.generic-action-layers',
+            'editUrl' => 'https://github.com/workadventure/scripting-api-extra/edit/main/docs/generic-action-layers.md',
         ],
         [
             'title' => 'Binding variables to properties',

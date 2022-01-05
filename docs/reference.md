@@ -23,9 +23,9 @@ Name                    |  Type              | Context | Description
 [`closeTriggerMessage`](doors.md#configuring-the-openclose-door-message) | string | Doorstep layer | The action message displayed to close the door
 [`tag`](doors.md#limiting-who-can-openclose-the-door) | string | Doorstep layer | Limits who can operate the door from this doorstep
 [`code`](doors.md#setting-a-digital-code-access-on-your-door) | string | Doorstep layer | A digital access code
-[`bindVariable`](generic-action-zones.md)  | string | Action zone layer | The name of the variable that will be altered when one enters/leaves the zone
-[`enterValue`](generic-action-zones.md)  | string | Action zone layer | (optional) The value the variable will be set to when entering the zone
-[`leaveValue`](generic-action-zones.md)  | string | Action zone layer | (optional) The value the variable will be set to when leaving the zone
+[`bindVariable`](generic-action-layers.md)  | string | Action layer | The name of the variable that will be altered when one enters/leaves the layer
+[`enterValue`](generic-action-layers.md)  | string | Action layer | (optional) The value the variable will be set to when entering the layer
+[`leaveValue`](generic-action-layers.md)  | string | Action layer | (optional) The value the variable will be set to when leaving the layer
 [`visible`](variable-to-property-binding.md#the-special-visible-property) | string | *Any layer* | This property can control the visibility of a layer. Any "truthy" value will display the layer. An empty value will hide it.
 
 ## Variables properties

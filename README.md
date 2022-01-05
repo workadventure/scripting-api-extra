@@ -31,7 +31,7 @@ npm install --save @workadventure/scripting-api-extra
 
 - [Doors](docs/doors.md)
 - [Bells](docs/bells.md)
-- [Generic action zones](docs/generic-action-zones.md)
+- [Generic action layers](docs/generic-action-layers.md)
 
 ### Functions
 
