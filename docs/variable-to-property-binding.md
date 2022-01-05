@@ -39,7 +39,7 @@ to modify the values of variables. There are plenty of ways to do this, includin
 
 - [Using the scripting API](https://workadventu.re/map-building/api-state.md)
 - [Using auto-generated configuration screen]() // TODO
-- [Using generic action zones](generic-action-zones.md)
+- [Using generic action layers](generic-action-layers.md)
 
 ## About bindings
 

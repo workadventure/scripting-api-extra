@@ -1,5 +1,5 @@
 {.section-title.accent.text-primary}
-# Action layer
+# Action layers
 
 {.alert.alert-info}
 **Important!** To use these action layers, you need to [import the "Scripting API Extra" script in your map](about.md#importing-the-extended-features)

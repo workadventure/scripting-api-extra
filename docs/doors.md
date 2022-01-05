@@ -135,12 +135,9 @@ of the door you are standing? If yes, you will need 2 door steps (and therefore,
 door step that triggers automatically the opening of the door, while the front door step requires to enter a code to open the door.
 One door step layer spanning the 2 sides of the door can be enough if your door behaves the same on both sides.
 
-In order to create a door step, you MUST create an additional layer and put the following properties on it:
+In order to create a door step, you MUST create an additional layer and put the following property on it:
 
-- `zone` (string): a unique identifier for your doorstep (the need to define this property will be removed in a future version)
 - `doorVariable` (string): the name of the door variable that this door step controls
-
-Those 2 properties are enough to control the door.
 
 You should see something similar to the video below:
 
