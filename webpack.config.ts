@@ -27,6 +27,7 @@ module.exports = {
         main: "./src/bootstrap.ts",
         keypad: "./src/Iframes/Keypad/index.ts",
         configuration: "./src/Iframes/Configuration/index.ts",
+        tutorial: "./src/Iframes/Tutorial/index.ts",
     },
     mode: mode,
     devtool: isDevelopment ? "inline-source-map" : "source-map",
@@ -204,6 +205,25 @@ module.exports = {
                 useShortDoctype: true,
             },
             chunks: ["configuration"],
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/Iframes/Tutorial/tutorial.ejs",
+            filename: "tutorial.html",
+            templateParameters: {
+                workadventure_url: process.env.WORKADVENTURE_URL
+                    ? process.env.WORKADVENTURE_URL
+                    : "https://play.workadventu.re",
+            },
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+            chunks: ["tutorial"],
         }),
         new HtmlWebpackPlugin({
             template: "./test/maps/index.ejs",
