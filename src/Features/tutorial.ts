@@ -1,18 +1,22 @@
-import type { HasPlayerMovedEvent } from "@workadventure/iframe-api-typings/Api/Events/HasPlayerMovedEvent";
 import type { WasCameraUpdatedEvent } from "@workadventure/iframe-api-typings/Api/Events/WasCameraUpdatedEvent";
 import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
+import type { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
+import type { Position } from "@workadventure/iframe-api-typings/Api/iframe/player";
+import type { CreateEmbeddedWebsiteEvent } from "@workadventure/iframe-api-typings/Api/Events/EmbeddedWebsiteEvent";
 
 export async function initTutorial(): Promise<void> {
     const tutorialDone = WA.player.state.tutorialDone;
     const isForMobile = /Mobi|Android/i.test(navigator.userAgent);
     const map = await WA.room.getTiledMap();
-    const tutorialProperty = await map.properties?.find((property) => property.name === "tutorial");
+    const tutorialProperty = await map.properties?.find(
+        (property: ITiledMapProperty) => property.name === "tutorial",
+    );
     const isTutorialEnabled = tutorialProperty.value ?? false;
 
     if (!tutorialDone && isTutorialEnabled) {
         openTutorial(isForMobile);
 
-        let playerPosition: HasPlayerMovedEvent = await WA.player.getPosition();
+        let playerPosition: Position = await WA.player.getPosition();
         let camera: WasCameraUpdatedEvent;
 
         const tutorialIFrame = await WA.room.website.get("tutorial");
@@ -97,7 +101,7 @@ export async function initTutorial(): Promise<void> {
 }
 
 function openTutorial(isForMobile: boolean): void {
-    let config = {
+    let config: CreateEmbeddedWebsiteEvent = {
         allow: "",
         name: "tutorial",
         url: "/tutorial.html",
