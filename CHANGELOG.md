@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/workadventure/scripting-api-extra/compare/v1.1.1...v1.2.0) (2022-01-07)
+
+
+### Features
+
+* **tutorial:** adding an easy to add "tutorial" ([ff749c8](https://github.com/workadventure/scripting-api-extra/commit/ff749c85afb7b7939500a64cbf6ee06941af88b7)), closes [#84](https://github.com/workadventure/scripting-api-extra/issues/84)
+
 ## [1.1.1](https://github.com/workadventure/scripting-api-extra/compare/v1.1.0...v1.1.1) (2021-11-19)
 
 
