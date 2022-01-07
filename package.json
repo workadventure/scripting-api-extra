@@ -60,7 +60,7 @@
     "@types/mini-css-extract-plugin": "^2.2.0",
     "@types/mustache": "^4.1.2",
     "@types/webpack-dev-server": "^4.1.0",
-    "@workadventure/iframe-api-typings": "^1.7.1",
+    "@workadventure/iframe-api-typings": "^1.7.2",
     "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
