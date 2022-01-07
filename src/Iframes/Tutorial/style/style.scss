@@ -1,0 +1,133 @@
+@import "~@fontsource/press-start-2p/index.css";
+@import "~nes.css/css/nes.css";
+
+/*GENERAL STYLING*/
+
+.tutorial-body {
+    background-color: transparent;
+    z-index: 1;
+}
+
+.hidden, .desktop.hidden, .mobile.hidden {
+    display: none;
+}
+
+.tutorial-direction {
+    display: flex;
+    flex-direction: column;
+
+    .hidden {
+        display: none;
+    }
+}
+
+/*DIALOG STYLING*/
+.dialog-area {
+    background-color: rgb(255, 255, 255, 0.9);
+    color: rgb(33, 37, 41);
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+
+    //MOBILE
+    &.mobile {
+        flex-direction: column;
+        height: 380px;
+        padding: 60px 24px 16px 24px;
+
+        img {
+            vertical-align: baseline;
+            width: 50px;
+            height: 50px;
+        }
+
+        video {
+            width: 100%;
+            display: flex;
+            border-radius: 15px;
+            margin-bottom: 35px;
+        }
+
+        .close-area {
+            justify-content: flex-end;
+            margin-top: -20px;
+            margin-right: -27px;
+        }
+
+        .next-area > .btn {
+            bottom: 14px;
+        }
+    }
+
+    //DESKTOP
+    &.desktop {
+        height: 260px;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 40px 20px 16px 20px;
+
+        #keyboard-img {
+            height: 105px;
+        }
+
+        .icon {
+            vertical-align: baseline;
+            width: 35px;
+            height: 35px;
+        }
+
+        video {
+            height: 135px;
+            display: flex;
+            border-radius: 15px;
+            margin-bottom: 35px;
+        }
+
+        .half-width-text {
+            width: 50%;
+            margin-right: 10px;
+        }
+
+        .next-area > .btn {
+            bottom: 15px;
+        }
+
+        .lone-text{
+            text-align: center;
+        }
+    }
+
+    .btn {
+        margin: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .close-area {
+        display: flex;
+        margin-bottom: 7px;
+
+        .skip-btn {
+            width: 32px;
+            height: 32px;
+            color: #FFF !important;
+            display: flex;
+            position: fixed;
+            top: 7px;
+            right: 7px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .next-area {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 5px;
+
+        .btn {
+            position: fixed;
+        }
+    }
+}
