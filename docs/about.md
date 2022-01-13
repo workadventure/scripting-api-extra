@@ -16,10 +16,11 @@ In this section, you will find a list of these extended features.
 
 Because a script is hosting the extended features, you need to import that script explicitly into your map.
 
-There are 2 ways to import those extended features:
+There are 3 ways to import those extended features:
 
 - importing the "Scripting API Extra" library directly in your map
-- or importing the "Scripting API Extra" library in your own script
+- or importing the "Scripting API Extra" library dynamically from your Javascript script
+- or bundling the "Scripting API Extra" library in your own script using NPM and a bundler like Webpack
 
 ### Importing the script in the map
 
@@ -34,13 +35,29 @@ You can do so by adding a "script" property at the top level of your map, pointi
 {.alert.alert-info}
 **Reminder:** To access the map properties in Tiled, you can click on the **Map** > **Map Properties** menu. 
 
-### Importing the "Scripting API Extra" library 
+### Importing the script dynamically from your Javascript script
 
-If you already have a script in your map (this is the case if you are using the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit)),
+If you already have a Javascript script in your map, you can import the scripting API as a module.
+
+{.alert.alert-info}
+This method is recommended for simple scripts. If you are using a Javascript bundler (like Webpack) to build your Javascript
+script, have a look at the next section.
+
+To import the "Scripting API Extra" library dynamically from your script, at the top of your JS script, add this line:
+
+```javascript
+import { } from "https://unpkg.com/@workadventure/scripting-api-extra@^1";
+```
+
+### Bundling the "Scripting API Extra" library in your script 
+
+If you already have a script in your map and if this script is built using a bundler like Webpack or Rollup
+(this is the case if you are using the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit)),
 you can import the "Scripting API Extra" library as a "dependency" of your script.
 
 {.alert.alert-info}
-**Note:** The WorkAdventure Map Starter Kit is already importing the Scripting API Extra library as a dependency.
+**Note:** The WorkAdventure Map Starter Kit is already importing the Scripting API Extra library as a dependency, so you 
+have nothing to do if you use it for your map.
 
 ```
 npm install --save @workadventure/scripting-api-extra
