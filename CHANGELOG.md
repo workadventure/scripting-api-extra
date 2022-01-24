@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/workadventure/scripting-api-extra/compare/v1.2.0...v1.2.1) (2022-01-24)
+
+
+### Bug Fixes
+
+* Fixes the http 404 error when loading tutorial ([#113](https://github.com/workadventure/scripting-api-extra/issues/113)) ([9a8d691](https://github.com/workadventure/scripting-api-extra/commit/9a8d6919f3e7a5ba20d895eb1b4f92b7c74b4f89))
+
 # [1.2.0](https://github.com/workadventure/scripting-api-extra/compare/v1.1.1...v1.2.0) (2022-01-07)
 
 
