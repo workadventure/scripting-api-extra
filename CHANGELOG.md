@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/workadventure/scripting-api-extra/compare/v1.2.1...v1.2.2) (2022-01-24)
+
+
+### Bug Fixes
+
+* Fixes images and videos not displayed in tutorial ([#114](https://github.com/workadventure/scripting-api-extra/issues/114)) ([aebcc86](https://github.com/workadventure/scripting-api-extra/commit/aebcc860a4b9f7227bd91f23460e69175823ba34))
+
 ## [1.2.1](https://github.com/workadventure/scripting-api-extra/compare/v1.2.0...v1.2.1) (2022-01-24)
 
 
