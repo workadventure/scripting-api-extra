@@ -1,6 +1,6 @@
 import type { ITiledMapLayer, ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
 import { Properties } from "./Properties";
-import {defaultAssetsUrl} from "./Features/default_assets_url";
+import { defaultAssetsUrl } from "./Features/default_assets_url";
 
 export class VariableDescriptor {
     public readonly name: string;

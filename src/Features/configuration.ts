@@ -32,13 +32,17 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
             const properties = new Properties(layer.properties);
             const openConfigVariables = properties.getString("openConfig");
             if (openConfigVariables && layer.type === "tilelayer") {
-                initLocalConfigurationPanel(openConfigVariables.split(','), layer.name, properties);
+                initLocalConfigurationPanel(openConfigVariables.split(","), layer.name, properties);
             }
         }
     }
 }
 
-function initLocalConfigurationPanel(openConfigVariables: string[], layerName: string, properties: Properties): void {
+function initLocalConfigurationPanel(
+    openConfigVariables: string[],
+    layerName: string,
+    properties: Properties,
+): void {
     let actionMessage: ActionMessage | undefined = undefined;
 
     const tag = properties.getString("openConfigAdminTag");
