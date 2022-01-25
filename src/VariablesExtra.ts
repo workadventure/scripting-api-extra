@@ -1,5 +1,6 @@
 import type { ITiledMapLayer, ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
 import { Properties } from "./Properties";
+import {defaultAssetsUrl} from "./Features/default_assets_url";
 
 export class VariableDescriptor {
     public readonly name: string;
@@ -29,6 +30,15 @@ export class VariableDescriptor {
         }
         return WA.player.tags.includes(writableBy);
     }
+}
+
+/**
+ * Opens the local configuration panel.
+ * You can filter which variables to configure by passing their names in parameter.
+ */
+export function openConfig(variables?: string[]): void {
+    const parameters = variables ? "#" + variables.join() : "";
+    WA.nav.openCoWebSite(defaultAssetsUrl + "/configuration.html" + parameters);
 }
 
 export async function getVariables(

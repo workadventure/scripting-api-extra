@@ -2,6 +2,7 @@ import { Properties } from "../Properties";
 import type { ITiledMap } from "@workadventure/tiled-map-type-guard/dist";
 import { defaultAssetsUrl } from "./default_assets_url";
 import { getLayersMap } from "../LayersFlattener";
+import { openConfig } from "../VariablesExtra";
 import type { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
 import type { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
 
@@ -31,19 +32,14 @@ export async function initConfiguration(assetsUrl?: string | undefined): Promise
             const properties = new Properties(layer.properties);
             const openConfigVariables = properties.getString("openConfig");
             if (openConfigVariables && layer.type === "tilelayer") {
-                initLocalConfigurationPanel(openConfigVariables, properties);
+                initLocalConfigurationPanel(openConfigVariables.split(','), layer.name, properties);
             }
         }
     }
 }
 
-function initLocalConfigurationPanel(openConfigVariables: string, properties: Properties): void {
+function initLocalConfigurationPanel(openConfigVariables: string[], layerName: string, properties: Properties): void {
     let actionMessage: ActionMessage | undefined = undefined;
-
-    const zoneName = properties.getString("zone");
-    if (!zoneName) {
-        throw new Error('Missing "zone" property');
-    }
 
     const tag = properties.getString("openConfigAdminTag");
     let allowedByTag = true;
@@ -59,7 +55,7 @@ function initLocalConfigurationPanel(openConfigVariables: string, properties: Pr
             message:
                 properties.getString("openConfigTriggerMessage") ??
                 "Press SPACE or touch here to configure",
-            callback: () => openConfigurationPanel(openConfigVariables),
+            callback: () => openConfig(openConfigVariables),
         });
     }
 
@@ -67,7 +63,7 @@ function initLocalConfigurationPanel(openConfigVariables: string, properties: Pr
         WA.nav.closeCoWebSite();
     }
 
-    WA.room.onEnterZone(zoneName, () => {
+    WA.room.onEnterLayer(layerName).subscribe(() => {
         const openConfigTriggerValue = properties.getString("openConfigTrigger");
 
         // Do not display conf panel if the user is not allowed by tag
@@ -75,12 +71,12 @@ function initLocalConfigurationPanel(openConfigVariables: string, properties: Pr
             if (openConfigTriggerValue && openConfigTriggerValue === "onaction") {
                 displayConfigurationMessage();
             } else {
-                openConfigurationPanel(openConfigVariables);
+                openConfig(openConfigVariables);
             }
         }
     });
 
-    WA.room.onLeaveZone(zoneName, () => {
+    WA.room.onLeaveLayer(layerName).subscribe(() => {
         if (actionMessage) {
             actionMessage.remove();
             closeConfigurationPanel();
@@ -88,13 +84,4 @@ function initLocalConfigurationPanel(openConfigVariables: string, properties: Pr
             closeConfigurationPanel();
         }
     });
-}
-
-/**
- * Open the configuration panel inside a iframe and filter which variables will be displayed
- * @param variablesToConfigure Variable names separated by a comma, e.g.: var1,var2
- */
-function openConfigurationPanel(variablesToConfigure?: string): void {
-    const parameters = variablesToConfigure ? "#" + variablesToConfigure : "";
-    WA.nav.openCoWebSite(defaultAssetsUrl + "/configuration.html" + parameters, true);
 }
