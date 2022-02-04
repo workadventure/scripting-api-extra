@@ -3,6 +3,7 @@ import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
 import type { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
 import type { Position } from "@workadventure/iframe-api-typings/Api/iframe/player";
 import type { CreateEmbeddedWebsiteEvent } from "@workadventure/iframe-api-typings/Api/Events/EmbeddedWebsiteEvent";
+import { defaultAssetsUrl } from "./default_assets_url";
 
 export async function initTutorial(): Promise<void> {
     const tutorialDone = WA.player.state.tutorialDone;
@@ -104,7 +105,7 @@ function openTutorial(isForMobile: boolean): void {
     let config: CreateEmbeddedWebsiteEvent = {
         allow: "",
         name: "tutorial",
-        url: "/tutorial.html",
+        url: defaultAssetsUrl + "/tutorial.html",
         position: {
             height: 224,
             width: 407,
