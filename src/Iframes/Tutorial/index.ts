@@ -1,8 +1,9 @@
 import "./style/style.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
-    let currentStep: number | "end" = 1;
+    let currentStep = 1;
     let firstMovementDone = false;
+    const maxStep = 5;
 
     //Showing content according to the device
     if (/Mobi|Android/i.test(navigator.userAgent)) {
@@ -15,13 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeClickableBtns("next-btn", () => goToNextStep());
 
     initializeClickableBtns("skip-btn", () => {
-        currentStep = "end";
+        currentStep = maxStep;
         WA.room.website.delete("tutorial");
     });
 
     //STEP 1 - does not use a button in order to be completed
     WA.player.onPlayerMove(() => {
-        if (!firstMovementDone && typeof currentStep == "number") {
+        if (!firstMovementDone) {
             firstMovementDone = true;
             goToNextStep();
         }
@@ -30,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // END STEP 1
 
     function goToNextStep(): void {
-        if (currentStep === "end") {
-            return;
+        if (currentStep === maxStep) {
+            WA.room.website.delete("tutorial");
         }
         document.getElementById(`step-${currentStep}`)?.classList.add("hidden");
         currentStep++;
