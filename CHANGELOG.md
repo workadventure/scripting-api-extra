@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/workadventure/scripting-api-extra/compare/v1.2.2...v1.3.0) (2022-02-11)
+
+
+### Features
+
+* Fixes iFrame not clausing when going through the whole tutorial ([#125](https://github.com/workadventure/scripting-api-extra/issues/125)) ([0c541df](https://github.com/workadventure/scripting-api-extra/commit/0c541dfa83e5c6543775e414b753508ed100528b))
+
 ## [1.2.2](https://github.com/workadventure/scripting-api-extra/compare/v1.2.1...v1.2.2) (2022-01-24)
 
 
