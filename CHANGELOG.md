@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/workadventure/scripting-api-extra/compare/v1.3.0...v1.3.1) (2022-02-23)
+
+
+### Bug Fixes
+
+* Fixes gifs not dispaying on 'moving' part of the tutorial ([4fd910d](https://github.com/workadventure/scripting-api-extra/commit/4fd910d761017d77469fe7cf8221239cad9a9d1b))
+
 # [1.3.0](https://github.com/workadventure/scripting-api-extra/compare/v1.2.2...v1.3.0) (2022-02-11)
 
 
