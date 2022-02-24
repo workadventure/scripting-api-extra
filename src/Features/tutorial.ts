@@ -12,7 +12,7 @@ export async function initTutorial(): Promise<void> {
     const tutorialProperty = await map.properties?.find(
         (property: ITiledMapProperty) => property.name === "tutorial",
     );
-    const isTutorialEnabled = tutorialProperty.value ?? false;
+    const isTutorialEnabled = tutorialProperty && tutorialProperty.value;
 
     if (!tutorialDone && isTutorialEnabled) {
         openTutorial(isForMobile);
