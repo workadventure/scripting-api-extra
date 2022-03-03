@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/workadventure/scripting-api-extra/compare/v1.3.1...v1.3.2) (2022-03-03)
+
+
+### Bug Fixes
+
+* Fixes error displayed in the console when the tutorial property is not defined ([5443d56](https://github.com/workadventure/scripting-api-extra/commit/5443d56c226504d8aa0e8046a86e08539c7bde24))
+
 ## [1.3.1](https://github.com/workadventure/scripting-api-extra/compare/v1.3.0...v1.3.1) (2022-02-23)
 
 
