@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/workadventure/scripting-api-extra/compare/v1.3.2...v1.3.3) (2022-07-06)
+
+
+### Bug Fixes
+
+* Making scripting-extra compatible with Tiled 1.9 ([#163](https://github.com/workadventure/scripting-api-extra/issues/163)) ([0fbdf50](https://github.com/workadventure/scripting-api-extra/commit/0fbdf50816f202cd2ddffde5f4706c2436468217))
+
 ## [1.3.2](https://github.com/workadventure/scripting-api-extra/compare/v1.3.1...v1.3.2) (2022-03-03)
 
 
