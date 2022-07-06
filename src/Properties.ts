@@ -1,4 +1,4 @@
-import type { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapProperty, Json } from "@workadventure/tiled-map-type-guard";
 
 export class Properties {
     private properties: ITiledMapProperty[];
@@ -7,7 +7,7 @@ export class Properties {
         this.properties = properties ?? [];
     }
 
-    public get(name: string): string | boolean | number | undefined {
+    public get(name: string): ITiledMapProperty["value"] {
         const values = this.properties
             .filter((property) => property.name === name)
             .map((property) => property.value);
@@ -34,13 +34,13 @@ export class Properties {
 
     private getByType(
         name: string,
-        type: "string" | "number" | "boolean",
-    ): string | boolean | number | undefined {
+        type: "string" | "number" | "boolean" | "json",
+    ): string | boolean | number | Json | undefined {
         const value = this.get(name);
         if (value === undefined) {
             return undefined;
         }
-        if (typeof value !== type) {
+        if (type !== "json" && typeof value !== type) {
             throw new Error('Expected property "' + name + '" to have type "' + type + '"');
         }
         return value;
@@ -60,13 +60,13 @@ export class Properties {
 
     private mustGetByType(
         name: string,
-        type: "string" | "number" | "boolean",
-    ): string | boolean | number | undefined {
+        type: "string" | "number" | "boolean" | "json",
+    ): string | boolean | number | Json | undefined {
         const value = this.get(name);
         if (value === undefined) {
             throw new Error('Property "' + name + '" is missing');
         }
-        if (typeof value !== type) {
+        if (type !== "json" && typeof value !== type) {
             throw new Error('Expected property "' + name + '" to have type "' + type + '"');
         }
         return value;
