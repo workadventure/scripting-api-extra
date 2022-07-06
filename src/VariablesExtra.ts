@@ -62,7 +62,7 @@ function getAllVariablesRecursive(
     for (const layer of layers) {
         if (layer.type === "objectgroup") {
             for (const object of layer.objects) {
-                if (object.type === "variable") {
+                if (object.type === "variable" || object.class === "variable") {
                     // Here we now that we are looking at a variable
                     // but depending on the cases, only some variables should be added to the map (shown in the configuration panel)
 
