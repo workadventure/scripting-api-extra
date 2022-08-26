@@ -141,7 +141,9 @@ In order to create a door step, you MUST create an additional layer and put the 
 
 You should see something similar to the video below:
 
-<video controls>
+<video alt="Door video manual"
+        poster="images/door_manual.png"
+        muted="false" autoplay="true" loop="true" controls="controls">
     <source src="images/door_manual.mp4"
             type="video/mp4">
     Sorry, your browser doesn't support embedded videos.
@@ -164,7 +166,10 @@ By setting `autoClose` to true, the door will automatically close when someone w
 
 <br/>
 
-<video controls width="398" height="452" >
+<video width="398" height="452" 
+        alt="Video example opens the door automatically"
+        poster="images/open_doors_auto.png"
+        muted="false" autoplay="true" loop="true" controls="controls">
     <source src="images/open_doors_auto.mov"
             type="video/quicktime">
     <source src="images/open_doors_auto.mp4"
