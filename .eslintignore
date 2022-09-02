@@ -1,2 +1,5 @@
 dist/
 jest.config.js
+tailwind.config.js
+tailwind.config.cjs
+postcss.config.js
