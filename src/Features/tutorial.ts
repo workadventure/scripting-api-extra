@@ -1,6 +1,5 @@
 import type { WasCameraUpdatedEvent } from "@workadventure/iframe-api-typings/Api/Events/WasCameraUpdatedEvent";
 import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
-import type { ITiledMapProperty } from "@workadventure/tiled-map-type-guard/dist";
 import type { Position } from "@workadventure/iframe-api-typings/Api/iframe/player";
 import type { CreateEmbeddedWebsiteEvent } from "@workadventure/iframe-api-typings/Api/Events/EmbeddedWebsiteEvent";
 import { defaultAssetsUrl } from "./default_assets_url";
@@ -9,9 +8,7 @@ export async function initTutorial(): Promise<void> {
     const tutorialDone = WA.player.state.tutorialDone;
     const isForMobile = /Mobi|Android/i.test(navigator.userAgent);
     const map = await WA.room.getTiledMap();
-    const tutorialProperty = await map.properties?.find(
-        (property: ITiledMapProperty) => property.name === "tutorial",
-    );
+    const tutorialProperty = await map.properties?.find((property) => property.name === "tutorial");
     const isTutorialEnabled = tutorialProperty && tutorialProperty.value;
 
     if (!tutorialDone && isTutorialEnabled) {

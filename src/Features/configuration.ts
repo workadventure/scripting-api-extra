@@ -1,9 +1,8 @@
 import { Properties } from "../Properties";
-import type { ITiledMap } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMap, ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
 import { defaultAssetsUrl } from "./default_assets_url";
 import { getLayersMap } from "../LayersFlattener";
 import { openConfig } from "../VariablesExtra";
-import type { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
 import type { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
 
 let layersMap!: Map<string, ITiledMapLayer>;
@@ -12,7 +11,7 @@ let layersMap!: Map<string, ITiledMapLayer>;
  * Initialize the configuration button in the menu
  */
 export async function initConfiguration(assetsUrl?: string | undefined): Promise<void> {
-    const map: ITiledMap = await WA.room.getTiledMap();
+    const map: ITiledMap = (await WA.room.getTiledMap()) as ITiledMap;
     assetsUrl = assetsUrl ?? defaultAssetsUrl;
     layersMap = await getLayersMap();
     const configurationLayer = map.layers.find((layer) => layer.name === "configuration");

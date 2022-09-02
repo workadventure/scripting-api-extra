@@ -48,7 +48,12 @@ export async function getVariables(
     const map = await WA.room.getTiledMap();
     const variables = new Map<string, VariableDescriptor>();
 
-    getAllVariablesRecursive(map.layers, variables, layerFilter, variablesFilter);
+    getAllVariablesRecursive(
+        map.layers as ITiledMapLayer[],
+        variables,
+        layerFilter,
+        variablesFilter,
+    );
 
     return variables;
 }
