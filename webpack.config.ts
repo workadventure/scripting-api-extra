@@ -28,6 +28,8 @@ module.exports = {
         keypad: "./src/Iframes/Keypad/index.ts",
         configuration: "./src/Iframes/Configuration/index.ts",
         tutorial: "./src/Iframes/Tutorial/index.ts",
+        tutorialv1: "./src/Iframes/TutorialV1/Tuto/index.ts",
+        tutorialv1Script: "./src/Iframes/TutorialV1/Launcher/index.ts",
     },
     mode: mode,
     devtool: isDevelopment ? "inline-source-map" : "source-map",
@@ -63,10 +65,11 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            //url: false,
+                            url: false,
                             sourceMap: true,
                         },
                     },
+                    "postcss-loader",
                     "sass-loader",
                 ],
             },
@@ -148,7 +151,7 @@ module.exports = {
         alias: {
             svelte: path.resolve("node_modules", "svelte"),
         },
-        extensions: [".tsx", ".ts", ".js", ".svelte"],
+        extensions: [".tsx", ".ts", ".js", ".scss", ".svelte"],
         mainFields: ["svelte", "browser", "module", "main", "iframe"],
     },
     output: {
@@ -225,6 +228,47 @@ module.exports = {
             },
             chunks: ["tutorial"],
         }),
+
+        // Scripting for tutorial V1
+        new HtmlWebpackPlugin({
+            template: "./src/Iframes/TutorialV1/Tuto/tutorialv1.ejs",
+            filename: "tutorialv1.html",
+            templateParameters: {
+                workadventure_url: process.env.WORKADVENTURE_URL
+                    ? process.env.WORKADVENTURE_URL
+                    : "https://play.workadventu.re",
+            },
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+            chunks: ["tutorialv1"],
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/Iframes/TutorialV1/Launcher/script.ejs",
+            filename: "tutorialv1Script.html",
+            templateParameters: {
+                workadventure_url: process.env.WORKADVENTURE_URL
+                    ? process.env.WORKADVENTURE_URL
+                    : "https://play.workadventu.re",
+            },
+            minify: {
+                collapseWhitespace: true,
+                keepClosingSlash: true,
+                removeComments: false,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+            chunks: ["tutorialv1Script"],
+        }),
+
         new HtmlWebpackPlugin({
             template: "./test/maps/index.ejs",
             filename: "index.html",

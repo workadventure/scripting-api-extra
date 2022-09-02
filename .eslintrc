@@ -1,3 +1,10 @@
 {
-  "extends": "@rpidanny/eslint-config-typescript"
+  "extends": "@rpidanny/eslint-config-typescript",
+  "rules": {
+    "no-unused-vars": "off",
+    "simple-import-sort/imports": "off",
+    "arrow-parens": "off",
+    "camelcase": "off",
+    "no-throw-literal": "error"
+  }
 }

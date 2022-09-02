@@ -15,7 +15,7 @@ export async function getLayersMap(): Promise<Map<string, ITiledMapLayer>> {
 }
 
 async function getLayersMapWithoutCache(): Promise<Map<string, ITiledMapLayer>> {
-    return flattenGroupLayersMap(await WA.room.getTiledMap());
+    return flattenGroupLayersMap((await WA.room.getTiledMap()) as ITiledMap);
 }
 
 /**

@@ -13,7 +13,7 @@
 
 {#if $currentPage !== 'configuration' }
     <div class="left mb-20">
-        <button class="nes-btn" on:click={() => { $currentPage = $currentPage.substr(0, $currentPage.indexOf('/')) }}>&lt; Back</button>
+        <button class="nes-btn" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.indexOf('/')) }}>&lt; Back</button>
     </div>
 {/if}
 
