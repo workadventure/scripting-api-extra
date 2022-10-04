@@ -1,11 +1,24 @@
 import { writable } from "svelte/store";
 
-const step1Onboarding = "/resources/images/step1-onboarding.png";
-const step2Onboarding = "/resources/images/step2-onboarding.png";
-const step3Onboarding = "/resources/images/step3-onboarding.png";
-const step4Onboarding = "/resources/images/step4-onboarding.png";
-const step5Onboarding = "/resources/images/step5-onboarding.png";
-const step6Onboarding = "/resources/images/step6-onboarding.png";
+/*const step1Onboarding = "/dist/resources/images/tutov1/step1-onboarding.png";
+const step2Onboarding = "/dist/resources/images/tutov1/step2-onboarding.png";
+const step3Onboarding = "/dist/resources/images/tutov1/step3-onboarding.png";
+const step4Onboarding = "/dist/resources/images/tutov1/step4-onboarding.png";
+const step5Onboarding = "/dist/resources/images/tutov1/step5-onboarding.png";
+const step6Onboarding = "/dist/resources/images/tutov1/step6-onboarding.png";*/
+
+const step1Onboarding =
+    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step6-onboarding.png";
+const step2Onboarding =
+    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step5-onboarding.png";
+const step3Onboarding =
+    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step4-onboarding.png";
+const step4Onboarding =
+    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step3-onboarding.png";
+const step5Onboarding =
+    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step2-onboarding.png";
+const step6Onboarding =
+    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step1-onboarding.png";
 
 export const steps = [
     {
@@ -14,7 +27,7 @@ export const steps = [
             "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step1-onboarding.mp4",
         videoPoster: step1Onboarding,
         description: `
-            <p>Move your avatar with your arrow keys, or by right clicking somewhere in the map. If your WOKA does not move, focus on the map by clicking anywhere with your mouse.</p>
+            <p>Move your avatar (Woka) with your arrow keys, or by right clicking somewhere in the map. If your WOKA does not move, focus on the map by clicking anywhere with your mouse.</p>
             <p>Walk up to another WOKA to create a bubble zone. Your cam & mic will automatically be switched on if you did allow it on your parameters (4 WOKAs max in a bubble zone).</p>
             <p>
                 <ul>
@@ -27,7 +40,7 @@ export const steps = [
             </p>
         `,
         shortTiltle:
-            "Welcome to WorkAdventure Adventurer! I'm Viv Legging and i will be showing you how things work down here!",
+            "Welcome to WorkAdventure adventurer! I'm Viv Legging and i will be showing you how things work down here!",
     },
     {
         title: "Chat with someone 💬",
@@ -45,19 +58,19 @@ export const steps = [
                     <li>5. Exchange documents, folders, pictures, ...</li>
                 </ul>
             </p>
-            <p>You can see you timeline chat at anytime!</p>
+            <p>You can see your timeline chat at anytime!</p>
         `,
         shortTiltle: "",
     },
     {
         title: "Attend a conference 📹",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step3-onboarding.mp4",
+            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step3-onboarding-v2.mp4",
         videoPoster: step3Onboarding,
         description: `
             <p>Enter a conference room to connect with unlimited number of WOKAs.</p>
             <p>Touch the red button to close the conference.</p>
-            <p>Touch the blue button to extend or reduce the conference screen.</p>
+            <p>Touch the blue burger button to extend or reduce the conference screen.</p>
             <p>
                 <ul>
                     <li>1. Deactivate or activate your cam & mic,</li>
@@ -73,7 +86,7 @@ export const steps = [
         shortTiltle: "",
     },
     {
-        title: "Go private 🔒",
+        title: "Interact with dynamic zones 🤸‍♀️",
         videoUrl:
             "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step4-onboarding.mp4",
         videoPoster: step4Onboarding,
