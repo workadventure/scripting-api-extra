@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/workadventure/scripting-api-extra/compare/v1.4.1...v1.4.2) (2022-10-04)
+
+
+### Bug Fixes
+
+* change strategy launcher new tutorial v1 ([#186](https://github.com/workadventure/scripting-api-extra/issues/186)) ([1ff439b](https://github.com/workadventure/scripting-api-extra/commit/1ff439b6cf7725a3f5da36bff049b09d7b5994fa))
+
 ## [1.4.1](https://github.com/workadventure/scripting-api-extra/compare/v1.4.0...v1.4.1) (2022-10-04)
 
 
