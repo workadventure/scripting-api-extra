@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/workadventure/scripting-api-extra/compare/v1.4.2...v1.4.3) (2022-10-04)
+
+
+### Bug Fixes
+
+* update webpack configuration ([95c05bb](https://github.com/workadventure/scripting-api-extra/commit/95c05bbb6a9c7f82db559d3c153c5027481ecc12))
+
 ## [1.4.2](https://github.com/workadventure/scripting-api-extra/compare/v1.4.1...v1.4.2) (2022-10-04)
 
 
