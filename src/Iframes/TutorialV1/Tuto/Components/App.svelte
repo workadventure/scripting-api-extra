@@ -4,8 +4,11 @@
     import Steps from "./Steps.svelte";
 
     function close(){
-        WA.ui.modal.closeModal();
         WA.player.state.tutorialDone = true;
+        //TODO delete @ts-ignore when new scripting release is up
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        WA.ui.modal.closeModal();
     }
 </script>
 
