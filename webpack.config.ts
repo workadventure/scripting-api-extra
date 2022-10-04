@@ -292,5 +292,6 @@ module.exports = {
         new CopyPlugin({
             patterns: resources,
         }),
+        new webpack.EnvironmentPlugin(["WORKADVENTURE_URL"]),
     ],
 } as Configuration & WebpackDevServer.Configuration;
