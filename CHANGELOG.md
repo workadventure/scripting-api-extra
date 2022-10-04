@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/workadventure/scripting-api-extra/compare/v1.4.0...v1.4.1) (2022-10-04)
+
+
+### Bug Fixes
+
+* change comment ([55445dc](https://github.com/workadventure/scripting-api-extra/commit/55445dc279c3141711fc7333770dd1a99e2cb309))
+
 # [1.4.0](https://github.com/workadventure/scripting-api-extra/compare/v1.3.3...v1.4.0) (2022-10-04)
 
 
