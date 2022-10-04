@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/workadventure/scripting-api-extra/compare/v1.3.3...v1.4.0) (2022-10-04)
+
+
+### Features
+
+* **tutorial:** create "new tutorial v1" ([2e3b0a1](https://github.com/workadventure/scripting-api-extra/commit/2e3b0a10af262ff80c7930d1e15666480dbb8513))
+
 ### Features
 
 * **tutorialv1:** create "new tutorial v1" ([6cf1e80](https://github.com/workadventure/scripting-api-extra/commit/6cf1e8053da44f2b8229fa6938c8c2da48ac74c8))
