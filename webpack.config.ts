@@ -293,10 +293,9 @@ module.exports = {
             patterns: resources,
         }),
         new webpack.EnvironmentPlugin({
-            "process.env.WORKADVENTURE_URL": process.env.WORKADVENTURE_URL
+            WORKADVENTURE_URL: process.env.WORKADVENTURE_URL
                 ? JSON.stringify(process.env.WORKADVENTURE_URL)
                 : null,
-            "process.env.NODE_ENV": process.env.NODE_ENV,
         }),
     ],
 } as Configuration & WebpackDevServer.Configuration;
