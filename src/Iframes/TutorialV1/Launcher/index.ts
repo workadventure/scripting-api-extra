@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // @ts-ignore
     if (WA.player.state.tutorialDone) return;
 
+    //open modal and show onboarding tuto
     //TODO delete ts-ignore when new scripting release is up
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
