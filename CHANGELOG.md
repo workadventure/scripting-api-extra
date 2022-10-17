@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/workadventure/scripting-api-extra/compare/v1.4.3...v1.4.4) (2022-10-17)
+
+
+### Bug Fixes
+
+* Feedback on onboarding ([#188](https://github.com/workadventure/scripting-api-extra/issues/188)) ([ade7b02](https://github.com/workadventure/scripting-api-extra/commit/ade7b0270590154335e19e811d99e30a3e149a67))
+
 ## [1.4.3](https://github.com/workadventure/scripting-api-extra/compare/v1.4.2...v1.4.3) (2022-10-04)
 
 
