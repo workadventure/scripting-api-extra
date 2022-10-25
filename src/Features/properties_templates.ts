@@ -1,25 +1,9 @@
 import { getLayersMap } from "../LayersFlattener";
 import { TemplateValue } from "../TemplateValue";
-import type { ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist/ITiledMapObject";
-
-export async function getAreaObject(): Promise<ITiledMapObject[]> {
-    const layers = await getLayersMap();
-    const areaArray: Array<ITiledMapObject> = [];
-    for (const layer of layers.values()) {
-        if (layer.type === "objectgroup") {
-            for (const object of layer.objects) {
-                if (object.type === "area" || object.class === "area") {
-                    areaArray.push(object);
-                }
-            }
-        }
-    }
-    return areaArray;
-}
+import { getAreaObject } from "../AreaObject";
 
 export async function initPropertiesTemplatesArea(): Promise<void> {
     const areas = await getAreaObject();
-
     for (const area of areas) {
         const properties = area.properties ?? [];
         for (const property of properties) {
