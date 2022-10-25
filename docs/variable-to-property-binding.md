@@ -52,6 +52,14 @@ This means you can use all the features of Mustache like conditional:
 
 The website above will be displayed only if the `enableWebsite` variable is set to `true`.
 
+If you want to use bindings with area object you have to set a custom property "Dynamic" to true
+but if you set the Dynamic property, you can't use the map editor for this area.
+
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/areaBindings.png" alt="" />
+    <figcaption class="figure-caption">The Dynamic custom property</figcaption>
+</figure>
+
 {.alert.alert-warning}
 Be sure to use `{{{ variableName }}}` for binding variable and NOT `{{ variableName }}`. The version with a double 
 curly-braces will work most of the time, but it escapes HTML characters (which is not needed in properties of a map)
