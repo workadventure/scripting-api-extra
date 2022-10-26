@@ -3,6 +3,7 @@
 
 export * from "./VariablesExtra";
 export * from "./Properties";
+export * from "./AreaObject";
 export * from "./LayersFlattener";
 export * from "./LayersExtra";
 export * from "./Features/properties_templates";

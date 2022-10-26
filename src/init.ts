@@ -1,7 +1,10 @@
 import { initDoors } from "./Features/doors";
 import { initSpecialProperties } from "./Features/special_properties";
 import { initConfiguration } from "./Features/configuration";
-import { initPropertiesTemplates } from "./Features/properties_templates";
+import {
+    initPropertiesTemplates,
+    initPropertiesTemplatesArea,
+} from "./Features/properties_templates";
 
 /**
  * Bootstraps all the features of the extra library.
@@ -14,6 +17,7 @@ export function bootstrapExtra(): Promise<void> {
             initSpecialProperties().catch((e) => console.error(e));
             initConfiguration().catch((e) => console.error(e));
             initPropertiesTemplates().catch((e) => console.error(e));
+            initPropertiesTemplatesArea().catch((e) => console.error(e));
         })
         .catch((e) => console.error(e));
 }
