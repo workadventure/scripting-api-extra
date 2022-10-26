@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/workadventure/scripting-api-extra/compare/v1.4.4...v1.4.5) (2022-10-26)
+
+
+### Bug Fixes
+
+* Properties templates area ([#190](https://github.com/workadventure/scripting-api-extra/issues/190)) ([fc22865](https://github.com/workadventure/scripting-api-extra/commit/fc22865e0d422927369568cba00f5df3dfeb261d))
+
 ## [1.4.4](https://github.com/workadventure/scripting-api-extra/compare/v1.4.3...v1.4.4) (2022-10-17)
 
 
