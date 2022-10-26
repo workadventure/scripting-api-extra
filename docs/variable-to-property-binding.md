@@ -31,6 +31,16 @@ You can create a new variable named "myWebsiteUrl" and bind it to the `openWebsi
 You can use template properties in:
 
 - any property of any "tile" layer
+- any property of a dynamic "area" object
+
+{.alert.alert-warning}
+To use bindings with area objects, you must first set the "dynamic" property to true.
+
+It should be noted that "dynamic" areas are accessible via the scripting API but are not editable in the (upcoming) map editor.
+<figure class="figure">
+    <img class="figure-img img-fluid rounded" src="images/areaBindings.png" alt="" />
+    <figcaption class="figure-caption">The Dynamic custom property</figcaption>
+</figure>
 
 ## Configuration
 
@@ -52,13 +62,7 @@ This means you can use all the features of Mustache like conditional:
 
 The website above will be displayed only if the `enableWebsite` variable is set to `true`.
 
-If you want to use bindings with area object you have to set a custom property "Dynamic" to true
-but if you set the Dynamic property, you can't use the map editor for this area.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/areaBindings.png" alt="" />
-    <figcaption class="figure-caption">The Dynamic custom property</figcaption>
-</figure>
 
 {.alert.alert-warning}
 Be sure to use `{{{ variableName }}}` for binding variable and NOT `{{ variableName }}`. The version with a double 
