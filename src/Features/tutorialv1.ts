@@ -24,5 +24,6 @@ export function launchTutorialv1(): void {
         src: tutoUrl,
         allow: "fullscreen; clipboard-read; clipboard-write",
         allowApi: true,
+        position: "right",
     });
 }
