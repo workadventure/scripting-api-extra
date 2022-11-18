@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/workadventure/scripting-api-extra/compare/v1.4.5...v1.4.6) (2022-11-18)
+
+
+### Bug Fixes
+
+* Update tuto ([#198](https://github.com/workadventure/scripting-api-extra/issues/198)) ([28c252e](https://github.com/workadventure/scripting-api-extra/commit/28c252eacb8ef4fb60608fd0dfd8218c1d6110d8))
+
 ## [1.4.5](https://github.com/workadventure/scripting-api-extra/compare/v1.4.4...v1.4.5) (2022-10-26)
 
 
