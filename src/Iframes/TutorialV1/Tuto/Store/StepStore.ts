@@ -31,11 +31,11 @@ export const steps = [
             <p>Walk up to another WOKA to create a bubble zone. Your cam & mic will automatically be switched on if you did allow it on your parameters (4 WOKAs max in a bubble zone).</p>
             <p>
                 <ul>
-                    <li>1. Change the screens positioning,</li>
-                    <li>2. Ask someone in your bubble zone to follow you,</li>
-                    <li>3. Lock your bubble so that nobody can enter your conversation,</li>
-                    <li>4. Share your screen. Click on the sharing screen to make it bigger or smaller,</li>
-                    <li>5. Deactivate or activate your cam & mic.</li>
+                    <li>Change the screens positioning,</li>
+                    <li>Ask someone in your bubble zone to follow you,</li>
+                    <li>Lock your bubble so that nobody can enter your conversation,</li>
+                    <li>Share your screen. Click on the sharing screen to make it bigger or smaller,</li>
+                    <li>Deactivate or activate your cam & mic.</li>
                 </ul>
             </p>
         `,
@@ -51,11 +51,11 @@ export const steps = [
             <p>Reduce the distance with your teams with a complete messaging service:</p>
             <p>
                 <ul>
-                    <li>1. Get access to the list of users connected in your map, or in another map interconnected</li>
-                    <li>2. Enter a bubble zone to chat with someone, or click on the teleport button to get to them easily</li>
-                    <li>3. Create forum or team groups to better collaborate</li>
-                    <li>4. Use the live zone chat to communicate with everyone in a conference room</li>
-                    <li>5. Exchange documents, folders, pictures, ...</li>
+                    <li>Get access to the list of users connected in your map, or in another map interconnected</li>
+                    <li>Enter a bubble zone to chat with someone, or click on the teleport button to get to them easily</li>
+                    <li>Create forum or team groups to better collaborate</li>
+                    <li>Use the live zone chat to communicate with everyone in a conference room</li>
+                    <li>Exchange documents, folders, pictures, ...</li>
                 </ul>
             </p>
             <p>You can see your timeline chat at anytime!</p>
@@ -73,13 +73,13 @@ export const steps = [
             <p>Touch the blue burger button to extend or reduce the conference screen.</p>
             <p>
                 <ul>
-                    <li>1. Deactivate or activate your cam & mic,</li>
-                    <li>2. Share your screen,</li>
-                    <li>3. Open the chat or the survey system,</li>
-                    <li>4. Raise your hand (speakers will be notified) or send emojis,</li>
-                    <li>5. Get a mosaic view of all participants,</li>
-                    <li>6. Change your settings,</li>
-                    <li>7. Leave the conference.</li>
+                    <li>Deactivate or activate your cam & mic,</li>
+                    <li>Share your screen,</li>
+                    <li>Open the chat or the survey system,</li>
+                    <li>Raise your hand (speakers will be notified) or send emojis,</li>
+                    <li>Get a mosaic view of all participants,</li>
+                    <li>Change your settings,</li>
+                    <li>Leave the conference.</li>
                 </ul>
             </p>
         `,
