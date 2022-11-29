@@ -1,4 +1,4 @@
-import { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/front/Api/Iframe/state";
+import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/front/Api/Iframe/state";
 import { TemplateValue } from "../../src/TemplateValue";
 
 describe("Test TemplateValue", () => {
