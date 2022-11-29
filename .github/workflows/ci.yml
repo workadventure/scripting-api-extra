@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: dist/ # The folder the action should deploy.
-          BASE_BRANCH: master
+          BASE_BRANCH: main
 
       - name: Code Coverage
         run: curl -s https://codecov.io/bash | bash
