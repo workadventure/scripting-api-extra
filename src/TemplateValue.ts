@@ -1,8 +1,8 @@
 /**
  * A value of a property that can be evaluated / tracked using Mustache templates
  */
+import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/front/Api/Iframe/state";
 import Mustache from "mustache";
-import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/Api/iframe/state";
 
 type RAW_VALUE = "text";
 type ESCAPED_VALUE = "name";
