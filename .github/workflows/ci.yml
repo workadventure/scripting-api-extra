@@ -24,14 +24,13 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        if: github.ref == 'refs/heads/main'
+      # Deployment on Github Pages
+      - name: "Deploy Github Pages"
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: dist/ # The folder the action should deploy.
-          BASE_BRANCH: main
+          BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
+          FOLDER: build/  # <- Dossier contenant notre documentation générée
 
       - name: Code Coverage
         run: curl -s https://codecov.io/bash | bash
