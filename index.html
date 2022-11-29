@@ -1,0 +1,28 @@
+<!doctype html><html><head></head><body><label>Base test URL:</label> <input id="baseurl" value=""/><table><tr><th>Result</th><th>Test</th></tr><tr><td><input type="radio" name="test-doors"> Success <input type="radio" name="test-doors"> Failure <input type="radio" name="test-doors" checked="checked"> Pending</td><td><a href="#" class="testLink" data-testmap="doors.json" target="_blank">Testing Doors</a></td></tr><tr><td><input type="radio" name="test-doors-with-autodoorstep"> Success <input type="radio" name="test-doors-with-autodoorstep"> Failure <input type="radio" name="test-doors-with-autodoorstep" checked="checked"> Pending</td><td><a href="#" class="testLink" data-testmap="doors_with_autodoorstep.json" target="_blank">Testing Doors with automatic open/close doorstep</a></td></tr><tr><td><input type="radio" name="test-doors-with-code"> Success <input type="radio" name="test-doors-with-code"> Failure <input type="radio" name="test-doors-with-code" checked="checked"> Pending</td><td><a href="#" class="testLink" data-testmap="doors_with_code.json" target="_blank">Testing Doors with access code</a></td></tr><tr><td><input type="radio" name="test-configuration"> Success <input type="radio" name="test-configuration"> Failure <input type="radio" name="test-configuration" checked="checked"> Pending</td><td><a href="#" class="testLink" data-testmap="configuration.json" target="_blank">Testing automatic configuration</a></td></tr><tr><td><input type="radio" name="test-configuration"> Success <input type="radio" name="test-configuration"> Failure <input type="radio" name="test-configuration" checked="checked"> Pending</td><td><a href="#" class="testLink" data-testmap="configuration_multi_sections.json" target="_blank">Testing automatic configuration with multiple sections</a></td></tr><tr><td><input type="radio" name="test-configuration"> Success <input type="radio" name="test-configuration"> Failure <input type="radio" name="test-configuration" checked="checked"> Pending</td><td><a href="#" class="testLink" data-testmap="tutorial.json" target="_blank">Testing tutorial</a></td></tr></table><script>const baseInput = document.getElementById('baseurl');
+
+            let host = window.location.host;
+            let playHost;
+            /*if (host.startsWith('maps-')) {
+                playHost = 'play-'+host.substr(5);
+            } else if (host.startsWith('maps.')) {
+                playHost = 'play.'+host.substr(5);
+            } else {
+                playHost = 'localhost';
+            }*/
+            playHost = 'https://play.workadventu.re'
+
+            let completeUrl = playHost + '/_/global/' + host + window.location.pathname;
+
+            baseInput.value = completeUrl;
+
+            baseInput.addEventListener('change', init);
+
+            function init() {
+                console.log(baseInput.value);
+                for (const link of document.querySelectorAll('a.testLink')) {
+                    const url = baseInput.value + link.dataset.testmap;
+                    link.href = url;
+                }
+            }
+
+            init();</script></body></html>
