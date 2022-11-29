@@ -26,11 +26,11 @@ jobs:
 
       # Deployment on Github Pages
       - name: "Deploy Github Pages"
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-          FOLDER: build/  # <- Dossier contenant notre documentation générée
+          FOLDER: dist/  # <- Dossier contenant notre documentation générée
 
       - name: Code Coverage
         run: curl -s https://codecov.io/bash | bash
