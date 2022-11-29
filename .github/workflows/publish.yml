@@ -14,14 +14,13 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
-            node-version: 16
-            cache: 'npm'
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
       - run: npm run lint
@@ -39,10 +38,26 @@ jobs:
       - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
       - run: npm run build --if-present
       - run: npm run test
-      - run: curl -s https://codecov.io/bash | bash
+
+      # Deployment on Github Pages
+      - name: "Deploy Github Pages"
+        uses: JamesIves/github-pages-deploy-action@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
+          FOLDER: dist/  # <- Dossier contenant notre documentation générée
+          BASE_BRANCH: main
+
+      # Code coverage
+      - name: "Code coverage"
+        run: curl -s https://codecov.io/bash | bash
         env:
           CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
-      - run: npm run semantic-release
+
+      # Deployment on npm
+      - name: "Deploy NPM"
+        run: npm run semantic-release
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
