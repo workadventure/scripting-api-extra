@@ -4,9 +4,7 @@ import { Properties } from "../Properties";
 import { findLayersBoundaries } from "../LayersExtra";
 import type { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
 import type { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
-import type { Popup } from "@workadventure/iframe-api-typings/Api/iframe/Ui/Popup";
-import type { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
-import type { EmbeddedWebsite } from "@workadventure/iframe-api-typings/Api/iframe/Room/EmbeddedWebsite";
+import type { Popup, ActionMessage, EmbeddedWebsite } from "@workadventure/iframe-api-typings";
 import { defaultAssetsUrl } from "./default_assets_url";
 
 let layersMap!: Map<string, ITiledMapLayer>;

@@ -1,7 +1,7 @@
-import type { WasCameraUpdatedEvent } from "@workadventure/iframe-api-typings/Api/Events/WasCameraUpdatedEvent";
+import type { CreateEmbeddedWebsiteEvent } from "@workadventure/iframe-api-typings/front/Api/Events/EmbeddedWebsiteEvent";
+import type { WasCameraUpdatedEvent } from "@workadventure/iframe-api-typings/front/Api/Events/WasCameraUpdatedEvent";
+import type { Position } from "@workadventure/iframe-api-typings/front/Api/Iframe/player";
 import { desktopConfig, mobileConfig } from "../Iframes/Tutorial/config/config";
-import type { Position } from "@workadventure/iframe-api-typings/Api/iframe/player";
-import type { CreateEmbeddedWebsiteEvent } from "@workadventure/iframe-api-typings/Api/Events/EmbeddedWebsiteEvent";
 import { defaultAssetsUrl } from "./default_assets_url";
 
 export async function initTutorial(): Promise<void> {

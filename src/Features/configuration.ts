@@ -3,7 +3,7 @@ import type { ITiledMap, ITiledMapLayer } from "@workadventure/tiled-map-type-gu
 import { defaultAssetsUrl } from "./default_assets_url";
 import { getLayersMap } from "../LayersFlattener";
 import { openConfig } from "../VariablesExtra";
-import type { ActionMessage } from "@workadventure/iframe-api-typings/Api/iframe/Ui/ActionMessage";
+import type { ActionMessage } from "@workadventure/iframe-api-typings";
 
 let layersMap!: Map<string, ITiledMapLayer>;
 
