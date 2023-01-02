@@ -3,9 +3,11 @@
 import type { UIWebsite } from "@workadventure/iframe-api-typings";
 
 export async function getIdByUrl(url: string) {
-    const website: UIWebsite = (await WA.ui.website.getAll()).find((obj) => obj.url.includes(url))!;
+    WA.onInit().then(async () => {
+        const website: UIWebsite = (await WA.ui.website.getAll()).find((obj) => obj.url.includes(url))!;
 
-    return website.id;
+        return website.id;
+    });
 }
 
 export async function adaptIframe(url: string, width: string, height: string): Promise<UIWebsite> {
