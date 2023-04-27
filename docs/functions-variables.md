@@ -8,7 +8,7 @@
 
 ```
 // returns a list of all the variables defined in the map.
-getAllVariables(): Promise<Map<string, VariableDescriptor>>
+getVariables(): Promise<Map<string, VariableDescriptor>>
 ```
 
 Variables are returned as a Map. The key is the name of the variable, the value is an object representing the variable.
@@ -17,9 +17,9 @@ You can fetch individual properties defined in Tiled for this variable using thi
 For instance:
 
 ```typescript
-import { getAllVariables, VariableDescriptor } from '@workadventure/scripting-api-extra';
+import { getVariables, VariableDescriptor } from '@workadventure/scripting-api-extra';
 
-const variables = await getAllVariables();
+const variables = await getVariables();
 console.log(variables['my_variable'].properties.getOne('persist'));
 ```
 
