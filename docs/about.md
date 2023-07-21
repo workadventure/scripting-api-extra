@@ -20,7 +20,11 @@ There are 3 ways to import those extended features:
 
 - importing the "Scripting API Extra" library directly in your map
 - or importing the "Scripting API Extra" library dynamically from your Javascript script
-- or bundling the "Scripting API Extra" library in your own script using NPM and a bundler like Webpack
+- or bundling the "Scripting API Extra" library in your own script using NPM and a bundler like Webpack or Vite
+
+{.alert.alert-warning}
+If you are using the [Map Starter Kit](https://github.com/workadventure/map-starter-kit) (as recommended in the WorkAdventure documentation) the "extended features" are
+already imported in your map for the `src/main.ts` file of the starter kit.
 
 ### Importing the script in the map
 
@@ -52,7 +56,7 @@ import { } from "https://unpkg.com/@workadventure/scripting-api-extra@^1";
 ### Bundling the "Scripting API Extra" library in your script 
 
 If you already have a script in your map and if this script is built using a bundler like Webpack or Rollup
-(this is the case if you are using the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit)),
+(this is the case if you are using the [WorkAdventure Map Starter Kit](https://github.com/workadventure/map-starter-kit)),
 you can import the "Scripting API Extra" library as a "dependency" of your script.
 
 {.alert.alert-info}
@@ -66,7 +70,7 @@ npm install --save @workadventure/scripting-api-extra
 {.alert.alert-warning}
 Here, we assume that the script you wrote is using a bundler (like Webpack) and that you already have dependencies in
 your project using a `package.json` file. If you are not familiar with NPM, or bundlers, we highly recommend using
-the [WorkAdventure Map Starter Kit](https://github.com/thecodingmachine/workadventure-map-starter-kit) that comes
+the [WorkAdventure Map Starter Kit](https://github.com/workadventure/map-starter-kit) that comes
 with sane defaults.
 
 Once the "Scripting API Extra" library is imported, you still need to initialize it. This can be done by calling a 
