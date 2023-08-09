@@ -106,7 +106,7 @@ If you are looking for opening/closing door sounds, [FesliyanStudios provides a 
 So far, our door is controlled by the state of a variable. Unless you are mastering the scripting API, you
 need a way to change the "state" of the door variable. This is what "door steps" are for!
 
-Door steps are layers (usually one in front of the door and one behind) that control the opening / closing of the door.
+Door steps are layers or area objects (usually one in front of the door and one behind) that control the opening / closing of the door.
 
 <table>
     <tr>
@@ -131,11 +131,11 @@ Door steps are layers (usually one in front of the door and one behind) that con
 
 {.alert.alert-info}
 **One or two door steps?** Do you want to have different rules for opening / closing the door depending on the side
-of the door you are standing? If yes, you will need 2 door steps (and therefore, 2 layers). For instance, you can have the back 
+of the door you are standing? If yes, you will need 2 door steps (and therefore, 2 layers or 2 area objects). For instance, you can have the back 
 door step that triggers automatically the opening of the door, while the front door step requires to enter a code to open the door.
 One door step layer spanning the 2 sides of the door can be enough if your door behaves the same on both sides.
 
-In order to create a door step, you MUST create an additional layer and put the following property on it:
+In order to create a door step, you MUST create an additional layer or an area object and put the following property on it:
 
 - `doorVariable` (string): the name of the door variable that this door step controls
 
