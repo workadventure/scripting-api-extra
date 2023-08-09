@@ -2,10 +2,11 @@ import { getVariables, VariableDescriptor } from "../VariablesExtra";
 import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
 import { findLayersBoundaries } from "../LayersExtra";
-import type { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
+import type { ITiledMapLayer, ITiledMapObject } from "@workadventure/tiled-map-type-guard/dist";
 import type { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
 import type { Popup, ActionMessage, EmbeddedWebsite } from "@workadventure/iframe-api-typings";
 import { defaultAssetsUrl } from "./default_assets_url";
+import { getAreaObject } from "../AreaObject";
 
 let layersMap!: Map<string, ITiledMapLayer>;
 let playerX = 0;
@@ -108,12 +109,12 @@ function initDoor(variable: VariableDescriptor): void {
 }
 
 function initDoorstep(
-    layer: ITiledMapTileLayer,
+    doorstepZone: ITiledMapTileLayer | ITiledMapObject,
     doorVariable: VariableDescriptor,
     properties: Properties,
     assetsUrl: string,
 ): void {
-    const name = layer.name;
+    const name = doorstepZone.name;
     let actionMessage: ActionMessage | undefined = undefined;
     let keypadWebsite: EmbeddedWebsite | undefined = undefined;
     let inZone = false;
@@ -152,10 +153,35 @@ function initDoorstep(
         });
     }
 
-    function openKeypad(name: string): void {
-        const boundaries = findLayersBoundaries(
-            getTileLayers(doorVariable.properties.mustGetString("closeLayer").split("\n")),
-        );
+    function openKeypad(): void {
+        let boundaries: {
+            top: number;
+            left: number;
+            right: number;
+            bottom: number;
+        };
+        if (doorstepZone.type === "tilelayer") {
+            boundaries = findLayersBoundaries(
+                getTileLayers(doorVariable.properties.mustGetString("closeLayer").split("\n")),
+            );
+        } else {
+            if (
+                doorstepZone.x === undefined ||
+                doorstepZone.y === undefined ||
+                doorstepZone.width === undefined ||
+                doorstepZone.height === undefined
+            ) {
+                throw new Error(
+                    `Doorstep zone "${doorstepZone.name}" is missing x, y, width or height`,
+                );
+            }
+            boundaries = {
+                top: doorstepZone.y,
+                left: doorstepZone.x,
+                right: doorstepZone.x + doorstepZone.width,
+                bottom: doorstepZone.y + doorstepZone.height,
+            };
+        }
 
         keypadWebsite = WA.room.website.create({
             name: "doorKeypad" + name,
@@ -177,7 +203,7 @@ function initDoorstep(
         }
     }
 
-    WA.room.onEnterLayer(name).subscribe(() => {
+    function onEnter() {
         inZone = true;
         if (properties.getBoolean("autoOpen") && allowed) {
             WA.state[doorVariable.name] = true;
@@ -189,7 +215,7 @@ function initDoorstep(
             ((accessRestricted && !allowed) || !accessRestricted) && // Do not display code if user is allowed by tag
             (properties.getString("code") || properties.getString("codeVariable"))
         ) {
-            openKeypad(name);
+            openKeypad();
             return;
         }
 
@@ -202,9 +228,9 @@ function initDoorstep(
         } else {
             displayOpenDoorMessage();
         }
-    });
+    }
 
-    WA.room.onLeaveLayer(name).subscribe(() => {
+    function onLeave() {
         inZone = false;
         if (properties.getBoolean("autoClose")) {
             WA.state[doorVariable.name] = false;
@@ -214,7 +240,15 @@ function initDoorstep(
             actionMessage.remove();
         }
         closeKeypad();
-    });
+    }
+
+    if (doorstepZone.type === "tilelayer") {
+        WA.room.onEnterLayer(name).subscribe(onEnter);
+        WA.room.onLeaveLayer(name).subscribe(onLeave);
+    } else {
+        WA.room.area.onEnter(name).subscribe(onEnter);
+        WA.room.area.onLeave(name).subscribe(onLeave);
+    }
 
     WA.state.onVariableChange(doorVariable.name).subscribe(() => {
         if (inZone) {
@@ -264,32 +298,62 @@ function initBell(variable: VariableDescriptor): void {
     });
 }
 
-function initBellLayer(bellVariable: string, properties: Properties, layerName: string): void {
+function initBellLayer(
+    bellVariable: string,
+    properties: Properties,
+    bellZone: ITiledMapTileLayer | ITiledMapObject,
+): void {
     let popup: Popup | undefined = undefined;
 
     const bellPopupName = properties.getString("bellPopup");
 
-    WA.room.onEnterLayer(layerName).subscribe(() => {
-        if (!bellPopupName) {
-            WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
-        } else {
-            popup = WA.ui.openPopup(bellPopupName, "", [
-                {
-                    label: properties.getString("bellButtonText") ?? "Ring",
-                    callback: () => {
-                        WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
+    if (bellZone.type === "tilelayer") {
+        const layerName = bellZone.name;
+        WA.room.onEnterLayer(layerName).subscribe(() => {
+            if (!bellPopupName) {
+                WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
+            } else {
+                popup = WA.ui.openPopup(bellPopupName, "", [
+                    {
+                        label: properties.getString("bellButtonText") ?? "Ring",
+                        callback: () => {
+                            WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
+                        },
                     },
-                },
-            ]);
-        }
-    });
+                ]);
+            }
+        });
 
-    WA.room.onLeaveLayer(layerName).subscribe(() => {
-        if (popup) {
-            popup.close();
-            popup = undefined;
-        }
-    });
+        WA.room.onLeaveLayer(layerName).subscribe(() => {
+            if (popup) {
+                popup.close();
+                popup = undefined;
+            }
+        });
+    } else {
+        const objectName = bellZone.name;
+        WA.room.area.onEnter(objectName).subscribe(() => {
+            if (!bellPopupName) {
+                WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
+            } else {
+                popup = WA.ui.openPopup(bellPopupName, "", [
+                    {
+                        label: properties.getString("bellButtonText") ?? "Ring",
+                        callback: () => {
+                            WA.state[bellVariable] = (WA.state[bellVariable] as number) + 1;
+                        },
+                    },
+                ]);
+            }
+        });
+
+        WA.room.area.onLeave(objectName).subscribe(() => {
+            if (popup) {
+                popup.close();
+                popup = undefined;
+            }
+        });
+    }
 }
 
 /**
@@ -329,8 +393,30 @@ export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
             initDoorstep(layer, doorVariable, properties, assetsUrl);
         }
         const bellVariable = properties.getString("bellVariable");
+        if (bellVariable && layer.type === "tilelayer") {
+            initBellLayer(bellVariable, properties, layer);
+        }
+    }
+
+    for (const object of await getAreaObject()) {
+        const properties = new Properties(object.properties);
+        const doorVariableName = properties.getString("doorVariable");
+        if (doorVariableName) {
+            const doorVariable = variables.get(doorVariableName);
+            if (doorVariable === undefined) {
+                throw new Error(
+                    'Cannot find variable "' +
+                        doorVariableName +
+                        '" referred in the "doorVariable" property of object "' +
+                        object.name +
+                        '"',
+                );
+            }
+            initDoorstep(object, doorVariable, properties, assetsUrl);
+        }
+        const bellVariable = properties.getString("bellVariable");
         if (bellVariable) {
-            initBellLayer(bellVariable, properties, layer.name);
+            initBellLayer(bellVariable, properties, object);
         }
     }
 
