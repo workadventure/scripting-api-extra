@@ -19,20 +19,20 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
       - run: npm run lint
       - run: npm run semantic-release-dry-run
         env:
-            NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             CI: true
       # Grab the tag number by running semantic-release in dry mode and put the result in release_tag env variable
       - run: echo "release_tag=$(npm run semantic-release-dry-run | grep -Po 'The next release version is \K([\w.-]*)')" >> $GITHUB_ENV
         env:
-            NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             CI: true
       - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
@@ -59,6 +59,6 @@ jobs:
       - name: "Deploy NPM"
         run: npm run semantic-release
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           CI: true
