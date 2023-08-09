@@ -1,3 +1,12 @@
+## [1.4.7](https://github.com/workadventure/scripting-api-extra/compare/v1.4.6...v1.4.7) (2023-08-09)
+
+
+### Bug Fixes
+
+* Adding the ability to create doorsteps using zone areas ([ff77f1f](https://github.com/workadventure/scripting-api-extra/commit/ff77f1f7087494ba8735b07e622a9f13a1a42e4c))
+* Update github workflow ([#200](https://github.com/workadventure/scripting-api-extra/issues/200)) ([9cc178e](https://github.com/workadventure/scripting-api-extra/commit/9cc178e703a1572b58c0871289bd0d640fd6d500))
+* Upgrading semantic-release ([23ea64c](https://github.com/workadventure/scripting-api-extra/commit/23ea64c4c1918cb69e3dc9d472ee3b07a697906d))
+
 ## [1.4.6](https://github.com/workadventure/scripting-api-extra/compare/v1.4.5...v1.4.6) (2022-11-18)
 
 
