@@ -9,7 +9,7 @@ Doors are extremely customizable in your map. You can:
 - decide to open/close the door automatically or on user interaction
 - decide who can operate the door (based on the user's tags)
 - lock a door with a digit code
-- you can even add a bell (look at the [bell](bell.md) dedicated document)
+- you can even add a bell (look at the [bell](bells.md) dedicated document)
 
 In order to create a door, you will need:
 
