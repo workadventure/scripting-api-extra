@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/workadventure/scripting-api-extra/compare/v1.4.7...v1.4.8) (2023-08-22)
+
+
+### Bug Fixes
+
+* Fixing link to bells page ([6a7ea0a](https://github.com/workadventure/scripting-api-extra/commit/6a7ea0abf1a7c8c3c57847455694d7c708ee124a))
+
 ## [1.4.7](https://github.com/workadventure/scripting-api-extra/compare/v1.4.6...v1.4.7) (2023-08-09)
 
 
