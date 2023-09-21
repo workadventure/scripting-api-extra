@@ -109,6 +109,8 @@ In order to create a door step, you MUST create an additional layer or an area o
 
 You should see something similar to the video below:
 
+import ReactPlayer from 'react-player'
+
 <ReactPlayer width="100%" loop={true} playing controls url='/docs/extra/images/door_manual.mp4' />
 
 ### Automatically VS manually opening the door
