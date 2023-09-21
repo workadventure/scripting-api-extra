@@ -1,8 +1,8 @@
-{.section-title.accent.text-primary}
-# Svelte utility functions
+# Svelte
 
-{.alert.alert-info}
-**Important!** To use these functions, you need to [import the "Scripting API Extra"](utils.md#importing-the-utility-functions) library.
+:::info Important
+To use these functions, you need to [import the "Scripting API Extra"](index.md#importing-the-utility-functions) library.
+:::
 
 If you happen to use the [Svelte framework](https://svelte.dev/), the Scripting API Extra package provide some
 utility functions to easily bind your Svelte components to your WorkAdventure map.
