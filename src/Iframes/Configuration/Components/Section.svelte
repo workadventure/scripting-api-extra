@@ -13,13 +13,13 @@
 
 {#if $currentPage !== 'configuration' }
     <div class="left mb-20">
-        <button class="nes-btn" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.indexOf('/')) }}>&lt; Back</button>
+        <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.indexOf('/')) }}>&lt; Back</button>
     </div>
 {/if}
 
 <div>
     {#if $variablesStore}
-        <div class="{ properties.get('name') ? 'nes-container with-title' : '' }">
+        <section class="tw-flex tw-flex-col tw-content-start tw-items-start tw-my-0 tw-py-0">
             {#if properties.get("name") }
                 <p class="title">{ properties.get("name") }</p>
             {/if}
@@ -28,7 +28,7 @@
                     <Field variable={variable} />
                 {/if}
             {/each}
-        </div>
+        </section>
     {/if}
 </div>
 

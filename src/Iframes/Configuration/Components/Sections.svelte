@@ -10,14 +10,14 @@
 
 <div class="flex-container">
     {#each layers as layer}
-        <button class="nes-btn is-primary" on:click={() => { $currentPage = layer.name }}>
+        <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click={() => { $currentPage = layer.name }}>
         { new Properties(layer.properties).getString('label') ?? layer.name }
         </button>
     {/each}
 </div>
 
 {#if $currentPage !== 'configuration' }
-    <button class="nes-btn" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.indexOf('/')) }}>Back</button>
+    <button class="btn blue-title tw-underline tw-decoration-light-blue tw-cursor-pointe" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.indexOf('/')) }}>Back</button>
 {/if}
 
 <style lang="scss">
