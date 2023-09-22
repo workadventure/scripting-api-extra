@@ -4,6 +4,8 @@
 
 This NPM package contains a set of reusable utility functions and features that can be used to enhance WorkAdventure maps.
 
+[![Configure the room video](https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/tuto-configure.png)](https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/tuto-configure.mp4)
+
 ## Usage
 
 There are many ways to import the `@workadventure/scripting-api-extra` package.

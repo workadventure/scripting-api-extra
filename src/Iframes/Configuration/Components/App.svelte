@@ -29,6 +29,7 @@
                 </div>
             {/if}
             <video src="https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/tuto-configure.mp4"
+                poster="https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/tuto-configure.png"
                 class="tw-w-3/4"
                 muted
                 autoplay
