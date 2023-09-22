@@ -13,13 +13,13 @@ export function mapVariableToStore(
 ): void {
     store.set(WA.state.loadVariable(variableName));
 
-    store.subscribe( async (value) => {
+    store.subscribe(async (value) => {
         if (value !== WA.state.loadVariable(variableName)) {
-            try{
+            try {
                 await WA.state.saveVariable(variableName, value);
                 isLoadingVariableStore.set(false);
                 console.info(`Variable ${variableName} saved`);
-            }catch(e){
+            } catch (e) {
                 console.info(`Error while saving variable ${variableName}`, e);
                 isLoadingVariableStore.set(false);
                 throw e;
@@ -39,9 +39,12 @@ export function mapVariableToStore(
  *
  * The store is initialized with the value of the variable.
  */
-export function createStoreFromVariable(variableName: string): {isLoadingVariableStore: Writable<boolean>, store: Writable<unknown>} {
+export function createStoreFromVariable(variableName: string): {
+    isLoadingVariableStore: Writable<boolean>;
+    store: Writable<unknown>;
+} {
     const store = writable<unknown>(undefined);
     const isLoadingVariableStore = writable<boolean>(false);
     mapVariableToStore(variableName, store, isLoadingVariableStore);
-    return {store, isLoadingVariableStore};
+    return { store, isLoadingVariableStore };
 }
