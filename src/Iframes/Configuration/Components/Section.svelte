@@ -9,6 +9,10 @@
     let layer = $configurationLayerStore as ITiledMapObjectLayer;
 
     const properties = new Properties(layer.properties);
+
+    function closeCowebsite(){
+        WA.nav.closeCoWebSite();
+    }
 </script>
 
 {#if $currentPage !== 'configuration' }
@@ -29,6 +33,13 @@
                 {/if}
             {/each}
         </section>
+        <div class="left mb-20">
+            <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" 
+                on:click={() => closeCowebsite()}
+            >
+                Finish
+            </button>
+        </div>
     {/if}
 </div>
 

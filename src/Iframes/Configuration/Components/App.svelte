@@ -1,19 +1,28 @@
 <script lang="ts">
     import Section from "./Section.svelte";
     import Sections from "./Sections.svelte";
-    import { configurationLayerStore } from "../Stores/LayersStore";
+    import { configurationLayerStore, loadingConfigurationLayerStore } from "../Stores/LayersStore";
+    import { onMount } from "svelte";
 
     let hasFilteredVariables = !!window.location.hash
     let loading = true;
     let loadingVideo = true;
+
+    onMount(() => {
+        if(WA.player.state.tutorialConfigureTheRoomDone){
+            loading = false;
+        }else{
+            WA.player.state.tutorialConfigureTheRoomDone = true;
+        }
+    });
 </script>
 
 <div class="main-app tw-text-white">
     <h1>Configure the room</h1>
 
-    {#if loading}
+    {#if loading || $loadingConfigurationLayerStore}
         <div class="tuto tw-flex tw-flex-col tw-justify-center tw-content-center tw-items-center">
-            <p>Welcome in the configuration room of your world!</p>
+            <p>Welcome to world configuration!</p>
             {#if loadingVideo}
                 <div class="tw-absolute tw-w-8 tw-h-8 tw-border-1 tw-border-white tw-border-solid tw-rounded-full tw-animate-spin tw-mx-4" 
                     style="border-top-color: transparent;">
