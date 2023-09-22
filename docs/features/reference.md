@@ -1,7 +1,7 @@
 # Properties Reference
 
 :::info
-To use the properties in this document, you need to [import the "Scripting API Extra" script in your map](../index.md#importing-the-extended-features)
+To use the properties in this document, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
 :::
 
 This document does not list the properties available out-of-the-box in WorkAdventure but **only the properties added

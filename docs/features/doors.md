@@ -1,7 +1,7 @@
 # Doors
 
 :::info Important
-To use the "doors" feature, you need to [import the "Scripting API Extra" script in your map](../index.md#importing-the-extended-features)
+To use the "doors" feature, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
 :::
 
 Doors are extremely customizable in your map. You can:

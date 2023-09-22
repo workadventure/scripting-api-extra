@@ -1,10 +1,10 @@
 # Binding Variables to Properties
 
 :::info
-To use variables to properties binding, you need to [import the "Scripting API Extra" script in your map](about.md#importing-the-extended-features)
+To use variables to properties binding, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
 :::
 
-In WorkAdventure maps, ["variables"](https://workadventu.re/map-building/api-state.md) are used to share a state between
+In WorkAdventure maps, ["variables"](/developer/map-scripting/references/api-state) are used to share a state between
 players.
 
 Using the Scripting API Extra library, you can bind your variables values directly into properties on your map.

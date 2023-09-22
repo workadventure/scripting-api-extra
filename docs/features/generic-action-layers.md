@@ -1,10 +1,10 @@
 # Action Layers
 
 :::info Important
-To use these action layers, you need to [import the "Scripting API Extra" script in your map](about.md#importing-the-extended-features)
+To use these action layers, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
 :::
 
-You can define special layers that will **alter the value of a ["variable"](https://workadventu.re/map-building/api-state.md)**
+You can define special layers that will **alter the value of a ["variable"](/developer/map-scripting/references/api-state)**
 when walked upon.
 
 To define such a layer, create a new "tile layer" in Tiled.
