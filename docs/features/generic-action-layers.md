@@ -1,10 +1,10 @@
-{.section-title.accent.text-primary}
-# Action layers
+# Action Layers
 
-{.alert.alert-info}
-**Important!** To use these action layers, you need to [import the "Scripting API Extra" script in your map](about.md#importing-the-extended-features)
+:::info Important
+To use these action layers, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
+:::
 
-You can define special layers that will **alter the value of a ["variable"](https://workadventu.re/map-building/api-state.md)**
+You can define special layers that will **alter the value of a ["variable"](/developer/map-scripting/references/api-state)**
 when walked upon.
 
 To define such a layer, create a new "tile layer" in Tiled.
@@ -26,7 +26,8 @@ to display a message to the player. When the player presses "SPACE", the value o
 
 You can restrict who will trigger an action layer using user **tags**.
 
-{.alert.alert-info}
+:::info
 User tags is a feature of the "pro" accounts.
+:::
 
 Add a `tag` property on the layer. The variable will only change value if the player walking on the layer has the specified tag.
