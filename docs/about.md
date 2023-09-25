@@ -1,7 +1,5 @@
----
-sidebar_position: 1
----
-# Scripting Api Extra
+{.section-title.accent.text-primary}
+# About the extended features
 
 WorkAdventure features can be extended through the use of the [scripting API](https://workadventu.re/map-building/scripting).
 
@@ -39,7 +37,7 @@ You can do so by adding a "script" property at the top level of your map, pointi
 </figure>
 
 {.alert.alert-info}
-**Reminder:** To access the map properties in Tiled, you can click on the **Map** > **Map Properties** menu.
+**Reminder:** To access the map properties in Tiled, you can click on the **Map** > **Map Properties** menu. 
 
 ### Importing the script dynamically from your Javascript script
 
@@ -55,14 +53,14 @@ To import the "Scripting API Extra" library dynamically from your script, at the
 import { } from "https://unpkg.com/@workadventure/scripting-api-extra@^1";
 ```
 
-### Bundling the "Scripting API Extra" library in your script
+### Bundling the "Scripting API Extra" library in your script 
 
 If you already have a script in your map and if this script is built using a bundler like Webpack or Rollup
 (this is the case if you are using the [WorkAdventure Map Starter Kit](https://github.com/workadventure/map-starter-kit)),
 you can import the "Scripting API Extra" library as a "dependency" of your script.
 
 {.alert.alert-info}
-**Note:** The WorkAdventure Map Starter Kit is already importing the Scripting API Extra library as a dependency, so you
+**Note:** The WorkAdventure Map Starter Kit is already importing the Scripting API Extra library as a dependency, so you 
 have nothing to do if you use it for your map.
 
 ```
@@ -75,12 +73,12 @@ your project using a `package.json` file. If you are not familiar with NPM, or b
 the [WorkAdventure Map Starter Kit](https://github.com/workadventure/map-starter-kit) that comes
 with sane defaults.
 
-Once the "Scripting API Extra" library is imported, you still need to initialize it. This can be done by calling a
+Once the "Scripting API Extra" library is imported, you still need to initialize it. This can be done by calling a 
 single `bootstrapExtra()` method:
 
 ```typescript
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
-// Calling bootstrapExtra will initiliaze all the "custom properties"
+// Calling bootstrapExtra will initiliaze all the "custom properties"  
 bootstrapExtra();
 ```

@@ -1,12 +1,12 @@
+{.section-title.accent.text-primary}
 # Generating automatically a configuration screen
 
-:::info
-To generate a configuration screen automatically, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
-:::
+{.alert.alert-info}
+**Important!** To generate a configuration screen automatically, you need to [import the "Scripting API Extra" script in your map](about.md#importing-the-extended-features)
 
-WorkAdventure comes with a ["variables"](/developer/map-scripting/references/api-state) system that can be used
+WorkAdventure comes with a ["variables"](https://workadventu.re/map-building/api-state.md) system that can be used
 to change a map dynamically. Variables can have an impact on a map through [property bindings](variable-to-property-binding.md),
-or through the [Scripting API](/developer/map-scripting/references/api-state).
+or through the [Scripting API](https://workadventu.re/map-building/api-state.md).
 
 In order to edit the value of a variable, the *Scripting API Extra* library comes with a way to define configuration
 pages automatically.
@@ -75,7 +75,7 @@ If you set `openConfigTriggerMessage: your message action` you can edit the aler
 
 ## Protecting the configuration screen
 
-By default, the configuration screen will be accessible to anyone. You will probably want to restrict the access of the
+By default, the configuration screen will be accessible to anyone. You will probably want to restrict the access of the 
 configuration screen to users that have a certain *tag*.
 
 To do this with the global configuration panel, simply add a `tag` property to the configuration object layer. The value of the property is the name of the tag
@@ -177,7 +177,7 @@ The configuration page will respect the visibility rights configured on the vari
 - If the `readableBy` property is set on the variable, the variable will appear in the configuration screen only if the current user has the right
 to read this variable.
 - If the `writableBy` property is set on the variable, the variable will be displayed, but modifiable only if the current user has the right
-to write to this variable.
+to write to this variable. 
 
 ## Creating sub-sections
 

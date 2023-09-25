@@ -1,8 +1,8 @@
-# Tiled Layers
+{.section-title.accent.text-primary}
+# Layers utility functions
 
-:::info Important
-To use these functions, you need to [import the "Scripting API Extra"](index.md#importing-the-utility-functions) library.
-:::
+{.alert.alert-info}
+**Important!** To use these functions, you need to [import the "Scripting API Extra"](utils.md#importing-the-utility-functions) library.
 
 ### Return a Map of all layers
 
