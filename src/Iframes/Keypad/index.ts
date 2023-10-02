@@ -1,11 +1,12 @@
 import { getLayersMap } from "../../LayersFlattener";
 import { Properties } from "../../Properties";
-import { DtmfPlayer } from "play-dtmf";
+import { PhoneTonePlayer, type Dtmf, Tone } from "play-dtmf";
 
 let code!: string;
 let inputCode = "";
 let doorVariable!: string;
-const dtmfPlayer = new DtmfPlayer();
+const audioContext = new AudioContext();
+const dtmfPlayer = new PhoneTonePlayer(audioContext);
 
 WA.onInit()
     .then(async () => {
@@ -53,12 +54,23 @@ WA.onInit()
 
 function initKeyBindings(): void {
     document.querySelectorAll<HTMLButtonElement>("button").forEach((button) => {
+        let tonePlaying: Tone | undefined;
+
         button.addEventListener("mousedown", function () {
-            dtmfPlayer.play(this.innerText);
+            if (isDtmf(this.innerText)) {
+                tonePlaying?.stop();
+                tonePlaying = dtmfPlayer.playDtmf(this.innerText);
+            } else {
+                console.error("Invalid DTMF key: " + this.innerText);
+            }
         });
 
         button.addEventListener("mouseup", function () {
-            dtmfPlayer.stop();
+            tonePlaying?.stop();
+        });
+
+        button.addEventListener("mouseout", function () {
+            tonePlaying?.stop();
         });
 
         button.addEventListener("click", function () {
@@ -71,6 +83,27 @@ function initKeyBindings(): void {
             }
         });
     });
+}
+
+function isDtmf(key: string): key is Dtmf {
+    return [
+        "*",
+        "#",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+    ].includes(key);
 }
 
 export {};
