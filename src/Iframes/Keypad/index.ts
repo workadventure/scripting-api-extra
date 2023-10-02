@@ -13,14 +13,14 @@ WA.onInit()
         const layerName = window.location.hash.substr(1);
 
         if (!layerName) {
-            throw new Error('Missing "layer" in hash');
+            throw new Error("Missing \"layer\" in hash");
         }
 
         const layers = await getLayersMap();
         const layer = layers.get(layerName);
 
         if (layer === undefined) {
-            throw new Error('Cannot find layer whose name is "' + layerName + '".');
+            throw new Error("Cannot find layer whose name is \"" + layerName + "\".");
         }
 
         const properties = new Properties(layer.properties);
@@ -28,7 +28,7 @@ WA.onInit()
         const codeVariable = properties.getString("codeVariable");
 
         if (tmpCode === undefined && codeVariable === undefined) {
-            throw new Error('Missing "code" or "codeVariable" for layer "' + layerName + '".');
+            throw new Error("Missing \"code\" or \"codeVariable\" for layer \"" + layerName + "\".");
         }
 
         if (codeVariable) {
@@ -43,7 +43,7 @@ WA.onInit()
         const doorVariableVal = properties.getString("doorVariable");
 
         if (doorVariableVal === undefined) {
-            throw new Error('Missing "doorVariable" for layer "' + layerName + '".');
+            throw new Error("Missing \"doorVariable\" for layer \"" + layerName + "\".");
         }
 
         doorVariable = doorVariableVal;

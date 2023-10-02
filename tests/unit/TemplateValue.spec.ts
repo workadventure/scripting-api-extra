@@ -1,5 +1,6 @@
 import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/front/Api/Iframe/state";
 import { TemplateValue } from "../../src/TemplateValue";
+import { describe, expect, it } from "vitest";
 
 describe("Test TemplateValue", () => {
     function buildTemplateValue(template: string): TemplateValue {

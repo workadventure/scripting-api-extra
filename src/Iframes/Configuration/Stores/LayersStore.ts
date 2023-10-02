@@ -17,7 +17,7 @@ export const configurationLayerStore = derived<Readable<string>, ITiledMapLayer 
 
                 if (configurationLayer === undefined) {
                     throw new Error(
-                        'Could not find a layer with the name "configuration" on the map',
+                        "Could not find a layer with the name \"configuration\" on the map",
                     );
                 }
 

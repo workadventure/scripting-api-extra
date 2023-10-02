@@ -383,11 +383,11 @@ export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
             const doorVariable = variables.get(doorVariableName);
             if (doorVariable === undefined) {
                 throw new Error(
-                    'Cannot find variable "' +
+                    "Cannot find variable \"" +
                         doorVariableName +
-                        '" referred in the "doorVariable" property of layer "' +
+                        "\" referred in the \"doorVariable\" property of layer \"" +
                         layer.name +
-                        '"',
+                        "\"",
                 );
             }
             initDoorstep(layer, doorVariable, properties, assetsUrl);
@@ -405,11 +405,11 @@ export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
             const doorVariable = variables.get(doorVariableName);
             if (doorVariable === undefined) {
                 throw new Error(
-                    'Cannot find variable "' +
+                    "Cannot find variable \"" +
                         doorVariableName +
-                        '" referred in the "doorVariable" property of object "' +
+                        "\" referred in the \"doorVariable\" property of object \"" +
                         object.name +
-                        '"',
+                        "\"",
                 );
             }
             initDoorstep(object, doorVariable, properties, assetsUrl);

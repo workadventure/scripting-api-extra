@@ -12,7 +12,7 @@ export class Properties {
             .filter((property) => property.name === name)
             .map((property) => property.value);
         if (values.length > 1) {
-            throw new Error('Expected only one property to be named "' + name + '"');
+            throw new Error("Expected only one property to be named \"" + name + "\"");
         }
         if (values.length === 0) {
             return undefined;
@@ -41,7 +41,7 @@ export class Properties {
             return undefined;
         }
         if (type !== "json" && typeof value !== type) {
-            throw new Error('Expected property "' + name + '" to have type "' + type + '"');
+            throw new Error("Expected property \"" + name + "\" to have type \"" + type + "\"");
         }
         return value;
     }
@@ -64,10 +64,10 @@ export class Properties {
     ): string | boolean | number | Json | undefined {
         const value = this.get(name);
         if (value === undefined) {
-            throw new Error('Property "' + name + '" is missing');
+            throw new Error("Property \"" + name + "\" is missing");
         }
         if (type !== "json" && typeof value !== type) {
-            throw new Error('Expected property "' + name + '" to have type "' + type + '"');
+            throw new Error("Expected property \"" + name + "\" to have type \"" + type + "\"");
         }
         return value;
     }
@@ -80,7 +80,7 @@ export class Properties {
             .filter((property) => property.name === name)
             .map((property) => property.type);
         if (types.length > 1) {
-            throw new Error('Expected only one property to be named "' + name + '"');
+            throw new Error("Expected only one property to be named \"" + name + "\"");
         }
         if (types.length === 0) {
             return undefined;

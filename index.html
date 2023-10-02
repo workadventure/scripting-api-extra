@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="test-configuration"> Success <input type="radio" name="test-configuration"> Failure <input type="radio" name="test-configuration" checked> Pending
+                    <input type="radio" name="test-automatic-configuration"> Success <input type="radio" name="test-automatic-configuration"> Failure <input type="radio" name="test-automatic-configuration" checked> Pending
                 </td>
                 <td>
                     <a href="#" class="testLink" data-testmap="configuration.json" target="_blank">Testing automatic configuration</a>
@@ -52,7 +52,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="test-configuration"> Success <input type="radio" name="test-configuration"> Failure <input type="radio" name="test-configuration" checked> Pending
+                    <input type="radio" name="test-multiple-configuration"> Success <input type="radio" name="test-multiple-configuration"> Failure <input type="radio" name="test-multiple-configuration" checked> Pending
                 </td>
                 <td>
                     <a href="#" class="testLink" data-testmap="configuration_multi_sections.json" target="_blank">Testing automatic configuration with multiple sections</a>
@@ -60,7 +60,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="test-configuration"> Success <input type="radio" name="test-configuration"> Failure <input type="radio" name="test-configuration" checked> Pending
+                    <input type="radio" name="test-tutorial-configuration"> Success <input type="radio" name="test-tutorial-configuration"> Failure <input type="radio" name="test-tutorial-configuration" checked> Pending
                 </td>
                 <td>
                     <a href="#" class="testLink" data-testmap="tutorial.json" target="_blank">Testing tutorial</a>
@@ -72,18 +72,9 @@
         <script>
             const baseInput = document.getElementById('baseurl');
 
-            let host = window.location.host;
-            let playHost;
-            /*if (host.startsWith('maps-')) {
-                playHost = 'play-'+host.substr(5);
-            } else if (host.startsWith('maps.')) {
-                playHost = 'play.'+host.substr(5);
-            } else {
-                playHost = 'localhost';
-            }*/
-            playHost = '<%= workadventure_url %>'
+            const playHost = import.meta.env.VITE_PLAY_HOST || 'https://play.workadventu.re';
 
-            let completeUrl = playHost + '/_/global/' + host + window.location.pathname;
+            const completeUrl = playHost + '/_/global/' + window.location.host + window.location.pathname;
 
             baseInput.value = completeUrl;
 
@@ -99,6 +90,5 @@
 
             init();
         </script>
-
     </body>
 </html>
