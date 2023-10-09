@@ -1,9 +1,18 @@
 import { get, writable } from "svelte/store";
-export function mapVariableToStore(variableName, store) {
+export function mapVariableToStore(variableName, store, isLoadingVariableStore) {
     store.set(WA.state.loadVariable(variableName));
-    store.subscribe((value) => {
+    store.subscribe(async (value) => {
         if (value !== WA.state.loadVariable(variableName)) {
-            WA.state.saveVariable(variableName, value);
+            try {
+                await WA.state.saveVariable(variableName, value);
+                isLoadingVariableStore.set(false);
+                console.info(`Variable ${variableName} saved`);
+            }
+            catch (e) {
+                console.info(`Error while saving variable ${variableName}`, e);
+                isLoadingVariableStore.set(false);
+                throw e;
+            }
         }
     });
     WA.state.onVariableChange(variableName).subscribe((value) => {
@@ -14,7 +23,8 @@ export function mapVariableToStore(variableName, store) {
 }
 export function createStoreFromVariable(variableName) {
     const store = writable(undefined);
-    mapVariableToStore(variableName, store);
-    return store;
+    const isLoadingVariableStore = writable(false);
+    mapVariableToStore(variableName, store, isLoadingVariableStore);
+    return { store, isLoadingVariableStore };
 }
 //# sourceMappingURL=VariableMapper.js.map

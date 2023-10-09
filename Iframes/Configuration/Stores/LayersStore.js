@@ -1,6 +1,8 @@
-import { derived } from "svelte/store";
+import { derived, writable } from "svelte/store";
 import { currentPage } from "./NavigationStore";
+export const loadingConfigurationLayerStore = writable(false);
 export const configurationLayerStore = derived(currentPage, ($currentPage, set) => {
+    loadingConfigurationLayerStore.set(true);
     WA.room
         .getTiledMap()
         .then((tiledMap) => {
@@ -9,8 +11,12 @@ export const configurationLayerStore = derived(currentPage, ($currentPage, set) 
             throw new Error('Could not find a layer with the name "configuration" on the map');
         }
         set(findLayer($currentPage, configurationLayer));
+        loadingConfigurationLayerStore.set(false);
     })
-        .catch((e) => console.error(e));
+        .catch((e) => {
+        console.error("Error while loading the configuration layer", e);
+        loadingConfigurationLayerStore.set(false);
+    });
 });
 function findLayer(name, configurationLayer) {
     const layer = recursiveFindLayer(name, configurationLayer);

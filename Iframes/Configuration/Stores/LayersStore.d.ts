@@ -1,4 +1,5 @@
 import { Readable } from "svelte/store";
+export declare const loadingConfigurationLayerStore: import("svelte/store").Writable<boolean>;
 export declare const configurationLayerStore: Readable<{
     class?: string | undefined;
     x?: number | undefined;

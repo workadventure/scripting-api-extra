@@ -3,6 +3,6 @@ export declare const steps: {
     videoUrl: string;
     videoPoster: string;
     description: string;
-    shortTiltle: string;
+    shortTitle: string;
 }[];
 export declare const currentStepStore: import("svelte/store").Writable<number>;
