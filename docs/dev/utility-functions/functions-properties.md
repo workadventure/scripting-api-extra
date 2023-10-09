@@ -1,8 +1,8 @@
-{.section-title.accent.text-primary}
-# Tiled properties
+# Tiled Properties
 
-{.alert.alert-info}
-**Important!** To use these functions, you need to [import the "Scripting API Extra"](utils.md#importing-the-utility-functions) library.
+:::info Important
+To use these functions, you need to [import the "Scripting API Extra"](index.md#importing-the-utility-functions) library.
+:::
 
 In your Tiled map, a number of items can have "properties" (the map itself, layers, tiles, tilesets, objects...).
 
