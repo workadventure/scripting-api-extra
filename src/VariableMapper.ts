@@ -9,12 +9,21 @@ import { get, writable } from "svelte/store";
 export function mapVariableToStore(
     variableName: string,
     store: Readable<unknown> & { set(this: void, value: unknown): void },
+    isLoadingVariableStore: Readable<boolean> & { set(this: void, value: boolean): void },
 ): void {
     store.set(WA.state.loadVariable(variableName));
 
-    store.subscribe((value) => {
+    store.subscribe(async (value) => {
         if (value !== WA.state.loadVariable(variableName)) {
-            WA.state.saveVariable(variableName, value);
+            try {
+                await WA.state.saveVariable(variableName, value);
+                isLoadingVariableStore.set(false);
+                console.info(`Variable ${variableName} saved`);
+            } catch (e) {
+                console.info(`Error while saving variable ${variableName}`, e);
+                isLoadingVariableStore.set(false);
+                throw e;
+            }
         }
     });
 
@@ -30,10 +39,12 @@ export function mapVariableToStore(
  *
  * The store is initialized with the value of the variable.
  */
-export function createStoreFromVariable(variableName: string): Writable<unknown> {
+export function createStoreFromVariable(variableName: string): {
+    isLoadingVariableStore: Writable<boolean>;
+    store: Writable<unknown>;
+} {
     const store = writable<unknown>(undefined);
-
-    mapVariableToStore(variableName, store);
-
-    return store;
+    const isLoadingVariableStore = writable<boolean>(false);
+    mapVariableToStore(variableName, store, isLoadingVariableStore);
+    return { store, isLoadingVariableStore };
 }

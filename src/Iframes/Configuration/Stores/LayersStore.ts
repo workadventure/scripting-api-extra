@@ -1,13 +1,15 @@
-import { derived, Readable } from "svelte/store";
+import { derived, Readable, writable } from "svelte/store";
 import type { ITiledMapLayer } from "@workadventure/tiled-map-type-guard/dist";
 import { currentPage } from "./NavigationStore";
 
 // TODO: add a store for all layers flattened
 //  and call getTiledMap() only once onInit to set the map layers
 
+export const loadingConfigurationLayerStore = writable<boolean>(false);
 export const configurationLayerStore = derived<Readable<string>, ITiledMapLayer | undefined>(
     currentPage,
     ($currentPage, set) => {
+        loadingConfigurationLayerStore.set(true);
         WA.room
             .getTiledMap()
             .then((tiledMap) => {
@@ -22,8 +24,12 @@ export const configurationLayerStore = derived<Readable<string>, ITiledMapLayer 
                 }
 
                 set(findLayer($currentPage, configurationLayer as ITiledMapLayer));
+                loadingConfigurationLayerStore.set(false);
             })
-            .catch((e) => console.error(e));
+            .catch((e) => {
+                console.error("Error while loading the configuration layer", e);
+                loadingConfigurationLayerStore.set(false);
+            });
     },
 );
 

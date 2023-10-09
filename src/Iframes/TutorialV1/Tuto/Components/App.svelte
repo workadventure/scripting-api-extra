@@ -24,7 +24,7 @@
                     videoUrl={step.videoUrl}
                     videoPoster={step.videoPoster}
                     description={step.description}
-                    shortTiltle={step.shortTiltle}
+                    shortTitle={step.shortTitle}
                 />
             {/if}
         {/each}

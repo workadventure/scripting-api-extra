@@ -39,7 +39,7 @@ export const steps = [
                 </ul>
             </p>
         `,
-        shortTiltle:
+        shortTitle:
             "Welcome to WorkAdventure adventurer! I'm Viv Legging and i will be showing you how things work down here!",
     },
     {
@@ -60,7 +60,7 @@ export const steps = [
             </p>
             <p>You can see your timeline chat at anytime!</p>
         `,
-        shortTiltle: "",
+        shortTitle: "",
     },
     {
         title: "Attend a conference 📹",
@@ -83,7 +83,7 @@ export const steps = [
                 </ul>
             </p>
         `,
-        shortTiltle: "",
+        shortTitle: "",
     },
     {
         title: "Interact with dynamic zones 🤸‍♀️",
@@ -95,7 +95,7 @@ export const steps = [
             </p>Touch the red button to close the interactive window.</p>
             </p>Touch the blue button to extend or reduce the interactive window.</p>
         `,
-        shortTiltle: "",
+        shortTitle: "",
     },
     {
         title: "Go private 🔒",
@@ -106,7 +106,7 @@ export const steps = [
             <p>Enter silent zones when you need not to be disturbed. Nobody will be able to connect with you and your cam & mic will automatically be switched off.</p>
             <p>For more privacy, custom your away mode settings at any time to decide whether your cam and/or mic are automatically switched off when you're not on the WorkAdventure's tab.</p>
         `,
-        shortTiltle: "",
+        shortTitle: "",
     },
     {
         title: "Enjoy 🚀",
@@ -118,7 +118,7 @@ export const steps = [
                     <p>If you need any kind of support, please email us: hello@workadventu.re</p>
                     </p>Or talk to our team directly here in the village, they'll be more than happy to help you out!</p>
                 `,
-        shortTiltle: "",
+        shortTitle: "",
     },
 ];
 export const currentStepStore = writable<number>(1);
