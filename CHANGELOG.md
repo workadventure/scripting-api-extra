@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/workadventure/scripting-api-extra/compare/v1.4.8...v1.5.0) (2023-10-23)
+
+
+### Features
+
+* Update for new configuration version ([#222](https://github.com/workadventure/scripting-api-extra/issues/222)) ([124d6f1](https://github.com/workadventure/scripting-api-extra/commit/124d6f1b2d8939dfe33276617c0949ede9e94ca5))
+
 ## [1.4.8](https://github.com/workadventure/scripting-api-extra/compare/v1.4.7...v1.4.8) (2023-08-22)
 
 
