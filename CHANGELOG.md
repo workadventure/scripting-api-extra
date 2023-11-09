@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/workadventure/scripting-api-extra/compare/v1.5.0...v1.5.1) (2023-11-09)
+
+
+### Bug Fixes
+
+* Adapting documentation to Docusaurus ([2df69e1](https://github.com/workadventure/scripting-api-extra/commit/2df69e19918560a69594b73add0a99ed86b612fa))
+
 # [1.5.0](https://github.com/workadventure/scripting-api-extra/compare/v1.4.8...v1.5.0) (2023-10-23)
 
 
