@@ -1,3 +1,9 @@
+---
+
+sidebar_position: 50
+
+---
+
 # Binding Variables to Properties
 
 :::info
@@ -35,16 +41,17 @@ To use bindings with area objects, you must first set the "dynamic" property to 
 It should be noted that "dynamic" areas are accessible via the scripting API but are not editable in the (upcoming) map editor.
 
 ![Dynamic Area](images/areaBindings.png)
-The Dynamic custom property
+
+_The Dynamic custom property_
 
 ## Configuration
 
 Binding variables to properties can make your map reactive to variable changes, but you still need to find a way
 to modify the values of variables. There are plenty of ways to do this, including:
 
-- [Using the scripting API](https://workadventu.re/map-building/api-state.md)
-- [Using auto-generated configuration screen](automatic-configuration.md)
-- [Using generic action layers](generic-action-layers.md)
+- [Using the scripting API](https://docs.workadventu.re/developer/map-scripting/references/api-state)
+- [Using auto-generated configuration screen](automatic-configuration)
+- [Using generic action layers](generic-action-layers)
 
 ## About bindings
 
@@ -75,6 +82,7 @@ If this custom property is set, it will override the "Visible" property of the l
 If you bind it to a variable, you can display or hide a layer based on the value of a variable.
 
 ![Visible Property](images/visible_property.png)
+
 Usage of the `visible` property
 
 ### Inverting a boolean variable

@@ -1,3 +1,10 @@
+---
+
+sidebar_position: 30
+title: Map configuration screen
+
+---
+
 # Generating automatically a configuration screen
 
 :::info
@@ -5,7 +12,7 @@ To generate a configuration screen automatically, you need to [import the "Scrip
 :::
 
 WorkAdventure comes with a ["variables"](/developer/map-scripting/references/api-state) system that can be used
-to change a map dynamically. Variables can have an impact on a map through [property bindings](variable-to-property-binding.md),
+to change a map dynamically. Variables can have an impact on a map through [property bindings](variable-to-property-binding),
 or through the [Scripting API](/developer/map-scripting/references/api-state).
 
 In order to edit the value of a variable, the *Scripting API Extra* library comes with a way to define configuration
@@ -16,10 +23,7 @@ Each variable is mapped to one field in the form.
 
 For a variable to appear in the configuration panel, it MUST be stored in a layer called `configuration`.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/variables_in_configuration_layer.png" alt="" />
-    <figcaption class="figure-caption">List of variables that will be displayed in the configuration screen</figcaption>
-</figure>
+![List of variables that will be displayed in the configuration screen](images/variables_in_configuration_layer.png)
 
 Below, we will see the two ways of configuring your variables with the configuration panel.
 
@@ -27,17 +31,11 @@ Below, we will see the two ways of configuring your variables with the configura
 
 Having a variable inside a `configuration` object layer will automatically add a button inside the menu, called 'Configure the room'.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configure_the_room_button.png" alt="" />
-    <figcaption class="figure-caption">Configure the room button</figcaption>
-</figure>
+![Configure the room button](images/configure_the_room_button.png)
 
 Try to open the menu and check for this new sub-menu. By clicking on the button you should now see the global configuration panel:
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_panel_global.png" alt="" />
-    <figcaption class="figure-caption">Global configuration panel</figcaption>
-</figure>
+![Global configuration panel](images/configuration_panel_global.png)
 
 We call it 'global' because it contains all the variables that the `configuration` layer have.
 This is great if you do not have many variables to configure and if they are well organized.
@@ -48,24 +46,19 @@ We call this 'local' configuration, and you will see it in action right away!
 
 By going in front of this door, the configuration form will contain only the variable that controls the right door:
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_panel_local.png" alt="" />
-    <figcaption class="figure-caption">Local configuration panel</figcaption>
-</figure>
+![Local configuration panel](images/configuration_panel_local.png)
 
 Comparing to the previous screenshot you see only one field, and it's the field that can set the exit URL of this specific door.
 To be able to achieve that, all you need to do is to create a layer with the `openConfig` property with the name of the variable to configure as its value.
 Because our variable here is called `rightDoorExitUrl` we added `openConfig: rightDoorExitUrl`.
 
-{.alert.alert-info}
-**Pro tip:** Note that you can tell the `openConfig` property to include multiple variables by separating the variable names by a comma.
+:::info Pro tip
+Note that you can tell the `openConfig` property to include multiple variables by separating the variable names by a comma.
 For example: `openConfig: rightDoorExitUrl,leftDoorExitUrl`.
 Also, the layer containing openConfig must have a `zone` (string) property as well, but this step will be removed in a future version.
+:::
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/local_configuration_setup_tiled.png" alt="" />
-    <figcaption class="figure-caption">Local configuration setup</figcaption>
-</figure>
+![Local configuration setup](images/local_configuration_setup_tiled.png)
 
 You can see that our layer is represented in the game by a single tile (the yellow one) and that `openConfig` is very similar to `openWebsite`!
 In fact, it has technically the same effect of opening an iframe, but you can't control the website that will appear, only the number of variables.
@@ -81,10 +74,9 @@ configuration screen to users that have a certain *tag*.
 To do this with the global configuration panel, simply add a `tag` property to the configuration object layer. The value of the property is the name of the tag
 that users must have to access the configuration screen.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_tag.png" alt="" />
-    <figcaption class="figure-caption">Here, only users with tag "admin" will have access to the configuration screen</figcaption>
-</figure>
+![Here, only users with tag "admin" will have access to the configuration screen](images/configuration_tag.png)
+
+_Here, only users with tag "admin" will have access to the configuration screen_
 
 You can also protect a local configuration zone by adding the `openConfigAdminTag` property and by setting a tag as value.
 Adding `openConfigAdminTag: admin` to a layer that contains `openConfig` will prevent players that don't have the 'admin' tag to see the local configuration panel, as well as the alert to open it.
@@ -99,15 +91,9 @@ By default, the name of the variable is used as the label.
 
 You can add a `label` property on the variable to display a custom label for your variable.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_label.png" alt="" />
-    <figcaption class="figure-caption">The label property added to a variable</figcaption>
-</figure>
+![The label property added to a variable](images/configuration_label.png)
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_label_screenshot.png" alt="" />
-    <figcaption class="figure-caption">The label property is used as field label</figcaption>
-</figure>
+![The label property is used as field label](images/configuration_label_screenshot.png)
 
 ### Changing the type of the field
 
@@ -116,9 +102,10 @@ it will be displayed as a checkbox.
 
 You can alter this type of the field displayed by using the `type` **custom** property.
 
-{.alert.alert-warning}
-**Important!** The *type* of the point object  that represents the variable must always be `variable`. You should add
+:::caution Important!
+The *type* of the point object  that represents the variable must always be `variable`. You should add
 a **custom** property whose name is "type" to set the type of the field.
+:::
 
 Acceptable values for the "type" property are:
 
@@ -144,15 +131,13 @@ For instance, if you want to do a simple "Yes/No" radio button, you would write:
 
 When you use the `allowed_values` property in your variable, do not forget to the the `type` property to `select` or `radio`.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_allowed_values.png" alt="" />
-    <figcaption class="figure-caption">The "allowed_values" property added to a variable</figcaption>
-</figure>
+![The "allowed_values" property added to a variable](images/configuration_allowed_values.png)
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_allowed_values_description.png" alt="" />
-    <figcaption class="figure-caption">The field is displayed as a "select" because we chose "type = select"</figcaption>
-</figure>
+_The "allowed_values" property added to a variable_
+
+![The field is displayed as a "select" because we chose "type = select"](images/configuration_allowed_values_description.png)
+
+_The field is displayed as a "select" because we chose "type = select"_
 
 
 ### Adding a description / hint
@@ -160,15 +145,13 @@ When you use the `allowed_values` property in your variable, do not forget to th
 You can add a `description` property on the variable to display a description of the purpose of the field, below
 the field.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_description.png" alt="" />
-    <figcaption class="figure-caption">The description property added to a variable</figcaption>
-</figure>
+![The description property added to a variable](images/configuration_description.png)
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_description_screenshot.png" alt="" />
-    <figcaption class="figure-caption">The description property is displayed below the field</figcaption>
-</figure>
+_The description property added to a variable_
+
+![The description property is displayed below the field](images/configuration_description_screenshot.png)
+
+_The description property is displayed below the field_
 
 ### Field visibility
 
@@ -185,15 +168,11 @@ Do you have many variables on your map? You can organize these variables on diff
 To do this, simply turn the `configuration` layer into a "group" layer. In this group layer, you can put many object
 layers. Each object layer will be rendered in a different page.
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_layers_tree.png" alt="" />
-    <figcaption class="figure-caption">Variables are stored in layers inside the "configuration" group layer</figcaption>
-</figure>
+![The configuration layer is now a group layer](images/configuration_layers_tree.png)
 
-<figure class="figure">
-    <img class="figure-img img-fluid rounded" src="images/configuration_main_page.png" alt="" />
-    <figcaption class="figure-caption">Each configuration page is accessible from the main page</figcaption>
-</figure>
+_The configuration layer is now a group layer_
+
+![Each configuration page is accessible from the main page](images/configuration_main_page.png)
 
 Each configuration page is accessible from the main page using a menu made of buttons.
 

@@ -1,10 +1,18 @@
+---
+
+sidebar_position: 20
+title: Bells / Knocking on a door
+
+---
+
+
 # Bells / Knocking on a door
 
 :::info Important
 To use the "bells" feature, you need to [import the "Scripting API Extra" script in your map](/developer/map-scripting/scripting-api-extra/#importing-the-extended-features)
 :::
 
-Bells are usually used next to [doors](doors.md) (even if they can be used independently)
+Bells are usually used next to [doors](doors) (even if they can be used independently)
 
 You can:
 
