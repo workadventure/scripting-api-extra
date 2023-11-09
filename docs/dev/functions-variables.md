@@ -44,7 +44,6 @@ class VariableDescriptor {
 }
 ```
 
-{.section-title.accent.text-primary}
 ## Configuration panel
 
 ### Opening the local configuration panel

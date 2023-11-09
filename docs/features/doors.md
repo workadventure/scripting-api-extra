@@ -1,3 +1,11 @@
+---
+
+sidebar_position: 10
+title: Adding doors
+
+---
+
+
 # Doors
 
 :::info Important
@@ -9,15 +17,16 @@ Doors are extremely customizable in your map. You can:
 - decide to open/close the door automatically or on user interaction
 - decide who can operate the door (based on the user's tags)
 - lock a door with a digit code
-- you can even add a bell (look at the [bells](bells.md) dedicated document)
+- you can even add a bell (look at the [bells](bells) dedicated document)
 
 In order to create a door, you will need:
 
 - a tileset containing sprites for the door in an opened and in a closed state
 - optionally 2 MP3 files containing the opening and closing sound
 
-{.alert.alert-info}
+:::info
 Looking for cool door sprites? Checkout out [door sprites by Pipoya on itch.io](https://pipoya.itch.io/pipoya-rpg-tileset-32x32/devlog/222435/add-door-animation)
+:::
 
 Doors are made of 1 variable and 4 layers. We will see how to build one step by step in this document.
 
@@ -40,7 +49,7 @@ to walk through your open door!
 
 ## Door Variable
 
-Then, add a ["variable"](https://workadventu.re/map-building/api-state.md). The variable will control
+Then, add a ["variable"](https://docs.workadventu.re/developer/map-scripting/references/api-state). The variable will control
 the "state" of the door and to share that state between the players. If the variable value is `true`,
 the door will be open, if it is `false`, the door will be closed.
 
