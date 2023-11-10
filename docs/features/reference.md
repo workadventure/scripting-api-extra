@@ -32,7 +32,6 @@ Those properties can be set on layers.
 | [`enterValue`](generic-action-layers)                                  | string  | Action layer   | (optional) The value the variable will be set to when entering the layer                                                     |
 | [`leaveValue`](generic-action-layers)                                  | string  | Action layer   | (optional) The value the variable will be set to when leaving the layer                                                      |
 | [`visible`](variable-to-property-binding#the-special-visible-property) | string  | *Any layer*    | This property can control the visibility of a layer. Any "truthy" value will display the layer. An empty value will hide it. |
-| [`tutorial`](tutorial)                                                 | boolean | Map            | This property indicates whether the tutorial will be displayed on this map or not.                                           |
 
 ## Variables properties
 

@@ -108,7 +108,6 @@
     "@workadventure-style/sweetsky": "^1.0.2",
     "@workadventure/tiled-map-type-guard": "^2.0.4",
     "mustache": "^4.2.0",
-    "nes.css": "^2.3.0",
     "play-dtmf": "^0.1.1",
     "postcss-loader": "^7.0.1"
   }

@@ -1,16 +1,16 @@
 import { defaultAssetsUrl } from "./default_assets_url";
 
 export function launchTutorialv1(): void {
-    let hots = defaultAssetsUrl;
+    let host = defaultAssetsUrl;
     if (
         process.env.NODE_ENV === "development" &&
         process.env.WORKADVENTURE_URL != undefined &&
         process.env.WORKADVENTURE_URL !== ""
     ) {
-        hots = process.env.WORKADVENTURE_URL.replace("play.", "extra.");
+        host = process.env.WORKADVENTURE_URL.replace("play.", "extra.");
     }
 
-    const tutoUrl = `${hots}/tutorialv1.html`;
+    const tutoUrl = `${host}/tutorialv1.html`;
     console.info("Start onboarding application!", tutoUrl);
 
     console.info("Player tutorial done information: ", WA.player.state.tutorialDone);
