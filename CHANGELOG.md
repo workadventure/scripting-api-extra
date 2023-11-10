@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/workadventure/scripting-api-extra/compare/v1.5.1...v1.5.2) (2023-11-10)
+
+
+### Bug Fixes
+
+* Getting rid of the tutorial ([#226](https://github.com/workadventure/scripting-api-extra/issues/226)) ([36cf56c](https://github.com/workadventure/scripting-api-extra/commit/36cf56cc947fba79cfcaef09ef37bde065b29e07))
+
 ## [1.5.1](https://github.com/workadventure/scripting-api-extra/compare/v1.5.0...v1.5.1) (2023-11-09)
 
 
