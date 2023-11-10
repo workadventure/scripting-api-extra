@@ -7,6 +7,5 @@ export * from "./LayersExtra";
 export * from "./Features/properties_templates";
 export * from "./Features/doors";
 export * from "./Features/variable_actions";
-export * from "./Features/tutorial";
 export * from "./Features/tutorialv1";
 export * from "./init";
