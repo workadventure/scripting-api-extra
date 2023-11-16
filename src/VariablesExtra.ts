@@ -38,7 +38,7 @@ export class VariableDescriptor {
  */
 export function openConfig(variables?: string[]): void {
     const parameters = variables ? "#" + variables.join() : "";
-    WA.nav.openCoWebSite(defaultAssetsUrl + "/configuration.html" + parameters);
+    WA.nav.openCoWebSite(defaultAssetsUrl + "/configuration.html" + parameters, true);
 }
 
 export async function getVariables(
