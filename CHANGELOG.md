@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/workadventure/scripting-api-extra/compare/v1.5.2...v1.5.3) (2023-11-16)
+
+
+### Bug Fixes
+
+* Open config with allow api parameter ([#227](https://github.com/workadventure/scripting-api-extra/issues/227)) ([360b36e](https://github.com/workadventure/scripting-api-extra/commit/360b36e40c184388a3603fc0dc3a65b75ab4aac7))
+
 ## [1.5.2](https://github.com/workadventure/scripting-api-extra/compare/v1.5.1...v1.5.2) (2023-11-10)
 
 
