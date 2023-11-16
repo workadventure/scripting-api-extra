@@ -24,7 +24,7 @@ export class VariableDescriptor {
 }
 export function openConfig(variables) {
     const parameters = variables ? "#" + variables.join() : "";
-    WA.nav.openCoWebSite(defaultAssetsUrl + "/configuration.html" + parameters);
+    WA.nav.openCoWebSite(defaultAssetsUrl + "/configuration.html" + parameters, true);
 }
 export async function getVariables(layerFilter, variablesFilter) {
     const map = await WA.room.getTiledMap();
