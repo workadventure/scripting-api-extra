@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/workadventure/scripting-api-extra/compare/v1.5.3...v1.5.4) (2023-11-23)
+
+
+### Bug Fixes
+
+* tutorial v1 luncher function ([#228](https://github.com/workadventure/scripting-api-extra/issues/228)) ([b7a898e](https://github.com/workadventure/scripting-api-extra/commit/b7a898e52b419a784510cc3b6258c00580ab2000))
+
 ## [1.5.3](https://github.com/workadventure/scripting-api-extra/compare/v1.5.2...v1.5.3) (2023-11-16)
 
 
