@@ -35,9 +35,9 @@ jobs:
             NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
             CI: true
-      - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
-      - run: npm run build --if-present
       - run: npm run test
+      - run: sed -i 's|""|"https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
+      - run: npm run build --if-present
 
       # Deployment on Github Pages
       - name: "Deploy Github Pages"

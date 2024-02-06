@@ -36,7 +36,7 @@ We do not recommend this method because you will not be able to import other scr
 :::
 
 You can do so by adding a `script` property at the top level of your map, pointing to the URL:
-`https://unpkg.com/@workadventure/scripting-api-extra@^1/dist/bundle.js`
+`https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@^1/dist/bundle.js`
 
 ![](images/script.png)
 Importing the "Scripting API Extra" library using the "script" property.
@@ -57,7 +57,7 @@ script, have a look at the next section.
 To import the "Scripting API Extra" library dynamically from your script, at the top of your JS script, add this line:
 
 ```javascript
-import { } from "https://unpkg.com/@workadventure/scripting-api-extra@^1";
+import { } from "https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@^1";
 ```
 
 ### Bundling the "Scripting API Extra" library in your script
