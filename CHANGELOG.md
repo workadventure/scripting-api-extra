@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/workadventure/scripting-api-extra/compare/v1.5.4...v1.6.0) (2024-02-06)
+
+
+### Features
+
+* change UNPKG to JSDelivr ([#231](https://github.com/workadventure/scripting-api-extra/issues/231)) ([01a6d8e](https://github.com/workadventure/scripting-api-extra/commit/01a6d8e3f34589c42e75775693ccb7194066ef85))
+
 ## [1.5.4](https://github.com/workadventure/scripting-api-extra/compare/v1.5.3...v1.5.4) (2023-11-23)
 
 
