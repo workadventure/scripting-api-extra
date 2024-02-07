@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/workadventure/scripting-api-extra/compare/v1.6.0...v1.7.0) (2024-02-07)
+
+
+### Features
+
+* change to use keypad of WorkAdventure ([#232](https://github.com/workadventure/scripting-api-extra/issues/232)) ([2f38022](https://github.com/workadventure/scripting-api-extra/commit/2f3802256ec8203d89437d9851c5ffb3b75519bf))
+
 # [1.6.0](https://github.com/workadventure/scripting-api-extra/compare/v1.5.4...v1.6.0) (2024-02-06)
 
 
