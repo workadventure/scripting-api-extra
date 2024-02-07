@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/workadventure/scripting-api-extra/compare/v1.7.2...v1.7.3) (2024-02-07)
+
+
+### Bug Fixes
+
+* update strategy to use workadventure webpage ([089400d](https://github.com/workadventure/scripting-api-extra/commit/089400d18985cd5eba76fc6bc67ac254846bea20))
+
 ## [1.7.2](https://github.com/workadventure/scripting-api-extra/compare/v1.7.1...v1.7.2) (2024-02-07)
 
 
