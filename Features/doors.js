@@ -295,7 +295,8 @@ function initBellLayer(bellVariable, properties, bellZone) {
     }
 }
 export async function initDoors(assetsUrl) {
-    assetsUrl = assetsUrl !== null && assetsUrl !== void 0 ? assetsUrl : defaultAssetsUrl;
+    var _a;
+    assetsUrl = (_a = assetsUrl !== null && assetsUrl !== void 0 ? assetsUrl : process.env.WORKADVENTURE_URL) !== null && _a !== void 0 ? _a : defaultAssetsUrl;
     const variables = await getVariables();
     layersMap = await getLayersMap();
     for (const variable of variables.values()) {
