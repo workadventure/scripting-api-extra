@@ -273,6 +273,11 @@ module.exports = {
             patterns: resources,
         }),
         new webpack.EnvironmentPlugin({
+            WORKADVENTURE_URL: process.env.WORKADVENTURE_URL
+                ? JSON.stringify(process.env.WORKADVENTURE_URL)
+                : null,
+        }),
+        new webpack.DefinePlugin({
             "process.env.WORKADVENTURE_URL": process.env.WORKADVENTURE_URL
                 ? JSON.stringify(process.env.WORKADVENTURE_URL)
                 : null,
