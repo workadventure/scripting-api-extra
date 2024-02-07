@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/workadventure/scripting-api-extra/compare/v1.7.3...v1.7.4) (2024-02-07)
+
+
+### Bug Fixes
+
+* change to define html public file from admin service ([37ceb92](https://github.com/workadventure/scripting-api-extra/commit/37ceb929417bb37ba612bf8fe1de7dc7b7bfc41f))
+
 ## [1.7.3](https://github.com/workadventure/scripting-api-extra/compare/v1.7.2...v1.7.3) (2024-02-07)
 
 
