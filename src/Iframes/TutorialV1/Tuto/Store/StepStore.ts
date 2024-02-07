@@ -8,23 +8,23 @@ const step5Onboarding = "/dist/resources/images/tutov1/step5-onboarding.png";
 const step6Onboarding = "/dist/resources/images/tutov1/step6-onboarding.png";*/
 
 const step1Onboarding =
-    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step6-onboarding.png";
+    "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step1-onboarding.png";
 const step2Onboarding =
-    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step5-onboarding.png";
+    "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step2-onboarding.png";
 const step3Onboarding =
-    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step4-onboarding.png";
+    "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step3-onboarding.png";
 const step4Onboarding =
-    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step3-onboarding.png";
+    "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step4-onboarding.png";
 const step5Onboarding =
-    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step2-onboarding.png";
+    "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step5-onboarding.png";
 const step6Onboarding =
-    "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step1-onboarding.png";
+    "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step6-onboarding.png";
 
 export const steps = [
     {
         title: "Welcome 👋",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step1-onboarding.mp4",
+            "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step-1-onboarding.mp4",
         videoPoster: step1Onboarding,
         description: `
             <p>Move your avatar (Woka) with your arrow keys, or by right clicking somewhere in the map. If your WOKA does not move, focus on the map by clicking anywhere with your mouse.</p>
@@ -45,7 +45,7 @@ export const steps = [
     {
         title: "Chat with someone 💬",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step2-onboarding.mp4",
+            "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step-2-onboarding.mp4",
         videoPoster: step2Onboarding,
         description: `
             <p>Reduce the distance with your teams with a complete messaging service:</p>
@@ -65,7 +65,7 @@ export const steps = [
     {
         title: "Attend a conference 📹",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step3-onboarding-v2.mp4",
+            "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step-3-onboarding.mp4",
         videoPoster: step3Onboarding,
         description: `
             <p>Enter a conference room to connect with unlimited number of WOKAs.</p>
@@ -88,7 +88,7 @@ export const steps = [
     {
         title: "Interact with dynamic zones 🤸‍♀️",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step4-onboarding.mp4",
+            "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step-4-onboarding.mp4",
         videoPoster: step4Onboarding,
         description: `
             <p>Interact with dynamic zones by walking into them. A window will open at the right of your screen with an integration: a work tool for team collaboration, a website page, a survey doc, a Youtube video...</p>
@@ -100,7 +100,7 @@ export const steps = [
     {
         title: "Go private 🔒",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step5-onboarding.mp4",
+            "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step-5-onboarding.mp4",
         videoPoster: step5Onboarding,
         description: `
             <p>Enter silent zones when you need not to be disturbed. Nobody will be able to connect with you and your cam & mic will automatically be switched off.</p>
@@ -111,7 +111,7 @@ export const steps = [
     {
         title: "Enjoy 🚀",
         videoUrl:
-            "https://backup-workadventure-db-prod.s3.eu-west-1.amazonaws.com/upload/tuto_video/step6-onboarding.mp4",
+            "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step-6-onboarding.mp4",
         videoPoster: step6Onboarding,
         description: `
                     <p>That's it for today Adventurer. You are now ready to start your journey with us!</p>
