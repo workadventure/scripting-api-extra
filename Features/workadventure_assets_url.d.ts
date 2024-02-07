@@ -1,1 +1,1 @@
-export declare const workadventureAssetsUrl = "https://admin.workadventu.re/iframe";
+export declare const workadventureAssetsHtmlUrl = "https://admin.workadventu.re/html";

@@ -1,2 +1,2 @@
-export const workadventureAssetsUrl = "https://admin.workadventu.re/iframe";
+export const workadventureAssetsHtmlUrl = "https://admin.workadventu.re/html";
 //# sourceMappingURL=workadventure_assets_url.js.map

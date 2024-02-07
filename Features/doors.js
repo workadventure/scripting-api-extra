@@ -3,7 +3,7 @@ import { getLayersMap } from "../LayersFlattener";
 import { Properties } from "../Properties";
 import { findLayersBoundaries } from "../LayersExtra";
 import { defaultAssetsUrl } from "./default_assets_url";
-import { workadventureAssetsUrl } from "./workadventure_assets_url";
+import { workadventureAssetsHtmlUrl } from "./workadventure_assets_url";
 import { getAreaObject } from "../AreaObject";
 let layersMap;
 let playerX = 0;
@@ -296,7 +296,7 @@ function initBellLayer(bellVariable, properties, bellZone) {
     }
 }
 export async function initDoors(assetsUrl) {
-    assetsUrl = assetsUrl !== null && assetsUrl !== void 0 ? assetsUrl : (workadventureAssetsUrl || defaultAssetsUrl);
+    assetsUrl = assetsUrl !== null && assetsUrl !== void 0 ? assetsUrl : (workadventureAssetsHtmlUrl || defaultAssetsUrl);
     const variables = await getVariables();
     layersMap = await getLayersMap();
     for (const variable of variables.values()) {
