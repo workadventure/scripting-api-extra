@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/workadventure/scripting-api-extra/compare/v1.7.1...v1.7.2) (2024-02-07)
+
+
+### Bug Fixes
+
+* workadventure env ([9ad6fdc](https://github.com/workadventure/scripting-api-extra/commit/9ad6fdc00e6a28ffd6062823f9870a505e8115cb))
+
 ## [1.7.1](https://github.com/workadventure/scripting-api-extra/compare/v1.7.0...v1.7.1) (2024-02-07)
 
 
