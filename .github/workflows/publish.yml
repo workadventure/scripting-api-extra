@@ -38,7 +38,7 @@ jobs:
       - run: npm run test
       #- run: sed -i 's|""|"https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
       - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
-      - run: sed -i 's|""|"https://admin.workadventu.re/iframe"|g' src/Features/workadventure_assets_url.ts
+      - run: sed -i 's|""|"https://admin.workadventu.re/html"|g' src/Features/workadventure_assets_url.ts
       - run: npm run build --if-present
 
       # Deployment on Github Pages
