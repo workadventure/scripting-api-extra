@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/workadventure/scripting-api-extra/compare/v1.7.4...v1.7.5) (2024-02-07)
+
+
+### Bug Fixes
+
+* migrate video and image of tutorial ([8ad5dcf](https://github.com/workadventure/scripting-api-extra/commit/8ad5dcf37e80d6a460b5775c6f86304d2f1fe9b6))
+
 ## [1.7.4](https://github.com/workadventure/scripting-api-extra/compare/v1.7.3...v1.7.4) (2024-02-07)
 
 
