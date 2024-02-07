@@ -362,7 +362,7 @@ function initBellLayer(
  * assetsUrl is the URL to the assets directory containing the compiled "keypad.html" file (for digit code)
  */
 export async function initDoors(assetsUrl?: string | undefined): Promise<void> {
-    assetsUrl = assetsUrl ?? defaultAssetsUrl;
+    assetsUrl = assetsUrl ?? process.env.WORKADVENTURE_URL ?? defaultAssetsUrl;
     const variables = await getVariables();
     layersMap = await getLayersMap();
 
