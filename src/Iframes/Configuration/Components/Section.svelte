@@ -17,7 +17,7 @@
 
 {#if $currentPage !== 'configuration' }
     <div class="left mb-20">
-        <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.indexOf('/')) }}>&lt; Back</button>
+        <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click={() => { $currentPage = $currentPage.substring(0, $currentPage.lastIndexOf('/')) }}>&lt; Back</button>
     </div>
 {/if}
 
@@ -34,7 +34,7 @@
             {/each}
         </section>
         <div class="left mb-20">
-            <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" 
+            <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer"
                 on:click={() => closeCowebsite()}
             >
                 Finish
