@@ -1,3 +1,10 @@
+## [1.7.6](https://github.com/workadventure/scripting-api-extra/compare/v1.7.5...v1.7.6) (2024-03-25)
+
+
+### Bug Fixes
+
+* Fixing the "back" button in configuration screen ([#233](https://github.com/workadventure/scripting-api-extra/issues/233)) ([5b041d3](https://github.com/workadventure/scripting-api-extra/commit/5b041d32d1fcc49e2dd52a2f4d019a41c809640d))
+
 ## [1.7.5](https://github.com/workadventure/scripting-api-extra/compare/v1.7.4...v1.7.5) (2024-02-07)
 
 
