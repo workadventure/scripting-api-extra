@@ -1,3 +1,10 @@
+## [1.7.7](https://github.com/workadventure/scripting-api-extra/compare/v1.7.6...v1.7.7) (2024-03-27)
+
+
+### Bug Fixes
+
+* improve keypad UI for mobile ([#235](https://github.com/workadventure/scripting-api-extra/issues/235)) ([572fb10](https://github.com/workadventure/scripting-api-extra/commit/572fb10353859a35ebd9773b1c50f65ae601c015))
+
 ## [1.7.6](https://github.com/workadventure/scripting-api-extra/compare/v1.7.5...v1.7.6) (2024-03-25)
 
 
