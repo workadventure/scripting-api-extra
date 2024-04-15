@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { currentStepStore, steps } from "../Store/StepStore";
-    import Step from "./Step.svelte";
+    import { currentStepStore } from "../Store/StepStore";
     import Steps from "./Steps.svelte";
+    import Step1 from "./Steps/Step1.svelte";
+    import Step2 from "./Steps/Step2.svelte";
+    import Step3 from "./Steps/Step3.svelte";
 
     function close(){
         WA.player.state.tutorialDone = true;
@@ -17,17 +19,15 @@
         on:close={close}
         on:skip={close}
     >
-        {#each steps as step, index}
-            {#if $currentStepStore === (index+1)}
-                <Step
-                    title={step.title}
-                    videoUrl={step.videoUrl}
-                    videoPoster={step.videoPoster}
-                    description={step.description}
-                    shortTitle={step.shortTitle}
-                />
-            {/if}
-        {/each}
+        {#if $currentStepStore === 1}
+            <Step1 />
+        {/if}
+        {#if $currentStepStore === 2}
+            <Step2 />
+        {/if}
+        {#if $currentStepStore === 3}
+            <Step3 />
+        {/if}
     </Steps>
 </div>
 <style>

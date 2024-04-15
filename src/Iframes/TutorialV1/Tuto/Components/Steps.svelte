@@ -1,11 +1,11 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
-    import { currentStepStore, steps } from "../Store/StepStore";
+    import { currentStepStore } from "../Store/StepStore";
 
     const dispatch = createEventDispatcher();
 
     function next(){
-        if($currentStepStore === steps.length)return;
+        if($currentStepStore === 3)return;
         currentStepStore.set($currentStepStore + 1);
     }
     function previous(){
@@ -27,14 +27,14 @@
 </div>
 <div class="footer tw-p-3 tw-bg-medium-purple tw-flex tw-justify-around tw-fixed tw-bottom-0 tw-w-full tw-overflow-y-hidden tw-overflow-x-auto tw-flex-wrap tw-overflow-visible">
     <div class="elispes tw-bg-medium-purple/60 tw-absolute tw-w-full -tw-top-10 tw-flex tw-flex-row tw-justify-center tw-align-middle">
-        {#each steps as _, i}
-            <span class="elispe {(i+1) === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
-        {/each}
+        <span class="elispe {1 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
+        <span class="elispe {2 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
+        <span class="elispe {3 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
     </div>
     <button class="btn {$currentStepStore === 1 ? 'disabled' : 'light outline'} tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={previous}>
         <span class="tw-px-4 tw-absolute tw-left-4">&lt;</span> Previous
     </button>
-    {#if $currentStepStore === steps.length}
+    {#if $currentStepStore === 3}
         <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={close}>
             Finish
         </button>
