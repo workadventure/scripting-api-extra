@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/workadventure/scripting-api-extra/compare/v1.7.7...v1.8.0) (2024-04-15)
+
+
+### Features
+
+* Update v1 tuto ([#236](https://github.com/workadventure/scripting-api-extra/issues/236)) ([c6b2389](https://github.com/workadventure/scripting-api-extra/commit/c6b2389d23c2c181c481aa246502f40ce61a7145))
+
 ## [1.7.7](https://github.com/workadventure/scripting-api-extra/compare/v1.7.6...v1.7.7) (2024-03-27)
 
 
