@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/workadventure/scripting-api-extra/compare/v1.8.0...v1.8.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* image location for tuto ([c893e55](https://github.com/workadventure/scripting-api-extra/commit/c893e553742fa5a5e41b0a6e800f9148f4c5b8a0))
+
 # [1.8.0](https://github.com/workadventure/scripting-api-extra/compare/v1.7.7...v1.8.0) (2024-04-15)
 
 
