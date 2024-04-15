@@ -1,7 +1,7 @@
 <div class="ste tw-px-16 tw-py-5 tw-overflow-y-scroll tw-h-screen">
     <div class="title tw-text-white">
         <h1 class="tw-p-3">Welcome to Workadventure</h1>
-        <h2 class="tw-p-3 tw-text-2xl">Step 3: interact with an object</h2>
+        <h2 class="tw-p-3 tw-text-2xl">Step 3: interact with content</h2>
     </div>
     <div class="video">
         <video class="tw-w-full tw-rounded-lg" 

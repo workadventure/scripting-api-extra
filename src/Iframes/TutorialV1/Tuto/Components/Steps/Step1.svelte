@@ -2,7 +2,7 @@
     <div class="title tw-text-white">
         <h1 class="tw-p-3">Welcome to Workadventure</h1>
         <h2 class="tw-p-3 tw-text-2xl">Step 1: how to move your woka*</h2>
-        <p class="tw-text-xs tw-p-0">*woka=avatar</p>
+        <p class="tw-text-xs tw-p-0">* woka = avatar</p>
     </div>
     <div class="video">
         <video class="tw-w-full tw-rounded-lg" 

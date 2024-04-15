@@ -1,8 +1,8 @@
 <div class="ste tw-px-16 tw-py-5 tw-overflow-y-scroll tw-h-screen">
     <div class="title tw-text-white">
         <h1 class="tw-p-3">Welcome to Workadventure</h1>
-        <h2 class="tw-p-3 tw-text-2xl">Step 2: interact with another woka in a bubble*</h2>
-        <p class="tw-text-xs tw-p-0">*maximum of 4 wokas in a bubble</p>
+        <h2 class="tw-p-3 tw-text-2xl">Step 2: interact with people in a bubble*</h2>
+        <p class="tw-text-xs tw-p-0">* maximum of 4 people in a bubble</p>
     </div>
     <div class="video">
         <video class="tw-w-full tw-rounded-lg" 
