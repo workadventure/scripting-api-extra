@@ -18,7 +18,7 @@
     </div>
     <div class="description tw-p-3 tw-mb-16 tw-text-left tw-text-white tw-pb-20 tw-flex tw-row tw-w-full tw-items-center tw-justify-center tw-py-10">
         <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-10">
-            <img src="/resources/images/tutov1/step2/woka-meet.png" alt="Meet in" class="tw-w-56 tw-h-auto">
+            <img src="resources/images/tutov1/step2/woka-meet.png" alt="Meet in" class="tw-w-56 tw-h-auto">
             <p class="tw-text-xl tw-text-center tw-p-5 tw-font-bold">Approach another Woka and start interacting</p>
         </div>
     </div>

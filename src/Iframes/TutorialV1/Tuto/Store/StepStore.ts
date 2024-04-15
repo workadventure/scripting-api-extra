@@ -1,11 +1,11 @@
 import { writable } from "svelte/store";
 
-/*const step1Onboarding = "/dist/resources/images/tutov1/step1-onboarding.png";
-const step2Onboarding = "/dist/resources/images/tutov1/step2-onboarding.png";
-const step3Onboarding = "/dist/resources/images/tutov1/step3-onboarding.png";
-const step4Onboarding = "/dist/resources/images/tutov1/step4-onboarding.png";
-const step5Onboarding = "/dist/resources/images/tutov1/step5-onboarding.png";
-const step6Onboarding = "/dist/resources/images/tutov1/step6-onboarding.png";*/
+/*const step1Onboarding = "resources/images/tutov1/step1-onboarding.png";
+const step2Onboarding = "resources/images/tutov1/step2-onboarding.png";
+const step3Onboarding = "resources/images/tutov1/step3-onboarding.png";
+const step4Onboarding = "resources/images/tutov1/step4-onboarding.png";
+const step5Onboarding = "resources/images/tutov1/step5-onboarding.png";
+const step6Onboarding = "resources/images/tutov1/step6-onboarding.png";*/
 
 /*const step1Onboarding =
     "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step1-onboarding.png";

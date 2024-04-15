@@ -18,11 +18,11 @@
     </div>
     <div class="description tw-p-3 tw-mb-16 tw-text-left tw-text-white tw-pb-20 tw-flex tw-row tw-w-full tw-items-center tw-justify-center tw-py-10">
         <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-10">
-            <img src="/resources/images/tutov1/step1/keyboard.svg" alt="keyboard" class="tw-w-40 tw-h-auto">
+            <img src="resources/images/tutov1/step1/keyboard.svg" alt="keyboard" class="tw-w-40 tw-h-auto">
             <p class="tw-text-xl tw-text-center tw-p-5 tw-font-bold">Control your Woka by using the arrow keys</p>
         </div>
         <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-10">
-            <img src="/resources/images/tutov1/step1/mouse.svg" alt="mouse" class="tw-w-40 tw-h-auto">
+            <img src="resources/images/tutov1/step1/mouse.svg" alt="mouse" class="tw-w-40 tw-h-auto">
             <p class="tw-text-xl tw-text-center tw-p-5 tw-font-bold">Control your Woka by right-clicking anywhere on the map.</p>
         </div>
     </div>
