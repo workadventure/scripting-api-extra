@@ -18,13 +18,19 @@ i18next.init({
     }
   });
 
-try{
-    const lang = WA.player.language;
-    i18next.changeLanguage(lang);
-}catch(e){
-    console.warn('error', e);
+const startTuto = () => {
+  new App({
+    target: document.body,
+  });
 }
 
-new App({
-    target: document.body,
-});
+try{
+  WA.onInit().then(() => {
+    const lang = WA.player.language;
+    i18next.changeLanguage(lang);
+    startTuto();
+  });
+}catch(e){
+    console.warn('error', e);
+    startTuto();
+}
