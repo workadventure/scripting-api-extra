@@ -1,6 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     import { currentStepStore } from "../Store/StepStore";
+    import i18next from "i18next";
 
     const dispatch = createEventDispatcher();
 
@@ -36,16 +37,16 @@
     </button>
     {#if $currentStepStore === 3}
         <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={close}>
-            Finish
+            {i18next.t('tuto.finish')}
         </button>
     {:else}
         <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={next}>
-            Next
+            {i18next.t('tuto.next')}
             <span class="tw-px-4 tw-absolute tw-right-4">></span>
         </button>
     {/if}
     <button class="btn blue-title tw-underline tw-decoration-light-blue tw-cursor-pointer" on:click|stopPropagation={skip}>
-        Skip all
+        {i18next.t('tuto.skipAll')}
     </button>
 </div>
 <style lang="scss">
