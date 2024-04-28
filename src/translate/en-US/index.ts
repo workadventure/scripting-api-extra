@@ -1,1 +1,1 @@
-export { default as tuto } from './tuto'
+export { default as tuto } from "./tuto";

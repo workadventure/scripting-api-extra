@@ -4,7 +4,7 @@ export default {
     previous: "Previous",
     skipAll: "Skip all",
     finish: "Finish",
-    step1:{
+    step1: {
         title: "Welcome to Workadventure",
         subtitle: "Step 1: how to move your woka* 🏎️",
         describe: "* woka = avatar",
@@ -21,5 +21,5 @@ export default {
         title: "Welcome to Workadventure",
         subtitle: "Step 3: interact with content 💡",
         object: "Approach an highlighted object and see what’s happening 🧐",
-    }
-}
+    },
+};
