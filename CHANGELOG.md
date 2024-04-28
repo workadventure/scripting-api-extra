@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/workadventure/scripting-api-extra/compare/v1.8.1...v1.9.0) (2024-04-28)
+
+
+### Features
+
+* tuto translation [en / fr] ([#237](https://github.com/workadventure/scripting-api-extra/issues/237)) ([bb89855](https://github.com/workadventure/scripting-api-extra/commit/bb8985512a03fd1a95c89d29725d6492f61305e0))
+
 ## [1.8.1](https://github.com/workadventure/scripting-api-extra/compare/v1.8.0...v1.8.1) (2024-04-15)
 
 
