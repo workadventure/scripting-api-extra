@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Page-1">
+    <g id="_006---Right-Click" data-name="006---Right-Click">
+      <path id="Shape" class="cls-1" d="M260.4,167.7v5.2l78.4-78.4c-6-6.3-12.6-12.1-19.7-17.1l-67.4,67.4c5.6,6.4,8.7,14.5,8.7,23Z"/>
+      <path id="Shape-2" data-name="Shape" class="cls-1" d="M260.4,197.9v31.7h5.2l98-98c-3.7-8.2-8.2-16-13.5-23.3l-89.7,89.7Z"/>
+      <path id="Shape-3" data-name="Shape" class="cls-1" d="M327.4,229.5l47.6-47.6c-.3-10.8-1.9-21.6-4.8-32l-79.6,79.6h36.8Z"/>
+      <path id="Shape-4" data-name="Shape" class="cls-1" d="M375.2,229.5v-22.8l-22.8,22.8h22.8Z"/>
+      <path id="Shape-5" data-name="Shape" class="cls-1" d="M242.8,53h-8.8v22.8l22.1-22.2c-4.4-.4-8.8-.7-13.3-.7Z"/>
+      <path id="Shape-6" data-name="Shape" class="cls-1" d="M303.6,67.9c-8.5-4.4-17.4-7.8-26.6-10.3l-43.1,43.1v32.9c1,.3,2,.6,3,.9l66.7-66.7Z"/>
+      <path id="Shape-7" data-name="Shape" class="cls-1" d="M189.8,167.7c0-16.1,10.9-30,26.5-34.1V53h-8.8c-73.1,0-132.3,59.3-132.4,132.4v44.1h114.8v-61.8Z"/>
+      <path id="Shape-8" data-name="Shape" class="cls-1" d="M207.4,167.7v70.6c0,9.8,7.9,17.7,17.7,17.7s17.7-7.9,17.7-17.7v-70.6c0-9.8-7.9-17.7-17.7-17.7s-17.7,7.9-17.7,17.7Z"/>
+      <path id="Shape-9" data-name="Shape" class="cls-1" d="M207.4,512h35.3c73.1,0,132.3-59.3,132.4-132.4v-132.4h-116c-4,15.6-18,26.5-34.1,26.5s-30.1-10.9-34.1-26.5h-116v132.4c0,73.1,59.3,132.3,132.4,132.4Z"/>
+      <path id="Shape-10" data-name="Shape" class="cls-1" d="M348.7,53c4.9,0,8.8-4,8.8-8.8V8.8C357.5,4,353.6,0,348.7,0s-8.8,4-8.8,8.8v35.3c0,4.9,4,8.8,8.8,8.8Z"/>
+      <path id="Shape-11" data-name="Shape" class="cls-1" d="M384,61.8c2.3,0,4.6-.9,6.2-2.6l25-25c2.3-2.2,3.2-5.5,2.4-8.6s-3.2-5.5-6.3-6.3c-3.1-.8-6.4.1-8.6,2.4l-25,25c-2.5,2.5-3.3,6.3-1.9,9.6,1.4,3.3,4.6,5.4,8.2,5.5h0Z"/>
+      <path id="Shape-12" data-name="Shape" class="cls-1" d="M384,88.3c0,4.9,4,8.8,8.8,8.8h35.3c4.9,0,8.8-4,8.8-8.8s-4-8.8-8.8-8.8h-35.3c-4.9,0-8.8,4-8.8,8.8Z"/>
+    </g>
+  </g>
+</svg>
