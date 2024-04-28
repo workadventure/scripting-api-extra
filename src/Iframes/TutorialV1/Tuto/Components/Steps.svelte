@@ -33,7 +33,7 @@
         <span class="elispe {3 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
     </div>
     <button class="btn {$currentStepStore === 1 ? 'disabled' : 'light outline'} tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={previous}>
-        <span class="tw-px-4 tw-absolute tw-left-4">&lt;</span> Previous
+        <span class="tw-px-4 tw-absolute tw-left-4">&lt;</span> {i18next.t('tuto.previous')}
     </button>
     {#if $currentStepStore === 3}
         <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={close}>
