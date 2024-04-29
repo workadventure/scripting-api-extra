@@ -52,10 +52,10 @@ jobs:
           BASE_BRANCH: main
 
       # Code coverage
-      - name: "Code coverage"
-        run: curl -s https://codecov.io/bash | bash
-        env:
-          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+      #- name: "Code coverage"
+      #  run: curl -s https://codecov.io/bash | bash
+      #  env:
+      #    CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
 
       # Deployment on npm
       - name: "Deploy NPM"
