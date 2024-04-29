@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/workadventure/scripting-api-extra/compare/v1.9.0...v1.9.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* improve text design for the tuto strep one ([#238](https://github.com/workadventure/scripting-api-extra/issues/238)) ([54d554c](https://github.com/workadventure/scripting-api-extra/commit/54d554cca40a5a14e1968c835997529c914027fd))
+
 # [1.9.0](https://github.com/workadventure/scripting-api-extra/compare/v1.8.1...v1.9.0) (2024-04-28)
 
 
