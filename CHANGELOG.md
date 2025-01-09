@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/workadventure/scripting-api-extra/compare/v1.9.2...v1.9.3) (2025-01-09)
+
+
+### Bug Fixes
+
+* Making sure the trigger message is removed when leaving zone ([ddf4b45](https://github.com/workadventure/scripting-api-extra/commit/ddf4b45c8a42a14a0418d2284838d285731789a7))
+
 ## [1.9.2](https://github.com/workadventure/scripting-api-extra/compare/v1.9.1...v1.9.2) (2025-01-09)
 
 
