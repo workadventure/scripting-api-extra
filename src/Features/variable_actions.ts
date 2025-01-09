@@ -1,3 +1,4 @@
+import type { ActionMessage } from "@workadventure/iframe-api-typings";
 import type { Properties } from "../Properties";
 
 export function initVariableActionLayer(properties: Properties, layerName: string): void {
@@ -19,6 +20,8 @@ export function initVariableActionLayer(properties: Properties, layerName: strin
     }
 }
 
+let actionMessagePopup: ActionMessage | undefined;
+
 function setupVariableActionLayer(
     variableName: string,
     layerName: string,
@@ -34,7 +37,7 @@ function setupVariableActionLayer(
     if (enterValue !== undefined) {
         WA.room.onEnterLayer(layerName).subscribe(() => {
             if (triggerMessage) {
-                WA.ui.displayActionMessage({
+                actionMessagePopup = WA.ui.displayActionMessage({
                     type: "message",
                     message: triggerMessage,
                     callback: () => {
@@ -49,6 +52,12 @@ function setupVariableActionLayer(
     if (leaveValue !== undefined) {
         WA.room.onLeaveLayer(layerName).subscribe(() => {
             WA.state[variableName] = leaveValue;
+            if (actionMessagePopup) {
+                actionMessagePopup.remove().catch((e) => {
+                    console.error(e);
+                });
+                actionMessagePopup = undefined;
+            }
         });
     }
 }
