@@ -8,6 +8,7 @@ export function initVariableActionLayer(properties, layerName) {
         setupVariableActionLayer(variableName, layerName, enterValue, leaveValue, triggerMessage, tag);
     }
 }
+let actionMessagePopup;
 function setupVariableActionLayer(variableName, layerName, enterValue, leaveValue, triggerMessage, tag) {
     if (tag && !WA.player.tags.includes(tag)) {
         return;
@@ -15,7 +16,7 @@ function setupVariableActionLayer(variableName, layerName, enterValue, leaveValu
     if (enterValue !== undefined) {
         WA.room.onEnterLayer(layerName).subscribe(() => {
             if (triggerMessage) {
-                WA.ui.displayActionMessage({
+                actionMessagePopup = WA.ui.displayActionMessage({
                     type: "message",
                     message: triggerMessage,
                     callback: () => {
@@ -31,6 +32,12 @@ function setupVariableActionLayer(variableName, layerName, enterValue, leaveValu
     if (leaveValue !== undefined) {
         WA.room.onLeaveLayer(layerName).subscribe(() => {
             WA.state[variableName] = leaveValue;
+            if (actionMessagePopup) {
+                actionMessagePopup.remove().catch((e) => {
+                    console.error(e);
+                });
+                actionMessagePopup = undefined;
+            }
         });
     }
 }
