@@ -15,6 +15,13 @@ function setupVariableActionLayer(variableName, layerName, enterValue, leaveValu
     if (enterValue !== undefined) {
         WA.room.onEnterLayer(layerName).subscribe(() => {
             if (triggerMessage) {
+                WA.ui.displayActionMessage({
+                    type: "message",
+                    message: triggerMessage,
+                    callback: () => {
+                        WA.state[variableName] = enterValue;
+                    },
+                });
             }
             else {
                 WA.state[variableName] = enterValue;
