@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/workadventure/scripting-api-extra/compare/v1.9.1...v1.9.2) (2025-01-09)
+
+
+### Bug Fixes
+
+* Fixing non implemented triggerMessage support ([cd0a293](https://github.com/workadventure/scripting-api-extra/commit/cd0a293f0e27005edd99e13eaf2a0f307301c677))
+
 ## [1.9.1](https://github.com/workadventure/scripting-api-extra/compare/v1.9.0...v1.9.1) (2024-04-29)
 
 
