@@ -6,7 +6,7 @@ export function launchTutorialv1() {
     if (WA.player.state.tutorialDone)
         return;
     WA.ui.modal.openModal({
-        tiltle: "Welcome onboard!",
+        title: "Welcome onboard!",
         src: tutoUrl,
         allow: "fullscreen; clipboard-read; clipboard-write",
         allowApi: true,

@@ -1,4 +1,4 @@
-import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/front/Api/Iframe/state";
+import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/play/src/front/Api/Iframe/state";
 export declare class TemplateValue {
     private template;
     private state;
