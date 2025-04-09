@@ -9,7 +9,7 @@ export function launchTutorialv1(): void {
 
     //open modal and show onboarding tuto
     WA.ui.modal.openModal({
-        tiltle: "Welcome onboard!",
+        title: "Welcome onboard!",
         src: tutoUrl,
         allow: "fullscreen; clipboard-read; clipboard-write",
         allowApi: true,
