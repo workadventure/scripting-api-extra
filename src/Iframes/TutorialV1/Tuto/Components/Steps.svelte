@@ -5,8 +5,14 @@
 
     const dispatch = createEventDispatcher();
 
+    const steps = ['Welcome', 'Move', 'Interact', 'Discover'];
+
+    const setStep = (index: number) => {
+    currentStepStore.set(index);
+    };
+   
     function next(){
-        if($currentStepStore === 3)return;
+        if($currentStepStore === steps.length)return;
         currentStepStore.set($currentStepStore + 1);
     }
     function previous(){
@@ -16,54 +22,77 @@
     function close(){
         dispatch('close');
     }
-    function skip(){
-        dispatch('skip');
-    }
+    $: console.log('Current Step:', $currentStepStore);
 </script>
-<div class="body">
+<div class="tw-flex tw-flex-col tw-items-center tw-w-full  tw-pt-20 tw-pb-24 ">
+ 
+
+
+    <div class="header  tw-p-3 tw-flex tw-justify-around tw-fixed tw-top-14 tw-w-full tw-h-3 tw-overflow-visible   ">
+        <nav class="tw-flex  tw-gap-2 tw-py-4 tw-text-sm tw-font-medium tw-items-center">
+            {#each steps as step, index}
+            <button
+                on:click={() => setStep(index)}
+                class="tw-relative tw-uppercase tw-text-white/50 tw-transition-all hover:tw-text-white tw-flex tw-flex-col tw-items-center"
+                class:tw-text-white={index === $currentStepStore}>
+                {step}
+                {#if index === $currentStepStore}
+                <span class="tw-left-0 tw-h-[4px] tw-w-[8em] tw-bg-blue-500 tw-rounded-full tw-flex tw-justify-self-center tw-mt-3"></span>
+                {/if}
+            </button>
+            {/each}
+        </nav>
+    </div>
+
     <slot></slot>
 
-    <div class="progress-bar">
+  <!-- Étapes et actions -->
+    <div class="footer tw-p-3 tw-bg-[#1B2A41] tw-flex tw-justify-around tw-fixed tw-bottom-0 tw-w-full tw-overflow-visible tw-flex-wrap">
+        <!-- <div class="tw-w-full tw-h-[240px]  tw-rounded-full tw-overflow-hidden tw-shadow-inner tw-mt-3">
+            <div class="tw-h-full tw-transition-all tw-duration-500 tw-ease-in-out progress-bar animated-gradient" style="width: {progress}%"></div>
+        </div> -->
+      
+            {#if $currentStepStore === 0}
+            <div class="tw-flex tw-w-full "> 
+            <button class=" tw-w-full tw-justify-center tw-mx-6 tw-h-[50px] tw-relative tw-cursor-pointer" on:click|stopPropagation={close}>
+                <span class="tw-px-4 tw-absolute tw-left-4"></span> {i18next.t('tuto.skipTutorial')}
+            </button>
+            <button class=" tw-w-full tw-bg-[#4156F6] tw-rounded-[8px] tw-h-[50px] tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={next}>
+                <span class="tw-px-4 tw-absolute tw-left-4"></span> {i18next.t('tuto.startTutorial')}
+                </button>
+            </div>
+
+            {:else if $currentStepStore === 3}
+
+            <button class="tw-bg-[#4156F6] tw-rounded-[8px] tw-w-full tw-h-[50px] tw-justify-center tw-mx-4 tw-relative tw-cursor-pointer" on:click|stopPropagation={close}>
+                {i18next.t('tuto.finish')}
+                <span class="tw-px-4 tw-absolute tw-right-4"></span>
+            </button>
+
+            {:else}
+            <button class="tw-bg-[#4156F6] tw-rounded-[8px] tw-w-full tw-h-[50px] tw-justify-center tw-mx-4 tw-relative tw-cursor-pointer" on:click|stopPropagation={next}>
+                {i18next.t('tuto.next')}
+                <span class="tw-px-4 tw-absolute tw-right-4"></span>
+            </button>
+            {/if}
     </div>
+    
 </div>
-<div class="footer tw-p-3 tw-bg-medium-purple tw-flex tw-justify-around tw-fixed tw-bottom-0 tw-w-full tw-overflow-y-hidden tw-overflow-x-auto tw-flex-wrap tw-overflow-visible">
-    <div class="elispes tw-bg-medium-purple/60 tw-absolute tw-w-full -tw-top-10 tw-flex tw-flex-row tw-justify-center tw-align-middle">
-        <span class="elispe {1 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
-        <span class="elispe {2 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
-        <span class="elispe {3 === $currentStepStore ? 'tw-bg-light-blue' : 'tw-bg-lighter-purple'}"></span>
-    </div>
-    <button class="btn {$currentStepStore === 1 ? 'disabled' : 'light outline'} tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={previous}>
-        <span class="tw-px-4 tw-absolute tw-left-4">&lt;</span> {i18next.t('tuto.previous')}
-    </button>
-    {#if $currentStepStore === 3}
-        <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={close}>
-            {i18next.t('tuto.finish')}
-        </button>
-    {:else}
-        <button class="btn light tw-w-1/3 tw-justify-center tw-mx-6 tw-relative tw-cursor-pointer" on:click|stopPropagation={next}>
-            {i18next.t('tuto.next')}
-            <span class="tw-px-4 tw-absolute tw-right-4">></span>
-        </button>
-    {/if}
-    <button class="btn blue-title tw-underline tw-decoration-light-blue tw-cursor-pointer" on:click|stopPropagation={skip}>
-        {i18next.t('tuto.skipAll')}
-    </button>
-</div>
+
 <style lang="scss">
-    .footer{
-        overflow: visible;
-        button{
-            max-height: 40px;
-            &:nth-child(1){
-                min-width: 160px;
-                max-width: 180px;
-            }
-            &:nth-child(2){
-                min-width: 150px;
-                max-width: 170px;
-            }
-        }
-    }
+
+.animated-gradient {
+  background-size: 200% 200%;
+  background-image: linear-gradient(to right, #6366f1, #3b82f6, #6366f1);
+  animation: gradient-x 3s ease infinite;
+}
+
+.progress-bar {
+  height: 6px;
+  width: 100%;
+  margin-top: 8px;
+}
+ 
     .elispes{
         height: 40px;
         .elispe{

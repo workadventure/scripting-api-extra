@@ -20,4 +20,4 @@ const step5Onboarding =
 const step6Onboarding =
     "https://workadventure-chat-uploads.s3.eu-west-1.amazonaws.com/upload/video/step6-onboarding.png";*/
 
-export const currentStepStore = writable<number>(1);
+export const currentStepStore = writable<number>(0);
