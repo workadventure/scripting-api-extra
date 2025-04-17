@@ -1,3 +1,10 @@
+## [1.9.5](https://github.com/workadventure/scripting-api-extra/compare/v1.9.4...v1.9.5) (2025-04-17)
+
+
+### Bug Fixes
+
+* Update the design of the Tutorial ([#243](https://github.com/workadventure/scripting-api-extra/issues/243)) ([7404bc5](https://github.com/workadventure/scripting-api-extra/commit/7404bc5994689364047088f2d282dcab88521495))
+
 ## [1.9.4](https://github.com/workadventure/scripting-api-extra/compare/v1.9.3...v1.9.4) (2025-04-09)
 
 
