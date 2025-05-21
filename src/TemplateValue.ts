@@ -1,7 +1,7 @@
 /**
  * A value of a property that can be evaluated / tracked using Mustache templates
  */
-import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/front/Api/Iframe/state";
+import type { WorkadventureStateCommands } from "@workadventure/iframe-api-typings/play/src/front/Api/Iframe/state";
 import Mustache from "mustache";
 
 type RAW_VALUE = "text";
