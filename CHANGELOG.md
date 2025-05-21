@@ -1,3 +1,10 @@
+## [1.9.6](https://github.com/workadventure/scripting-api-extra/compare/v1.9.5...v1.9.6) (2025-05-21)
+
+
+### Bug Fixes
+
+* Responsive tuto ([#244](https://github.com/workadventure/scripting-api-extra/issues/244)) ([f045767](https://github.com/workadventure/scripting-api-extra/commit/f0457674a526b71008dad61a667c25b3aaa4d1d4))
+
 ## [1.9.5](https://github.com/workadventure/scripting-api-extra/compare/v1.9.4...v1.9.5) (2025-04-17)
 
 
