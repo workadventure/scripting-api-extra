@@ -9,19 +9,19 @@
         <div class="tw-bg-white/10 tw-h-[1px] tw-w-full tw-m-10"></div>
 
 
-        <img src="resources/images/tutov1/discover/Object.png" alt="Walk" class="tw-w-[100px] tw-h-auto tw-mb-2 " />
+        <img src="resources/images/tutov1/discover/Object.png" alt="Walk" class="tw-w-[80px] md:tw-w-[100px] tw-h-auto tw-mb-2 " />
         <p class="tw-p-3 tw-text-xl"><strong> {i18next.t("tuto.step3.interact")} </strong> {i18next.t("tuto.step3.likeSign")} {i18next.t("tuto.step3.sometimes")} <strong> {i18next.t("tuto.step3.closer")}</strong>  </p>
         <div class="tw-bg-white/10 tw-h-[1px] tw-w-full tw-m-10"></div>
 
 
-        <div class="tw-flex tw-gap-3"> 
+        <div class="tw-flex tw-gap-3 justify-center"> 
             <div> 
-            <img src="resources/images/tutov1/discover/GlobalMessage.png" alt="Walk" class="tw-w-[15em] tw-h-auto tw-mb-2 " />
+            <img src="resources/images/tutov1/discover/GlobalMessage.png" alt="Walk" class="tw-w-[10em] md:tw-w-[20em] tw-h-auto tw-mb-2 " />
             <p class="tw-p-3 tw-text-s">{i18next.t("tuto.step3.describe3")}</p>
             </div>
 
             <div> 
-            <img src="resources/images/tutov1/discover/Silent.png" alt="Walk" class="tw-w-[10em] tw-h-auto tw-mb-2 " />
+            <img src="resources/images/tutov1/discover/Silent.png" alt="Walk" class="tw-w-[8em] md:tw-w-[14em] tw-h-auto tw-mb-2 " />
             <p class="tw-p-3 tw-text-s">{i18next.t("tuto.step3.describe4")}</p>
             </div>
 

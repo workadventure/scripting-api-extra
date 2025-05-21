@@ -7,18 +7,18 @@
         <div class="tw-bg-white/10 tw-h-[1px] tw-w-full tw-m-10"></div>
 
 
-        <img src="resources/images/tutov1/interact/Bubble.png" alt="Walk" class="tw-w-[20em] tw-h-auto tw-mb-2 " />
+        <img src="resources/images/tutov1/interact/Bubble.png" alt="Walk" class="tw-w-[15em] md:tw-w-[20em] tw-h-auto tw-mb-2 " />
         <p class="tw-text-xl tw-p-0"> <strong> {i18next.t("tuto.step2.describe")} </strong> {i18next.t("tuto.step2.describe2")}</p>
         <div class="tw-bg-white/10 tw-h-[1px] tw-w-full tw-m-10"></div>
 
 
         <div class="tw-flex tw-gap-3"> 
-            <div>  <img src="resources/images/tutov1/interact/Lock.png" alt="Walk" class="tw-w-[15em] tw-h-auto tw-mb-2 " />
+            <div>  <img src="resources/images/tutov1/interact/Lock.png" alt="Walk" class="tw-w-[10em] md:tw-w-[20em] tw-h-auto tw-mb-2 " />
                 <p class="tw-text-l tw-p-0">{i18next.t("tuto.step2.describe3")}</p>
             </div>
       
             <div> 
-                <img src="resources/images/tutov1/interact/ShareScreen.png" alt="Walk" class="tw-w-[15em] tw-h-auto tw-mb-2 " />
+                <img src="resources/images/tutov1/interact/ShareScreen.png" alt="Walk" class="tw-w-[10em] md:tw-w-[20em] tw-h-auto tw-mb-2 " />
                 <p class="tw-text-l tw-p-0">{i18next.t("tuto.step2.describe4")}</p>
             </div>
        
