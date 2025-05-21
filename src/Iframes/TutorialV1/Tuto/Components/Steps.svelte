@@ -37,7 +37,7 @@
                 class:tw-text-white={index === $currentStepStore}>
                 {step}
                 {#if index === $currentStepStore}
-                <span class="tw-left-0 tw-h-[4px] tw-w-[8em] tw-bg-blue-500 tw-rounded-full tw-flex tw-justify-self-center tw-mt-3"></span>
+                <span class="tw-start-0 tw-h-[4px] tw-w-[8em] tw-bg-blue-500 tw-rounded-full tw-flex tw-justify-self-center tw-mt-3"></span>
                 {/if}
             </button>
             {/each}

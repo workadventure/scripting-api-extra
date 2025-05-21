@@ -24,12 +24,12 @@ import i18next from "i18next";
                         <img src="resources/images/tutov1/welcome/Move.png" alt="Walk" class="tw-w-[100px] tw-h-auto tw-mb-2" />
                     </div> -->
                     <div class="tw-bg-white/5 tw-relative  tw-flex tw-items-center tw-p-4 tw-rounded-[16px] tw-w-10/12 md:tw-w-full tw-h-[75px] tw-p-[24px] hover:tw-bg-white/10  ">
-                        <img src="resources/images/tutov1/welcome/Move.png" alt="Walk" class="tw-w-[120px] tw-h-auto tw-absolute tw-left-2 tw-top-1 " />
+                        <img src="resources/images/tutov1/welcome/Move.png" alt="Walk" class="tw-w-[120px] tw-h-auto tw-absolute tw-start-2 tw-top-1 " />
                         <span class="tw-font-bold tw-flex-1 tw-text-center tw-text-sm md:tw-text-xl "> {i18next.t('tuto.welcome.bloc1')} </span>
                     </div>
 
                     <div class="tw-bg-white/5  tw-relative  tw-flex tw-items-center   tw-p-4 tw-rounded-[16px] tw-w-10/12 md:tw-w-full tw-p-[24px] hover:tw-bg-white/10  tw-overflow-hidden ">
-                        <img src="resources/images/tutov1/welcome/Talk.png" alt="Walk" class="tw-w-[120px] tw-left-[-4px]  tw-h-auto tw-absolute tw-mb-2 tw-self-start tw-top-0 " />
+                        <img src="resources/images/tutov1/welcome/Talk.png" alt="Walk" class="tw-w-[120px] tw-start-[-4px]  tw-h-auto tw-absolute tw-mb-2 tw-self-start tw-top-0 " />
                         <span class="tw-font-bold tw-flex-1 tw-text-center tw-text-sm md:tw-text-xl"> {i18next.t('tuto.welcome.bloc2')} </span>
                     </div>
                     <div class="tw-bg-white/5  tw-relative  tw-flex tw-items-center   tw-p-4 tw-rounded-[16px]  tw-w-10/12 md:tw-w-full tw-p-[24px] hover:tw-bg-white/10 ">
