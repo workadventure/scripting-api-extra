@@ -13,7 +13,7 @@
         <div class="tw-flex tw-flex-col  tw-items-center tw-justify-center  tw-gap-4  tw-py-1 tw-w-10/12 md:tw-w-full tw-h-full ">
             <img src="resources/images/tutov1/move/wokamove.png" alt="Walk" class="tw-w-[80px] sm:tw-w-[100px] tw-h-auto tw-mb-2 " />
             <img src="resources/images/tutov1/move/ZQSD.png" alt="Walk" class="tw-w-full tw-max-w-[300px] sm:tw-max-w-[30em] tw-h-auto tw-mb-2" />
-            <p class="tw-text-base sm:tw-text-xl tw-text-center tw-p-0">{i18next.t('tuto.step1.use')} <strong> {i18next.t('tuto.step1.arowkeys')} </strong> {i18next.t('tuto.step1.or')} <strong> {i18next.t('tuto.step1.wasd')} </strong> {i18next.t('tuto.step1.aroundTheMap')}</p>
+            <p class="tw-text-base sm:tw-text-xl tw-text-center tw-p-0">{i18next.t('tuto.step1.use')} <strong> {i18next.t('tuto.step1.arrowkeys')} </strong> {i18next.t('tuto.step1.or')} <strong> {i18next.t('tuto.step1.wasd')} </strong> {i18next.t('tuto.step1.aroundTheMap')}</p>
    
 
             <p class="tw-text-sm sm:tw-text-base tw-text-center tw-p-0"> <strong> {i18next.t('tuto.step1.tip')}</strong> {i18next.t('tuto.step1.describeTip')}</p>
