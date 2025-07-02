@@ -18,10 +18,10 @@ const map = await WA.room.getTiledMap();
 const mapProperties = new Properties(map.properties);
 
 // getOne fetches the value of the property passed in parameter.
-const name = mapProperties.get('name') as string;
+const name = mapProperties.get("name") as string;
 
 // getString is the same as get except it ensures the value is a string (and throws an exception if it is not)
-const name = mapProperties.getString('name');
+const name = mapProperties.getString("name");
 ```
 
 Methods available:

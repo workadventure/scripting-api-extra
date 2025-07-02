@@ -29,15 +29,15 @@ npm install --save @workadventure/scripting-api-extra
 
 ### Features
 
-- [Doors](docs/doors.md)
-- [Bells](docs/bells.md)
-- [Generic action layers](docs/generic-action-layers.md)
+-   [Doors](docs/doors.md)
+-   [Bells](docs/bells.md)
+-   [Generic action layers](docs/generic-action-layers.md)
 
 ### Functions
 
-- [`Properties`](docs/functions-properties.md) related functions (utility functions to acces properties...)
-- [`Variables`](docs/functions-variables.md) related functions (access variables metadata...)
-- [`Layers`](docs/functions-layers.md) related functions (get a list of all layers, find layers boundaries...)
+-   [`Properties`](docs/functions-properties.md) related functions (utility functions to acces properties...)
+-   [`Variables`](docs/functions-variables.md) related functions (access variables metadata...)
+-   [`Layers`](docs/functions-layers.md) related functions (get a list of all layers, find layers boundaries...)
 
 ## Contributing
 

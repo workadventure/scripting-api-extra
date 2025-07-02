@@ -1,10 +1,7 @@
 ---
-
 sidebar_position: 10
 title: Adding doors
-
 ---
-
 
 # Doors
 
@@ -14,15 +11,15 @@ To use the "doors" feature, you need to [import the "Scripting API Extra" script
 
 Doors are extremely customizable in your map. You can:
 
-- decide to open/close the door automatically or on user interaction
-- decide who can operate the door (based on the user's tags)
-- lock a door with a digit code
-- you can even add a bell (look at the [bells](bells) dedicated document)
+-   decide to open/close the door automatically or on user interaction
+-   decide who can operate the door (based on the user's tags)
+-   lock a door with a digit code
+-   you can even add a bell (look at the [bells](bells) dedicated document)
 
 In order to create a door, you will need:
 
-- a tileset containing sprites for the door in an opened and in a closed state
-- optionally 2 MP3 files containing the opening and closing sound
+-   a tileset containing sprites for the door in an opened and in a closed state
+-   optionally 2 MP3 files containing the opening and closing sound
 
 :::info
 Looking for cool door sprites? Checkout out [door sprites by Pipoya on itch.io](https://pipoya.itch.io/pipoya-rpg-tileset-32x32/devlog/222435/add-door-animation)
@@ -57,18 +54,18 @@ In order to add a variable, you need to create a "Point" on any "object layer" i
 
 ![Door Variable](images/door_variable.png)
 
-- You can give this variable any name.
-- The "type" of the object MUST be "variable".
-- You MUST define a custom boolean property named `door`. The "door" checkbox must be checked.
-- You can set the `default` custom property to `true` (opened by default) or `false` (closed by default). This will be used
-  the first time a user enters the map.
-- You can set the `persist` custom property to `true` if you want to save the state of the door. Otherwise, the door state
-  will reset to the `default` property when the room is empty.
+-   You can give this variable any name.
+-   The "type" of the object MUST be "variable".
+-   You MUST define a custom boolean property named `door`. The "door" checkbox must be checked.
+-   You can set the `default` custom property to `true` (opened by default) or `false` (closed by default). This will be used
+    the first time a user enters the map.
+-   You can set the `persist` custom property to `true` if you want to save the state of the door. Otherwise, the door state
+    will reset to the `default` property when the room is empty.
 
 Now, add 2 properties to the variable:
 
-- `openLayer`: this MUST contain the name of the opened door layer
-- `closeLayer`: this MUST contain the name of the closed door layer
+-   `openLayer`: this MUST contain the name of the opened door layer
+-   `closeLayer`: this MUST contain the name of the closed door layer
 
 :::info Note
 If your door is spanning over several layers, for both the `openLayer` and `closeLayer` properties, you can input
@@ -81,8 +78,8 @@ You can add an opening or closing sound to the door by using the `openSound` or 
 
 The value of these properties should be a URL to a MP3 file of a sound opening or closing the door.
 
-- `openSound`: URL of the sound of a door opening
-- `closeSound`: URL of the sound of a door closing
+-   `openSound`: URL of the sound of a door opening
+-   `closeSound`: URL of the sound of a door closing
 
 Anybody on the map will hear the sound of the door opening or closing.
 
@@ -114,7 +111,7 @@ One door step layer spanning the 2 sides of the door can be enough if your door 
 
 In order to create a door step, you MUST create an additional layer or an area object and put the following property on it:
 
-- `doorVariable` (string): the name of the door variable that this door step controls
+-   `doorVariable` (string): the name of the door variable that this door step controls
 
 You should see something similar to the video below:
 

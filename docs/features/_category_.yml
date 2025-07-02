@@ -1,4 +1,4 @@
 position: 110
-label: 'Extra Features'
+label: "Extra Features"
 collapsible: true # make the category collapsible
 collapsed: true # keep the category open by default

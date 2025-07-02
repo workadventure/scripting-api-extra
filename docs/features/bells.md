@@ -1,10 +1,7 @@
 ---
-
 sidebar_position: 20
 title: Bells / Knocking on a door
-
 ---
-
 
 # Bells / Knocking on a door
 
@@ -16,9 +13,9 @@ Bells are usually used next to [doors](doors) (even if they can be used independ
 
 You can:
 
-- decide if the bell will ring automatically or by pressing a button
-- decide the sound of the bell (or a knocking on the door sound if you prefer)
-- decide if the bell can be heard on all the map, or only at a given radius around the bell
+-   decide if the bell will ring automatically or by pressing a button
+-   decide the sound of the bell (or a knocking on the door sound if you prefer)
+-   decide if the bell can be heard on all the map, or only at a given radius around the bell
 
 ## The bell variable
 
@@ -30,14 +27,14 @@ In order to add a variable, you need to create a "Point" on any "object layer" i
 
 Unlike with classical variables, the position of the variable object is important. The sound will be emitted from this point.
 
-- You can give this variable any name.
-- The "type" of the object MUST be "variable".
-- You MUST define a custom boolean property named `bell`. The "bell" checkbox must be checked.
+-   You can give this variable any name.
+-   The "type" of the object MUST be "variable".
+-   You MUST define a custom boolean property named `bell`. The "bell" checkbox must be checked.
 
 Then add 2 properties
 
-- `bellSound`: URL of the sound of the bell ringing (you can also use a knock-knock-knock sound if you have a door :) )
-- `soundRadius` (optional): The radius at which one can hear the sound (expressed in pixels, the sound center being **the position of the variable**)
+-   `bellSound`: URL of the sound of the bell ringing (you can also use a knock-knock-knock sound if you have a door :) )
+-   `soundRadius` (optional): The radius at which one can hear the sound (expressed in pixels, the sound center being **the position of the variable**)
 
 The farther you are from the sound center, the less you will hear the sound. If you don't set any soundRadius, the whole
 map will hear the sound.
@@ -54,7 +51,7 @@ Add a tile layer in your map.
 
 On the layer add this property:
 
-- `bellVariable`: (Compulsory) the name of the "bell" variable that will be triggered when someone walks on this layer
+-   `bellVariable`: (Compulsory) the name of the "bell" variable that will be triggered when someone walks on this layer
 
 With only those 2 properties, whenever a user walks into the layer, the bell will automatically ring.
 
@@ -71,8 +68,8 @@ Give this rectangle object any name.
 
 Now, on the bell layer, create 2 properties:
 
-- `bellPopup`: the name of a rectangle object on the object layer in the map that will display the "Ring" button to ring the bell.
-- `bellButtonText`: the text to display in the button to ring the bell. Defaults to "Ring"
+-   `bellPopup`: the name of a rectangle object on the object layer in the map that will display the "Ring" button to ring the bell.
+-   `bellButtonText`: the text to display in the button to ring the bell. Defaults to "Ring"
 
 ![Bell Layer](images/bell_layer.png)
 

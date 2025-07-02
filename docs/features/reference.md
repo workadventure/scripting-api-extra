@@ -1,7 +1,5 @@
 ---
-
 sidebar_position: 1000
-
 ---
 
 # Properties Reference
@@ -17,8 +15,8 @@ by the "Scripting API Extra" package**.
 
 Those properties can be set on layers.
 
-| Name                                                                      | Type    | Context        | Description                                                                                                                  |
-|---------------------------------------------------------------------------|---------|----------------|------------------------------------------------------------------------------------------------------------------------------|
+| Name                                                                   | Type    | Context        | Description                                                                                                                  |
+| ---------------------------------------------------------------------- | ------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | [`bellVariable`](bells#the-bell-display-layer)                         | string  | Bell layer     | Points to the name of the variable containing the bell settings                                                              |
 | [`bellPopup`](bells#adding-a-bell-button)                              | string  | Bell layer     | The name of a rectangle object on the object layer in the map that will display the "Ring" button to ring the bell.          |
 | [`bellButtonText`](bells#adding-a-bell-button)                         | string  | Bell layer     | the text to display in the button to ring the bell. Defaults to "Ring"                                                       |
@@ -31,19 +29,19 @@ Those properties can be set on layers.
 | [`bindVariable`](generic-action-layers)                                | string  | Action layer   | The name of the variable that will be altered when one enters/leaves the layer                                               |
 | [`enterValue`](generic-action-layers)                                  | string  | Action layer   | (optional) The value the variable will be set to when entering the layer                                                     |
 | [`leaveValue`](generic-action-layers)                                  | string  | Action layer   | (optional) The value the variable will be set to when leaving the layer                                                      |
-| [`visible`](variable-to-property-binding#the-special-visible-property) | string  | *Any layer*    | This property can control the visibility of a layer. Any "truthy" value will display the layer. An empty value will hide it. |
+| [`visible`](variable-to-property-binding#the-special-visible-property) | string  | _Any layer_    | This property can control the visibility of a layer. Any "truthy" value will display the layer. An empty value will hide it. |
 
 ## Variables properties
 
 Those properties can be set on variables.
 
-Name                    |  Type              | Description
-------------------------|--------------------|-----------------------
-[`bell`](bells#the-bell-variable)               | boolean (`true`)   | Adding this property marks the variable as representing a bell
-[`bellSound`](bells#the-bell-variable)          | string             | URL of the sound of the bell ringing
-[`soundRadius`](bells#the-bell-variable)        | number             | The radius (in pixels) of the sound of the bell or door opening/closing
-[`door`](doors#the-door-variable)               | boolean (`true`)   | Adding this property marks the variable as representing a door
-[`openLayer`](doors#the-door-variable)          | string             | On a "door" variable, this MUST contain the name of the opened door layer (or several layers on multiple lines)
-[`clodeLayer`](doors#the-door-variable)         | string             | On a "door" variable, this MUST contain the name of the closed door layer (or several layers on multiple lines)
-[`openSound`](doors#opening--closing-sound)     | string             | URL of the sound of a door opening
-[`closeSound`](doors#opening--closing-sound)    | string             | URL of the sound of a door closing
+| Name                                         | Type             | Description                                                                                                     |
+| -------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| [`bell`](bells#the-bell-variable)            | boolean (`true`) | Adding this property marks the variable as representing a bell                                                  |
+| [`bellSound`](bells#the-bell-variable)       | string           | URL of the sound of the bell ringing                                                                            |
+| [`soundRadius`](bells#the-bell-variable)     | number           | The radius (in pixels) of the sound of the bell or door opening/closing                                         |
+| [`door`](doors#the-door-variable)            | boolean (`true`) | Adding this property marks the variable as representing a door                                                  |
+| [`openLayer`](doors#the-door-variable)       | string           | On a "door" variable, this MUST contain the name of the opened door layer (or several layers on multiple lines) |
+| [`clodeLayer`](doors#the-door-variable)      | string           | On a "door" variable, this MUST contain the name of the closed door layer (or several layers on multiple lines) |
+| [`openSound`](doors#opening--closing-sound)  | string           | URL of the sound of a door opening                                                                              |
+| [`closeSound`](doors#opening--closing-sound) | string           | URL of the sound of a door closing                                                                              |

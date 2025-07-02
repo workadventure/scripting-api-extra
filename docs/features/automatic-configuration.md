@@ -1,8 +1,6 @@
 ---
-
 sidebar_position: 30
 title: Map configuration screen
-
 ---
 
 # Generating automatically a configuration screen
@@ -15,7 +13,7 @@ WorkAdventure comes with a ["variables"](/developer/map-scripting/references/api
 to change a map dynamically. Variables can have an impact on a map through [property bindings](variable-to-property-binding),
 or through the [Scripting API](/developer/map-scripting/references/api-state).
 
-In order to edit the value of a variable, the *Scripting API Extra* library comes with a way to define configuration
+In order to edit the value of a variable, the _Scripting API Extra_ library comes with a way to define configuration
 pages automatically.
 
 The configuration page displays a form that is **generated from the variables** present on the map.
@@ -69,7 +67,7 @@ If you set `openConfigTriggerMessage: your message action` you can edit the aler
 ## Protecting the configuration screen
 
 By default, the configuration screen will be accessible to anyone. You will probably want to restrict the access of the
-configuration screen to users that have a certain *tag*.
+configuration screen to users that have a certain _tag_.
 
 To do this with the global configuration panel, simply add a `tag` property to the configuration object layer. The value of the property is the name of the tag
 that users must have to access the configuration screen.
@@ -103,16 +101,16 @@ it will be displayed as a checkbox.
 You can alter this type of the field displayed by using the `type` **custom** property.
 
 :::caution Important!
-The *type* of the point object  that represents the variable must always be `variable`. You should add
+The _type_ of the point object that represents the variable must always be `variable`. You should add
 a **custom** property whose name is "type" to set the type of the field.
 :::
 
 Acceptable values for the "type" property are:
 
-- `text`: displays a text field
-- `checkbox`: displays a checkbox
-- `select`: displays a select (see `allowed_values`)
-- `radio`: displays radio buttons (see `allowed_values`)
+-   `text`: displays a text field
+-   `checkbox`: displays a checkbox
+-   `select`: displays a select (see `allowed_values`)
+-   `radio`: displays radio buttons (see `allowed_values`)
 
 ### Enumerations (select / radio buttons)
 
@@ -139,7 +137,6 @@ _The "allowed_values" property added to a variable_
 
 _The field is displayed as a "select" because we chose "type = select"_
 
-
 ### Adding a description / hint
 
 You can add a `description` property on the variable to display a description of the purpose of the field, below
@@ -157,10 +154,10 @@ _The description property is displayed below the field_
 
 The configuration page will respect the visibility rights configured on the variable.
 
-- If the `readableBy` property is set on the variable, the variable will appear in the configuration screen only if the current user has the right
-to read this variable.
-- If the `writableBy` property is set on the variable, the variable will be displayed, but modifiable only if the current user has the right
-to write to this variable.
+-   If the `readableBy` property is set on the variable, the variable will appear in the configuration screen only if the current user has the right
+    to read this variable.
+-   If the `writableBy` property is set on the variable, the variable will be displayed, but modifiable only if the current user has the right
+    to write to this variable.
 
 ## Creating sub-sections
 

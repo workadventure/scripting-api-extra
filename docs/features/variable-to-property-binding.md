@@ -1,7 +1,5 @@
 ---
-
 sidebar_position: 50
-
 ---
 
 # Binding Variables to Properties
@@ -31,8 +29,8 @@ The property referring to the variable
 
 You can use template properties in:
 
-- any property of any "tile" layer
-- any property of a dynamic "area" object
+-   any property of any "tile" layer
+-   any property of a dynamic "area" object
 
 :::caution
 To use bindings with area objects, you must first set the "dynamic" property to true.
@@ -49,29 +47,26 @@ _The Dynamic custom property_
 Binding variables to properties can make your map reactive to variable changes, but you still need to find a way
 to modify the values of variables. There are plenty of ways to do this, including:
 
-- [Using the scripting API](https://docs.workadventu.re/developer/map-scripting/references/api-state)
-- [Using auto-generated configuration screen](automatic-configuration)
-- [Using generic action layers](generic-action-layers)
+-   [Using the scripting API](https://docs.workadventu.re/developer/map-scripting/references/api-state)
+-   [Using auto-generated configuration screen](automatic-configuration)
+-   [Using generic action layers](generic-action-layers)
 
 ## About bindings
 
 Use `{{{ variableName }}}` to refer to a variable name.
 
-Behind the scene the [Mustache templating engine](https://en.wikipedia.org/wiki/Mustache_(template_system)) is used.
+Behind the scene the [Mustache templating engine](<https://en.wikipedia.org/wiki/Mustache_(template_system)>) is used.
 This means you can use all the features of Mustache like conditional:
 
 `openWebsite: {{#enableWebsite}}https://example.com{{/enableWebsite}}`
 
 The website above will be displayed only if the `enableWebsite` variable is set to `true`.
 
-
-
 :::caution
 Be sure to use `{{{ variableName }}}` for binding variable and NOT `{{ variableName }}`. The version with a double
 curly-braces will work most of the time, but it escapes HTML characters (which is not needed in properties of a map)
 and this might cause weird behaviours (like breaking URLs)
 :::
-
 
 ## The special "visible" property
 

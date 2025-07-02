@@ -1,7 +1,5 @@
 ---
-
 sidebar_position: 60
-
 ---
 
 # Action Layers
@@ -17,9 +15,9 @@ To define such a layer, create a new "tile layer" in Tiled.
 
 In this layer, add these properties:
 
-- `bindVariable`: The name of the variable that will be altered when one enters/leaves the layer
-- `enterValue`: (optional) The value the variable will be set to when entering the layer
-- `leaveValue`: (optional) The value the variable will be set to when leaving the layer
+-   `bindVariable`: The name of the variable that will be altered when one enters/leaves the layer
+-   `enterValue`: (optional) The value the variable will be set to when entering the layer
+-   `leaveValue`: (optional) The value the variable will be set to when leaving the layer
 
 ## User interaction
 

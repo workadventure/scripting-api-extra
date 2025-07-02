@@ -15,12 +15,12 @@ Layers are **renamed**: if they are in a group layer, the name of the group laye
 Layers are indexed by name.
 
 ```typescript
-import {getLayersMap} from '@workadventure/scripting-api-extra';
+import { getLayersMap } from "@workadventure/scripting-api-extra";
 
 const layers = await getLayersMap();
 
 // Access a layer directly by name
-const mylayer = layers.get('my_layer');
+const mylayer = layers.get("my_layer");
 
 // Iterate over all layers
 for (const layer of layers.values()) {
@@ -46,18 +46,18 @@ findLayerBoundaries(layer: ITiledMapTileLayer): {
 Example:
 
 ```typescript
-import {getLayersMap, findLayerBoundaries} from '@workadventure/scripting-api-extra';
-import {ITiledMapTileLayer} from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
+import { getLayersMap, findLayerBoundaries } from "@workadventure/scripting-api-extra";
+import { ITiledMapTileLayer } from "@workadventure/tiled-map-type-guard/dist/ITiledMapTileLayer";
 
 const layers = await getLayersMap();
 
 const layer = layers.get("my_layer") as ITiledMapTileLayer;
 
 const boundaries = findLayerBoundaries(layer);
-console.log('Top:' , boundaries.top);
-console.log('Left:' , boundaries.left);
-console.log('Bottom:' , boundaries.bottom);
-console.log('Right:' , boundaries.right);
+console.log("Top:", boundaries.top);
+console.log("Left:", boundaries.left);
+console.log("Bottom:", boundaries.bottom);
+console.log("Right:", boundaries.right);
 ```
 
 ### Get boundaries of several layers
@@ -74,4 +74,3 @@ findLayersBoundaries(layers: ITiledMapTileLayer[]): {
 ```
 
 It will return a square containing all the tiles of all the layers passed in parameters.
-
