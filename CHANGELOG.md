@@ -1,3 +1,9 @@
+## [1.9.7](https://github.com/workadventure/scripting-api-extra/compare/v1.9.6...v1.9.7) (2025-07-02)
+
+### Bug Fixes
+
+-   arabic and german translations ([#245](https://github.com/workadventure/scripting-api-extra/issues/245)) ([b5166c6](https://github.com/workadventure/scripting-api-extra/commit/b5166c64b111dee8d6211bb21930d888217b91b9))
+
 ## [1.9.6](https://github.com/workadventure/scripting-api-extra/compare/v1.9.5...v1.9.6) (2025-05-21)
 
 ### Bug Fixes
