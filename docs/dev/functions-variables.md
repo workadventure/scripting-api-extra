@@ -17,10 +17,10 @@ You can fetch individual properties defined in Tiled for this variable using thi
 For instance:
 
 ```typescript
-import { getAllVariables, VariableDescriptor } from '@workadventure/scripting-api-extra';
+import { getAllVariables, VariableDescriptor } from "@workadventure/scripting-api-extra";
 
 const variables = await getAllVariables();
-console.log(variables['my_variable'].properties.getOne('persist'));
+console.log(variables["my_variable"].properties.getOne("persist"));
 ```
 
 Note: the `VariableDescriptor` class returned does not contain the value of the variable itself. It represents the
@@ -31,16 +31,16 @@ by a "Point" object in a map).
 ```typescript
 class VariableDescriptor {
     // the name of the variable
-    name: string
+    name: string;
     // an object representing the properties of the variable
-    properties: Properties
+    properties: Properties;
     // The position of the variable
-    x: number
-    y: number
+    x: number;
+    y: number;
     // True if the variable can be read by the current player
-    isReadable: boolean
+    isReadable: boolean;
     // True if the variable can be written by the current player
-    isWritable: boolean
+    isWritable: boolean;
 }
 ```
 
@@ -59,7 +59,7 @@ This property let you filter which variables you want to display in the configur
 Well, you can do exactly that thanks to the `openConfig()` function. Here's how it works:
 
 ```typescript
-import {openConfig} from '@workadventure/scripting-api-extra';
+import { openConfig } from "@workadventure/scripting-api-extra";
 
 // This will open the local configuration panel with all the variables in the Tiled 'configuration' layer.
 openConfig();
@@ -70,18 +70,18 @@ openConfig();
 You can filter which variables to display by passing an array of variable names to the function.
 
 ```typescript
-import {openConfig} from '@workadventure/scripting-api-extra';
+import { openConfig } from "@workadventure/scripting-api-extra";
 
 // This will open the local configuration panel with the specified variables in the Tiled 'configuration' layer.
-openConfig(['leftDoorExit']);
+openConfig(["leftDoorExit"]);
 ```
 
 Here is a quick example of how you can edit a variable by walking near the object that represents it in your map:
 
 ```typescript
-import { openConfig } from '@workadventure/scripting-api-extra';
+import { openConfig } from "@workadventure/scripting-api-extra";
 
-WA.room.onEnterLayer('leftDoorStep').subscribe(() => {
-    openConfig(['leftDoorExit']);
+WA.room.onEnterLayer("leftDoorStep").subscribe(() => {
+    openConfig(["leftDoorExit"]);
 });
 ```

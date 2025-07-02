@@ -1,66 +1,66 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - 'main'
-      - 'alpha'
-      - 'beta'
-      - '*.x'
-      - '*.*.x'
+    push:
+        branches:
+            - "main"
+            - "alpha"
+            - "beta"
+            - "*.x"
+            - "*.*.x"
 
 jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "18.x"
+                  registry-url: "https://registry.npmjs.org"
 
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run semantic-release-dry-run
-        env:
-            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-            CI: true
-      # Grab the tag number by running semantic-release in dry mode and put the result in release_tag env variable
-      - run: echo "release_tag=$(npm run semantic-release-dry-run | grep -Po 'The next release version is \K([\w.-]*)')" >> $GITHUB_ENV
-        env:
-            NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-            CI: true
-      - run: npm run test
-      #- run: sed -i 's|""|"https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
-      - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
-      - run: sed -i 's|""|"https://admin.workadventu.re/html"|g' src/Features/workadventure_assets_url.ts
-      - run: npm run build --if-present
+            - run: npm ci
+            - run: npm run lint
+            - run: npm run semantic-release-dry-run
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  CI: true
+            # Grab the tag number by running semantic-release in dry mode and put the result in release_tag env variable
+            - run: echo "release_tag=$(npm run semantic-release-dry-run | grep -Po 'The next release version is \K([\w.-]*)')" >> $GITHUB_ENV
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  CI: true
+            - run: npm run test
+            #- run: sed -i 's|""|"https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
+            - run: sed -i 's|""|"https://unpkg.com/@workadventure/scripting-api-extra@${{ env.release_tag }}/dist"|g' src/Features/default_assets_url.ts
+            - run: sed -i 's|""|"https://admin.workadventu.re/html"|g' src/Features/workadventure_assets_url.ts
+            - run: npm run build --if-present
 
-      # Deployment on Github Pages
-      - name: "Deploy Github Pages"
-        uses: JamesIves/github-pages-deploy-action@v4
-        if: github.ref == 'refs/heads/main'
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-          FOLDER: dist/  # <- Dossier contenant notre documentation générée
-          BASE_BRANCH: main
+            # Deployment on Github Pages
+            - name: "Deploy Github Pages"
+              uses: JamesIves/github-pages-deploy-action@v4
+              if: github.ref == 'refs/heads/main'
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages # <- Branche sur laquelle seront commités les fichiers
+                  FOLDER: dist/ # <- Dossier contenant notre documentation générée
+                  BASE_BRANCH: main
 
-      # Code coverage
-      #- name: "Code coverage"
-      #  run: curl -s https://codecov.io/bash | bash
-      #  env:
-      #    CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+            # Code coverage
+            #- name: "Code coverage"
+            #  run: curl -s https://codecov.io/bash | bash
+            #  env:
+            #    CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
 
-      # Deployment on npm
-      - name: "Deploy NPM"
-        run: npm run semantic-release
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          CI: true
+            # Deployment on npm
+            - name: "Deploy NPM"
+              run: npm run semantic-release
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+                  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  CI: true

@@ -1,115 +1,116 @@
 {
-  "name": "@workadventure/scripting-api-extra",
-  "version": "1.9.6",
-  "description": "A set of utility functions / features to improve WorkAdventure maps",
-  "main": "dist/index.js",
-  "types": "dist/index.d.js",
-  "scripts": {
-    "start": "run-p serve svelte-check-watch",
-    "build": "npm-run-all build-ts build-webpack",
-    "build-ts": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
-    "build-webpack": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" NODE_ENV=production webpack",
-    "lint": "eslint . --ext .js,.ts",
-    "lint:fix": "npm run lint -- --fix",
-    "test": "npm run lint && jest ./test/*",
-    "dev": "ts-node src/index.ts",
-    "semantic-release": "semantic-release",
-    "semantic-release-dry-run": "semantic-release -d",
-    "serve": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" webpack serve --open",
-    "svelte-check-watch": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\" --watch",
-    "svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/workadventure/scripting-api-extra.git"
-  },
-  "keywords": [
-    "typescript",
-    "workadventure",
-    "maps"
-  ],
-  "author": "David Négrier <david@workadventu.re>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/workadventure/scripting-api-extra/issues"
-  },
-  "homepage": "https://github.com/workadventure/scripting-api-extra#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm run lint"
+    "name": "@workadventure/scripting-api-extra",
+    "version": "1.9.6",
+    "description": "A set of utility functions / features to improve WorkAdventure maps",
+    "main": "dist/index.js",
+    "types": "dist/index.d.js",
+    "scripts": {
+        "start": "run-p serve svelte-check-watch",
+        "build": "npm-run-all build-ts build-webpack",
+        "build-ts": "./node_modules/typescript/bin/tsc -p ./tsconfig.build.json",
+        "build-webpack": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" NODE_ENV=production webpack",
+        "lint": "eslint . --ext .js,.ts",
+        "lint:fix": "npm run lint -- --fix",
+        "test": "npm run lint && jest ./test/*",
+        "dev": "ts-node src/index.ts",
+        "semantic-release": "semantic-release",
+        "semantic-release-dry-run": "semantic-release -d",
+        "serve": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack.json\" webpack serve --open",
+        "svelte-check-watch": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\" --watch",
+        "svelte-check": "svelte-check --fail-on-warnings --fail-on-hints --compiler-warnings \"a11y-no-onchange:ignore,a11y-autofocus:ignore,a11y-media-has-caption:ignore\"",
+        "prettier": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/workadventure/scripting-api-extra.git"
+    },
+    "keywords": [
+        "typescript",
+        "workadventure",
+        "maps"
+    ],
+    "author": "David Négrier <david@workadventu.re>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/workadventure/scripting-api-extra/issues"
+    },
+    "homepage": "https://github.com/workadventure/scripting-api-extra#readme",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-push": "npm run lint"
+        }
+    },
+    "lint-staged": {
+        "*.ts": [
+            "npm run lint"
+        ]
+    },
+    "devDependencies": {
+        "@16bits/nes.css": "^2.3.2",
+        "@commitlint/cli": "^13.1.0",
+        "@commitlint/config-conventional": "^13.1.0",
+        "@rpidanny/eslint-config-typescript": "^1.0.0",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/commit-analyzer": "^10.0.1",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/npm": "^10.0.4",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tsconfig/svelte": "^2.0.1",
+        "@types/copy-webpack-plugin": "^8.0.1",
+        "@types/jest": "^27.0.1",
+        "@types/mini-css-extract-plugin": "^2.2.0",
+        "@types/mustache": "^4.1.2",
+        "@types/webpack-dev-server": "^4.1.0",
+        "@workadventure/iframe-api-typings": "^1.14.3",
+        "autoprefixer": "^10.4.8",
+        "copy-webpack-plugin": "^9.0.1",
+        "cross-env": "^7.0.3",
+        "css-loader": "^5.2.4",
+        "eslint": "^7.6.0",
+        "fork-ts-checker-webpack-plugin": "^6.2.9",
+        "html-webpack-plugin": "^5.3.1",
+        "husky": "^7.0.1",
+        "jest": "^26.2.2",
+        "lint-staged": "^11.0.0",
+        "mini-css-extract-plugin": "^2.2.2",
+        "node-polyfill-webpack-plugin": "^1.1.2",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.4.16",
+        "prettier": "^2.8.8",
+        "sass": "^1.32.12",
+        "sass-loader": "^12.1.0",
+        "semantic-release": "^21.0.7",
+        "svelte": "^3.38.2",
+        "svelte-check": "^2.1.0",
+        "svelte-loader": "^3.1.1",
+        "svelte-preprocess": "^4.7.3",
+        "tailwindcss": "^3.1.8",
+        "ts-jest": "^26.1.4",
+        "ts-loader": "^9.2.5",
+        "ts-node": "^10.1.0",
+        "tsc": "^2.0.3",
+        "typescript": "^4.0.2",
+        "webpack": "^5.31.2",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^4.1.0",
+        "webpack-merge": "^5.7.3"
+    },
+    "files": [
+        "dist/**/*"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "unpkg": "dist/bundle.js",
+    "dependencies": {
+        "@fontsource/press-start-2p": "^4.5.10",
+        "@workadventure-style/sweetsky": "^1.0.2",
+        "@workadventure/tiled-map-type-guard": "^2.0.4",
+        "i18next": "^23.11.2",
+        "mustache": "^4.2.0",
+        "play-dtmf": "^0.1.1",
+        "postcss-loader": "^7.0.1"
     }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "npm run lint"
-    ]
-  },
-  "devDependencies": {
-    "@16bits/nes.css": "^2.3.2",
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
-    "@rpidanny/eslint-config-typescript": "^1.0.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^10.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^10.0.4",
-    "@tailwindcss/forms": "^0.5.3",
-    "@tsconfig/svelte": "^2.0.1",
-    "@types/copy-webpack-plugin": "^8.0.1",
-    "@types/jest": "^27.0.1",
-    "@types/mini-css-extract-plugin": "^2.2.0",
-    "@types/mustache": "^4.1.2",
-    "@types/webpack-dev-server": "^4.1.0",
-    "@workadventure/iframe-api-typings": "^1.14.3",
-    "autoprefixer": "^10.4.8",
-    "copy-webpack-plugin": "^9.0.1",
-    "cross-env": "^7.0.3",
-    "css-loader": "^5.2.4",
-    "eslint": "^7.6.0",
-    "fork-ts-checker-webpack-plugin": "^6.2.9",
-    "html-webpack-plugin": "^5.3.1",
-    "husky": "^7.0.1",
-    "jest": "^26.2.2",
-    "lint-staged": "^11.0.0",
-    "mini-css-extract-plugin": "^2.2.2",
-    "node-polyfill-webpack-plugin": "^1.1.2",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.16",
-    "prettier": "^2.8.8",
-    "sass": "^1.32.12",
-    "sass-loader": "^12.1.0",
-    "semantic-release": "^21.0.7",
-    "svelte": "^3.38.2",
-    "svelte-check": "^2.1.0",
-    "svelte-loader": "^3.1.1",
-    "svelte-preprocess": "^4.7.3",
-    "tailwindcss": "^3.1.8",
-    "ts-jest": "^26.1.4",
-    "ts-loader": "^9.2.5",
-    "ts-node": "^10.1.0",
-    "tsc": "^2.0.3",
-    "typescript": "^4.0.2",
-    "webpack": "^5.31.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^4.1.0",
-    "webpack-merge": "^5.7.3"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "unpkg": "dist/bundle.js",
-  "dependencies": {
-    "@fontsource/press-start-2p": "^4.5.10",
-    "@workadventure-style/sweetsky": "^1.0.2",
-    "@workadventure/tiled-map-type-guard": "^2.0.4",
-    "i18next": "^23.11.2",
-    "mustache": "^4.2.0",
-    "play-dtmf": "^0.1.1",
-    "postcss-loader": "^7.0.1"
-  }
 }

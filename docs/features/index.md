@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+
 # Scripting Api Extra
 
 WorkAdventure features can be extended through the use of the [scripting API](https://docs.workadventu.re/developer/map-scripting/).
@@ -20,9 +21,9 @@ Because a script is hosting the extended features, you need to import that scrip
 
 There are 3 ways to import those extended features:
 
-- importing the "Scripting API Extra" library directly in your map
-- or importing the "Scripting API Extra" library dynamically from your Javascript script
-- or bundling the "Scripting API Extra" library in your own script using NPM and a bundler like Webpack or Vite
+-   importing the "Scripting API Extra" library directly in your map
+-   or importing the "Scripting API Extra" library dynamically from your Javascript script
+-   or bundling the "Scripting API Extra" library in your own script using NPM and a bundler like Webpack or Vite
 
 :::success
 If you are using the [Map Starter Kit](https://github.com/workadventure/map-starter-kit) (as recommended in the WorkAdventure documentation) the "extended features" are
@@ -57,7 +58,7 @@ script, have a look at the next section.
 To import the "Scripting API Extra" library dynamically from your script, at the top of your JS script, add this line:
 
 ```javascript
-import { } from "https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@^1";
+import {} from "https://cdn.jsdelivr.net/npm/@workadventure/scripting-api-extra@^1";
 ```
 
 ### Bundling the "Scripting API Extra" library in your script
