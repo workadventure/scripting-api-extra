@@ -1,3 +1,5 @@
+## [1.9.8](https://github.com/workadventure/scripting-api-extra/compare/v1.9.7...v1.9.8) (2025-07-02)
+
 ## [1.9.7](https://github.com/workadventure/scripting-api-extra/compare/v1.9.6...v1.9.7) (2025-07-02)
 
 ### Bug Fixes
