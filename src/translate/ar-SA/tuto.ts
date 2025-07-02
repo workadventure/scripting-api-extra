@@ -22,7 +22,7 @@ export default {
         use: "استخدم",
         arrowkeys: " أسهم لوحة المفاتيح",
         or: "أو",
-        wasd: " SchSY لتحريك الشخصية",
+        wasd: "SchSY لتحريك الشخصية",
         aroundTheMap: "حول الخريطة. جرب ذلك الآن!",
         tip: "نصيحة:",
         describeTip:
