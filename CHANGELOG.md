@@ -1,3 +1,10 @@
+## [1.9.9](https://github.com/workadventure/scripting-api-extra/compare/v1.9.8...v1.9.9) (2025-07-07)
+
+
+### Bug Fixes
+
+* Added (brazil) portuguese language for tutorial ([#254](https://github.com/workadventure/scripting-api-extra/issues/254)) ([9416f1c](https://github.com/workadventure/scripting-api-extra/commit/9416f1c1664ecb0e51698a6a5db6751aa5abf72e))
+
 ## [1.9.8](https://github.com/workadventure/scripting-api-extra/compare/v1.9.7...v1.9.8) (2025-07-02)
 
 ## [1.9.7](https://github.com/workadventure/scripting-api-extra/compare/v1.9.6...v1.9.7) (2025-07-02)
