@@ -5,6 +5,7 @@ import * as en from "../../../translate/en-US/index";
 import * as fr from "../../../translate/fr-FR/index";
 import * as ar from "../../../translate/ar-SA/index";
 import * as de from "../../../translate/de-DE/index";
+import * as pt from "../../../translate/pt-Br/index";
 i18next.init({
     debug: true,
     fallbackLng: "en",
@@ -21,6 +22,7 @@ i18next.init({
         de: {
             translation: de,
         },
+        pt: { translation: pt },
     },
 });
 const startTuto = () => {
