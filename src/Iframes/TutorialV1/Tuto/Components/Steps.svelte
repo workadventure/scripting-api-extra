@@ -24,11 +24,11 @@
     }
     $: console.log('Current Step:', $currentStepStore);
 </script>
-<div class="tw-flex tw-flex-col  tw-w-full  tw-pt-20 tw-pb-24 ">
+<div class="tw-flex tw-flex-col tw-w-full tw-pt-20 tw-pb-24 ">
  
 
 
-    <div class="header  tw-p-3 tw-flex tw-justify-center  tw-absolute tw-top-7 sm:tw-top-14 tw-w-full tw-h-3 tw-overflow-visible   ">
+    <div class="header tw-p-3 tw-flex tw-justify-center  tw-absolute tw-top-7 sm:tw-top-14 tw-w-full tw-h-3 tw-overflow-visible   ">
         <nav class="tw-flex  tw-gap-2 tw-py-4 tw-text-sm tw-font-medium tw-items-center">
             {#each steps as step, index}
             <button

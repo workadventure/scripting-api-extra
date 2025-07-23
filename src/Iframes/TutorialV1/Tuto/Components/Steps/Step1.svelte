@@ -3,7 +3,7 @@
 </script>
 
 
-<div class=" tw-flex tw-flex-col tw-items-center tw-justify-center tw-mt-10 tw-mb-5 tw-text-white tw-h-auto tw-px-4 sm:tw-px-10">
+<div class=" tw-flex tw-flex-col tw-items-center tw-justify-center tw-mt-10 tw-mb-5 tw-text-white tw-h-auto tw-px-0 sm:tw-px-10">
     
   
         

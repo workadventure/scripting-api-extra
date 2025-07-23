@@ -15,7 +15,7 @@
     }
 </script>
 
-<div class="tuto  tw-h-full tw-text-center tw-bg-transparent">
+<div class="tuto tw-h-full tw-w-[98vw] tw-text-center tw-bg-transparent">
     <Steps 
         on:close={close}
         on:skip={close}
@@ -34,8 +34,3 @@
         {/if}
     </Steps>
 </div>
-<style>
-    .tuto{
-        min-width: 500px;
-    }
-</style>

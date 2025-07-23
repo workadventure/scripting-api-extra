@@ -5,7 +5,7 @@ import i18next from "i18next";
 </script>
 
 
-    <div class="tw-flex tw-flex-col tw-items-center tw-mt-10 tw-mb-5 tw-text-white tw-h-auto tw-px-4 sm:tw-px-10 tw-overflow-x-hidden tw-w-full tw-max-w-full"> 
+    <div class="tw-flex tw-flex-col tw-items-center tw-mt-10 tw-mb-5 tw-text-white tw-h-auto tw-px-0 sm:tw-px-10 tw-overflow-x-hidden tw-w-full tw-max-w-full"> 
 
             <h1>{i18next.t('tuto.welcome.title')}</h1>
             <p class="tw-w-10/12 sm:tw-w-full-"> {i18next.t('tuto.welcome.subtitle')} </p>

@@ -3,7 +3,7 @@
     import i18next from "i18next";
 
 </script>
-<div class="tw-flex tw-flex-col tw-mt-10  tw-items-center tw-justify-center tw-mb-5 tw-text-white tw-px-8">
+<div class="tw-flex tw-flex-col tw-mt-10  tw-items-center tw-justify-center tw-mb-5 tw-text-white tw-px-0 sm:tw-px-10">
 
         <h1>{i18next.t("tuto.step3.title")}</h1>
         <div class="tw-bg-white/10 tw-h-[1px] tw-w-full tw-m-10"></div>
