@@ -1,3 +1,10 @@
+## [1.9.10](https://github.com/workadventure/scripting-api-extra/compare/v1.9.9...v1.9.10) (2025-07-23)
+
+
+### Bug Fixes
+
+* UI and UX onboarding tuto for mobile ([aa1fee6](https://github.com/workadventure/scripting-api-extra/commit/aa1fee6c955c586cc3d5982aad1bde64644a189b))
+
 ## [1.9.9](https://github.com/workadventure/scripting-api-extra/compare/v1.9.8...v1.9.9) (2025-07-07)
 
 
