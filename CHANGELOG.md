@@ -1,3 +1,10 @@
+## [1.9.11](https://github.com/workadventure/scripting-api-extra/compare/v1.9.10...v1.9.11) (2025-12-19)
+
+
+### Bug Fixes
+
+* include large usage of the tutorial URL ([7181ae9](https://github.com/workadventure/scripting-api-extra/commit/7181ae9a991ea3e9dcdce94c2d7a078061dae5ff))
+
 ## [1.9.10](https://github.com/workadventure/scripting-api-extra/compare/v1.9.9...v1.9.10) (2025-07-23)
 
 
