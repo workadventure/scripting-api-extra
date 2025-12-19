@@ -1,18 +1,20 @@
 import { defaultAssetsUrl } from "./default_assets_url";
 
-export function launchTutorialv1(): void {
-    const tutoUrl = `${defaultAssetsUrl}/tutorialv1.html`;
-    console.info("Start onboarding application!", tutoUrl);
+export const TUTORIAL_V1_URL = `${defaultAssetsUrl}/tutorialv1.html`;
+
+export function launchTutorialv1(force = false): void {
+    console.info("Start onboarding application!", TUTORIAL_V1_URL);
 
     console.info("Player tutorial done information: ", WA.player.state.tutorialDone);
-    if (WA.player.state.tutorialDone) return;
+    if (WA.player.state.tutorialDone && !force) return;
 
     //open modal and show onboarding tuto
     WA.ui.modal.openModal({
         title: "Welcome onboard!",
-        src: tutoUrl,
+        src: TUTORIAL_V1_URL,
         allow: "fullscreen; clipboard-read; clipboard-write",
         allowApi: true,
         position: "right",
+        allowFullScreen: true,
     });
 }
