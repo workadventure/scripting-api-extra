@@ -1,3 +1,10 @@
+## [1.9.12](https://github.com/workadventure/scripting-api-extra/compare/v1.9.11...v1.9.12) (2026-02-03)
+
+
+### Bug Fixes
+
+* Switching iframes to dark theme ([5d10139](https://github.com/workadventure/scripting-api-extra/commit/5d10139edccc104d14d0699d8ce31d636a465702))
+
 ## [1.9.11](https://github.com/workadventure/scripting-api-extra/compare/v1.9.10...v1.9.11) (2025-12-19)
 
 
