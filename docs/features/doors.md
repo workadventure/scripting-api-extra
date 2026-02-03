@@ -40,13 +40,13 @@ If you have complex doors that span on several layers, that is fine.
 :::
 
 :::caution
-Do not forget to make the closed door tiles "collidable" (using the `collides` property), otherwise users will be able
+Do not forget to make the closed door [tiles "collidable"](/map-building/tiled-editor/wa-maps#building-walls-and-collidable-areas) (using the `collides` property), otherwise users will be able
 to walk through your open door!
 :::
 
 ## Door Variable
 
-Then, add a ["variable"](https://docs.workadventu.re/developer/map-scripting/references/api-state). The variable will control
+Then, add a ["room variable"](https://docs.workadventu.re/developer/map-scripting/variables/#room-variables). The room variable will control
 the "state" of the door and to share that state between the players. If the variable value is `true`,
 the door will be open, if it is `false`, the door will be closed.
 
@@ -55,7 +55,7 @@ In order to add a variable, you need to create a "Point" on any "object layer" i
 ![Door Variable](images/door_variable.png)
 
 -   You can give this variable any name.
--   The "type" of the object MUST be "variable".
+-   The "class" of the object MUST be "variable".
 -   You MUST define a custom boolean property named `door`. The "door" checkbox must be checked.
 -   You can set the `default` custom property to `true` (opened by default) or `false` (closed by default). This will be used
     the first time a user enters the map.
